@@ -18,10 +18,10 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,700italic,400,400italic|Montserrat+Alternates:700,400&subset=cyrillic-ext,latin-ext,latin,cyrillic' rel='stylesheet' type='text/css' />
 
 {% if site.search.enabled %}{% stylesheet_link "assets/site_search/3.0/style.css?1" static_host="true" %}{% endif %}
-{% stylesheet_link "style.css?paris2" %}
+{% stylesheet_link "style.css?paris3" %}
 {% if editmode %}{% stylesheet_link "assets/admin/editmode.css" static_host="true" %}{% endif %}
 <!--[if lte IE 7]>
     {% stylesheet_link "ie7.css" %}
 <![endif]-->
 
-<title>{% if article %}{{ article.title }} | {{page.site_title}}{% else %}{{page.site_title}} | {{ page.title }}{% endif %}</title>
+<title>{% if article %}{{ article.title }} | {{page.site_title}}{% else %}{{page.site_title}}{% unless site.root_item.selected? %} | {{ page.title }}{% endunless %}{% endif %}</title>

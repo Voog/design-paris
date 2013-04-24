@@ -10,6 +10,8 @@
   </script>
   <script type="text/javascript" src="http://static.edicy.com/assets/site_search/3.0/site_search.js?1"></script>
 {% endif %}
-
-<script type="text/javascript" src="{{ javascripts_path }}/application.js"></script>
+<script type="text/javascript">
+    var page_id = {{ page.id }};
+</script>
+<script type="text/javascript" src="{{ javascripts_path }}/application.js?2"></script>
 {% unless editmode %}{{ site.analytics }}{% endunless %}

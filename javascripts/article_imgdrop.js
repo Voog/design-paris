@@ -27,14 +27,15 @@ $(document).ready(function(){
 
             handleDrop: function(event, ui) {
                 this.$el.removeClass('over');
-                if (ui.draggable && ui.draggable.edicyThumb() && ui.draggable.data('edicyThumbData')) {
-                    var data = $.extend({}, ui.draggable.data('edicyThumbData'));
-                    if (data.type == 'image') {
-                        if (data.large_thumbnail_src && data.large_thumbnail_src != "") {
-                            data.src = data.large_thumbnail_src;
-                        }
-                        this.data = data;
-                        this.changeImage(); 
+                if (ui.draggable.data('model')) {
+                    var model = ui.draggable.data('model');
+                    if (model.isImage()) {
+                        this.data = {
+                            "src": model.get('large_thumbnail_src'),
+                            "width": model.get('width'),
+                            "height": model.get('height')
+                        }    
+                        this.changeImage();
                     }
                 }
             },

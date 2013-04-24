@@ -32,6 +32,11 @@
   </div><!-- .main-content -->
   
   {% include "Footer" %}
-  {% include "JS" %} 
+  {% include "JS" %}
+  
+  <script type="text/javascript">
+    initArticleBoxes();
+  </script>
+  
 </body>
 </html>

@@ -61,7 +61,7 @@
     Uses hidden article.excerpt to save image data accessible for article listing
   {% endcomment %}
   {% if editmode %}
-    <script type="text/javascript" src="{{ javascripts_path }}/article_imgdrop.js"></script>
+    <script type="text/javascript" src="{{ javascripts_path }}/article_imgdrop.js?1"></script>
   {% endif %}
   
 </body>
