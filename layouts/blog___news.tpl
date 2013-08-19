@@ -12,6 +12,17 @@
       
       {% include "Mainmenu" %}
       <div class="article-listing top-line cfx js-article-boxes-wrapper">
+        
+        {% if tags %}
+            <div class="blog tagged-list-header">
+                <div class="header-tag-icon"></div>
+                {% if tags == empty %}
+                    {{ "no_posts_tagged" | lc }}
+                {% else %}
+                    {{ "posts_tagged" | lc }} '{{ tags | sort:"name" | map:"name" | join:"', '"}}'.
+                {% endif %}
+            </div>
+        {% endif %}
         {% if editmode %}
           <div class="add-article-wrapper">{% addbutton class="add-article" %}</div>
         {% endif %}
@@ -35,7 +46,11 @@
   </script>
   
   <script type="text/javascript">
-    initBlogPage();
+    {% if tags %}
+        initBlogPage(['{{ tags | map:"name" | join:"']['"}}']);
+    {% else %}
+        initBlogPage();
+    {% endif %}
   </script>
 </body>
 </html>

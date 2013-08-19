@@ -53,7 +53,8 @@
 (function($) {
     var currentPage = 0,
         scroll_active = false,
-        no_more_articles = false;
+        no_more_articles = false,
+        tags = null;
     
     var initArticleBoxes = function() {
         $(document).ready(function() {
@@ -73,8 +74,10 @@
     
     var addPage = function(f) {
         currentPage++;
+        var tagtxt = (tags) ? 'tagged=' + tags.join(',') +'&' : '',
+            url = '/admin/api/site/articles.json?' + tagtxt + 'page='+ currentPage + '&per_page=8&page_id=' + page_id;
         $.ajax({
-            url: '/admin/api/site/articles.json?page='+ currentPage +'&per_page=8&page_id=' + page_id,
+            url: url,
             dataType: 'json',
             success: function(articles) {
                 $.each(articles, function(idx, article) {
@@ -152,7 +155,10 @@
         }  
     };
         
-    var initBlogPage = function() {
+    var initBlogPage = function(t) {
+        if (t) {
+            tags = t;
+        }
         scroll_active = true;
         $('#loader-wrap').spin();
         addPage(function() {

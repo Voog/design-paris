@@ -27,8 +27,8 @@ $(document).ready(function(){
 
             handleDrop: function(event, ui) {
                 this.$el.removeClass('over');
-                if (ui.draggable.data('model')) {
-                    var model = ui.draggable.data('model');
+                if (ui.helper.data('model')) {
+                    var model = ui.helper.data('model');
                     if (model.isImage()) {
                         this.data = {
                             "src": model.get('large_thumbnail_src'),

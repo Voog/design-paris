@@ -13,12 +13,11 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-
+<script src="{{ javascripts_path }}/modernizr.js"></script>
 <!-- Styles -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,700italic,400,400italic|Montserrat+Alternates:700,400&subset=cyrillic-ext,latin-ext,latin,cyrillic' rel='stylesheet' type='text/css' />
-
 {% if site.search.enabled %}{% stylesheet_link "assets/site_search/3.0/style.css?1" static_host="true" %}{% endif %}
-{% stylesheet_link "style.css?paris3" %}
+{% stylesheet_link "style.css?paris4" %}
 {% if editmode %}{% stylesheet_link "assets/admin/editmode.css" static_host="true" %}{% endif %}
 <!--[if lte IE 7]>
     {% stylesheet_link "ie7.css" %}

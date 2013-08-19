@@ -39,9 +39,29 @@
           </h1>
           {% editable article.body %}
           
+          
+          
           {% unless article.new_record? %}
             {% content name="blogarticle_more_content" bind="Article" %}
-            
+          {% endunless %}
+          
+          {% if editmode %}
+            <div class="cfx article-tags">
+                <div class="article-tag-icon"></div>
+                {% editable article.tags %}
+            </div>
+          {% else %}
+            {% unless article.tags == empty %}
+                <div class="cfx article-tags">
+                    <div class="article-tag-icon"></div>
+                    {% for tag in article.tags %}
+                        <a href="{{ article.page.url }}/tagged/{{ tag.path }}">{{ tag.name }}</a>{% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                </div>
+            {% endunless %}
+        {% endif %}
+          
+          {% unless article.new_record? %}
             {% include "Article comments" %}
           {% endunless %}
           
