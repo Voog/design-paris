@@ -1,5 +1,4 @@
-<!-- TODO: Uncomment if statement when search is supported by E3 -->
-<!-- if site.search.enabled -->
+{% if site.search.enabled %}
   <section class="search">
     <form id="search" class="edys-search" method="get" action="#">
       <div class="search-left">
@@ -11,4 +10,4 @@
     </form>
     <div id="customsearch"></div>
   </section>
-<!-- endif -->
+{% endif %}
