@@ -15,6 +15,10 @@ body > .background-color {
   z-index: -2;
 }
 
+.header .wrap .header-left .header-title {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 .content-formatted:after, .blog-page .blog:after, .search:after {
   content: "";
   display: table;
@@ -437,7 +441,6 @@ body > .background-color {
 }
 .header .wrap .header-left .header-title {
   font-weight: 700;
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 34px;
 }
 .header .wrap .header-left .header-title,
@@ -581,8 +584,10 @@ body > .background-color {
 .blog-page .post .post-content {
   display: none;
 }
+.blog-page .post .post-footer {
+  margin-top: -5px;
+}
 .blog-page .post .post-footer .post-date {
-  margin-top: 4px;
   font-size: 12px;
 }
 .blog-page .post-position {

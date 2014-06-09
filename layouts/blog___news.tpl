@@ -52,8 +52,6 @@
             {% include "post-box" %}
           {% endfor %}
         </section>
-
-        <section class="content-formatted">{% content %}</section>
       </div>
     </main>
 

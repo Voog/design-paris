@@ -69,28 +69,27 @@
   <script src="{{ javascripts_path }}/autogrow.js"></script>
   <script>$('.form_field_textarea').autogrow();</script>
 
-  {% editorjsblock %}
-  <script src='/assets/admin/tools/0.1.2/edicy-tools.js'></script>
-  <script>
-   (function($) {
-
-    var articleData = new Edicy.CustomData({
-      type: "article",
-      id: {{ article.id }}
-    });
-
-    var pictureDropArea = new Edicy.ImgDropArea($('.js-post-cover-inner'), {
-      positionable: true,
-      change: function(data) {
-        console.log(data);
-        articleData.set({
-          'image': data
+  {% unless article.new_record? %}
+    {% editorjsblock %}
+    <script src='/assets/admin/tools/0.1.2/edicy-tools.js'></script>
+    <script>
+      (function($) {
+        var articleData = new Edicy.CustomData({
+          type: "article",
+          id: {{ article.id }}
         });
-      }
-    });
 
-  })(Edicy.jQuery);
-  </script>
-  {% endeditorjsblock %}
+        var pictureDropArea = new Edicy.ImgDropArea($('.js-post-cover-inner'), {
+          positionable: true,
+          change: function(data) {
+            articleData.set({
+              'image': data
+            });
+          }
+        });
+      })(Edicy.jQuery);
+    </script>
+    {% endeditorjsblock %}
+  {% endunless %}
 </body>
 </html>
