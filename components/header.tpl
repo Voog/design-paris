@@ -25,8 +25,9 @@
       <div class="header-bottom">
         <nav class="menu-main js-menu-main">
           {% include "menu-level-1" %}
+
           {% if editmode or site.has_many_languages? %}
-            <div class="menu-lang-mobile menu-lang">
+            <div class="menu-lang">
               {% include "menu-lang" %}
             </div>
           {% endif %}

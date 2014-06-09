@@ -46,7 +46,14 @@
 .edit-btn {
   display: inline-block;
   vertical-align: middle;
-  line-height: 0.8;
+  margin-left: 15px;
+
+  @include query($tablet-2) {
+    display: block;
+    margin-left: 0;
+    padding: 9px 30px 10px;
+    @include border(bottom, 1px, solid, $primary-color, 0.2);
+  }
 }
 
 .menu {
@@ -56,16 +63,10 @@
   list-style-type: none;
   line-height: 1.2;
 
-  li {
+  .menu-item {
     display: inline-block;
 
-    &.edit-btn {
-      position: relative;
-      vertical-align: middle;
-      line-height: 0.8;
-    }
-
-    a {
+    .menu-link {
       text-decoration: none;
 
       &.untranslated {
@@ -83,24 +84,33 @@
     display: none;
 
     &.expanded {
-      top: 60px;
+      position: absolute;
+      top: 82px;
       right: 20px;
-      z-index: 2;
+      z-index: 10;
       display: block;
       min-width: 350px;
+      margin-bottom: 60px;
       text-align: left;
       @include bg($white);
+      @include box-shadow(0, 5px, 25px, rgba($black, 0.3));
+    }
+  }
 
-      @include query($mobile-1) {
-        top: 0;
-        left: 0;
-        right: 0;
-      }
+  @include query($mobile-1) {
+    &.expanded {
+      top: 108px;
+      left: 0;
+      right: 0;
+      min-width: 0;
+      margin-bottom: 40px;
+      @include border(top, 1px, solid, $primary-color, 0.2);
+      @include no-box-shadow;
     }
   }
 
   .menu {
-    li {
+    .menu-item {
       vertical-align: middle;
       margin-left: 15px;
       font-size: 18px;
@@ -109,14 +119,7 @@
         margin-left: 0;
       }
 
-      @include query($tablet-2) {
-        display: block;
-        margin: 0;
-        font-size: 20px;
-        @include border(bottom,1px,solid,$primary-color, 0.2);
-      }
-
-      a {
+      .menu-link {
         display: block;
         @include color($third-color,1);
 
@@ -133,46 +136,139 @@
 
       @include query($tablet-2) {
         display: block;
-        padding: 7px 25px 3px;
-        &:hover,
-        &.active {
-          @include bg($blue-2);
+        margin: 0;
+        font-size: 20px;
+        @include border(bottom,1px,solid,$primary-color, 0.2);
+
+        .menu-link {
+          padding: 9px 25px 7px;
+
+          &:hover,
+          &.active {
+            @include color($secondary-color);
+          }
         }
       }
     }
   }
-}
 
-.menu-lang-mobile {
-  display: none !important;
-  // margin-right: 20px;
-  //   @include query($tablet-2) {
-  //     display: block;
-  //     padding-left: 0;
+  .menu-lang {
+    display: none;
 
-  //     li {
-  //       text-align: left;
-  //       &:first-child {
-  //         border-top: none;
-  //       }
-  //       &.active a:hover {
-  //         @include bg($blue-2);
-  //       }
+    @include query($tablet-2) {
+      display: block;
+      margin-left: 0;
 
-  //       a {
-  //         padding: 14px 30px 11px 53px;
-  //         font-size: 14px;
-  //         &:after {
-  //           top: 13.5px;
-  //           left: 25px;
-  //         }
-  //         &:hover {
-  //           @include bg($white);
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+      .menu {
+        .menu-item {
+          margin-left: 0;
+
+          .menu-link {
+            padding: 13px 25px 11px 55px;
+            font-size: 14px;
+
+
+            &:before,
+            &:after {
+            }
+
+            &.active,
+            &.active:hover {
+            }
+
+            &:hover {
+            }
+          }
+        }
+
+        .lang-flag {
+          position: relative;
+
+          &:before,
+          &:after {
+            position: absolute;
+            top: 14px;
+            left: 25px;
+            display: block;
+            width: 20px;
+            height: 13px;
+            content: '';
+          }
+
+          &:before {
+            @include bg($black);
+          }
+
+          &:after {
+            opacity: 0.95;
+            background-size: 200px;
+            background-repeat: no-repeat;
+
+            .no-svg & {
+              background-image: url('../images/ico-flags.png');
+            }
+
+            .svg & {
+              background-image: url('../assets/ico-flags.svg');
+            }
+          }
+        }
+
+        // Language flag icons positioning in the spritemap.
+        $flags:
+        (sq,   0        0),
+        (hy,  -20px     0),
+        (bn,  -40px     0),
+        (pt,  -60px     0),
+        (bg,  -80px     0),
+        (zh, -100px     0),
+        (hr, -120px     0),
+        (da, -140px     0),
+        (cs, -160px     0),
+        (et, -180px     0),
+
+        (fi,    0px -14px),
+        (fr,  -20px -14px),
+        (ka,  -40px -14px),
+        (de,  -60px -14px),
+        (el,  -80px -14px),
+        (hu, -100px -14px),
+        (is, -120px -14px),
+        (hi, -140px -14px),
+        (id, -160px -14px),
+        (fa, -180px -14px),
+
+        (he,    0px -28px),
+        (it,  -20px -28px),
+        (ja,  -40px -28px),
+        (ko,  -60px -28px),
+        (lv,  -80px -28px),
+        (lt, -100px -28px),
+        (ms, -120px -28px),
+        (nl, -140px -28px),
+        (no, -160px -28px),
+        (ur, -180px -28px),
+
+        (fil,   0px -42px),
+        (pl,  -20px -42px),
+        (ro,  -40px -42px),
+        (ru,  -60px -42px),
+        (ar,  -80px -42px),
+        (lt, -100px -42px),
+        (sk, -120px -42px),
+        (es, -140px -42px),
+        (sv, -160px -42px),
+        (tr, -180px -42px),
+        (uk,    0px -56px),
+        (en,  -20px -56px)
+        ;
+
+        @each $flag, $pos in $flags {
+          .lang-flag-#{$flag}:after { background-position: $pos; }
+        }
+      }
+    }
+  }
 }
 
 .menu-sub {
@@ -182,7 +278,7 @@
   .menu {
     text-align: center;
 
-    li {
+    .menu-item {
       margin-left: 15px;
       font-size: 12px;
 
@@ -190,11 +286,7 @@
         margin-left: 0;
       }
 
-      &.edit-btn {
-        top: 1px;
-      }
-
-      a {
+      .menu-link {
         @include color($primary-color);
 
         &.active {
@@ -215,15 +307,15 @@
   margin-left: 20px;
 
   .menu {
-    li {
+    .menu-item {
       margin-left: 5px;
       &:first-child {
         margin-left: 0;
       }
 
-      a {
+      .menu-link {
         font-size: 11px;
-        @include color($grey);
+        @include color($grey-1);
 
         &.active,
         &:hover {
@@ -235,6 +327,15 @@
         }
       }
     }
+
+    .edit-btn {
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  @include query($tablet-2) {
+    display: none;
   }
 }
 
@@ -242,9 +343,9 @@
   margin-top: 20px;
 
   .menu {
-    li {
+    .menu-item {
       &,
-      a {
+      .menu-link {
         @include color($white);
       }
 
@@ -252,7 +353,7 @@
         display: inline-block;
       }
 
-      a {
+      .menu-link {
         text-decoration: underline;
         font-size: 14px;
 
@@ -262,8 +363,8 @@
       }
     }
   }
+}
 
-  .edy-tag-input {
-    @include color($white);
-  }
+.edy-tag-input {
+  @include color($white);
 }
