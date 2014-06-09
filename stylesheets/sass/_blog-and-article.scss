@@ -130,6 +130,7 @@
   }
 
   .post-position {
+    overflow: hidden;
     margin-top: 25px;
     margin-right: 21.5px;
 
@@ -182,28 +183,48 @@
       @include flexbox;
     }
 
+    .editmode.no-flexbox & {
+      display: table;
+      vertical-align: top;
+    }
+
+    .post-cover,
+    .post-inner {
+      .editmode.no-flexbox & {
+        display: table-cell;
+      }
+    }
+
     .post-cover {
-      display: inline-block;
+      width: 310px;
     }
 
     .post-cover-inner {
       width: 220px;
       height: 300px;
       margin-top: 11px;
-      margin-right: 85px;
       @include border(all, 1px, dashed, $white, 0.1);
 
-      .cover-title {
-        padding: 129px 10px;
-        text-align: center;
-        font-size: 14px;
-        @include color($grey);
+      &.active {
+        border: none;
+      }
+
+      &.over,
+      &:hover {
+        @include bg($black, 0.3);
       }
     }
 
+    .edy-img-drop-area-placeholder {
+      opacity: 1;
+      margin: 35px;
+      font-size: 14px;
+      @include color($grey);
+    }
+
     .post-inner {
-      .flexbox & {
-        @include flex;
+      .editmode & {
+        width: 650px;
       }
     }
 

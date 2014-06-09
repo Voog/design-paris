@@ -8,8 +8,16 @@
   }
 
   .footer-inner {
-    @include flexbox;
     margin-top: 23px;
+
+    .no-flexbox & {
+      display: table;
+    }
+
+    .flexbox & {
+      @include flexbox;
+      @include align-items(flex-start);
+    }
 
     @include query($mobile-1) {
       display: block;
@@ -25,12 +33,19 @@
     }
   }
 
+    .footer-left,
+    .footer-right {
+      .no-flexbox &{
+        display: table-cell;
+      }
+    }
+
   .footer-left {
-    max-width: 760px;
+    width: 840px;
   }
 
   .footer-right {
-    max-width: 150px;
+    width: 120px;
     text-align: right;
 
     @include query($mobile-1) {
@@ -49,8 +64,6 @@
 
   .footer-left,
   .footer-right {
-    width: 100%;
-
     @include query($mobile-1) {
       width: auto;
       max-width: 100%;

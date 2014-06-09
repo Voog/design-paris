@@ -562,6 +562,7 @@ body > .background-color {
   font-size: 12px;
 }
 .blog-page .post-position {
+  overflow: hidden;
   margin-top: 25px;
   margin-right: 21.5px;
 }
@@ -608,30 +609,39 @@ body > .background-color {
   display: -ms-flexbox;
   display: flex;
 }
+.editmode.no-flexbox .post-page .post {
+  display: table;
+  vertical-align: top;
+}
+.editmode.no-flexbox .post-page .post .post-cover, .editmode.no-flexbox
+.post-page .post .post-inner {
+  display: table-cell;
+}
 .post-page .post .post-cover {
-  display: inline-block;
+  width: 310px;
 }
 .post-page .post .post-cover-inner {
   width: 220px;
   height: 300px;
   margin-top: 11px;
-  margin-right: 85px;
   border: 1px dashed white;
   border: 1px dashed rgba(255, 255, 255, 0.1);
 }
-.post-page .post .post-cover-inner .cover-title {
-  padding: 129px 10px;
-  text-align: center;
+.post-page .post .post-cover-inner.active {
+  border: none;
+}
+.post-page .post .post-cover-inner.over, .post-page .post .post-cover-inner:hover {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.post-page .post .edy-img-drop-area-placeholder {
+  opacity: 1;
+  margin: 35px;
   font-size: 14px;
   color: #787878;
 }
-.flexbox .post-page .post .post-inner {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.editmode .post-page .post .post-inner {
+  width: 650px;
 }
 .post-page .post .post-header {
   text-align: center;
@@ -1002,12 +1012,22 @@ body > .background-color {
   padding: 39px 20px;
 }
 .footer .footer-inner {
+  margin-top: 23px;
+}
+.no-flexbox .footer .footer-inner {
+  display: table;
+}
+.flexbox .footer .footer-inner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 23px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  align-items: flex-start;
 }
 @media screen and (max-width: 480px) {
   .footer .footer-inner {
@@ -1022,11 +1042,15 @@ body > .background-color {
 .footer a:hover {
   text-decoration: underline;
 }
+.no-flexbox .footer .footer-left, .no-flexbox
+.footer .footer-right {
+  display: table-cell;
+}
 .footer .footer-left {
-  max-width: 760px;
+  width: 840px;
 }
 .footer .footer-right {
-  max-width: 150px;
+  width: 120px;
   text-align: right;
 }
 @media screen and (max-width: 480px) {
@@ -1042,10 +1066,6 @@ body > .background-color {
 .footer .footer-right a:hover {
   color: white;
   color: rgba(255, 255, 255, 0.5);
-}
-.footer .footer-left,
-.footer .footer-right {
-  width: 100%;
 }
 @media screen and (max-width: 480px) {
   .footer .footer-left,

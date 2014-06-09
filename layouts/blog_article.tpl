@@ -37,24 +37,26 @@
             </div>
 
             {% include "tags-post" %}
+
+            <section class="comments">
+              {% include "comment-form" %}
+
+              {% if article.comments_count > 0 %}
+                <h2 class="comments-title">{{ "comments_for_count" | lc }}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span></h2>
+
+                <section class="comments-messages">
+                  {% for comment in article.comments %}
+                    <div class="comment-message">
+                      <span class="comment-author">{{ comment.author }}</span>
+                      <span class="comment-separator">—</span>
+                      <span class="comment-body">{{ comment.body_html }}</span>
+                      <span class="comment-date">{{ comment.created_at | date : "%b %d, %Y" }}</span>
+                    </div>
+                  {% endfor %}
+                </section>
+              {% endif %}
+            </section>
           </article>
-        </section>
-
-        <section class="comments">
-          {% include "comment-form" %}
-
-          {% case article.comments_count %}{% when 0 %}{% else %}<h2 class="comments-title">{{ "comments_for_count" | lc }}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span></h2>{% endcase %}
-
-          <section class="comments-messages">
-            {% for comment in article.comments %}
-              <div class="comment-message">
-                <span class="comment-author">{{ comment.author }}</span>
-                <span class="comment-separator">—</span>
-                <span class="comment-body">{{ comment.body_html }}</span>
-                <span class="comment-date">{{ comment.created_at | date : "%b %d, %Y" }}</span>
-              </div>
-            {% endfor %}
-          </section>
         </section>
       </div>
     </main>
@@ -68,7 +70,7 @@
   <script>$('.form_field_textarea').autogrow();</script>
 
   {% editorjsblock %}
-  <script src='/assets/admin/tools/0.1.1/edicy-tools.js'></script>
+  <script src='/assets/admin/tools/0.1.2/edicy-tools.js'></script>
   <script>
    (function($) {
 
@@ -77,9 +79,10 @@
       id: {{ article.id }}
     });
 
-    var pictuteDropArea = new Edicy.ImgDropArea($('.js-post-cover-inner'), {
+    var pictureDropArea = new Edicy.ImgDropArea($('.js-post-cover-inner'), {
       positionable: true,
       change: function(data) {
+        console.log(data);
         articleData.set({
           'image': data
         });
