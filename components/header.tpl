@@ -1,15 +1,37 @@
-<div class="main-header main-division cfx">
-  <div class="content-center-wrapper">
-    
-    <div class="right dont-wrap">
-      {% include "Search" %}
-      {% include "Langmenu" %}
-    </div><!-- .right -->
-    
-    <div class="header-slogan">
-      <h1 class="cfx">{% editable site.header %}</h1>
-      {% content name="slogan" %}
-    </div><!-- .header-slogan -->
-    
-  </div><!-- .content-center-wrapper -->
-</div><!-- .main-header -->
+<header class="header">
+  <div class="wrap">
+    <section class="header-left">
+      <div class="header-title content-formatted">{% unless editmode %}<a href="{{ site.root_item.url }}">{% endunless %}{% editable site.header %}{% unless editmode %}</a>{% endunless %}</div>
+      <div class="header-slogan content-formatted">{% content name="slogan" %}</div>
+
+      <button class="menu-btn js-menu-btn">
+        <span class="menu-stripe"></span>
+        <span class="menu-stripe"></span>
+        <span class="menu-stripe"></span>
+      </button>
+    </section>
+
+    <section class="header-right">
+      <div class="header-top">
+      {% include "search" %}
+
+        {% if editmode or site.has_many_languages? %}
+          <nav class="menu-lang">
+            {% include "menu-lang" %}
+          </nav>
+        {% endif %}
+      </div>
+
+      <div class="header-bottom">
+        <nav class="menu-main js-menu-main">
+          {% include "menu-level-1" %}
+          {% if editmode or site.has_many_languages? %}
+            <div class="menu-lang-mobile menu-lang">
+              {% include "menu-lang" %}
+            </div>
+          {% endif %}
+        </nav>
+      </div>
+    </section>
+  </div>
+</header>

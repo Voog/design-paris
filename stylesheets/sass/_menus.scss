@@ -1,0 +1,269 @@
+/* MENUS */
+.menu-btn {
+  display: none;
+
+  @include query($tablet-2) {
+    position: absolute;
+    top: 46px;
+    right: 20px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &.open {
+      .menu-stripe {
+        @include bg($secondary-color, 0.47);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+
+    .menu-stripe {
+      display: block;
+      width: 25px;
+      height: 4px;
+      margin: 4px 0;
+      @include bg($secondary-color, 0.67);
+      border-radius: 5px;
+      &:first-child,
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.edit-btn {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0.8;
+}
+
+.menu {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+  line-height: 1.2;
+
+  li {
+    display: inline-block;
+
+    &.edit-btn {
+      position: relative;
+      vertical-align: middle;
+      line-height: 0.8;
+    }
+
+    a {
+      text-decoration: none;
+
+      &.untranslated {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.menu-main {
+  display: inline-block;
+  vertical-align: middle;
+
+  @include query($tablet-2) {
+    display: none;
+
+    &.expanded {
+      top: 60px;
+      right: 20px;
+      z-index: 2;
+      display: block;
+      min-width: 350px;
+      text-align: left;
+      @include bg($white);
+
+      @include query($mobile-1) {
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .menu {
+    li {
+      vertical-align: middle;
+      margin-left: 15px;
+      font-size: 18px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      @include query($tablet-2) {
+        display: block;
+        margin: 0;
+        font-size: 20px;
+        @include border(bottom,1px,solid,$primary-color, 0.2);
+      }
+
+      a {
+        display: block;
+        @include color($third-color,1);
+
+        &:hover,
+        &.active {
+          @include color($third-color, 0.8);
+        }
+
+        &.active {
+          font-weight: 700;
+          @include color($third-color,1);
+        }
+      }
+
+      @include query($tablet-2) {
+        display: block;
+        padding: 7px 25px 3px;
+        &:hover,
+        &.active {
+          @include bg($blue-2);
+        }
+      }
+    }
+  }
+}
+
+.menu-lang-mobile {
+  display: none !important;
+  // margin-right: 20px;
+  //   @include query($tablet-2) {
+  //     display: block;
+  //     padding-left: 0;
+
+  //     li {
+  //       text-align: left;
+  //       &:first-child {
+  //         border-top: none;
+  //       }
+  //       &.active a:hover {
+  //         @include bg($blue-2);
+  //       }
+
+  //       a {
+  //         padding: 14px 30px 11px 53px;
+  //         font-size: 14px;
+  //         &:after {
+  //           top: 13.5px;
+  //           left: 25px;
+  //         }
+  //         &:hover {
+  //           @include bg($white);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.menu-sub {
+  padding: 8px 20px 12px;
+  @include bg($black, 0.2);
+
+  .menu {
+    text-align: center;
+
+    li {
+      margin-left: 15px;
+      font-size: 12px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.edit-btn {
+        top: 1px;
+      }
+
+      a {
+        @include color($primary-color);
+
+        &.active {
+          font-weight: 700;
+        }
+
+        &.active,
+        &:hover {
+          @include color($white);
+        }
+      }
+    }
+  }
+}
+
+.menu-lang {
+  display: inline-block;
+  margin-left: 20px;
+
+  .menu {
+    li {
+      margin-left: 5px;
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        font-size: 11px;
+        @include color($grey);
+
+        &.active,
+        &:hover {
+          @include color($third-color);
+        }
+
+        &.active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.menu-tags {
+  margin-top: 20px;
+
+  .menu {
+    li {
+      &,
+      a {
+        @include color($white);
+      }
+
+      .tag {
+        display: inline-block;
+      }
+
+      a {
+        text-decoration: underline;
+        font-size: 14px;
+
+        &:hover {
+          @include opacity(0.8);
+        }
+      }
+    }
+  }
+
+  .edy-tag-input {
+    @include color($white);
+  }
+}

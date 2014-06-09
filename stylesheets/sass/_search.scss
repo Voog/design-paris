@@ -1,0 +1,81 @@
+/* SEARCH */
+.search {
+  display: inline-block;
+  vertical-align: middle;
+  height: $search-height;
+  line-height: 1;
+  @include border(bottom,1px,solid,$black,.1);
+  @extend %clearfix;
+
+  @include query($tablet-2) {
+    display: none;
+  }
+
+  .edys-search,
+  .search-left,
+  .search-right {
+    height: $search-height;
+    line-height: 1;
+  }
+
+  .search-left,
+  .search-right {
+    float: left;
+  }
+
+  .edys-search-input {
+    vertical-align: middle;
+    width: 108px;
+    height: $search-height;
+    margin: 0;
+    padding: 2px 5px 0 0;
+    font-family: inherit;
+    font-size: 11px;
+    line-height: 1;
+    @include color($primary-color);
+    background: none;
+    border: none;
+
+    &::-ms-clear {
+      display: none;
+    }
+
+    &::-webkit-input-placeholder {
+      padding: 2px 0 4px 0;
+      line-height: 1;
+    }
+  }
+
+  .edys-search-input,
+  .search-submit {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .search-submit {
+    display: inline-block;
+    vertical-align: top;
+    width: 17px;
+    height: $search-height;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .no-svg & {
+    .search-submit {
+      background: $white url("../images/ico-search.png") center no-repeat;
+    }
+  }
+
+  .svg & {
+    .search-submit {
+      background: white url("../assets/ico-search.svg") center no-repeat;
+    }
+  }
+}

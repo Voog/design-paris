@@ -1,0 +1,60 @@
+/* FOOTER */
+.footer {
+  font-size: 11px;
+  @include color($primary-color, 0.5);
+
+  .wrap {
+    padding: 39px 20px;
+  }
+
+  .footer-inner {
+    @include flexbox;
+    margin-top: 23px;
+
+    @include query($mobile-1) {
+      display: block;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    @include color($white, 0.5);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .footer-left {
+    max-width: 760px;
+  }
+
+  .footer-right {
+    max-width: 150px;
+    text-align: right;
+
+    @include query($mobile-1) {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    a {
+      @include color($white, 0.2);
+
+      &:hover {
+        @include color($white, 0.5);
+      }
+    }
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+
+    @include query($mobile-1) {
+      width: auto;
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}
