@@ -198,6 +198,7 @@
 
     .post-cover {
       width: 310px;
+      min-width: 240px;
     }
 
     .post-cover-inner {
@@ -218,8 +219,7 @@
         border: none;
       }
 
-      &.over,
-      &:hover {
+      &.over {
         @include bg($black, 0.3);
       }
     }
@@ -229,7 +229,7 @@
       margin: 0;
       padding: 25px;
       font-size: 14px;
-      @include color($grey);
+      @include color($grey-1);
 
       .flexbox & {
         @include align-self(center);
@@ -267,6 +267,27 @@
       .post-body {
         margin-top: 25px;
       }
+    }
+
+    @include query($tablet-4) {
+      .editmode.flexbox &,
+      .editmode.no-flexbox & {
+        display: block;
+
+        .post-cover,
+        .post-inner {
+          width: auto;
+        }
+
+        .post-inner {
+          margin-top: 40px;
+        }
+
+        .post-cover-inner {
+          margin: 0 auto
+        }
+      }
+
     }
   }
 }

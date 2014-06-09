@@ -15,7 +15,7 @@
 
     &.open {
       .menu-stripe {
-        @include bg($secondary-color, 0.47);
+        @include bg($grey-4, 0.8);
       }
     }
 
@@ -33,7 +33,7 @@
       width: 25px;
       height: 4px;
       margin: 4px 0;
-      @include bg($secondary-color, 0.67);
+      @include bg($grey-4);
       border-radius: 5px;
       &:first-child,
       &:last-child {
@@ -142,11 +142,6 @@
 
         .menu-link {
           padding: 9px 25px 7px;
-
-          &:hover,
-          &.active {
-            @include color($secondary-color);
-          }
         }
       }
     }

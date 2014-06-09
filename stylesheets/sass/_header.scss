@@ -4,6 +4,7 @@
 
   .wrap {
     padding: 26px 20px 29px;
+    min-height: 65px;
 
     .no-flexbox & {
       display: table;
@@ -25,6 +26,10 @@
     .header-right {
       .no-flexbox &{
         display: table-cell;
+
+        @include query($tablet-2) {
+          display: block;
+        }
       }
     }
 
@@ -35,7 +40,7 @@
       .header-title,
       .header-slogan {
         line-height: 1;
-        @include color($grey);
+        @include color($grey-1);
       }
 
       .header-title {
@@ -68,6 +73,7 @@
 
       @include query($tablet-2) {
         margin: 0 -20px;
+        width: auto;
       }
 
       .header-bottom {
