@@ -186,13 +186,13 @@
 
     .editmode.no-flexbox & {
       display: table;
-      vertical-align: top;
     }
 
     .post-cover,
     .post-inner {
       .editmode.no-flexbox & {
         display: table-cell;
+        vertical-align: top;
       }
     }
 
@@ -206,6 +206,14 @@
       margin-top: 11px;
       @include border(all, 1px, dashed, $white, 0.1);
 
+      .flexbox & {
+        @include flexbox;
+      }
+
+      .no-flexbox & {
+        display: table;
+      }
+
       &.active {
         border: none;
       }
@@ -218,9 +226,19 @@
 
     .edy-img-drop-area-placeholder {
       opacity: 1;
-      margin: 35px;
+      margin: 0;
+      padding: 25px;
       font-size: 14px;
       @include color($grey);
+
+      .flexbox & {
+        @include align-self(center);
+      }
+
+      .no-flexbox & {
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
 
     .post-inner {

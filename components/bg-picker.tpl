@@ -2,20 +2,28 @@
   <script src='/assets/admin/tools/0.1.1/edicy-tools.js'></script>
   <script>
     // Body background image and color data preview and save logic
-    var siteData = new Edicy.CustomData({
-      type: 'site'
-    });
+    {% if bg-picker == "article" %}
+      var articleData = new Edicy.CustomData({
+        type: 'article',
+        id: '{{ article.id }}'
+      });
+    {% else %}
+      var pageData = new Edicy.CustomData({
+        type: 'page',
+        id: '{{ page.id }}'
+      });
+    {% endif %}
 
     var bgPickerBody = new Edicy.BgPicker($('.js-bgpicker-body-settings'), {
       picture: true,
       color: true,
 
       preview: function(data) {
-        var img = (data.image && data.image !== '') ? 'url("' + data.image + '")' : '',
-            col = (data.color && data.color !== '') ? data.color : '';
+        var img = (data.image && data.image !== '') ? 'url("' + data.image + '")' : 'none',
+            col = (data.color && data.color !== '') ? data.color : 'none';
 
         $('.js-bgpicker-body-image').css({'background-image' : img});
-        $('.js-bgpicker-body-color').css({'background-color' : col});
+        $('.js-bgpicker-body-color').css({'background' : col});
 
         if (data.image === null || data.image === '') {
           $('.js-bgpicker-body-color').css({'opacity' : 1});
@@ -25,44 +33,26 @@
       },
 
       commit: function(data) {
-        siteData.set({
-          'body_image': data.image || null,
-          'body_color': data.color || null
+        {% if bg-picker == "article" %}
+          articleData.set({
+        {% else %}
+          pageData.set({
+        {% endif %}
+          'body_image': data.image || '',
+          'body_color': data.color || ''
         });
       }
     });
 
-    // Article cover image and color data preview and save logic
-    var articleData = new Edicy.CustomData({
-      type: 'article',
-      id: '{{ article.id }}'
-    });
-
-    var bgPickerArticle = new Edicy.BgPicker($('.js-bgpicker-post-settings'), {
-      picture: true,
-      color: false,
-
-      preview: function(data) {
-        var img = (data.image && data.image !== '') ? 'url("' + data.image + '")' : '',
-            col = (data.color && data.color !== '') ? data.color : '';
-
-        $('.js-bgpicker-post-image').css({'background-image' : img});
-        $('.js-bgpicker-post-color').css({'background-color' : col});
-
-        if (data.image === null || data.image === '') {
-          $('.js-bgpicker-post-color').css({'opacity' : 1});
-        } else {
-          $('.js-bgpicker-post-color').css({'opacity' : 0.5});
+    {% if bg-picker == "article" %}
+      var pictureDropArea = new Edicy.ImgDropArea($('.js-post-cover-inner'), {
+        positionable: true,
+        change: function(data) {
+          articleData.set({
+            'post-image': data
+          });
         }
-      },
-
-      commit: function(data) {
-        articleData.set({
-          'post_image': data.image || null,
-          'post_color': data.color || null
-        });
-      }
-    });
-
+      });
+    {% endif %}
   </script>
 {% endeditorjsblock %}

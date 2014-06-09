@@ -2,26 +2,30 @@
 <html class="{% if editmode %}editmode{% else %}public{% endif %}" lang="{{ page.language_code }}">
 <head>
   {% include "html-head" %}
-
   <meta property="og:url" content="{{ site.url }}">
   <meta property="og:title" content="{{ site.name }}">
-  <meta property="og:description" content="{{ page.description }}">
-  <meta property="og:image" content="{{ site.url }}{{ photos_path }}/{{ page.data.fb_image }}"><!-- TODO: Add image location data tag -->
+  <meta property="og:description" content="{{ article.excerpt | strip_html | truncate: 120 }}">
+  {% comment %}<!-- TODO: Add functionality after the CMS is going to support it -->{% endcomment %}
+  {% unless article.data.fb_image == nil or article.data.fb_image == "" %}<meta property="og:image" content="{{ site.url }}{{ photos_path }}/{{ article.data.fb_image }}">{% endunless %}{% comment %}<!-- TODO: Add image location data tag -->{% endcomment %}
+
+  {% include 'bg-picker-variables' with 'article' %}
+
+  {{ site.stats_header }}
 </head>
 
-<body class="post-page js-bgpicker-body-image"{% if site.data.body_image %} style="background-image: url('{{ site.data.body_image}}');"{% endif %}>
-  {% if editmode %}<button class="bgpicker-btn js-bgpicker-body-settings" data-bg-image="{{ site.data.body_image }}" data-bg-color="{{ site.data.body_color }}"></button>{% endif %}
-  <div class="background-color js-bgpicker-body-color"{% if site.data.body_color %} style="background-color: {{ site.data.body_color }};{% if site.data.body_image %} opacity: 0.5;{% endif %}"{% endif %}></div>
+<body class="post-page js-body js-bgpicker-body-image"{{ body_image_style }}>
+  {% if body_color != '' or editmode %}<div class="background-color js-bgpicker-body-color"{{ body_color_style }}></div>{% endif %}
 
   <div class="container">
     {% include "header" %}
+    {% if editmode %}<button class="bgpicker-btn js-bgpicker-body-settings" data-bg-image="{{ body_image }}" data-bg-color="{{ body_color }}"></button>{% endif %}
 
     <main class="content" role="main">
       <div class="wrap">
         <section class="post">
           {% if editmode %}
             <aside class="post-cover">
-              <div class="post-cover-inner js-post-cover-inner" data-image="{{ article.data.image.url }}" data-dimensions="{{ article.data.image.width }},{{ article.data.image.height }}" data-position="{{ article.data.image.top }},{{ article.data.image.left }}"></div>
+              <div class="post-cover-inner js-post-cover-inner" data-image="{{ article.data.post-image.url }}" data-dimensions="{{ article.data.post-image.width }},{{ article.data.post-image.height }}" data-position="{{ article.data.post-image.top }},{{ article.data.post-image.left }}"></div>
             </aside>
           {% endif %}
 
@@ -65,31 +69,8 @@
   </div>
 
   {% include "javascripts" %}
-  {% include "bg-picker" %}
+  {% include "bg-picker" with 'article' %}
   <script src="{{ javascripts_path }}/autogrow.js"></script>
   <script>$('.form_field_textarea').autogrow();</script>
-
-  {% unless article.new_record? %}
-    {% editorjsblock %}
-    <script src='/assets/admin/tools/0.1.2/edicy-tools.js'></script>
-    <script>
-      (function($) {
-        var articleData = new Edicy.CustomData({
-          type: "article",
-          id: {{ article.id }}
-        });
-
-        var pictureDropArea = new Edicy.ImgDropArea($('.js-post-cover-inner'), {
-          positionable: true,
-          change: function(data) {
-            articleData.set({
-              'image': data
-            });
-          }
-        });
-      })(Edicy.jQuery);
-    </script>
-    {% endeditorjsblock %}
-  {% endunless %}
 </body>
 </html>
