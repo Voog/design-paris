@@ -181,12 +181,6 @@
       "filename": "overthrow.js"
     },
     {
-      "content_type": "text/javascript",
-      "file": "javascripts/retina.js",
-      "kind": "javascripts",
-      "filename": "retina.js"
-    },
-    {
       "content_type": "text/css",
       "file": "stylesheets/ie8.css",
       "kind": "stylesheets",
