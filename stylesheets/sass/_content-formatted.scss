@@ -1,0 +1,156 @@
+// Styling rules for the site's editable content area and its elements.
+// NB! Each editable content-area - {% content %} - should be wrapped in the element that has the "content-formatted" class.
+// NB! Contact forms and image galleries are located in the separate partials: "_forms.scss" and "_gallery.scss".
+.content-formatted {
+  @extend %clearfix;
+  word-wrap: break-word;
+
+  .content & {
+    .front-page & {
+      margin-top: 75px;
+    }
+  }
+
+  // Resets the bottom margin for all elements and top margin for all first elements in the editable content-area (to prevent unwanted white-space at the beginning of a content-area).
+  h1, h2, h3, h4, h5, h6, p, ul, ol, pre, code, img, iframe, table, form {
+    margin-bottom: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    .front-page & {
+      text-align: center;
+    }
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    @include color($white);
+  }
+
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 29px;
+  }
+
+  h2 {
+    margin-top: 29px;
+    font-size: 20px;
+  }
+
+  h3, h4, h5, h6 {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    @include color($white);
+
+    .front-page & {
+      font-size: 34px;
+    }
+  }
+
+  p {
+    margin-top: 25px;
+
+    .front-page & {
+      margin-top: 12px;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+
+    li {
+      position: relative;
+
+      &:before {
+        font-size: 28px;
+        position: absolute;
+        top: -21px;
+        left: -20px;
+        content: "_ ";
+      }
+    }
+  }
+
+  a {
+    @include color($white,1);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  img, iframe {
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  pre {
+    margin-top: 25px;
+    margin-bottom: 0;
+    overflow: auto;
+    white-space: nowrap;
+
+    &, code {
+      padding: 10px;
+      font-size: 14px;
+      @include bg($black, 0.5);
+    }
+
+    code {
+      display: block;
+      margin-top: 0;
+      padding: 0;
+    }
+  }
+
+  blockquote {
+    margin: 20px 40px;
+  }
+
+  // Styling rules for the site's editable content area tables.
+  // Container around editable content-area table.
+  .content-formatted {
+    .table-container {
+      margin-top: 20px;
+    }
+
+    // Overthrow plugin to support horizontal scrolling on older devices that have touch-screens. For example Android 2.3 devices.
+    .overthrow {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    // Adds dashed border to indicate that the table is too wide and can be scrolled horizontally.
+    .horizontal-scroll {
+      @include border(left, 1px, dashed, $third-color);
+      @include border(right, 1px, dashed, $third-color);
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      font-size: 16px;
+      border-collapse: collapse;
+
+      td {
+        padding: 10px;
+        @include border(top, 1px, solid, $third-color);
+        @include border(bottom, 1px, solid, $third-color);
+      }
+    }
+  }
+
+  .edy-texteditor-view {
+    min-height: 27px;
+  }
+}

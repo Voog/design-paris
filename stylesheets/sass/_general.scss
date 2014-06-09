@@ -74,91 +74,9 @@ body {
   margin: 0 auto;
 }
 
-.content-formatted {
-  @extend %clearfix;
-
-  // Resets the bottom margin for all elements and top margin for all first elements in the editable content-area (to prevent unwanted white-space at the beginning of a content-area).
-  h1, h2, h3, h4, h5, h6, p, ul, ol, pre, code, img, iframe, table form {
-    margin-bottom: 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    word-wrap: break-word;
-    @include color($white);
-  }
-
-  h1 {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 29px;
-  }
-
-  h2 {
-    margin-top: 29px;
-    font-size: 20px;
-  }
-
-  h3, h4, h5, h6 {
-    margin-top: 20px;
-    font-weight: 400;
-    font-size: 16px;
-    @include color($white);
-  }
-
-  p {
-    margin-top: 25px;
-  }
-
-  ul {
-    list-style-type: none;
-
-    li {
-      position: relative;
-
-      &:before {
-        font-size: 28px;
-        position: absolute;
-        top: -21px;
-        left: -20px;
-        content: "_ ";
-      }
-    }
-  }
-
-  a {
-    @include color($white,1);
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  img, iframe {
-    max-width: 100%;
-  }
-
-  img {
-    height: auto;
-  }
-
-  pre, code {
-    margin-top: 25px;
-  }
-
-  pre, code {
-    display: block;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 10px;
-    font-size: 14px;
-    @include bg($black, 0.5);
-  }
-
-  .edy-texteditor-view {
-    min-height: 27px;
+.wrap-inner {
+  .common-page & {
+    max-width: 650px;
+    margin: 36px auto;
   }
 }
