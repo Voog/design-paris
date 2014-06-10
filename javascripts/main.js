@@ -93,7 +93,6 @@
   };
 
   var initArticlePage = function() {
-    handleFormFieldClick();
     focusCommentsWithErrors();
   };
 
@@ -112,8 +111,7 @@
 
   window.site = $.extend(window.site || {}, {
     initBlogPageEditmode: initBlogPageEditmode,
-    initArticlePage: initArticlePage,
-    handleFormFieldClick: handleFormFieldClick
+    initArticlePage: initArticlePage
   });
 
   init();
