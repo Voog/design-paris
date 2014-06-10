@@ -163,24 +163,24 @@ body > .background-color {
 .content-formatted blockquote {
   margin: 20px 40px;
 }
-.content-formatted .content-formatted .table-container {
+.content-formatted .table-container {
   margin-top: 20px;
 }
-.content-formatted .content-formatted .overthrow {
+.content-formatted .overthrow {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.content-formatted .content-formatted .horizontal-scroll {
+.content-formatted .horizontal-scroll {
   border-left: 1px dashed #303132;
   border-right: 1px dashed #303132;
 }
-.content-formatted .content-formatted table {
+.content-formatted table {
   width: 100%;
   margin-top: 20px;
   font-size: 16px;
   border-collapse: collapse;
 }
-.content-formatted .content-formatted table td {
+.content-formatted table td {
   padding: 10px;
   border-top: 1px solid #303132;
   border-bottom: 1px solid #303132;
