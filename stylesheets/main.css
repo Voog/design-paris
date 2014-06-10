@@ -218,7 +218,7 @@ body > .background-color {
 .menu-btn {
   display: none;
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .menu-btn {
     position: absolute;
     top: 46px;
@@ -263,7 +263,7 @@ body > .background-color {
   position: relative;
   top: -1px;
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .menu-main .edit-btn {
     display: block;
     margin-left: 0;
@@ -294,7 +294,7 @@ body > .background-color {
   display: inline-block;
   vertical-align: middle;
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .menu-main {
     display: none;
   }
@@ -347,7 +347,7 @@ body > .background-color {
   font-weight: 700;
   color: #303132;
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .menu-main .menu .menu-item {
     display: block;
     margin: 0;
@@ -362,7 +362,7 @@ body > .background-color {
 .menu-main .menu-lang {
   display: none;
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .menu-main .menu-lang {
     display: block;
     margin-left: 0;
@@ -577,7 +577,7 @@ body > .background-color {
   position: relative;
   top: -1px;
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .menu-lang {
     display: none;
   }
@@ -977,7 +977,7 @@ body > .background-color {
   border-bottom: 1px solid black;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .search {
     display: none;
   }

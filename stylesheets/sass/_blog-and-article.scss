@@ -149,7 +149,7 @@
       }
     }
 
-    @include query($tablet-2) {
+    @include query($tablet-3) {
       &:nth-child(2n+1) {
         margin-right: 21.5px;
       }
@@ -159,7 +159,7 @@
       }
     }
 
-    @include query($tablet-3) {
+    @include query($tablet-4) {
       margin: 25px auto 0;
       display: block;
       max-width: 220px;
@@ -269,7 +269,7 @@
       }
     }
 
-    @include query($tablet-4) {
+    @include query($tablet-5) {
       .editmode.flexbox &,
       .editmode.no-flexbox & {
         display: block;

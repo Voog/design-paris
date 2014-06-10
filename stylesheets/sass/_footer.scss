@@ -6,7 +6,7 @@
   .wrap {
     padding: 40px 20px;
 
-    @include query($tablet-2) {
+    @include query($tablet-3) {
       padding-top: 0;
     }
   }
