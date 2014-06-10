@@ -1319,7 +1319,7 @@ body > .background-color {
   align-items: flex-start;
 }
 @media screen and (max-width: 480px) {
-  .footer .footer-inner {
+  .no-flexbox .footer .footer-inner, .flexbox .footer .footer-inner {
     display: block;
   }
 }

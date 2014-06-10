@@ -24,7 +24,10 @@
     }
 
     @include query($mobile-1) {
-      display: block;
+      .no-flexbox &,
+      .flexbox & {
+        display: block;
+      }
     }
   }
 
