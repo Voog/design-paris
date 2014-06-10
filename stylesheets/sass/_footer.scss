@@ -4,7 +4,11 @@
   @include color($primary-color, 0.5);
 
   .wrap {
-    padding: 39px 20px;
+    padding: 40px 20px;
+
+    @include query($tablet-2) {
+      padding-top: 0;
+    }
   }
 
   .footer-inner {
@@ -33,12 +37,12 @@
     }
   }
 
-    .footer-left,
-    .footer-right {
-      .no-flexbox &{
-        display: table-cell;
-      }
+  .footer-left,
+  .footer-right {
+    .no-flexbox &{
+      display: table-cell;
     }
+  }
 
   .footer-left {
     width: 840px;

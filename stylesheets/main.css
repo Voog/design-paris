@@ -649,6 +649,11 @@ body > .background-color {
   width: 320px;
   margin-top: 10px;
 }
+@media screen and (max-width: 752px) {
+  .header .wrap .header-left {
+    width: auto;
+  }
+}
 .header .wrap .header-left .header-title,
 .header .wrap .header-left .header-slogan {
   line-height: 1;
@@ -1288,7 +1293,12 @@ body > .background-color {
   color: rgba(194, 194, 194, 0.5);
 }
 .footer .wrap {
-  padding: 39px 20px;
+  padding: 40px 20px;
+}
+@media screen and (max-width: 752px) {
+  .footer .wrap {
+    padding-top: 0;
+  }
 }
 .footer .footer-inner {
   margin-top: 23px;
