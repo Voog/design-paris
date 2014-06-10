@@ -36,12 +36,7 @@
     });
   };
 
-  var handleFormFieldClick = function() {
-    $('.form_field_with_errors').click(function() {
-      $(this).removeClass('form_field_with_errors');
-    });
-  };
-
+  // Scrolls to the comment-form if comment submit failed (to show the error messages to the user).
   var focusCommentsWithErrors = function() {
     $(document).ready(function() {
       if ($('.comment-form').hasClass('form_with_errors') === true) {
@@ -50,10 +45,13 @@
     });
   };
 
+  // Wraps tables in the container.
+  // TODO: remove if edicy is going to wrap table with the container.
   var wrapTables = function() {
     $('.content-formatted table').wrap('<div class="table-container overthrow"></div>');
   };
 
+  // Checks the presence of the table scrollbar.
   var checkScrollBar = function() {
     jQuery.fn.hasScrollBar = function(direction) {
       if (direction == 'vertical') {
@@ -65,6 +63,7 @@
     }
   };
 
+  // Adds horizontal scroll to tables that don't fit into the content area.
   var handleTableHorizontalScrolling = function() {
     $.each($('.table-container'), function() {
       if ($(this).hasScrollBar('horizontal') === true) {
@@ -75,21 +74,20 @@
     });
   };
 
+  // Sets the right URL for the custom "add new blog post" button.
+  var getNewArticleURL = function() {
+    newArticleUrl = $('.js-post-add-btn').find('.edy-site-menu-add').attr('href');
+    $('.js-post-add').attr('href', newArticleUrl);
+  };
+
+  // Initiates the functions when window is resized.
   var handleWindowResize = function() {
     $(window).resize(function() {
       handleTableHorizontalScrolling();
     });
   };
 
-  var getNewArticleURL = function() {
-    newArticleUrl = $('.js-post-add-btn').find('.edy-site-menu-add').attr('href');
-    $('.js-post-add').attr('href', newArticleUrl);
-  };
-
   // Initiations
-  var initBlogPage = function() {
-  };
-
   var initBlogPageEditmode = function() {
     getNewArticleURL();
   };
@@ -113,7 +111,6 @@
   };
 
   window.site = $.extend(window.site || {}, {
-    initBlogPage: initBlogPage,
     initBlogPageEditmode: initBlogPageEditmode,
     initArticlePage: initArticlePage,
     handleFormFieldClick: handleFormFieldClick
