@@ -170,6 +170,30 @@
       "filename": "ico-search.png"
     },
     {
+      "content_type": "image/jpeg",
+      "file": "images/post-1.jpg",
+      "kind": "images",
+      "filename": "post-1.jpg"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/post-2.jpg",
+      "kind": "images",
+      "filename": "post-2.jpg"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/post-3.jpg",
+      "kind": "images",
+      "filename": "post-3.jpg"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/post-4.jpg",
+      "kind": "images",
+      "filename": "post-4.jpg"
+    },
+    {
       "content_type": "text/javascript",
       "file": "javascripts/ajaxForm.js",
       "kind": "javascripts",
