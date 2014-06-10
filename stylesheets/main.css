@@ -259,8 +259,12 @@ body > .background-color {
   vertical-align: middle;
   margin-left: 15px;
 }
+.menu-sub .edit-btn {
+  position: relative;
+  top: -1px;
+}
 @media screen and (max-width: 752px) {
-  .edit-btn {
+  .menu-main .edit-btn {
     display: block;
     margin-left: 0;
     padding: 9px 30px 10px;

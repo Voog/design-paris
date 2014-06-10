@@ -48,11 +48,18 @@
   vertical-align: middle;
   margin-left: 15px;
 
+  .menu-sub & {
+    position: relative;
+    top: -1px;
+  }
+
   @include query($tablet-2) {
-    display: block;
-    margin-left: 0;
-    padding: 9px 30px 10px;
-    @include border(bottom, 1px, solid, $primary-color, 0.2);
+    .menu-main & {
+      display: block;
+      margin-left: 0;
+      padding: 9px 30px 10px;
+      @include border(bottom, 1px, solid, $primary-color, 0.2);
+    }
   }
 }
 
