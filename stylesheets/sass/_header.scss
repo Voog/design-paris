@@ -37,6 +37,10 @@
       width: 320px;
       margin-top: 10px;
 
+      @include query($tablet-2) {
+        width: auto;
+      }
+
       .header-title,
       .header-slogan {
         line-height: 1;
