@@ -26,6 +26,16 @@
   };
 
   // Reduces opacity of the gallery images that are not under the cursor.
+  var handleGalleryHover = function() {
+    $('.edys-gallery-item').mouseover(function() {
+      $(this).siblings('.edys-gallery-item').find('.edys-gallery-image').addClass('inactive');
+    });
+
+    $('.edys-gallery-item').mouseout(function() {
+      $(this).siblings('.edys-gallery-item').find('.edys-gallery-image').removeClass('inactive');
+    });
+  };
+
   var handleFormFieldClick = function() {
     $('.form_field_with_errors').click(function() {
       $(this).removeClass('form_field_with_errors');
@@ -93,6 +103,7 @@
     toggleMainMenu();
     toggleLangMenu();
     handlePopoverMenuHide();
+    handleGalleryHover();
     handleWindowResize();
     wrapTables();
     if ($('.table-container').length > 0) {
