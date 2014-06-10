@@ -25,7 +25,7 @@
         <section class="post">
           {% if editmode %}
             <aside class="post-cover">
-              <div class="post-cover-inner js-post-cover-inner" data-image="{{ article.data.post-image.url }}" data-dimensions="{{ article.data.post-image.width }},{{ article.data.post-image.height }}" data-position="{{ article.data.post-image.top }},{{ article.data.post-image.left }}"></div>
+              <div class="post-cover-inner js-post-cover-inner" data-image="{{ article.data.post_image.url }}" data-dimensions="{{ article.data.post_image.width }},{{ article.data.post_image.height }}" data-position="{{ article.data.post_image.top }},{{ article.data.post_image.left }}"></div>
             </aside>
           {% endif %}
 

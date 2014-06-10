@@ -49,7 +49,7 @@
         positionable: true,
         change: function(data) {
           articleData.set({
-            'post-image': data
+            'post_image': data
           });
         }
       });
