@@ -23,7 +23,7 @@
       </div>
 
       <div class="header-bottom">
-        <nav class="menu-main js-menu-main">
+        <nav class="menu-main js-menu-main js-menu-popover">
           {% include "menu-level-1" %}
 
           {% if editmode or site.has_many_languages? %}

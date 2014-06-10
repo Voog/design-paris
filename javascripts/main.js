@@ -1,11 +1,14 @@
 ;(function($) {
+  // Shows/hides the popover main menu (visible on smalles screens).
   var toggleMainMenu = function() {
-    $('.js-menu-btn').click(function() {
+    $('.js-menu-btn').click(function(event) {
+      event.stopPropagation();
       $(this).toggleClass('open');
       $('.js-menu-main').toggleClass('expanded');
     });
   };
 
+  // Shows/hides the popover language menu.
   var toggleLangMenu = function() {
     $('.js-menu-lang-btn').click(function(event) {
       event.stopPropagation();
@@ -13,14 +16,16 @@
     });
   };
 
+  // Hides the popover main menu if clicked anywhere else than the menu itself (visible on smalles screens).
   var handlePopoverMenuHide = function() {
     $('html').click(function() {
-      if ($('.js-menu-lang-popover').hasClass('expanded')) {
-        $('.js-menu-lang-popover').removeClass('expanded');
+      if ($('.js-menu-popover').hasClass('expanded')) {
+        $('.js-menu-popover').removeClass('expanded');
       }
     });
   };
 
+  // Reduces opacity of the gallery images that are not under the cursor.
   var handleFormFieldClick = function() {
     $('.form_field_with_errors').click(function() {
       $(this).removeClass('form_field_with_errors');
