@@ -11,7 +11,7 @@
     display: none;
   }
 
-  .edys-search,
+  .search,
   .search-left,
   .search-right {
     height: $search-height;
@@ -23,7 +23,7 @@
     float: left;
   }
 
-  .edys-search-input {
+  .search-input {
     vertical-align: middle;
     width: 108px;
     height: $search-height;
@@ -46,7 +46,7 @@
     }
   }
 
-  .edys-search-input,
+  .search-input,
   .search-submit {
     &:focus {
       outline: none;
