@@ -16,7 +16,7 @@
     });
   };
 
-  // Hides the popover main menu if clicked anywhere else than the menu itself (visible on smalles screens).
+  // Hides the popover menus if clicked anywhere else than the menu itself.
   var handlePopoverMenuHide = function() {
     $('html').click(function() {
       if ($('.js-menu-popover').hasClass('expanded')) {
