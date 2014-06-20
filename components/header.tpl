@@ -2,7 +2,7 @@
   <div class="wrap">
     <section class="header-left">
       <div class="header-title content-formatted">{% unless editmode %}<a href="{{ site.root_item.url }}">{% endunless %}{% editable site.header %}{% unless editmode %}</a>{% endunless %}</div>
-      <div class="header-slogan content-formatted">{% xcontent name="slogan" %}</div>
+      <div class="header-slogan content-formatted">{% content name="slogan" %}</div>
 
       <button class="menu-btn js-menu-btn">
         <span class="menu-stripe"></span>
