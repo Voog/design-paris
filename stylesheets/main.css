@@ -767,6 +767,8 @@ body > .background-color {
   text-decoration: none;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.2);
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
 }
 .blog-page .post .post-top:hover {
   background-color: black;

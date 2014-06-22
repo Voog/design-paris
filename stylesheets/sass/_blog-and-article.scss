@@ -74,6 +74,7 @@
       display: block;
       text-decoration: none;
       @include bg($black, 0.2);
+      @include perspective;
 
       &:hover {
         @include bg($black, 0.4);
