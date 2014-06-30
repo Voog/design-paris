@@ -1218,6 +1218,11 @@ body > .background-color {
   font-size: 14px;
   line-height: 1.6;
 }
+@media screen and (max-width: 904px) {
+  .comment-form .comment-form-label {
+    text-align: left;
+  }
+}
 @media screen and (max-width: 624px) {
   .comment-form .comment-form-label {
     text-align: left;
