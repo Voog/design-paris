@@ -149,6 +149,17 @@
   }
 
   // CMS STYLE OVERRIDES
+
+  // CMS STYLE OVERRIDES
+  // Space between editable content areas in editmode.
+  .edy-content-element {
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   // Minimal height of the editable content area (to avoid content area visual 'jumping' when content-area is focused).
   .content &,
   .footer & {

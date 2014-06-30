@@ -185,6 +185,12 @@ body > .background-color {
   border-top: 1px solid #303132;
   border-bottom: 1px solid #303132;
 }
+.content-formatted .edy-content-element {
+  margin-top: 20px;
+}
+.content-formatted .edy-content-element:first-child {
+  margin-top: 0;
+}
 .content .content-formatted .edy-texteditor-view, .footer .content-formatted .edy-texteditor-view {
   min-height: 27px;
 }
