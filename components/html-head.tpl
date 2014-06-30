@@ -20,6 +20,8 @@
 
 <title>{% if article %}{{ article.title }} — {{ page.site_title }}{% else %}{% if site.root_item.selected? %}{{ page.site_title }}{% else %}{{ page.title }} — {{ page.site_title }}{% endif %}{% endif %}</title>
 
-<meta property="fb:admins" content="XXXXXXXXXX">
+{% comment %}<!-- Page specific opengraph tags are located in each page template -->{% endcomment %}
+{% comment %}<!-- TODO: Add functionality after the CMS is going to support it -->{% endcomment %}
+{% if site.data.fb_admin %}<meta property="fb:admins" content="{{ site.data.fb_admin }}">{% endif %}
 <meta property="og:type" content="website">
 <!-- https://developers.facebook.com/tools/debug - Debug after each modification -->
