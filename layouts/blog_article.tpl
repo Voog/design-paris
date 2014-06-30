@@ -32,7 +32,7 @@
           <article class="post-inner">
             <header class="post-header">
               <h1 class="post-title">{% editable article.title %}</h1>
-              <time class="post-date" datetime="{{ article.created_at | date : "%Y-%m-%d" }}">{{ article.created_at | date : "%b %d, %Y" }}</time>
+              <time class="post-date" datetime="{{ article.created_at | date : "%Y-%m-%d" }}">{{ article.created_at | format_date: 'long' }}</time>
             </header>
 
             <div class="post-content">
