@@ -1157,7 +1157,8 @@ body > .background-color {
   max-width: 650px;
   margin: 10px auto 0;
 }
-.comments .comments-title {
+
+.comments-title {
   padding-top: 40px;
   margin-bottom: 0;
   font-size: 24px;
@@ -1166,39 +1167,43 @@ body > .background-color {
   border-top: 4px solid black;
   border-top: 4px solid rgba(0, 0, 0, 0.2);
 }
-.comments .comments-messages {
+
+.comments-messages {
   margin-top: 22px;
-  line-height: 1.3;
 }
-.comments .comments-messages .comment-message {
+
+.comment {
   margin-top: 23px;
   font-size: 14px;
 }
-.comments .comments-messages .comment-message:first-child {
+.comment:first-child {
   margin-top: 0;
 }
-.comments .comments-messages .comment-message .comment-author {
+
+.comment-author {
   font-weight: 700;
   color: white;
 }
-.comments .comments-messages .comment-message .comment-date {
+
+.comment-date {
   margin-left: 10px;
   font-size: 11px;
   color: #666666;
 }
-.comments .comment-form {
+
+.comment-form {
   padding-bottom: 30px;
 }
-.comments .comment-form .form_fields {
+.comment-form .form_fields {
   margin-top: 10px;
 }
-.comments .comment-form .form_field {
+.comment-form .form_field {
   position: relative;
   padding: 17px 0 12px;
   border-top: 1px solid black;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
-.comments .comment-form .comment-form-label {
+.comment-form .comment-form-label {
   display: inline-block;
   vertical-align: top;
   width: 100%;
@@ -1209,12 +1214,12 @@ body > .background-color {
   line-height: 1.6;
 }
 @media screen and (max-width: 624px) {
-  .comments .comment-form .comment-form-label {
+  .comment-form .comment-form-label {
     text-align: left;
   }
 }
-.comments .comment-form .form_field_textfield,
-.comments .comment-form .form_field_textarea {
+.comment-form .form_field_textfield,
+.comment-form .form_field_textarea {
   vertical-align: top;
   width: 100%;
   max-width: 435px;
@@ -1227,38 +1232,38 @@ body > .background-color {
   background: transparent;
   border: none;
 }
-.comments .comment-form .form_field_textfield:focus,
-.comments .comment-form .form_field_textarea:focus {
+.comment-form .form_field_textfield:focus,
+.comment-form .form_field_textarea:focus {
   outline: none;
 }
-.comments .comment-form .form_field_textfield::-webkit-input-placeholder,
-.comments .comment-form .form_field_textarea::-webkit-input-placeholder {
+.comment-form .form_field_textfield::-webkit-input-placeholder,
+.comment-form .form_field_textarea::-webkit-input-placeholder {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
 }
-.comments .comment-form .form_field_textfield::-moz-placeholder,
-.comments .comment-form .form_field_textarea::-moz-placeholder {
+.comment-form .form_field_textfield::-moz-placeholder,
+.comment-form .form_field_textarea::-moz-placeholder {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
 }
-.comments .comment-form .form_field_textfield:-moz-placeholder,
-.comments .comment-form .form_field_textarea:-moz-placeholder {
+.comment-form .form_field_textfield:-moz-placeholder,
+.comment-form .form_field_textarea:-moz-placeholder {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
 }
-.comments .comment-form .form_field_textfield:-ms-input-placeholder,
-.comments .comment-form .form_field_textarea:-ms-input-placeholder {
+.comment-form .form_field_textfield:-ms-input-placeholder,
+.comment-form .form_field_textarea:-ms-input-placeholder {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
 }
-.comments .comment-form .form_field_textarea {
+.comment-form .form_field_textarea {
   resize: none;
 }
-.comments .comment-form .form_submit input {
+.comment-form .form_submit input {
   margin: 0;
   padding: 7px 20px 6px;
   font-family: inherit;
@@ -1272,17 +1277,18 @@ body > .background-color {
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-.comments .comment-form .form_submit input:hover {
+.comment-form .form_submit input:hover {
   opacity: 0.75;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
   filter: alpha(opacity=75);
 }
 @media screen and (max-width: 420px) {
-  .comments .comment-form .form_submit input {
+  .comment-form .form_submit input {
     width: 100%;
   }
 }
-.comments .form_field_error {
+
+.form_field_error {
   position: absolute;
   top: 3px;
   font-size: 13px;

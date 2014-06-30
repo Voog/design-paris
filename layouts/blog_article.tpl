@@ -50,11 +50,12 @@
 
                 <section class="comments-messages">
                   {% for comment in article.comments %}
-                    <div class="comment-message">
+                    <div class="comment edy-site-blog-comment">
                       <span class="comment-author">{{ comment.author }}</span>
                       <span class="comment-separator">—</span>
                       <span class="comment-body">{{ comment.body_html }}</span>
                       <span class="comment-date">{{ comment.created_at | date : "%b %d, %Y" }}</span>
+                      {% removebutton %}
                     </div>
                   {% endfor %}
                 </section>
