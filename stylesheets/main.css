@@ -1138,13 +1138,18 @@ body > .background-color {
   color: #ee0000;
 }
 
-.form_error {
+.form_error,
+.form_notice {
   font-weight: 700;
   font-size: 14px;
 }
 
 .form_field_error {
   font-size: 11px;
+}
+
+.form_notice {
+  color: #60a740;
 }
 
 .form_field_with_errors .form_field_textfield,

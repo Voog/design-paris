@@ -102,13 +102,18 @@
   @include color($red-3);
 }
 
-.form_error {
+.form_error,
+.form_notice {
   font-weight: 700;
   font-size: 14px;
 }
 
 .form_field_error {
   font-size: 11px;
+}
+
+.form_notice {
+  @include color($green);
 }
 
 .form_field_with_errors {
