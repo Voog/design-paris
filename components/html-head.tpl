@@ -24,4 +24,4 @@
 {% comment %}<!-- TODO: Add functionality after the CMS is going to support it -->{% endcomment %}
 {% if site.data.fb_admin %}<meta property="fb:admins" content="{{ site.data.fb_admin }}">{% endif %}
 <meta property="og:type" content="website">
-<!-- https://developers.facebook.com/tools/debug - Debug after each modification -->
+{% comment %}<!-- https://developers.facebook.com/tools/debug - Debug after each modification -->{% endcomment %}
