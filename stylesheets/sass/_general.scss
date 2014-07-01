@@ -1,0 +1,86 @@
+/* GENERAL */
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  @include color($primary-color);
+  background-image: url('../images/body-bg.jpg');
+
+  & > .background-color {
+    position: fixed;
+    z-index: -2;
+  }
+}
+
+%lato {
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+%stretch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.bgpicker-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.background-image,
+.background-color {
+  @extend %stretch;
+}
+
+.background-image {
+  background-position: center;
+  background-size: cover;
+}
+
+.horizontal-line {
+  width: 260px;
+  height: 1px;
+  @include bg($black, 0.25);
+
+  @include query($mobile-1) {
+    width: auto;
+  }
+}
+
+.container {
+  a {
+    img {
+      border: none;
+    }
+  }
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.wrap-inner {
+  .common-page & {
+    max-width: 650px;
+    margin: 36px auto;
+  }
+}

@@ -1,42 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html class="{% if editmode %}editmode{% else %}public{% endif %}" lang="{{ page.language_code }}">
 <head>
-  {% include "SiteHeader" %}
+  {% include "html-head" %}
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:title" content="{{ site.name }}">
+  {% unless page.description == nil or page.description == "" %}<meta property="og:description" content="{{ page.description }}">{% endunless %}
+  {% comment %}<!-- TODO: Add functionality after the CMS is going to support it -->{% endcomment %}
+  {% if page.data.fb_image %}<meta property="og:image" content="{{ site.url }}{{ photos_path }}/{{ page.data.fb_image }}">{% endif %}
 
+  {% include "bg-picker-variables" %}
+
+  {{ site.stats_header }}
 </head>
-<body>
-  {% include "Header" %}
-  
-  <div class="main-content main-division">
-    <div class="content-center-wrapper">
-      
-      {% include "Mainmenu" %}
-      {% if site.has_articles? %}
-        <div class="article-listing top-line cfx">
-          {% for article in site.latest_4_articles %}
-            {% include "Article box" %}
+
+<body class="front-page blog-page js-body js-bgpicker-body-image"{{ body_image_style }}>
+  {% if body_color != '' or editmode %}<div class="background-color js-bgpicker-body-color"{{ body_color_style }}></div>{% endif %}
+
+  <div class="container">
+    {% include "header" %}
+    {% if editmode %}<button class="bgpicker-btn js-bgpicker-body-settings" data-bg-image="{{ body_image }}" data-bg-color="{{ body_color }}"></button>{% endif %}
+
+    <main class="content" role="main">
+      <div class="wrap">
+        <section class="blog">
+          {% for article in site.latest_articles %}
+            {% include "post-box" %}
           {% endfor %}
-        </div><!-- .image-listing -->
-      {% endif %}
-      
-      <div class="texts-listing cfx">
-        <div class="text-box top-line">
+        </section>
+
+        <section class="content-formatted">
           {% content %}
-        </div><!-- .text-box -->
-        <div class="text-box top-line">
-          {% content name="second-content" %}
-        </div><!-- .text-box -->
-      </div><!-- .texts-listing -->
-      
-    </div><!-- .content-center-wrapper -->
-  </div><!-- .main-content -->
-  
-  {% include "Footer" %}
-  {% include "JS" %}
-  
-  <script type="text/javascript">
-    initArticleBoxes();
+        </section>
+      </div>
+    </main>
+
+    {% include "footer" %}
+
+  </div>
+
+  {% include "javascripts" %}
+  {% include "bg-picker" %}
+
+  <script>
+
   </script>
-  
 </body>
 </html>

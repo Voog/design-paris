@@ -1,0 +1,80 @@
+/* FOOTER */
+.footer {
+  font-size: 11px;
+  @include color($primary-color, 0.5);
+
+  .wrap {
+    padding: 40px 20px;
+
+    @include query($tablet-3) {
+      padding-top: 0;
+    }
+  }
+
+  .footer-inner {
+    margin-top: 23px;
+
+    .no-flexbox & {
+      display: table;
+    }
+
+    .flexbox & {
+      @include flexbox;
+      @include align-items(flex-start);
+    }
+
+    @include query($mobile-1) {
+      .no-flexbox &,
+      .flexbox & {
+        display: block;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    @include color($white, 0.5);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .footer-left,
+  .footer-right {
+    .no-flexbox &{
+      display: table-cell;
+    }
+  }
+
+  .footer-left {
+    width: 840px;
+  }
+
+  .footer-right {
+    width: 160px;
+    text-align: right;
+
+    @include query($mobile-1) {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    a {
+      @include color($white, 0.2);
+
+      &:hover {
+        @include color($white, 0.5);
+      }
+    }
+  }
+
+  .footer-left,
+  .footer-right {
+    @include query($mobile-1) {
+      width: auto;
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}

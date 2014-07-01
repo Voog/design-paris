@@ -1,0 +1,294 @@
+/* BLOG & BLOG ARTICLE */
+.post-date {
+  @include color($white, 0.3);
+}
+
+.post-header {
+  .post-title {
+    word-wrap: break-word;
+  }
+}
+
+.blog-page {
+  .blog {
+    @extend %clearfix;
+  }
+
+  .post-add-btn {
+    display: none;
+  }
+
+  .post-add-link {
+    display: inline-block;
+    width: 218px;
+    height: 298px;
+    text-decoration: none;
+    text-align: center;
+    @include color($white, 0.2);
+    @include border(all, 1px, dashed, $white, 0.1);
+
+    &,
+    &:hover {
+      @include transition (color, border, 0.3s);
+    }
+
+    &:hover {
+      @include color($white, 0.5);
+      @include border(all, 1px, dashed, $white, 0.5);
+    }
+
+    .wrap {
+      display: table;
+      height: 100%;
+      padding: 0 45px;
+
+      .align-middle {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    .post-title {
+      margin: 10px 0 0;
+      font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+  }
+
+  .post {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    line-height: 1.2;
+
+    .post-top,
+    .background-image,
+    .post-title {
+      @include transition (opacity, 0.3s);
+    }
+
+    .post-top {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      @include bg($black, 0.2);
+      @include perspective;
+
+      &:hover {
+        @include bg($black, 0.4);
+
+        .background-image {
+          opacity: 1;
+        }
+
+        .post-title {
+          opacity: 0.75;
+        }
+      }
+
+      .background-image {
+        opacity: 0.7;
+      }
+    }
+
+    .post-header {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      width: 180px;
+      height: 270px;
+      padding: 15px 20px;
+
+      .post-title {
+        margin: 0;
+        font-weight: 400;
+        font-size: 34px;
+        @include color($white);
+      }
+    }
+
+    .post-bottom {
+      margin-top: 4px;
+    }
+
+    .post-content,
+    .post-footer {
+      text-align: right;
+    }
+
+    .post-content {
+      display: none;
+    }
+
+    .post-footer {
+      margin-top: -5px;
+
+      .post-date {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .post-position {
+    overflow: hidden;
+    margin-top: 25px;
+    margin-right: 21.5px;
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    @include query($tablet-1) {
+      &:nth-child(4n) {
+        margin-right: 21.5px;
+      }
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+      }
+    }
+
+    @include query($tablet-3) {
+      &:nth-child(2n+1) {
+        margin-right: 21.5px;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @include query($tablet-4) {
+      margin: 25px auto 0;
+      display: block;
+      max-width: 220px;
+
+      &:nth-child(2n),
+      &:nth-child(2n+1) {
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+.post-page {
+  .post {
+    margin: 36px auto;
+
+    .public & {
+      max-width: 650px;
+    }
+
+    .editmode.flexbox & {
+      @include flexbox;
+    }
+
+    .editmode.no-flexbox & {
+      display: table;
+    }
+
+    .post-cover,
+    .post-inner {
+      .editmode.no-flexbox & {
+        display: table-cell;
+        vertical-align: top;
+      }
+    }
+
+    .post-cover {
+      width: 310px;
+      min-width: 240px;
+    }
+
+    .post-cover-inner {
+      width: 220px;
+      height: 300px;
+      margin-top: 11px;
+      @include border(all, 1px, dashed, $white, 0.1);
+
+      .flexbox & {
+        @include flexbox;
+      }
+
+      .no-flexbox & {
+        display: table;
+      }
+
+      &.active {
+        border: none;
+      }
+
+      &.over {
+        @include bg($black, 0.3);
+      }
+    }
+
+    .edy-img-drop-area-placeholder {
+      opacity: 1;
+      margin: 0;
+      padding: 25px;
+      font-size: 14px;
+      @include color($grey-1);
+
+      .flexbox & {
+        @include align-self(center);
+      }
+
+      .no-flexbox & {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    .post-inner {
+      .editmode & {
+        width: 650px;
+      }
+    }
+
+    .post-header {
+      text-align: center;
+
+      .post-title {
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 29px;
+        @include color($white);
+      }
+
+      .post-date {
+        font-size: 14px;
+      }
+    }
+
+    .post-content {
+      .post-excerpt,
+      .post-body {
+        margin-top: 25px;
+      }
+    }
+
+    @include query($tablet-5) {
+      .editmode.flexbox &,
+      .editmode.no-flexbox & {
+        display: block;
+
+        .post-cover,
+        .post-inner {
+          width: auto;
+        }
+
+        .post-inner {
+          margin-top: 40px;
+        }
+
+        .post-cover-inner {
+          margin: 0 auto
+        }
+      }
+
+    }
+  }
+}

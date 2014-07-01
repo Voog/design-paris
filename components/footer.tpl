@@ -1,8 +1,11 @@
-<div class="main-footer main-division cfx">
-  <div class="content-center-wrapper footer-inner top-line">
-    <div class="right edicy-link">
-      {% loginblock %}{{ "footer_login_link" | lc }}{% endloginblock %}
-    </div><!-- .right -->
-    <div class="footer-content">{% xcontent name="footer" %}</div>
-  </div><!-- .content-center-wrapper -->
-</div><!-- .main-footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="horizontal-line"></div>
+    <div class="footer-inner">
+      <div class="footer-left content-formatted">{% xcontent name="footer" %}</div>
+      <div class="footer-right content-formatted">
+        <div class="voog-reference">{% loginblock %}{{ "footer_login_link" | lc }}{% endloginblock %}</div>
+      </div>
+    </div>
+  </div>
+</footer>

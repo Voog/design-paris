@@ -1,88 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html class="{% if editmode %}editmode{% else %}public{% endif %}" lang="{{ page.language_code }}">
 <head>
-  {% include "SiteHeader" %}
-  {{ blog.rss_link }}
-</head>
-<body>
-  {% include "Header" %}
-  
-  <div class="main-content main-division">
-    <div class="content-center-wrapper">
-      
-      {% include "Mainmenu" %}
-      
-      <div class="hidden js-thumb-data">{% editable article.excerpt %}</div>
-      
-      <div class="content-texts cfx">
-        
-        {% if editmode %}
-          <div class="thumb-editor-wrapper left">
-            <div class="delete-btn"><span class="edy-ico edy-ico-close"></span></div>
-            <div class="thumb-editor js-thumb-editor">
-              <span class="thumb-placeholder">
-                Drag cover image for this post here.
-              </span>
-            </div>
-            <span class="thumb-additional-info">
-              Drag image to adjust crop area.
-            </span>
-          </div>
-        {% endif %}
-        
-        <div class="content-texts-wrapper{% if editmode %} right{% endif %}">
-          <h1>
-            {% editable article.title %}
-            <span class="heading-info">
-              {{article.created_at | format_date:"short"}}, {{article.created_at | format_date:"%Y"}}{% comment %}, {{ article.author.name }}{% endcomment %}
-            </span>
-          </h1>
-          {% editable article.body %}
-          
-          
-          
-          {% unless article.new_record? %}
-            {% content name="blogarticle_more_content" bind="Article" %}
-          {% endunless %}
-          
-          {% if editmode %}
-            <div class="cfx article-tags">
-                <div class="article-tag-icon"></div>
-                {% editable article.tags %}
-            </div>
-          {% else %}
-            {% unless article.tags == empty %}
-                <div class="cfx article-tags">
-                    <div class="article-tag-icon"></div>
-                    {% for tag in article.tags %}
-                        <a href="{{ article.page.url }}/tagged/{{ tag.path }}">{{ tag.name }}</a>{% unless forloop.last %}, {% endunless %}
-                    {% endfor %}
-                </div>
-            {% endunless %}
-        {% endif %}
-          
-          {% unless article.new_record? %}
-            {% include "Article comments" %}
-          {% endunless %}
-          
-          
+  {% include "html-head" %}
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:title" content="{{ site.name }}">
+  <meta property="og:description" content="{{ article.excerpt | strip_html | truncate: 120 }}">
+  {% comment %}<!-- TODO: Add functionality after the CMS is going to support it -->{% endcomment %}
+  {% if article.data.fb_image %}<meta property="og:image" content="{{ site.url }}{{ photos_path }}/{{ article.data.fb_image }}">{% endif %}
 
-        </div><!-- .right -->
-      </div><!-- .content-texts -->
-      
-    </div><!-- .content-center-wrapper -->
-  </div><!-- .main-content -->
-  
-  {% include "Footer" %}
-  {% include "JS" %}
-  
-  {% comment %}
-    Image dropper tool initiation.
-    Uses hidden article.excerpt to save image data accessible for article listing
-  {% endcomment %}
-  {% if editmode %}
-    <script type="text/javascript" src="{{ javascripts_path }}/article_imgdrop.js?1"></script>
-  {% endif %}
-  
+  {% include 'bg-picker-variables' with 'article' %}
+
+  {{ site.stats_header }}
+</head>
+
+<body class="post-page js-body js-bgpicker-body-image"{{ body_image_style }}>
+  {% if body_color != '' or editmode %}<div class="background-color js-bgpicker-body-color"{{ body_color_style }}></div>{% endif %}
+
+  <div class="container">
+    {% include "header" %}
+    {% if editmode %}<button class="bgpicker-btn js-bgpicker-body-settings" data-bg-image="{{ body_image }}" data-bg-color="{{ body_color }}"></button>{% endif %}
+
+    <main class="content" role="main">
+      <div class="wrap">
+        <section class="post">
+          {% if editmode %}
+            <aside class="post-cover">
+              <div class="post-cover-inner js-post-cover-inner" data-image="{{ article.data.post_image.url }}" data-dimensions="{{ article.data.post_image.width }},{{ article.data.post_image.height }}" data-position="{{ article.data.post_image.top }},{{ article.data.post_image.left }}"></div>
+            </aside>
+          {% endif %}
+
+          <article class="post-inner">
+            <header class="post-header">
+              <h1 class="post-title">{% editable article.title %}</h1>
+              <time class="post-date" datetime="{{ article.created_at | date : "%Y-%m-%d" }}">{{ article.created_at | format_date: 'long' }}</time>
+            </header>
+
+            <div class="post-content">
+              <div class="post-excerpt content-formatted">{% editable article.excerpt %}</div>
+              <div class="post-body content-formatted">{% editable article.body %}</div>
+            </div>
+
+            {% include "tags-post" %}
+
+            <section class="comments">
+              {% include "comment-form" %}
+
+              {% if article.comments_count > 0 %}
+                <h2 class="comments-title">{{ "comments_for_count" | lc }}: <span class="edy-site-blog-comments-count">{{ article.comments_count }}</span></h2>
+
+                <section class="comments-messages">
+                  {% for comment in article.comments %}
+                    <div class="comment edy-site-blog-comment">
+                      <span class="comment-author">{{ comment.author }}</span>
+                      <span class="comment-separator">—</span>
+                      <span class="comment-body">{{ comment.body_html }}</span>
+                      <span class="comment-date">{{ comment.created_at | date : "%b %d, %Y" }}</span>
+                      {% removebutton %}
+                    </div>
+                  {% endfor %}
+                </section>
+              {% endif %}
+            </section>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    {% include "footer" %}
+  </div>
+
+  {% include "javascripts" %}
+  {% include "bg-picker" with 'article' %}
+  <script src="{{ javascripts_path }}/autogrow.js"></script>
+  <script>$('.form_field_textarea').autogrow();</script>
 </body>
 </html>

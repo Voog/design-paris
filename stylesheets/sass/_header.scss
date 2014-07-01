@@ -1,0 +1,88 @@
+/* HEADER */
+.header {
+  @include bg($white);
+
+  .wrap {
+    padding: 26px 20px 29px;
+    min-height: 65px;
+
+    .no-flexbox & {
+      display: table;
+    }
+
+    .flexbox & {
+      @include flexbox;
+      @include align-items(flex-start);
+    }
+
+    @include query($tablet-3) {
+      .no-flexbox &,
+      .flexbox & {
+        display: block;
+      }
+    }
+
+    .header-left,
+    .header-right {
+      .no-flexbox &{
+        display: table-cell;
+
+        @include query($tablet-3) {
+          display: block;
+        }
+      }
+    }
+
+    .header-left {
+      width: 320px;
+      margin-top: 10px;
+
+      @include query($tablet-3) {
+        width: auto;
+      }
+
+      .header-title,
+      .header-slogan {
+        line-height: 1;
+        @include color($grey-1);
+      }
+
+      .header-title {
+        @extend %lato;
+        font-weight: 700;
+        font-size: 34px;
+
+        &,
+        a {
+          text-decoration: none;
+          @include color($secondary-color);
+        }
+
+        a:hover {
+          @include color($secondary-color, 0.6);
+        }
+      }
+
+      .header-slogan {
+        width: 100%;
+        max-width: 310px;
+        font-size: 18px;
+      }
+    }
+
+    .header-right {
+      width: 590px;
+      margin-left: 50px;
+      text-align: right;
+
+      @include query($tablet-3) {
+        margin: 0 -20px;
+        width: auto;
+      }
+
+      .header-bottom {
+        margin-top: 10px;
+      }
+    }
+  }
+}

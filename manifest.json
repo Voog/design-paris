@@ -1,1 +1,245 @@
-{"name":"Paris","layouts":[{"component":false,"title":"Blog & News","layout_name":"blog_front","content_type":"blog","file":"layouts/blog___news.tpl"},{"component":false,"title":"Blog article","layout_name":"blog_article","content_type":"blog_article","file":"layouts/blog_article.tpl"},{"component":false,"title":"Common page","layout_name":"page_default","content_type":"page","file":"layouts/common_page.tpl"},{"component":false,"title":"Front page","layout_name":"page_front","content_type":"page","file":"layouts/front_page.tpl"},{"component":true,"title":"Article box","layout_name":"","content_type":"component","file":"components/article_box.tpl"},{"component":true,"title":"Article comments","layout_name":"","content_type":"component","file":"components/article_comments.tpl"},{"component":true,"title":"Article row","layout_name":"","content_type":"component","file":"components/article_row.tpl"},{"component":true,"title":"Footer","layout_name":"","content_type":"component","file":"components/footer.tpl"},{"component":true,"title":"Header","layout_name":"","content_type":"component","file":"components/header.tpl"},{"component":true,"title":"JS","layout_name":"","content_type":"component","file":"components/js.tpl"},{"component":true,"title":"Langmenu","layout_name":"","content_type":"component","file":"components/langmenu.tpl"},{"component":true,"title":"Mainmenu","layout_name":"","content_type":"component","file":"components/mainmenu.tpl"},{"component":true,"title":"Search","layout_name":"","content_type":"component","file":"components/search.tpl"},{"component":true,"title":"SiteHeader","layout_name":"","content_type":"component","file":"components/siteheader.tpl"},{"component":true,"title":"Submenu","layout_name":"","content_type":"component","file":"components/submenu.tpl"}],"author":"T\u00f5nu Runnel","preview_medium":"http://static.edicy.com/designs/previews/paris_medium.jpg","assets":[{"kind":"images","content_type":"image/png","filename":"search-btn.png","file":"images/search-btn.png"},{"kind":"images","content_type":"image/jpeg","filename":"body-bg.jpg","file":"images/body-bg.jpg"},{"kind":"stylesheets","content_type":"text/css","filename":"style.css","file":"stylesheets/style.css"},{"kind":"stylesheets","content_type":"text/css","filename":"ie7.css","file":"stylesheets/ie7.css"},{"kind":"javascripts","content_type":"text/javascript","filename":"application.js","file":"javascripts/application.js"},{"kind":"javascripts","content_type":"text/javascript","filename":"article_imgdrop.js","file":"javascripts/article_imgdrop.js"},{"kind":"images","content_type":"image/png","filename":"line-dot.png","file":"images/line-dot.png"},{"kind":"javascripts","content_type":"text/javascript","filename":"modernizr.js","file":"javascripts/modernizr.js"},{"kind":"images","content_type":"image/png","filename":"tag-big-white.png","file":"images/tag-big-white.png"},{"kind":"images","content_type":"image/svg+xml","filename":"tag-big-white.svg","file":"images/tag-big-white.svg"},{"kind":"images","content_type":"image/png","filename":"tag-white.png","file":"images/tag-white.png"},{"kind":"images","content_type":"image/svg+xml","filename":"tag-white.svg","file":"images/tag-white.svg"}],"preview_small":"http://static.edicy.com/designs/previews/paris_small.jpg","description":"A photoblog template"}
+{
+  "description": "Paris design by Tõnu Runnel",
+  "name": "Paris",
+  "preview_medium": "",
+  "preview_small": "",
+  "author": "Tõnu Runnel",
+  "layouts": [
+    {
+      "content_type": "blog",
+      "component": false,
+      "file": "layouts/blog___news.tpl",
+      "layout_name": "blog",
+      "title": "Blog & News"
+    },
+    {
+      "content_type": "blog_article",
+      "component": false,
+      "file": "layouts/blog_article.tpl",
+      "layout_name": "blog_article",
+      "title": "Blog article"
+    },
+    {
+      "content_type": "page",
+      "component": false,
+      "file": "layouts/common_page.tpl",
+      "layout_name": "page_default",
+      "title": "Common page"
+    },
+    {
+      "content_type": "page",
+      "component": false,
+      "file": "layouts/front_page.tpl",
+      "layout_name": "page_front",
+      "title": "Front page"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/bg-picker-variables.tpl",
+      "layout_name": "bg-picker-variables",
+      "title": "bg-picker-variables"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/bg-picker.tpl",
+      "layout_name": "",
+      "title": "bg-picker"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/comment-form.tpl",
+      "layout_name": "",
+      "title": "comment-form"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/footer.tpl",
+      "layout_name": "",
+      "title": "footer"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/header.tpl",
+      "layout_name": "",
+      "title": "header"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/html-head.tpl",
+      "layout_name": "",
+      "title": "html-head"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/javascripts.tpl",
+      "layout_name": "",
+      "title": "javascripts"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/menu-lang.tpl",
+      "layout_name": "",
+      "title": "menu-lang"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/menu-level-1.tpl",
+      "layout_name": "",
+      "title": "menu-level-1"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/menu-level-2.tpl",
+      "layout_name": "",
+      "title": "menu-level-2"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/post-box.tpl",
+      "layout_name": "",
+      "title": "post-box"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/search.tpl",
+      "layout_name": "",
+      "title": "search"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/tags-blog.tpl",
+      "layout_name": "",
+      "title": "tags-blog"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/tags-post.tpl",
+      "layout_name": "",
+      "title": "tags-post"
+    }
+  ],
+  "assets": [
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-flags.svg",
+      "kind": "assets",
+      "filename": "ico-flags.svg"
+    },
+    {
+      "content_type": "unknown/unknown",
+      "file": "assets/ico-search.svg",
+      "kind": "assets",
+      "filename": "ico-search.svg"
+    },
+    {
+      "content_type": "image/jpg",
+      "file": "images/body-bg.jpg",
+      "kind": "images",
+      "filename": "body-bg.jpg"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-flags-small.png",
+      "kind": "images",
+      "filename": "ico-flags-small.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-flags.png",
+      "kind": "images",
+      "filename": "ico-flags.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-search.png",
+      "kind": "images",
+      "filename": "ico-search.png"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/post-1.jpg",
+      "kind": "images",
+      "filename": "post-1.jpg"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/post-2.jpg",
+      "kind": "images",
+      "filename": "post-2.jpg"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/post-3.jpg",
+      "kind": "images",
+      "filename": "post-3.jpg"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/post-4.jpg",
+      "kind": "images",
+      "filename": "post-4.jpg"
+    },
+    {
+      "content_type": "text/javascript",
+      "file": "javascripts/ajaxForm.js",
+      "kind": "javascripts",
+      "filename": "ajaxForm.js"
+    },
+    {
+      "content_type": "text/javascript",
+      "file": "javascripts/autogrow.js",
+      "kind": "javascripts",
+      "filename": "autogrow.js"
+    },
+    {
+      "content_type": "text/javascript",
+      "file": "javascripts/jquery.js",
+      "kind": "javascripts",
+      "filename": "jquery.js"
+    },
+    {
+      "content_type": "text/javascript",
+      "file": "javascripts/main.js",
+      "kind": "javascripts",
+      "filename": "main.js"
+    },
+    {
+      "content_type": "text/javascript",
+      "file": "javascripts/modernizr.js",
+      "kind": "javascripts",
+      "filename": "modernizr.js"
+    },
+    {
+      "content_type": "text/javascript",
+      "file": "javascripts/overthrow.js",
+      "kind": "javascripts",
+      "filename": "overthrow.js"
+    },
+    {
+      "content_type": "text/css",
+      "file": "stylesheets/ie8.css",
+      "kind": "stylesheets",
+      "filename": "ie8.css"
+    },
+    {
+      "content_type": "text/css",
+      "file": "stylesheets/main.css",
+      "kind": "stylesheets",
+      "filename": "main.css"
+    }
+  ]
+}
