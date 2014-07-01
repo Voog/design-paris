@@ -708,13 +708,14 @@ body > .background-color {
   color: rgba(255, 255, 255, 0.3);
 }
 
-.post-header .post-title {
+.post-title {
   word-wrap: break-word;
 }
 
-.blog-page .post-add-btn {
+.post-add-btn {
   display: none;
 }
+
 .blog-page .post-add-link {
   display: inline-block;
   width: 218px;

@@ -3,19 +3,17 @@
   @include color($white, 0.3);
 }
 
-.post-header {
-  .post-title {
-    word-wrap: break-word;
-  }
+.post-title {
+  word-wrap: break-word;
+}
+
+.post-add-btn {
+  display: none;
 }
 
 .blog-page {
   .blog {
     @extend %clearfix;
-  }
-
-  .post-add-btn {
-    display: none;
   }
 
   .post-add-link {

@@ -30,7 +30,7 @@
 
         <section class="blog">
 
-          <!-- TODO: Replace URL when this feature is added -->
+          {% comment %}<!-- TODO: Replace URL when this feature is added -->{% endcomment %}
           {% if editmode %}
             <a class="post-add-link post-position js-post-add" href="#">
               <div class="wrap">
@@ -64,6 +64,6 @@
 
   {% include "javascripts" %}
   {% include "bg-picker" %}
-  <script>site.initBlogPageEditmode();</script>
+  {% if editmode %}<script>site.initBlogPageEditmode();</script>{% endif %}
 </body>
 </html>
