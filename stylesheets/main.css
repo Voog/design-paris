@@ -652,7 +652,7 @@ body > .background-color {
   }
 }
 .header .wrap .header-left {
-  width: 320px;
+  width: 360px;
   margin-top: 10px;
 }
 @media screen and (max-width: 752px) {
@@ -680,12 +680,11 @@ body > .background-color {
 }
 .header .wrap .header-left .header-slogan {
   width: 100%;
-  max-width: 310px;
   font-size: 18px;
 }
 .header .wrap .header-right {
-  width: 590px;
-  margin-left: 50px;
+  width: 580px;
+  margin-left: 20px;
   text-align: right;
 }
 @media screen and (max-width: 752px) {
