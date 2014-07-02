@@ -23,7 +23,7 @@
       @include align-items(flex-start);
     }
 
-    @include query($mobile-1) {
+    @include query($mobile-4) {
       .no-flexbox &,
       .flexbox & {
         display: block;
@@ -55,7 +55,7 @@
     width: 160px;
     text-align: right;
 
-    @include query($mobile-1) {
+    @include query($mobile-4) {
       max-width: 100%;
       margin-top: 20px;
     }
@@ -71,7 +71,7 @@
 
   .footer-left,
   .footer-right {
-    @include query($mobile-1) {
+    @include query($mobile-4) {
       width: auto;
       max-width: 100%;
       text-align: center;

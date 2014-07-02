@@ -60,7 +60,7 @@ body {
   height: 1px;
   @include bg($black, 0.25);
 
-  @include query($mobile-1) {
+  @include query($mobile-4) {
     width: auto;
   }
 }

@@ -655,7 +655,7 @@ body > .background-color {
   width: 360px;
   margin-top: 10px;
 }
-@media screen and (max-width: 752px) {
+@media screen and (max-width: 840px) {
   .header .wrap .header-left {
     width: auto;
   }
@@ -686,6 +686,11 @@ body > .background-color {
   width: 580px;
   margin-left: 20px;
   text-align: right;
+}
+@media screen and (max-width: 840px) {
+  .header .wrap .header-right {
+    position: absolute;
+  }
 }
 @media screen and (max-width: 752px) {
   .header .wrap .header-right {
@@ -843,7 +848,7 @@ body > .background-color {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 624px) {
+@media screen and (max-width: 506px) {
   .blog-page .post-position {
     margin: 25px auto 0;
     display: block;

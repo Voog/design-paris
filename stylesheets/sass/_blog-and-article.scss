@@ -158,7 +158,7 @@
       }
     }
 
-    @include query($tablet-4) {
+    @include query($mobile-3) {
       margin: 25px auto 0;
       display: block;
       max-width: 220px;
@@ -268,7 +268,7 @@
       }
     }
 
-    @include query($tablet-5) {
+    @include query($mobile-2) {
       .editmode.flexbox &,
       .editmode.no-flexbox & {
         display: block;

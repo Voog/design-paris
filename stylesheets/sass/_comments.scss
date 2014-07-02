@@ -64,7 +64,7 @@
       text-align: left;
     }
 
-    @include query($tablet-4) {
+    @include query($mobile-1) {
       text-align: left;
     }
   }
@@ -113,7 +113,7 @@
         @include opacity(0.75);
       }
 
-      @include query($mobile-2) {
+      @include query($mobile-5) {
         width: 100%;
       }
     }

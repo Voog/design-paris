@@ -37,7 +37,7 @@
       width: 360px;
       margin-top: 10px;
 
-      @include query($tablet-3) {
+      @include query($tablet-2) {
         width: auto;
       }
 
@@ -73,6 +73,10 @@
       width: 580px;
       margin-left: 20px;
       text-align: right;
+
+      @include query($tablet-2) {
+        position: absolute;
+      }
 
       @include query($tablet-3) {
         margin: 0 -20px;
