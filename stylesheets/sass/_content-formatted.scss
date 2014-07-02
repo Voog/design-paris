@@ -97,14 +97,11 @@
   pre {
     margin-top: 25px;
     margin-bottom: 0;
+    padding: 10px;
     overflow: auto;
     white-space: nowrap;
-
-    &, code {
-      padding: 10px;
-      font-size: 14px;
-      @include bg($black, 0.5);
-    }
+    font-size: 14px;
+    @include bg($black, 0.5);
 
     code {
       display: block;

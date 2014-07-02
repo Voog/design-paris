@@ -146,11 +146,9 @@ body > .background-color {
 .content-formatted pre {
   margin-top: 25px;
   margin-bottom: 0;
+  padding: 10px;
   overflow: auto;
   white-space: nowrap;
-}
-.content-formatted pre, .content-formatted pre code {
-  padding: 10px;
   font-size: 14px;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.5);
