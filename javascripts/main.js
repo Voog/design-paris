@@ -25,6 +25,18 @@
     });
   };
 
+  var handleSearchModalHeight = function() {
+    windowHeight = $(window).height(),
+    searchModalHeight = windowHeight - 124;
+    $('.voog-search-modal').css({'max-height': searchModalHeight});
+  };
+
+  var handleSearchSubmit = function() {
+    $('.js-search-form').on('submit', function() {
+      handleSearchModalHeight();
+    });
+  };
+
   // Reduces opacity of the gallery images that are not under the cursor.
   var handleGalleryHover = function() {
     $('.edys-gallery-item').mouseover(function() {
@@ -84,6 +96,7 @@
   var handleWindowResize = function() {
     $(window).resize(function() {
       handleTableHorizontalScrolling();
+      handleSearchModalHeight();
     });
   };
 
@@ -99,6 +112,7 @@
   var init = function() {
     toggleMainMenu();
     toggleLangMenu();
+    handleSearchSubmit();
     handlePopoverMenuHide();
     handleGalleryHover();
     handleWindowResize();

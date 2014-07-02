@@ -5,10 +5,6 @@
         <input id="onpage_search" class="search-input js-search-input js-input-dynamic" type="text" name="">
         <input class="search-submit js-search-submit" type="submit" value="" name="">
       </form>
-
-      <div class="voog-search-modal">
-        <div class="voog-search-modal-inner js-voog-search-modal-inner"></div>
-      </div>
     </div>
   </div>
 {% endif %}

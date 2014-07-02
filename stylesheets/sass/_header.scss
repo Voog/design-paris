@@ -15,7 +15,7 @@
       @include align-items(flex-start);
     }
 
-    @include query($tablet-3) {
+    @include query($tablet-4) {
       .no-flexbox &,
       .flexbox & {
         display: block;
@@ -27,7 +27,7 @@
       .no-flexbox &{
         display: table-cell;
 
-        @include query($tablet-3) {
+        @include query($tablet-4) {
           display: block;
         }
       }
@@ -37,7 +37,7 @@
       width: 360px;
       margin-top: 10px;
 
-      @include query($tablet-2) {
+      @include query($tablet-3) {
         width: auto;
       }
 
@@ -74,11 +74,11 @@
       margin-left: 20px;
       text-align: right;
 
-      @include query($tablet-2) {
-        position: absolute;
+      @include query($tablet-3) {
+        width: auto;
       }
 
-      @include query($tablet-3) {
+      @include query($tablet-4) {
         margin: 0 -20px;
         width: auto;
       }

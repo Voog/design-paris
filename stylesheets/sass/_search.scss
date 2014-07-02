@@ -7,8 +7,10 @@
   @include border(bottom,1px,solid,$black,.1);
   @extend %clearfix;
 
-  @include query($tablet-2) {
-    display: none;
+  @include query($tablet-3) {
+    position: absolute;
+    top: 41px;
+    right: 55px;
   }
 
   .search-inner {
@@ -86,94 +88,26 @@
 
 .voog-search-modal {
   position: absolute;
-  top: 50px;
-  left: -132px;
-  right: -140px;
-  z-index: 999;
-  max-width: 400px;
+  /* TODO: Remove this override if there's going to be a better solution */
+  top: 67px !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 400px;
+  max-height: 500px;
+  margin-top: 10px;
+  padding: 20px;
+  font-size: 14px;
+  @include bg($white);
+  @include box-shadow(0, 0, 30px, rgba($black, 0.3));
 
-  @include query($tablet-1) {
-    left: -220px;
-    right: -38px;
-  }
-
-  @include query($mobile-1) {
-    top: 86px;
+  &.voog-search-mobile-mode {
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    @include bg($white);
-  }
-}
-
-.voog-search-modal-inner {
-  display: none;
-  max-height: 760px;
-  padding: 20px;
-  text-align: left;
-  font-size: 14px;
-  line-height: 1.5;
-  @include bg($white);
-  @include box-shadow(0, 0, 30px, rgba($black, 0.3));
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  &.search-results-active {
-    display: block;
-  }
-
-  &.no-content.search-results-active {
-    text-align: center;
-
-    .voog-search-modal-results {
-      display: table-cell;
-      vertical-align: middle;
-      width: 100%;
-    }
-  }
-
-  @include query($mobile-1) {
-    display: block;
-    @include box-sizing(border-box);
-    height: 100%;
+    width: auto;
     max-height: none;
-    @include no-box-shadow;
-
-    &.no-content.search-results-active {
-      display: table;
-      table-layout: fixed;
-      width: 100%;
-      padding: 0;
-    }
   }
-
-  @media screen and (min-width: $mobile-1) and (max-height: 900px) {
-    max-height: 660px;
-  }
-
-  @media screen and (min-width: $mobile-1) and (max-height: 800px) {
-    max-height: 560px;
-  }
-
-  @media screen and (min-width: $mobile-1) and (max-height: 700px) {
-    max-height: 460px;
-  }
-
-  @media screen and (min-width: $mobile-1) and (max-height: 600px) {
-    max-height: 360px;
-  }
-
-  @media screen and (min-width: $mobile-1) and (max-height: 500px) {
-    max-height: 260px;
-  }
-
-  @media screen and (min-width: $mobile-1) and (max-height: 400px) {
-    max-height: 160px;
-  }
-}
-
-.voog-search-modal-results {
-
 }
 
 .voog-search-modal-result {

@@ -2,7 +2,7 @@
 .menu-btn {
   display: none;
 
-  @include query($tablet-2) {
+  @include query($tablet-3) {
     position: absolute;
     top: 46px;
     right: 20px;
@@ -53,7 +53,7 @@
     top: -1px;
   }
 
-  @include query($tablet-2) {
+  @include query($tablet-3) {
     .menu-main & {
       display: block;
       margin-left: 0;
@@ -87,7 +87,7 @@
   display: inline-block;
   vertical-align: middle;
 
-  @include query($tablet-2) {
+  @include query($tablet-3) {
     display: none;
 
     &.expanded {
@@ -141,7 +141,7 @@
         }
       }
 
-      @include query($tablet-2) {
+      @include query($tablet-3) {
         display: block;
         margin: 0;
         font-size: 20px;
@@ -157,7 +157,7 @@
   .menu-lang {
     display: none;
 
-    @include query($tablet-2) {
+    @include query($tablet-3) {
       display: block;
       margin-left: 0;
 
@@ -336,7 +336,7 @@
     }
   }
 
-  @include query($tablet-2) {
+  @include query($tablet-3) {
     display: none;
   }
 }
