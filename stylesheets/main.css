@@ -762,8 +762,58 @@ body > .background-color {
 .blog-page .post {
   display: inline-block;
   vertical-align: top;
+  margin-top: 25px;
+  margin-right: 21.5px;
   text-align: left;
   line-height: 1.2;
+}
+.blog-page .post:nth-child(4n) {
+  margin-right: 0;
+}
+@media screen and (max-width: 999px) {
+  .blog-page .post:nth-child(4n) {
+    margin-right: 21.5px;
+  }
+  .blog-page .post:nth-child(3n+3) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 752px) {
+  .blog-page .post:nth-child(2n+1) {
+    margin-right: 21.5px;
+  }
+  .blog-page .post:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 624px) {
+  .blog-page .post {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 25px auto 0;
+  }
+  .blog-page .post:first-child {
+    margin-top: 0;
+  }
+  .blog-page .post:nth-child(2n), .blog-page .post:nth-child(2n+1) {
+    margin-right: auto;
+  }
+  .blog-page .post .post-position {
+    position: relative;
+  }
+  .blog-page .post .post-position:after {
+    padding-top: 116.6%;
+    display: block;
+    content: '';
+  }
+  .blog-page .post .post-position .post-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 .blog-page .post .post-top,
 .blog-page .post .background-image,
@@ -774,6 +824,7 @@ body > .background-color {
 }
 .blog-page .post .post-top {
   position: relative;
+  overflow: hidden;
   display: block;
   text-decoration: none;
   background-color: black;
@@ -802,6 +853,12 @@ body > .background-color {
   height: 270px;
   padding: 15px 20px;
 }
+@media screen and (max-width: 624px) {
+  .blog-page .post .post-header {
+    width: auto;
+    height: auto;
+  }
+}
 .blog-page .post .post-header .post-title {
   margin: 0;
   font-weight: 400;
@@ -823,40 +880,6 @@ body > .background-color {
 }
 .blog-page .post .post-footer .post-date {
   font-size: 12px;
-}
-.blog-page .post-position {
-  overflow: hidden;
-  margin-top: 25px;
-  margin-right: 21.5px;
-}
-.blog-page .post-position:nth-child(4n) {
-  margin-right: 0;
-}
-@media screen and (max-width: 999px) {
-  .blog-page .post-position:nth-child(4n) {
-    margin-right: 21.5px;
-  }
-  .blog-page .post-position:nth-child(3n+3) {
-    margin-right: 0;
-  }
-}
-@media screen and (max-width: 752px) {
-  .blog-page .post-position:nth-child(2n+1) {
-    margin-right: 21.5px;
-  }
-  .blog-page .post-position:nth-child(2n) {
-    margin-right: 0;
-  }
-}
-@media screen and (max-width: 506px) {
-  .blog-page .post-position {
-    margin: 25px auto 0;
-    display: block;
-    max-width: 220px;
-  }
-  .blog-page .post-position:nth-child(2n), .blog-page .post-position:nth-child(2n+1) {
-    margin-right: auto;
-  }
 }
 
 .post-page .post {

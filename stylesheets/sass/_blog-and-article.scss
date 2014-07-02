@@ -58,8 +58,68 @@
   .post {
     display: inline-block;
     vertical-align: top;
+    margin-top: 25px;
+    margin-right: 21.5px;
     text-align: left;
     line-height: 1.2;
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    @include query($tablet-1) {
+      &:nth-child(4n) {
+        margin-right: 21.5px;
+      }
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+      }
+    }
+
+    @include query($tablet-3) {
+      &:nth-child(2n+1) {
+        margin-right: 21.5px;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @include query($mobile-1) {
+      display: block;
+      width: 100%;
+      max-width: none;
+      margin: 25px auto 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:nth-child(2n),
+      &:nth-child(2n+1) {
+        margin-right: auto;
+      }
+
+      .post-position {
+        position: relative;
+
+        &:after {
+          padding-top: 116.6%;
+          display: block;
+          content: '';
+        }
+
+        .post-top {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
 
     .post-top,
     .background-image,
@@ -69,6 +129,7 @@
 
     .post-top {
       position: relative;
+      overflow: hidden;
       display: block;
       text-decoration: none;
       @include bg($black, 0.2);
@@ -99,6 +160,11 @@
       height: 270px;
       padding: 15px 20px;
 
+      @include query($mobile-1) {
+        width: auto;
+        height: auto;
+      }
+
       .post-title {
         margin: 0;
         font-weight: 400;
@@ -125,47 +191,6 @@
 
       .post-date {
         font-size: 12px;
-      }
-    }
-  }
-
-  .post-position {
-    overflow: hidden;
-    margin-top: 25px;
-    margin-right: 21.5px;
-
-    &:nth-child(4n) {
-      margin-right: 0;
-    }
-
-    @include query($tablet-1) {
-      &:nth-child(4n) {
-        margin-right: 21.5px;
-      }
-
-      &:nth-child(3n+3) {
-        margin-right: 0;
-      }
-    }
-
-    @include query($tablet-3) {
-      &:nth-child(2n+1) {
-        margin-right: 21.5px;
-      }
-
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-    }
-
-    @include query($mobile-3) {
-      margin: 25px auto 0;
-      display: block;
-      max-width: 220px;
-
-      &:nth-child(2n),
-      &:nth-child(2n+1) {
-        margin-right: auto;
       }
     }
   }
