@@ -100,6 +100,10 @@
   @include bg($white);
   @include box-shadow(0, 0, 30px, rgba($black, 0.3));
 
+  &.no-content {
+    text-align: center;
+  }
+
   &.voog-search-mobile-mode {
     position: fixed;
     left: 0;

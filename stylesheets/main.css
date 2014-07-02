@@ -1121,6 +1121,9 @@ body > .background-color {
   -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
 }
+.voog-search-modal.no-content {
+  text-align: center;
+}
 .voog-search-modal.voog-search-mobile-mode {
   position: fixed;
   left: 0;
