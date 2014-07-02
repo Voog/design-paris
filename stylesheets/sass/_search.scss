@@ -11,6 +11,10 @@
     display: none;
   }
 
+  .search-inner {
+    position: relative;
+  }
+
   .search,
   .search-left,
   .search-right {
@@ -25,7 +29,7 @@
 
   .search-input {
     vertical-align: middle;
-    width: 108px;
+    width: 109px;
     height: $search-height;
     margin: 0;
     padding: 2px 5px 0 0;
@@ -77,5 +81,133 @@
     .search-submit {
       background: white url("../assets/ico-search.svg") center no-repeat;
     }
+  }
+}
+
+.voog-search-modal {
+  position: absolute;
+  top: 50px;
+  left: -132px;
+  right: -140px;
+  z-index: 999;
+  max-width: 400px;
+
+  @include query($tablet-1) {
+    left: -220px;
+    right: -38px;
+  }
+
+  @include query($mobile-1) {
+    top: 86px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include bg($white);
+  }
+}
+
+.voog-search-modal-inner {
+  display: none;
+  max-height: 760px;
+  padding: 20px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.5;
+  @include bg($white);
+  @include box-shadow(0, 0, 30px, rgba($black, 0.3));
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &.search-results-active {
+    display: block;
+  }
+
+  &.no-content.search-results-active {
+    text-align: center;
+
+    .voog-search-modal-results {
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+
+  @include query($mobile-1) {
+    display: block;
+    @include box-sizing(border-box);
+    height: 100%;
+    max-height: none;
+    @include no-box-shadow;
+
+    &.no-content.search-results-active {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  @media screen and (min-width: $mobile-1) and (max-height: 900px) {
+    max-height: 660px;
+  }
+
+  @media screen and (min-width: $mobile-1) and (max-height: 800px) {
+    max-height: 560px;
+  }
+
+  @media screen and (min-width: $mobile-1) and (max-height: 700px) {
+    max-height: 460px;
+  }
+
+  @media screen and (min-width: $mobile-1) and (max-height: 600px) {
+    max-height: 360px;
+  }
+
+  @media screen and (min-width: $mobile-1) and (max-height: 500px) {
+    max-height: 260px;
+  }
+
+  @media screen and (min-width: $mobile-1) and (max-height: 400px) {
+    max-height: 160px;
+  }
+}
+
+.voog-search-modal-results {
+
+}
+
+.voog-search-modal-result {
+  margin-top: 18px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      @include color($secondary-color);
+
+      &:hover {
+        @include color($secondary-color, 0.8);
+      }
+    }
+  }
+
+  p {
+    margin: 5px 0 0;
+    font-size: 14px;
+  }
+
+  em {
+    font-style: normal;
+    @include bg($yellow, 0.5);
+    border-radius: 2px;
+    padding: 0 0.2em;
   }
 }
