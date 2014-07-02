@@ -8,7 +8,6 @@ body {
   font-size: 18px;
   line-height: 1.5;
   color: #c2c2c2;
-  background-image: url("../images/body-bg.jpg");
 }
 body > .background-color {
   position: fixed;

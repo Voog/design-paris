@@ -20,7 +20,7 @@
     {% include "header" %}
     {% if editmode %}<button class="bgpicker-btn js-bgpicker-body-settings" data-bg-image="{{ body_image }}" data-bg-color="{{ body_color }}"></button>{% endif %}
 
-    <main class="content" role="main">
+    <main class="content js-content{{ body_color_class }}" role="main">
       <div class="wrap">
         <section class="blog">
           {% for item in site.menuitems_with_hidden %}
