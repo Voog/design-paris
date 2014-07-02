@@ -32,7 +32,7 @@
 
           {% comment %}<!-- TODO: Replace URL when this feature is added -->{% endcomment %}
           {% if editmode %}
-            <a class="post-add-link post-position js-post-add" href="#">
+            <a class="post-add-link post js-post-add" href="#">
               <div class="wrap">
                 <div class="align-middle">
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="72px" height="57px" viewBox="-21 -13.5 72 57" enable-background="new -21 -13.5 72 57" xml:space="preserve">
@@ -46,7 +46,7 @@
                     </g>
                   </svg>
 
-                  <h3 class="post-title">Add a new blog post</h3>
+                  <h3 class="post-add-title">Add a new blog post</h3>
                 </div>
               </div>
             </a>
