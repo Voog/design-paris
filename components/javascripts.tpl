@@ -1,6 +1,4 @@
-<script src="{{ javascripts_path }}/jquery.js?3"></script>
-<script src="{{ javascripts_path }}/main.js?3"></script>
-<script src="{{ javascripts_path }}/overthrow.js?3"></script>
+<script src="{{ javascripts_path }}/application.min.js?3"></script>
 <script src="{{ site.static_asset_host }}/libs/picturefill/1.0.0/picturefill.min.js?3"></script>
 
 {% if site.search.enabled %}
