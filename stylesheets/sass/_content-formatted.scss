@@ -8,6 +8,10 @@
   .content & {
     .front-page & {
       margin-top: 75px;
+
+      @include query($mobile-1) {
+        margin-top: 35px;
+      }
     }
   }
 
@@ -175,11 +179,11 @@
     // Draggable content area without content.
     // TODO: Remove if different color schemes are supported by E3.
     .edy-empty-bordered {
-        @include border(all, 1px, dashed, $white, 0.63);
+      @include border(all, 1px, dashed, $white, 0.63);
 
-        .edy-empty-header {
-          @include color($white, 0.63);
-        }
+      .edy-empty-header {
+        @include color($white, 0.63);
+      }
     }
 
     // Content area border.

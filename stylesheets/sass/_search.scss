@@ -2,15 +2,33 @@
 .search {
   display: inline-block;
   vertical-align: middle;
+  width: 146px;
   height: $search-height;
   line-height: 1;
-  @include border(bottom,1px,solid,$black,.1);
+  @include border(bottom,1px,solid,$black, 0.1);
   @extend %clearfix;
 
-  @include query($tablet-3) {
+  @include query($tablet-4) {
     position: absolute;
     top: 41px;
     right: 55px;
+  }
+
+  @include query($mobile-1) {
+    display: none;
+
+    &.active {
+      display: block;
+      top: 127px;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      @include box-sizing(border-box);
+      width: 100%;
+      height: auto;
+      @include bg($grey-1);
+      border: none;
+    }
   }
 
   .search-inner {
@@ -28,89 +46,207 @@
   .search-right {
     float: left;
   }
+}
 
-  .search-input {
-    vertical-align: middle;
-    width: 109px;
-    height: $search-height;
-    margin: 0;
-    padding: 2px 5px 0 0;
-    font-family: inherit;
-    font-size: 11px;
+.search-form {
+  margin-right: 27px;
+
+  @include query($mobile-1) {
+    margin-right: 55px;
+  }
+}
+
+.search-btn {
+  @extend %button;
+}
+
+.search-input,
+.search-submit {
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-input {
+  vertical-align: middle;
+  width: 100%;
+  height: $search-height;
+  @include box-sizing(border-box);
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1;
+  @include color($grey-1);
+  background: none;
+  border: none;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &::-webkit-input-placeholder {
+    padding: 2px 0 4px 0;
     line-height: 1;
-    @include color($primary-color);
-    background: none;
-    border: none;
-
-    &::-ms-clear {
-      display: none;
-    }
-
-    &::-webkit-input-placeholder {
-      padding: 2px 0 4px 0;
-      line-height: 1;
-    }
   }
 
-  .search-input,
-  .search-submit {
-    &:focus {
-      outline: none;
-    }
+  @include query($mobile-1) {
+    height: 40px;
+    padding: 7px 0 9px 20px;
+    font-size: 20px;
+    @include color($white, 0.8);
+  }
+}
+
+.search-submit,
+.search-open-btn {
+  .no-svg & {
+    background-repeat: no-repeat;
+    background-image: url("../images/ico-search.png");
+  }
+}
+
+.search-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  svg {
+    @include fill($black, 0.2);
   }
 
-  .search-submit {
-    display: inline-block;
-    vertical-align: top;
-    width: 17px;
-    height: $search-height;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.6;
+  &:hover {
+    svg {
+      @include fill($black, 0.5);
     }
   }
 
   .no-svg & {
-    .search-submit {
-      background: $white url("../images/ico-search.png") center no-repeat;
-    }
+    width: 60px;
+    height: 40px;
+    background-size: 23px;
+
   }
 
-  .svg & {
-    .search-submit {
-      background: white url("../assets/ico-search.svg") center no-repeat;
+  @include query($mobile-1) {
+    padding: 10px 20px 8px 15px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .no-svg & {
+      width: 23px;
+      height: 23px;
+      padding: 20px 23px 20px 32px;
+      background-position: 19px 6px;
+    }
+  }
+}
+
+.search-open-btn,
+.search-close-btn {
+  display: none;
+
+  @include query($mobile-1) {
+    position: absolute;
+    top: 44px;
+    right: 49px;
+    display: block;
+  }
+
+  svg {
+    @include fill($grey-4);
+  }
+
+  &:hover {
+    svg {
+      @include fill($grey-4, 0.8);
+    }
+  }
+}
+
+.search-open-btn {
+  @include query($mobile-1) {
+    display: block;
+
+    &.open {
+      display: none;
+    }
+
+    .no-svg & {
+      background-image: url('../images/ico-search.png');
+      background-size: 23px;
+    }
+  }
+}
+
+.search-close-btn {
+  @include query($mobile-1) {
+    display: none;
+
+    &.open {
+      display: inline-block;
     }
   }
 }
 
 .voog-search-modal {
   position: absolute;
-  /* TODO: Remove this override if there's going to be a better solution */
-  top: 67px !important;
-  overflow-x: hidden;
-  overflow-y: auto;
+  top: 35px;
+  left: -127px;
+  z-index: 9999;
   width: 400px;
-  max-height: 500px;
-  margin-top: 10px;
-  padding: 20px;
-  font-size: 14px;
   @include bg($white);
   @include box-shadow(0, 0, 30px, rgba($black, 0.3));
 
-  &.no-content {
-    text-align: center;
+  @include query($tablet-1) {
+    left: auto;
+    right: -35px;
   }
 
-  &.voog-search-mobile-mode {
+  @include query($tablet-4) {
+  }
+
+  @include query($mobile-1) {
     position: fixed;
+    top: 167px;
     left: 0;
     right: 0;
     bottom: 0;
     width: auto;
-    max-height: none;
+    margin-top: 0;
+  }
+}
+
+.voog-search-modal-inner {
+  display: none;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px;
+  text-align: left;
+  font-size: 14px;
+
+  &.search-results-active {
+    display: block;
+
+    &.no-content {
+      display: table;
+      width: 100%;
+      text-align: center;
+
+      .voog-search-modal-results {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  @include query($mobile-1) {
+    height: 100%;
+    @include box-sizing(border-box);
   }
 }
 

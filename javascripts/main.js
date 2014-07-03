@@ -1,36 +1,71 @@
 ;(function($) {
-  // Shows/hides the popover main menu (visible on smalles screens).
-  var toggleMainMenu = function() {
+  var handleElementsClick = function() {
+    $('html').click(function() {
+      if ($('.js-popover').hasClass('expanded')) {
+        $('.js-popover').removeClass('expanded');
+      }
+
+      if ($('.js-search-close-btn').hasClass('open') && $('.voog-search-modal').length === 0) {
+        $('.js-search-close-btn').trigger('click');
+      }
+    });
+
+    // Toggles the popover main menu (visible on smalles screens).
     $('.js-menu-btn').click(function(event) {
       event.stopPropagation();
       $(this).toggleClass('open');
       $('.js-menu-main').toggleClass('expanded');
-    });
-  };
 
-  // Shows/hides the popover language menu.
-  var toggleLangMenu = function() {
+      if ($('.js-search-close-btn').hasClass('open')) {
+        $('.js-search-close-btn').trigger('click');
+      }
+    });
+
+    // Toggles the popover language menu.
     $('.js-menu-lang-btn').click(function(event) {
       event.stopPropagation();
       $('.js-menu-lang-popover').toggleClass('expanded');
     });
-  };
 
-  // Hides the popover menus if clicked anywhere else than the menu itself.
-  var handlePopoverMenuHide = function() {
-    $('html').click(function() {
-      if ($('.js-menu-popover').hasClass('expanded')) {
-        $('.js-menu-popover').removeClass('expanded');
+    // Opens the search modal.
+    $('.js-search-open-btn').click(function(event) {
+      event.stopPropagation();
+      if ($('.js-menu-main').hasClass('expanded')) {
+        $('.js-menu-main').removeClass('expanded');
+        $('.js-menu-btn').removeClass('open');
       }
+
+      $(this).addClass('open');
+      $('body').addClass('search-open');
+      $('.js-search-close-btn').addClass('open');
+      $('.js-search').addClass('active');
+      $('.js-search-inner').css({'margin-top': '-25px'});
+      $('.js-search-input').val('').focus();
+    });
+
+    // Closes the search modal.
+    $('.js-search-close-btn').click(function(event) {
+      $(this).removeClass('open');
+      $('body').removeClass('search-open');
+      $('.js-search-open-btn').removeClass('open');
+      $('.js-search').removeClass('active');
+    });
+
+    // Prevents search modal closing on click
+    $('.js-search').click(function(event) {
+      event.stopPropagation();
     });
   };
 
+  // Sets the search modal synamic height.
   var handleSearchModalHeight = function() {
     windowHeight = $(window).height(),
     searchModalHeight = windowHeight - 124;
-    $('.voog-search-modal').css({'max-height': searchModalHeight});
+
+    $('.js-voog-search-modal-inner').css({'max-height': searchModalHeight});
   };
 
+  // Triggers search modal height calculation.
   var handleSearchSubmit = function() {
     $('.js-search-form').on('submit', function() {
       handleSearchModalHeight();
@@ -110,10 +145,8 @@
   };
 
   var init = function() {
-    toggleMainMenu();
-    toggleLangMenu();
+    handleElementsClick();
     handleSearchSubmit();
-    handlePopoverMenuHide();
     handleGalleryHover();
     handleWindowResize();
     wrapTables();

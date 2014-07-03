@@ -9,6 +9,12 @@ body {
   line-height: 1.5;
   color: #c2c2c2;
 }
+body.search-open {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
 body > .background-color {
   position: fixed;
   z-index: -2;
@@ -31,6 +37,22 @@ body > .background-color {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.search-btn {
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.search-btn, .search-btn::-moz-focus-inner {
+  padding: 0;
+}
+.search-btn:focus {
+  outline: none;
+}
+.search-btn::-moz-focus-inner {
+  border: none;
 }
 
 .bgpicker-btn {
@@ -79,6 +101,11 @@ body > .background-color {
 }
 .front-page .content .content-formatted {
   margin-top: 75px;
+}
+@media screen and (max-width: 640px) {
+  .front-page .content .content-formatted {
+    margin-top: 35px;
+  }
 }
 .content-formatted h1, .content-formatted h2, .content-formatted h3, .content-formatted h4, .content-formatted h5, .content-formatted h6, .content-formatted p, .content-formatted ul, .content-formatted ol, .content-formatted pre, .content-formatted code, .content-formatted img, .content-formatted iframe, .content-formatted table, .content-formatted form {
   margin-bottom: 0;
@@ -1036,6 +1063,7 @@ body > .background-color {
 .search {
   display: inline-block;
   vertical-align: middle;
+  width: 146px;
   height: 24px;
   line-height: 1;
   border-bottom: 1px solid black;
@@ -1046,6 +1074,25 @@ body > .background-color {
     position: absolute;
     top: 41px;
     right: 55px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .search {
+    display: none;
+  }
+  .search.active {
+    display: block;
+    top: 127px;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    background-color: #787878;
+    border: none;
   }
 }
 .search .search-inner {
@@ -1061,76 +1108,196 @@ body > .background-color {
 .search .search-right {
   float: left;
 }
-.search .search-input {
+
+.search-form {
+  margin-right: 27px;
+}
+@media screen and (max-width: 640px) {
+  .search-form {
+    margin-right: 55px;
+  }
+}
+
+.search-input:focus,
+.search-submit:focus {
+  outline: none;
+}
+
+.search-input {
   vertical-align: middle;
-  width: 109px;
+  width: 100%;
   height: 24px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
-  padding: 2px 5px 0 0;
+  padding: 0;
   font-family: inherit;
   font-size: 11px;
   line-height: 1;
-  color: #c2c2c2;
+  color: #787878;
   background: none;
   border: none;
 }
-.search .search-input::-ms-clear {
+.search-input::-ms-clear {
   display: none;
 }
-.search .search-input::-webkit-input-placeholder {
+.search-input::-webkit-input-placeholder {
   padding: 2px 0 4px 0;
   line-height: 1;
 }
-.search .search-input:focus,
-.search .search-submit:focus {
-  outline: none;
+@media screen and (max-width: 640px) {
+  .search-input {
+    height: 40px;
+    padding: 7px 0 9px 20px;
+    font-size: 20px;
+    color: white;
+    color: rgba(255, 255, 255, 0.8);
+  }
 }
-.search .search-submit {
-  display: inline-block;
-  vertical-align: top;
-  width: 17px;
-  height: 24px;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
+
+.no-svg .search-submit, .no-svg
+.search-open-btn {
+  background-repeat: no-repeat;
+  background-image: url("../images/ico-search.png");
 }
-.search .search-submit:hover {
-  opacity: 0.6;
+
+.search-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.no-svg .search .search-submit {
-  background: white url("../images/ico-search.png") center no-repeat;
+.search-submit svg {
+  fill: black;
+  fill: rgba(0, 0, 0, 0.2);
 }
-.svg .search .search-submit {
-  background: white url("../assets/ico-search.svg") center no-repeat;
+.search-submit:hover svg {
+  fill: black;
+  fill: rgba(0, 0, 0, 0.5);
+}
+.no-svg .search-submit {
+  width: 60px;
+  height: 40px;
+  background-size: 23px;
+}
+@media screen and (max-width: 640px) {
+  .search-submit {
+    padding: 10px 20px 8px 15px;
+  }
+  .search-submit svg {
+    width: 20px;
+    height: 20px;
+  }
+  .no-svg .search-submit {
+    width: 23px;
+    height: 23px;
+    padding: 20px 23px 20px 32px;
+    background-position: 19px 6px;
+  }
+}
+
+.search-open-btn,
+.search-close-btn {
+  display: none;
+}
+@media screen and (max-width: 640px) {
+  .search-open-btn,
+  .search-close-btn {
+    position: absolute;
+    top: 44px;
+    right: 49px;
+    display: block;
+  }
+}
+.search-open-btn svg,
+.search-close-btn svg {
+  fill: #666666;
+}
+.search-open-btn:hover svg,
+.search-close-btn:hover svg {
+  fill: #666666;
+  fill: rgba(102, 102, 102, 0.8);
+}
+
+@media screen and (max-width: 640px) {
+  .search-open-btn {
+    display: block;
+  }
+  .search-open-btn.open {
+    display: none;
+  }
+  .no-svg .search-open-btn {
+    background-image: url("../images/ico-search.png");
+    background-size: 23px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .search-close-btn {
+    display: none;
+  }
+  .search-close-btn.open {
+    display: inline-block;
+  }
 }
 
 .voog-search-modal {
   position: absolute;
-  /* TODO: Remove this override if there's going to be a better solution */
-  top: 67px !important;
-  overflow-x: hidden;
-  overflow-y: auto;
+  top: 35px;
+  left: -127px;
+  z-index: 9999;
   width: 400px;
-  max-height: 500px;
-  margin-top: 10px;
-  padding: 20px;
-  font-size: 14px;
   background-color: white;
   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
   -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
 }
-.voog-search-modal.no-content {
+@media screen and (max-width: 1048px) {
+  .voog-search-modal {
+    left: auto;
+    right: -35px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .voog-search-modal {
+    position: fixed;
+    top: 167px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    margin-top: 0;
+  }
+}
+
+.voog-search-modal-inner {
+  display: none;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px;
+  text-align: left;
+  font-size: 14px;
+}
+.voog-search-modal-inner.search-results-active {
+  display: block;
+}
+.voog-search-modal-inner.search-results-active.no-content {
+  display: table;
+  width: 100%;
   text-align: center;
 }
-.voog-search-modal.voog-search-mobile-mode {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: auto;
-  max-height: none;
+.voog-search-modal-inner.search-results-active.no-content .voog-search-modal-results {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media screen and (max-width: 640px) {
+  .voog-search-modal-inner {
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 }
 
 .voog-search-modal-result {
