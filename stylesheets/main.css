@@ -682,6 +682,7 @@ body > .background-color {
 @media screen and (max-width: 840px) {
   .header .wrap .header-left {
     width: auto;
+    margin-right: 70px;
   }
 }
 .header .wrap .header-left .header-title,
