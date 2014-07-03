@@ -19,16 +19,11 @@ module.exports = function(grunt) {
           'javascripts/application.min.js': ['<%= concat.dist.dest %>']
         }
       }
-    },
-    watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'qunit']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['concat', 'uglify']);
 };
