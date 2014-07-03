@@ -365,6 +365,9 @@ body > .background-color {
 .menu-main .menu .menu-item:first-child {
   margin-left: 0;
 }
+.menu-main .menu .menu-item:first-child .menu-link {
+  font-weight: 700;
+}
 .menu-main .menu .menu-item .menu-link {
   display: block;
   color: #303132;
@@ -1072,7 +1075,6 @@ body > .background-color {
   vertical-align: middle;
   width: 146px;
   height: 24px;
-  line-height: 1;
   border-bottom: 1px solid black;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -1118,6 +1120,7 @@ body > .background-color {
 
 .search-form {
   margin-right: 27px;
+  line-height: 1;
 }
 @media screen and (max-width: 640px) {
   .search-form {

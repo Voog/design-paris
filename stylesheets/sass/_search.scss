@@ -4,7 +4,6 @@
   vertical-align: middle;
   width: 146px;
   height: $search-height;
-  line-height: 1;
   @include border(bottom,1px,solid,$black, 0.1);
   @extend %clearfix;
 
@@ -50,6 +49,7 @@
 
 .search-form {
   margin-right: 27px;
+  line-height: 1;
 
   @include query($mobile-1) {
     margin-right: 55px;

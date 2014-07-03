@@ -1,19 +1,9 @@
 
 .DS_Store
 
-.construction
-
-.demo
-
-.develop
-
-.live
-
-.template
-
-.test
-
 .voog
+
+application.js
 
 .sass-cache
 
