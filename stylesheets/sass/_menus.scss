@@ -131,14 +131,15 @@
         display: block;
         @include color($third-color,1);
 
-        &:hover,
-        &.active {
-          @include color($third-color, 0.8);
+        &.active,
+        &.active:hover {
+          @include opacity(0.5);
+          @include filter(grayscale(100%));
         }
 
-        &.active {
-          font-weight: 700;
-          @include color($third-color,1);
+        &:hover {
+          @include opacity(0.75);
+          @include filter(grayscale(50%));
         }
       }
 

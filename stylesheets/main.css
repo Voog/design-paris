@@ -369,13 +369,19 @@ body > .background-color {
   display: block;
   color: #303132;
 }
-.menu-main .menu .menu-item .menu-link:hover, .menu-main .menu .menu-item .menu-link.active {
-  color: #303132;
-  color: rgba(48, 49, 50, 0.8);
+.menu-main .menu .menu-item .menu-link.active, .menu-main .menu .menu-item .menu-link.active:hover {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
-.menu-main .menu .menu-item .menu-link.active {
-  font-weight: 700;
-  color: #303132;
+.menu-main .menu .menu-item .menu-link:hover {
+  opacity: 0.75;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+  filter: alpha(opacity=75);
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
 }
 @media screen and (max-width: 840px) {
   .menu-main .menu .menu-item {
