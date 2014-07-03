@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['javascripts/src/jquery.js', 'javascripts/src/*.js', '!javascripts/src/application.js'],
-        dest: 'javascripts/src/application.js'
+        dest: 'javascripts/application.js'
       }
     },
     uglify: {

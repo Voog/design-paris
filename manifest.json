@@ -195,9 +195,21 @@
     },
     {
       "content_type": "application/javascript",
+      "file": "javascripts/application.js",
+      "kind": "javascripts",
+      "filename": "application.js"
+    },
+    {
+      "content_type": "application/javascript",
       "file": "javascripts/application.min.js",
       "kind": "javascripts",
       "filename": "application.min.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/modernizr.js",
+      "kind": "javascripts",
+      "filename": "modernizr.js"
     },
     {
       "content_type": "application/javascript",
@@ -207,9 +219,21 @@
     },
     {
       "content_type": "text/css",
+      "file": "stylesheets/ie8.css",
+      "kind": "stylesheets",
+      "filename": "ie8.css"
+    },
+    {
+      "content_type": "text/css",
       "file": "stylesheets/ie8.min.css",
       "kind": "stylesheets",
       "filename": "ie8.min.css"
+    },
+    {
+      "content_type": "text/css",
+      "file": "stylesheets/main.css",
+      "kind": "stylesheets",
+      "filename": "main.css"
     },
     {
       "content_type": "text/css",
