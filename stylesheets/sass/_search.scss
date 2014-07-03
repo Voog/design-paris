@@ -222,9 +222,10 @@
 
 .voog-search-modal-inner {
   display: none;
-  max-height: 500px;
+  @include box-sizing(border-box);
   overflow-x: hidden;
   overflow-y: auto;
+  max-height: 500px;
   padding: 20px;
   text-align: left;
   font-size: 14px;
