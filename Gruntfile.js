@@ -6,24 +6,51 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['javascripts/src/jquery.js', 'javascripts/src/*.js', '!javascripts/src/application.js'],
+        src: ['javascripts/src/jquery.js', 'javascripts/src/*.js'],
         dest: 'javascripts/application.js'
       }
     },
     uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      build: {
+        files: [{
+          expand: true,
+          cwd: 'javascripts/',
+          src: ['*.js', '!*.min.js'],
+          dest: 'javascripts/',
+          ext: '.min.js'
+        }]
+      }
+    },
+    cssmin: {
+      minify: {
+        expand: true,
+        cwd: 'stylesheets/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'stylesheets/',
+        ext: '.min.css'
+      }
+    },
+    watch: {
+      css: {
+        files: ['stylesheets/*.css', '!stylesheets/*.min.css'],
+        tasks: ['cssmin'],
+        options: {
+          spawn: false
+        }
       },
-      dist: {
-        files: {
-          'javascripts/application.min.js': ['<%= concat.dist.dest %>']
+      js: {
+        files: ['javascripts/*.js', '!javascripts/*.min.js'],
+        tasks: ['uglify'],
+        options: {
+          spawn: false
         }
       }
     }
   });
-
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
 };

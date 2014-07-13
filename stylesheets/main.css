@@ -244,6 +244,10 @@ body > .background-color {
   outline: 1px solid rgba(255, 255, 255, 0.63);
 }
 
+body {
+  display: none !important;
+}
+
 /* MENUS */
 .menu-btn {
   display: none;
@@ -622,21 +626,21 @@ body > .background-color {
   }
 }
 
-.menu-tags {
+.tags {
   margin-top: 20px;
 }
-.menu-tags .menu .menu-item,
-.menu-tags .menu .menu-item .menu-link {
+.tags .menu .menu-item,
+.tags .menu .menu-item .menu-link {
   color: white;
 }
-.menu-tags .menu .menu-item .tag {
+.tags .menu .menu-item .tag {
   display: inline-block;
 }
-.menu-tags .menu .menu-item .menu-link {
+.tags .menu .menu-item .menu-link {
   text-decoration: underline;
   font-size: 14px;
 }
-.menu-tags .menu .menu-item .menu-link:hover {
+.tags .menu .menu-item .menu-link:hover {
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);

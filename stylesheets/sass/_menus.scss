@@ -1,3 +1,7 @@
+body {
+  display: none !important;
+}
+
 /* MENUS */
 .menu-btn {
   display: none;
@@ -431,7 +435,7 @@
   }
 }
 
-.menu-tags {
+.tags {
   margin-top: 20px;
 
   .menu {
