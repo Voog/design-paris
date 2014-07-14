@@ -1,10 +1,6 @@
-body {
-  display: none !important;
-}
-
 /* MENUS */
 .menu-btn {
-  display: none;
+  display: block;
 
   @include query($tablet-4) {
     position: absolute;
