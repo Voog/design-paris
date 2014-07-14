@@ -219,27 +219,39 @@
     },
     {
       "content_type": "text/css",
-      "kind": "stylesheets",
       "file": "stylesheets/ie8.css",
+      "kind": "stylesheets",
       "filename": "ie8.css"
     },
     {
       "content_type": "text/css",
-      "kind": "stylesheets",
-      "file": "stylesheets/main.css",
-      "filename": "main.css"
-    },
-    {
-      "content_type": "text/css",
-      "kind": "stylesheets",
       "file": "stylesheets/ie8.min.css",
+      "kind": "stylesheets",
       "filename": "ie8.min.css"
     },
     {
       "content_type": "text/css",
+      "file": "stylesheets/main.css",
       "kind": "stylesheets",
+      "filename": "main.css"
+    },
+    {
+      "content_type": "text/css",
       "file": "stylesheets/main.min.css",
+      "kind": "stylesheets",
       "filename": "main.min.css"
+    },
+    {
+      "content_type": "application/javascript",
+      "kind": "javascripts",
+      "file": "javascripts/autogrow.js",
+      "filename": "autogrow.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "kind": "javascripts",
+      "file": "javascripts/autogrow.min.js",
+      "filename": "autogrow.min.js"
     }
   ]
 }
