@@ -219,26 +219,26 @@
     },
     {
       "content_type": "text/css",
-      "file": "stylesheets/ie8.css",
       "kind": "stylesheets",
+      "file": "stylesheets/ie8.css",
       "filename": "ie8.css"
     },
     {
       "content_type": "text/css",
-      "file": "stylesheets/ie8.min.css",
       "kind": "stylesheets",
-      "filename": "ie8.min.css"
-    },
-    {
-      "content_type": "text/css",
       "file": "stylesheets/main.css",
-      "kind": "stylesheets",
       "filename": "main.css"
     },
     {
       "content_type": "text/css",
-      "file": "stylesheets/main.min.css",
       "kind": "stylesheets",
+      "file": "stylesheets/ie8.min.css",
+      "filename": "ie8.min.css"
+    },
+    {
+      "content_type": "text/css",
+      "kind": "stylesheets",
+      "file": "stylesheets/main.min.css",
       "filename": "main.min.css"
     }
   ]
