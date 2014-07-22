@@ -406,6 +406,13 @@ body > .background-color {
 .menu-sub .menu-link {
   color: #c2c2c2;
 }
+.menu-sub .menu-link.active {
+  color: white;
+}
+.menu-sub .menu-link:hover {
+  color: white;
+  color: rgba(255, 255, 255, 0.8);
+}
 
 .menu-lang {
   display: inline-block;
@@ -425,8 +432,12 @@ body > .background-color {
   color: black;
   color: rgba(0, 0, 0, 0.53);
 }
+.menu-lang .menu-link.active {
+  color: black;
+}
 .menu-lang .menu-link:hover:not(.active) {
   color: black;
+  color: rgba(0, 0, 0, 0.8);
 }
 .menu-lang .edit-btn {
   position: relative;

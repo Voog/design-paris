@@ -168,6 +168,14 @@
 
   .menu-link {
     @include color($primary-color);
+
+    &.active {
+      @include color($white);
+    }
+
+    &:hover {
+      @include color($white, 0.8);
+    }
   }
 }
 
@@ -191,8 +199,12 @@
     font-size: 11px;
     @include color($black, 0.53);
 
+    &.active {
+      @include color($black, 1);
+    }
+
     &:hover:not(.active) {
-      @include color($black);
+      @include color($black, 0.8);
     }
   }
 
