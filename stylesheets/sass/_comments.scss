@@ -34,7 +34,7 @@
 .comment-date {
   margin-left: 10px;
   font-size: 11px;
-  @include color($grey-4);
+  @include color($black, 0.6);
 }
 
 .comment-form {

@@ -283,7 +283,7 @@
       margin: 0;
       padding: 25px;
       font-size: 14px;
-      @include color($grey-1);
+      @include color($black, 0.53);
 
       .flexbox & {
         @include align-self(center);

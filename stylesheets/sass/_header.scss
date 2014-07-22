@@ -45,7 +45,7 @@
       .header-title,
       .header-slogan {
         line-height: 1;
-        @include color($grey-1);
+        @include color($black, 0.53);
       }
 
       .header-title {

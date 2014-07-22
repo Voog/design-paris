@@ -261,8 +261,8 @@ body > .background-color {
     cursor: pointer;
   }
   .menu-btn.open .menu-stripe, .menu-btn.hover .menu-stripe {
-    background-color: #666666;
-    background-color: rgba(102, 102, 102, 0.8);
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.48);
   }
   .menu-btn:focus {
     outline: none;
@@ -276,7 +276,8 @@ body > .background-color {
     width: 25px;
     height: 4px;
     margin: 4px 0;
-    background-color: #666666;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
   }
   .menu-btn .menu-stripe:first-child, .menu-btn .menu-stripe:last-child {
@@ -421,7 +422,8 @@ body > .background-color {
 }
 .menu-lang .menu-link {
   font-size: 11px;
-  color: #787878;
+  color: black;
+  color: rgba(0, 0, 0, 0.53);
 }
 .menu-lang .menu-link:hover:not(.active) {
   color: black;
@@ -669,7 +671,8 @@ body > .background-color {
 .header .wrap .header-left .header-title,
 .header .wrap .header-left .header-slogan {
   line-height: 1;
-  color: #787878;
+  color: black;
+  color: rgba(0, 0, 0, 0.53);
 }
 .header .wrap .header-left .header-title {
   font-weight: 700;
@@ -973,7 +976,8 @@ body > .background-color {
   margin: 0;
   padding: 25px;
   font-size: 14px;
-  color: #787878;
+  color: black;
+  color: rgba(0, 0, 0, 0.53);
 }
 .flexbox .post-page .post .edy-img-drop-area-placeholder {
   -webkit-align-self: center;
@@ -1072,7 +1076,8 @@ body > .background-color {
     box-sizing: border-box;
     width: 100%;
     height: auto;
-    background-color: #787878;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.53);
     border: none;
   }
 }
@@ -1117,7 +1122,8 @@ body > .background-color {
   font-family: inherit;
   font-size: 11px;
   line-height: 1;
-  color: #787878;
+  color: black;
+  color: rgba(0, 0, 0, 0.53);
   background: none;
   border: none;
 }
@@ -1193,12 +1199,13 @@ body > .background-color {
 }
 .search-open-btn svg,
 .search-close-btn svg {
-  fill: #666666;
+  fill: black;
+  fill: rgba(0, 0, 0, 0.6);
 }
 .search-open-btn:hover svg,
 .search-close-btn:hover svg {
-  fill: #666666;
-  fill: rgba(102, 102, 102, 0.8);
+  fill: black;
+  fill: rgba(0, 0, 0, 0.48);
 }
 
 @media screen and (max-width: 640px) {
@@ -1356,7 +1363,8 @@ body > .background-color {
   color: #c2c2c2;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.2);
-  border: 1px solid #555555;
+  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.67);
   border-radius: 2px;
 }
 .content-formatted .form_field_textfield,
@@ -1472,7 +1480,8 @@ body > .background-color {
 .comment-date {
   margin-left: 10px;
   font-size: 11px;
-  color: #666666;
+  color: black;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .comment-form {

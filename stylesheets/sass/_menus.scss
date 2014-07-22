@@ -16,7 +16,7 @@
     &.open,
     &.hover {
       .menu-stripe {
-        @include bg($grey-4, 0.8);
+        @include bg($black, 0.48);
       }
     }
 
@@ -34,7 +34,7 @@
       width: 25px;
       height: 4px;
       margin: 4px 0;
-      @include bg($grey-4);
+      @include bg($black, 0.6);
       border-radius: 5px;
 
       &:first-child,
@@ -189,7 +189,7 @@
 
   .menu-link {
     font-size: 11px;
-    @include color($grey-1);
+    @include color($black, 0.53);
 
     &:hover:not(.active) {
       @include color($black);

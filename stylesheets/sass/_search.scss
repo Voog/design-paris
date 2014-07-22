@@ -25,7 +25,7 @@
       @include box-sizing(border-box);
       width: 100%;
       height: auto;
-      @include bg($grey-1);
+      @include bg($black, 0.53);
       border: none;
     }
   }
@@ -77,7 +77,7 @@
   font-family: inherit;
   font-size: 11px;
   line-height: 1;
-  @include color($grey-1);
+  @include color($black, 0.53);
   background: none;
   border: none;
 
@@ -157,12 +157,12 @@
   }
 
   svg {
-    @include fill($grey-4);
+    @include fill($black, 0.6);
   }
 
   &:hover {
     svg {
-      @include fill($grey-4, 0.8);
+      @include fill($black, 0.48);
     }
   }
 }
