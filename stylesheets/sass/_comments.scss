@@ -103,7 +103,7 @@
       font-family: inherit;
       font-weight: 700;
       font-size: 16px;
-      @include color($red);
+      @include color($red-1);
       @include bg($red-2);
       border: none;
       cursor: pointer;
