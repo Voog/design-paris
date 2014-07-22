@@ -101,7 +101,7 @@
 
   .menu-link {
     display: block;
-    @include color($third-color,1);
+    @include color($black, 0.8);
 
     &:hover:not(.active) {
       @include opacity(0.5);
@@ -120,7 +120,7 @@
       min-width: 350px;
       margin-bottom: 60px;
       text-align: left;
-      @include bg($white);
+      @include bg($primary-color);
       @include box-shadow(0, 5px, 25px, rgba($black, 0.3));
     }
 
@@ -174,7 +174,7 @@
     }
 
     &:hover {
-      @include color($white, 0.9);
+      @include color($primary-color, 0.9);
     }
   }
 }
@@ -410,7 +410,7 @@
 
   .menu-item,
   .menu-link {
-    @include color($white);
+    @include color($primary-color);
   }
 
   .menu-item {
@@ -426,5 +426,5 @@
 }
 
 .edy-tag-input {
-  @include color($white);
+  @include color($primary-color);
 }

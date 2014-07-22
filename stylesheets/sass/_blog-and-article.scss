@@ -1,6 +1,6 @@
 /* BLOG & BLOG ARTICLE */
 .post-date {
-  @include color($white, 0.3);
+  @include color($primary-color, 0.3);
 }
 
 .post-title {
@@ -21,8 +21,8 @@
     width: 218px;
     height: 298px;
     text-decoration: none;
-    @include color($white, 0.2);
-    @include border(all, 1px, dashed, $white, 0.1);
+    @include color($primary-color, 0.2);
+    @include border(all, 1px, dashed, $primary-color, 0.1);
 
     &, &:hover {
       @include transition-property (color, border);
@@ -30,8 +30,8 @@
     }
 
     &:hover {
-      @include color($white, 0.5);
-      @include border(all, 1px, dashed, $white, 0.5);
+      @include color($primary-color, 0.5);
+      @include border(all, 1px, dashed, $primary-color, 0.5);
     }
 
     .post-add-link-inner {
@@ -199,7 +199,7 @@
         margin: 0;
         font-weight: 400;
         font-size: 34px;
-        @include color($white);
+        @include color($primary-color);
       }
     }
 
@@ -259,7 +259,7 @@
       width: 220px;
       height: 300px;
       margin-top: 11px;
-      @include border(all, 1px, dashed, $white, 0.1);
+      @include border(all, 1px, dashed, $primary-color, 0.1);
 
       .flexbox & {
         @include flexbox;
@@ -308,7 +308,7 @@
         margin: 0;
         text-transform: uppercase;
         font-size: 29px;
-        @include color($white);
+        @include color($primary-color);
       }
 
       .post-date {

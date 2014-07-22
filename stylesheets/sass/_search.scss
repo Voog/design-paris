@@ -94,7 +94,7 @@
     height: 40px;
     padding: 7px 0 9px 20px;
     font-size: 20px;
-    @include color($white, 0.8);
+    @include color($primary-color, 0.8);
   }
 }
 
@@ -198,8 +198,8 @@
   left: -127px;
   z-index: 9999;
   width: 400px;
-  @include color($black, 0.34);
-  @include bg($white);
+  @include color($black, 0.4);
+  @include bg($primary-color);
 
   @include query($tablet-1) {
     left: auto;

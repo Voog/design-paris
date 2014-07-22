@@ -33,7 +33,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
-    @include color($white);
+    @include color($primary-color);
   }
 
   h1 {
@@ -51,7 +51,7 @@
     margin-top: 20px;
     font-weight: 400;
     font-size: 16px;
-    @include color($white);
+    @include color($primary-color);
 
     .front-page & {
       font-size: 34px;
@@ -83,7 +83,7 @@
   }
 
   a {
-    @include color($white,1);
+    @include color($primary-color,1);
 
     &:hover {
       text-decoration: none;
@@ -132,8 +132,8 @@
 
   // Adds dashed border to indicate that the table is too wide and can be scrolled horizontally.
   .horizontal-scroll {
-    @include border(left, 1px, dashed, $third-color);
-    @include border(right, 1px, dashed, $third-color);
+    @include border(left, 1px, dashed, $black, 0.3);
+    @include border(right, 1px, dashed, $black, 0.3);
   }
 
   table {
@@ -144,8 +144,8 @@
 
     td {
       padding: 10px;
-      @include border(top, 1px, solid, $third-color);
-      @include border(bottom, 1px, solid, $third-color);
+      @include border(top, 1px, solid, $black, 0.3);
+      @include border(bottom, 1px, solid, $black, 0.3);
     }
   }
 
@@ -173,30 +173,30 @@
     }
 
     & .placeholder {
-      @include color($white, 0.5);
+      @include color($primary-color, 0.5);
     }
 
     // Draggable content area without content.
     // TODO: Remove if different color schemes are supported by E3.
     .edy-empty-bordered {
-      @include border(all, 1px, dashed, $white, 0.63);
+      @include border(all, 1px, dashed, $primary-color, 0.63);
 
       .edy-empty-header {
-        @include color($white, 0.63);
+        @include color($primary-color, 0.63);
       }
     }
 
     // Content area border.
     .edy-content-element-hover {
-      @include border(all, 1px, solid, $white, 0.2);
+      @include border(all, 1px, solid, $primary-color, 0.2);
     }
 
     .edy-texteditor-active {
       .footer & {
-        outline: 1px solid rgba($white, 0.4);
+        outline: 1px solid rgba($primary-color, 0.4);
 
         &:hover {
-          outline: 1px solid rgba($white, 0.63)
+          outline: 1px solid rgba($primary-color, 0.63)
         }
       }
     }
