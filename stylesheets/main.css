@@ -413,12 +413,8 @@ body > .background-color {
   color: white;
   color: rgba(255, 255, 255, 0.8);
 }
-.menu-sub .menu-link.active {
+.menu-sub .menu-link.active, .menu-sub .menu-link:hover {
   color: white;
-}
-.menu-sub .menu-link:hover {
-  color: white;
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .menu-lang {

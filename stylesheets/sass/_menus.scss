@@ -169,12 +169,9 @@
   .menu-link {
     @include color($primary-color, 0.8);
 
-    &.active {
-      @include color($primary-color);
-    }
-
+    &.active,
     &:hover {
-      @include color($primary-color, 0.9);
+      @include color($primary-color);
     }
   }
 }
