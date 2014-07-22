@@ -167,14 +167,14 @@
   }
 
   .menu-link {
-    @include color($primary-color);
+    @include color($primary-color, 0.8);
 
     &.active {
-      @include color($white);
+      @include color($primary-color);
     }
 
     &:hover {
-      @include color($white, 0.8);
+      @include color($white, 0.9);
     }
   }
 }

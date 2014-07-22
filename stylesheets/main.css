@@ -7,7 +7,8 @@ body {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  color: #c2c2c2;
+  color: white;
+  color: rgba(255, 255, 255, 0.7);
 }
 body.search-open {
   position: fixed;
@@ -299,8 +300,8 @@ body > .background-color {
     display: block;
     margin-left: 0;
     padding: 9px 30px 10px;
-    border-bottom: 1px solid #c2c2c2;
-    border-bottom: 1px solid rgba(194, 194, 194, 0.2);
+    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -366,8 +367,8 @@ body > .background-color {
     display: block;
     margin: 0;
     font-size: 20px;
-    border-bottom: 1px solid #c2c2c2;
-    border-bottom: 1px solid rgba(194, 194, 194, 0.2);
+    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
   .menu-main .menu-link {
     padding: 9px 25px 7px;
@@ -380,8 +381,8 @@ body > .background-color {
     right: 0;
     min-width: 0;
     margin-bottom: 40px;
-    border-top: 1px solid #c2c2c2;
-    border-top: 1px solid rgba(194, 194, 194, 0.2);
+    border-top: 1px solid white;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -404,14 +405,15 @@ body > .background-color {
   margin-left: 0;
 }
 .menu-sub .menu-link {
-  color: #c2c2c2;
+  color: white;
+  color: rgba(255, 255, 255, 0.8);
 }
 .menu-sub .menu-link.active {
   color: white;
 }
 .menu-sub .menu-link:hover {
   color: white;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .menu-lang {
@@ -1247,10 +1249,9 @@ body > .background-color {
   left: -127px;
   z-index: 9999;
   width: 400px;
+  color: black;
+  color: rgba(0, 0, 0, 0.34);
   background-color: white;
-  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
-  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
 }
 @media screen and (max-width: 1048px) {
   .voog-search-modal {
@@ -1281,6 +1282,9 @@ body > .background-color {
   padding: 20px;
   text-align: left;
   font-size: 14px;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
+  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
 }
 .voog-search-modal-inner.search-results-active {
   display: block;
@@ -1371,7 +1375,7 @@ body > .background-color {
 .content-formatted .form_field_textfield,
 .content-formatted .form_field_textarea,
 .content-formatted .form_submit input {
-  color: #c2c2c2;
+  color: white;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.2);
   border: 1px solid black;
@@ -1491,8 +1495,8 @@ body > .background-color {
 .comment-date {
   margin-left: 10px;
   font-size: 11px;
-  color: black;
-  color: rgba(0, 0, 0, 0.6);
+  color: white;
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .comment-form {
@@ -1537,7 +1541,8 @@ body > .background-color {
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
-  color: #c2c2c2;
+  color: white;
+  color: rgba(255, 255, 255, 0.6);
   background: transparent;
   border: none;
 }
@@ -1606,8 +1611,8 @@ body > .background-color {
 /* FOOTER */
 .footer {
   font-size: 11px;
-  color: #c2c2c2;
-  color: rgba(194, 194, 194, 0.5);
+  color: white;
+  color: rgba(255, 255, 255, 0.5);
 }
 .footer .wrap {
   padding: 40px 20px;
@@ -1643,7 +1648,6 @@ body > .background-color {
 .footer a {
   text-decoration: none;
   color: white;
-  color: rgba(255, 255, 255, 0.5);
 }
 .footer a:hover {
   text-decoration: underline;

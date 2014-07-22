@@ -198,15 +198,12 @@
   left: -127px;
   z-index: 9999;
   width: 400px;
+  @include color($black, 0.34);
   @include bg($white);
-  @include box-shadow(0, 0, 30px, rgba($black, 0.3));
 
   @include query($tablet-1) {
     left: auto;
     right: -35px;
-  }
-
-  @include query($tablet-4) {
   }
 
   @include query($mobile-1) {
@@ -229,6 +226,7 @@
   padding: 20px;
   text-align: left;
   font-size: 14px;
+  @include box-shadow(0, 0, 30px, rgba($black, 0.3));
 
   &.search-results-active {
     display: block;

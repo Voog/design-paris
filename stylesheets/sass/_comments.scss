@@ -34,7 +34,7 @@
 .comment-date {
   margin-left: 10px;
   font-size: 11px;
-  @include color($black, 0.6);
+  @include color($primary-color, 0.2);
 }
 
 .comment-form {
@@ -79,7 +79,7 @@
     font-family: inherit;
     font-weight: 700;
     font-size: 16px;
-    @include color($primary-color);
+    @include color($primary-color, 0.6);
     background: transparent;
     border: none;
 

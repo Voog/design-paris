@@ -33,7 +33,7 @@
 
   a {
     text-decoration: none;
-    @include color($white, 0.5);
+    @include color($white);
 
     &:hover {
       text-decoration: underline;

@@ -7,7 +7,7 @@ body {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  @include color($primary-color);
+  @include color($primary-color, 0.7);
 
   &.search-open {
     position: fixed;
