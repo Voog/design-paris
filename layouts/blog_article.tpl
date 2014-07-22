@@ -24,8 +24,11 @@
 
           <article class="post-inner">
             <header class="post-header">
-              <h1 class="post-title">{% editable article.title %}</h1>
-              <time class="post-date" datetime="{{ article.created_at | date : "%Y-%m-%d" }}">{{ article.created_at | format_date: 'long' }}</time>
+              <h1 class="post-title content-formatted">{% editable article.title %}</h1>
+              <div class="post-header-bottom">
+                <time class="post-date" datetime="{{ article.created_at | date : "%Y-%m-%d" }}">{{ article.created_at | format_date: 'long' }}</time>
+                <span class="post-author"> – {{ article.author.name }}</span>
+              </div>
             </header>
 
             <div class="post-content">

@@ -1,16 +1,4 @@
 /* BLOG & BLOG ARTICLE */
-.post-date {
-  @include color($primary-color, 0.3);
-}
-
-.post-title {
-  word-wrap: break-word;
-}
-
-.post-add-btn {
-  display: none;
-}
-
 .blog-page {
   .blog {
     @extend %clearfix;
@@ -314,6 +302,10 @@
       .post-date {
         font-size: 14px;
       }
+    }
+
+    .post-header-bottom {
+      @include color($primary-color, 0.3);
     }
 
     .post-content {

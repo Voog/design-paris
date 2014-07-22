@@ -56,6 +56,10 @@ body > .background-color {
   border: none;
 }
 
+.post-add-btn {
+  display: none;
+}
+
 .bgpicker-btn {
   position: absolute;
   background: none;
@@ -731,19 +735,6 @@ body > .background-color {
 }
 
 /* BLOG & BLOG ARTICLE */
-.post-date {
-  color: white;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.post-title {
-  word-wrap: break-word;
-}
-
-.post-add-btn {
-  display: none;
-}
-
 .blog-page .post-add-link {
   display: inline-block;
   width: 218px;
@@ -1017,6 +1008,10 @@ body > .background-color {
 }
 .post-page .post .post-header .post-date {
   font-size: 14px;
+}
+.post-page .post .post-header-bottom {
+  color: white;
+  color: rgba(255, 255, 255, 0.3);
 }
 .post-page .post .post-content .post-excerpt,
 .post-page .post .post-content .post-body {
