@@ -60,10 +60,6 @@
     font-size: 14px;
     line-height: 1.6;
 
-    @include query(904px) {
-      text-align: left;
-    }
-
     @include query($mobile-2) {
       text-align: left;
     }
