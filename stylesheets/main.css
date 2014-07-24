@@ -1006,10 +1006,8 @@ body > .background-color {
   font-size: 29px;
   color: white;
 }
-.post-page .post .post-header .post-date {
-  font-size: 14px;
-}
 .post-page .post .post-header-bottom {
+  font-size: 14px;
   color: white;
   color: rgba(255, 255, 255, 0.3);
 }

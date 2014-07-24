@@ -298,13 +298,10 @@
         font-size: 29px;
         @include color($primary-color);
       }
-
-      .post-date {
-        font-size: 14px;
-      }
     }
 
     .post-header-bottom {
+      font-size: 14px;
       @include color($primary-color, 0.3);
     }
 
