@@ -1,22 +1,22 @@
 {
-  "description": "Box of chocolate",
-  "name": "Paris",
+  "description": "New design",
+  "name": "New design",
   "preview_medium": "",
   "preview_small": "",
-  "author": "Tõnu Runnel",
+  "author": "",
   "layouts": [
     {
-      "content_type": "blog",
+      "content_type": "page",
       "component": false,
       "file": "layouts/blog___news.tpl",
-      "layout_name": "blog",
-      "title": "Blog & News"
+      "layout_name": "page_default",
+      "title": "Blog   news"
     },
     {
-      "content_type": "blog_article",
+      "content_type": "page",
       "component": false,
       "file": "layouts/blog_article.tpl",
-      "layout_name": "blog_article",
+      "layout_name": "page_default",
       "title": "Blog article"
     },
     {
@@ -30,7 +30,7 @@
       "content_type": "page",
       "component": false,
       "file": "layouts/front_page.tpl",
-      "layout_name": "page_front",
+      "layout_name": "page_default",
       "title": "Front page"
     },
     {
@@ -44,91 +44,91 @@
       "content_type": "component",
       "component": true,
       "file": "components/bg-picker.tpl",
-      "layout_name": "",
+      "layout_name": "bg-picker",
       "title": "bg-picker"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/comment-form.tpl",
-      "layout_name": "",
+      "layout_name": "comment-form",
       "title": "comment-form"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/footer.tpl",
-      "layout_name": "",
+      "layout_name": "footer",
       "title": "footer"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/header.tpl",
-      "layout_name": "",
+      "layout_name": "header",
       "title": "header"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/html-head.tpl",
-      "layout_name": "",
+      "layout_name": "html-head",
       "title": "html-head"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/javascripts.tpl",
-      "layout_name": "",
+      "layout_name": "javascripts",
       "title": "javascripts"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/menu-lang.tpl",
-      "layout_name": "",
+      "layout_name": "menu-lang",
       "title": "menu-lang"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/menu-level-1.tpl",
-      "layout_name": "",
+      "layout_name": "menu-level-1",
       "title": "menu-level-1"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/menu-level-2.tpl",
-      "layout_name": "",
+      "layout_name": "menu-level-2",
       "title": "menu-level-2"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/post-box.tpl",
-      "layout_name": "",
+      "layout_name": "post-box",
       "title": "post-box"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/search.tpl",
-      "layout_name": "",
+      "layout_name": "search",
       "title": "search"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/tags-blog.tpl",
-      "layout_name": "",
+      "layout_name": "tags-blog",
       "title": "tags-blog"
     },
     {
       "content_type": "component",
       "component": true,
       "file": "components/tags-post.tpl",
-      "layout_name": "",
+      "layout_name": "tags-post",
       "title": "tags-post"
     }
   ],
@@ -140,13 +140,13 @@
       "filename": "ico-flags.svg"
     },
     {
-      "content_type": "unknown/unknown",
+      "content_type": "image/svg+xml",
       "file": "assets/ico-search.svg",
       "kind": "assets",
       "filename": "ico-search.svg"
     },
     {
-      "content_type": "image/jpg",
+      "content_type": "image/jpeg",
       "file": "images/body-bg.jpg",
       "kind": "images",
       "filename": "body-bg.jpg"
@@ -207,6 +207,18 @@
     },
     {
       "content_type": "application/javascript",
+      "file": "javascripts/autogrow.js",
+      "kind": "javascripts",
+      "filename": "autogrow.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/autogrow.min.js",
+      "kind": "javascripts",
+      "filename": "autogrow.min.js"
+    },
+    {
+      "content_type": "application/javascript",
       "file": "javascripts/modernizr.js",
       "kind": "javascripts",
       "filename": "modernizr.js"
@@ -219,18 +231,6 @@
     },
     {
       "content_type": "text/css",
-      "file": "stylesheets/ie8.css",
-      "kind": "stylesheets",
-      "filename": "ie8.css"
-    },
-    {
-      "content_type": "text/css",
-      "file": "stylesheets/ie8.min.css",
-      "kind": "stylesheets",
-      "filename": "ie8.min.css"
-    },
-    {
-      "content_type": "text/css",
       "file": "stylesheets/main.css",
       "kind": "stylesheets",
       "filename": "main.css"
@@ -240,18 +240,6 @@
       "file": "stylesheets/main.min.css",
       "kind": "stylesheets",
       "filename": "main.min.css"
-    },
-    {
-      "content_type": "application/javascript",
-      "kind": "javascripts",
-      "file": "javascripts/autogrow.js",
-      "filename": "autogrow.js"
-    },
-    {
-      "content_type": "application/javascript",
-      "kind": "javascripts",
-      "file": "javascripts/autogrow.min.js",
-      "filename": "autogrow.min.js"
     }
   ]
 }
