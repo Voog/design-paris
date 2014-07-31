@@ -20,16 +20,14 @@
         showAlpha: true,
 
         preview: function(data) {
-          var
-            img = (data.image && data.image !== '') ? 'url(' + data.image + ')' : 'none',
-            oldimg = $('.js-bgpicker-body-image').css('background-image'),
-            col = (data.color && data.color !== '') ? data.color : 'none',
-            colorData = (data.colorData && data.colorData !== '') ? data.colorData : '',
-            lightness = colorData && colorData !== '' && colorData.lightness ? colorData.lightness : 0
-          ;
+          var img = (data.image && data.image !== '') ? 'url(' + data.image + ')' : 'none',
+              oldImg = $('.js-bgpicker-body-image').css('background-image'),
+              col = (data.color && data.color !== '') ? data.color : 'none',
+              colorData = (data.colorData && data.colorData !== '') ? data.colorData : '',
+              lightness = colorData && colorData !== '' && colorData.lightness ? colorData.lightness : 0;
 
           $('.js-content').removeClass('light-background dark-background').addClass(lightness <= 0.5 ? 'dark-background' : 'light-background');
-          if (oldimg !== img) {
+          if (oldImg !== img) {
             $('.js-bgpicker-body-image').css({'background-image' : img});
           }
           $('.js-bgpicker-body-color').css({'background-color' : col});
