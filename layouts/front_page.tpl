@@ -17,7 +17,7 @@
         <section class="blog">
           {% for item in site.menuitems_with_hidden %}
             {% if item.blog? %}
-              {% comment %}<!-- TODO: Replace URL when this feature is added -->{% endcomment %}
+              {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
               {% if editmode %}
                 <a class="post-add-link post js-post-add" href="{{ item.url }}?new">
                   <div class="post-add-link-inner">

@@ -21,7 +21,7 @@
 
         <section class="blog">
 
-          {% comment %}<!-- TODO: Replace URL when this feature is added -->{% endcomment %}
+          {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
           {% if editmode %}
             <a class="post-add-link post js-post-add" href="#">
               <div class="wrap">
