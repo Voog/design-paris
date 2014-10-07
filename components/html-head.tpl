@@ -17,6 +17,7 @@
 <script src="{{ javascripts_path }}/modernizr.min.js"></script>
 
 {% comment %}STYLESHEETS{% endcomment %}
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic%7COpen+Sans:400italic,700italic,400,700">
 {% stylesheet_link "main.min.css" %}
 {% if editmode %}<link rel="stylesheet" href="{{ site.static_asset_host }}/libs/edicy-tools/latest/edicy-tools.css">{% endif %}
 
