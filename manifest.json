@@ -160,12 +160,6 @@
     },
     {
       "content_type": "image/png",
-      "file": "images/ico-add-post.png",
-      "kind": "images",
-      "filename": "ico-add-post.png"
-    },
-    {
-      "content_type": "image/png",
       "file": "images/ico-flags-small.png",
       "kind": "images",
       "filename": "ico-flags-small.png"
@@ -175,6 +169,24 @@
       "file": "images/ico-flags.png",
       "kind": "images",
       "filename": "ico-flags.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-post-add-black.png",
+      "kind": "images",
+      "filename": "ico-post-add-black.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-post-add-white.png",
+      "kind": "images",
+      "filename": "ico-post-add-white.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-post-add.png",
+      "kind": "images",
+      "filename": "ico-post-add.png"
     },
     {
       "content_type": "image/png",

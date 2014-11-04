@@ -26,16 +26,18 @@
             <a class="post-add-link post" href="{{ page.path }}?new">
               <div class="wrap">
                 <div class="align-middle">
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="72px" height="57px" viewBox="-21 -13.5 72 57" enable-background="new -21 -13.5 72 57" xml:space="preserve">
-                    <g>
-                      <path fill="none" stroke="currentColor" stroke-width="5" d="M-6.28,32.412V-10H47v50H-6.28C-11.63,40-17,37.295-17,31.176V4.967h10.72"></path>
-                      <path fill="currentColor" d="M23.067,7.514h15.917v4.99H23.067V7.514z"></path>
-                      <path fill="currentColor" d="M23.067-2.465h15.917v4.989H23.067V-2.465z"></path>
-                      <path fill="currentColor" d="M23.123,17.492h15.918v4.99H23.123V17.492z"></path>
-                      <path fill="currentColor" d="M1.809,27.471h37.232v4.992H1.809V27.471z"></path>
-                      <path fill="currentColor" d="M1.809-2.465h16.027v24.948H1.809V-2.465z"></path>
-                    </g>
-                  </svg>
+                  <div class="post-add-icon">
+                    <svg class="icon-newspaper" xmlns="http://www.w3.org/2000/svg" width="72px" height="57px" viewBox="-21 -13.5 72 57">
+                      <g>
+                        <path fill="none" stroke="currentColor" stroke-width="5" d="M-6,32V-10H47v50H-6C-12,40-17,37-17,31V5h11"></path>
+                        <path fill="currentColor" d="M23,8h16v5H23V8z"></path>
+                        <path fill="currentColor" d="M23-2h16v5H23V-2z"></path>
+                        <path fill="currentColor" d="M23,17h16v5H23V17z"></path>
+                        <path fill="currentColor" d="M2,27h37v5H2V27z"></path>
+                        <path fill="currentColor" d="M2-2h16v25H2V-2z"></path>
+                      </g>
+                    </svg>
+                  </div>
 
                   <h3 class="post-add-title">{{ "add_new_post" | lc }}</h3>
                 </div>

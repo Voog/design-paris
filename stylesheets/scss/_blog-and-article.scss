@@ -20,10 +20,24 @@
     &:hover {
       @include color($primary-color, 0.5);
       @include border(all, 1px, dashed, $primary-color, 0.5);
+
+      .no-svg & {
+        .post-add-icon {
+          opacity: .7;
+          @include transition-property (opacity);
+          @include transition-duration(0.3s);
+        }
+      }
     }
 
     .post-add-link-inner {
       height: 100%;
+
+      .ico-newspaper {
+        .no-svg & {
+          display: none;
+        }
+      }
 
       @include query($mobile-4) {
         width: 100%;
@@ -38,6 +52,24 @@
       .align-middle {
         display: table-cell;
         vertical-align: middle;
+      }
+    }
+
+    .post-add-icon {
+      display: inline-block;
+      width: 72px;
+      height: 57px;
+
+      .no-svg & {
+        opacity: .2;
+        background-image: url('../images/ico-post-add-white.png');
+
+        @include transition-property (opacity);
+        @include transition-duration(0.3s);
+
+        .icon-newspaper {
+          display: none;
+        }
       }
     }
 
