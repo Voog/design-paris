@@ -42,19 +42,17 @@ body {
 
 %button {
   margin: 0;
+  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
-
-  &, &::-moz-focus-inner {
-    padding: 0;
-  }
 
   &:focus {
     outline: none;
   }
 
   &::-moz-focus-inner {
+    padding: 0;
     border: none;
   }
 }

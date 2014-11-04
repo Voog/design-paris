@@ -42,17 +42,16 @@ body > .background-color {
 
 .search-btn {
   margin: 0;
+  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
-}
-.search-btn, .search-btn::-moz-focus-inner {
-  padding: 0;
 }
 .search-btn:focus {
   outline: none;
 }
 .search-btn::-moz-focus-inner {
+  padding: 0;
   border: none;
 }
 
@@ -1109,21 +1108,22 @@ body > .background-color {
 }
 @media screen and (max-width: 640px) {
   .search {
-    display: none;
-  }
-  .search.active {
-    display: block;
     top: 127px;
     left: 0;
     right: 0;
+    display: none;
+    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: black;
+  }
+  .search.active {
+    display: block;
     z-index: 9999;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
     height: auto;
-    background-color: #000000;
-    background-color: rgba(0, 0, 0, 0.53);
     border: none;
   }
 }
@@ -1221,6 +1221,12 @@ body > .background-color {
   .search-submit svg {
     width: 20px;
     height: 20px;
+    fill: #FFFFFF;
+    fill: rgba(255, 255, 255, 0.5);
+  }
+  .search-submit:hover svg {
+    fill: #FFFFFF;
+    fill: rgba(255, 255, 255, 0.8);
   }
   .no-svg .search-submit {
     width: 23px;
@@ -1238,7 +1244,7 @@ body > .background-color {
   .search-open-btn,
   .search-close-btn {
     position: absolute;
-    top: 44px;
+    top: 46px;
     right: 49px;
     display: block;
   }
