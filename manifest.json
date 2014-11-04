@@ -160,6 +160,12 @@
     },
     {
       "content_type": "image/png",
+      "file": "images/ico-add-post.png",
+      "kind": "images",
+      "filename": "ico-add-post.png"
+    },
+    {
+      "content_type": "image/png",
       "file": "images/ico-flags-small.png",
       "kind": "images",
       "filename": "ico-flags-small.png"

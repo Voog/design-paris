@@ -2,10 +2,10 @@
   "name": "voog-design-paris",
   "devDependencies": {
     "bourbon": "~4.0.2",
-    "modernizr": "~2.8.3"
   },
   "dependencies": {
     "jquery": "~1.x",
+    "modernizr": "~2.8.3"
     "overthrow": "~0.7.0"
   }
 }
