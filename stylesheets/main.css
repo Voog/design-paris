@@ -736,7 +736,6 @@ body > .background-color {
 
 /* BLOG & BLOG ARTICLE */
 .blog-page .post-add-link {
-  display: inline-block;
   width: 218px;
   height: 298px;
   text-decoration: none;
@@ -787,6 +786,16 @@ body > .background-color {
 .blog-page .post-add-link .wrap .align-middle {
   display: table-cell;
   vertical-align: middle;
+}
+@media screen and (max-width: 506px) {
+  .blog-page .post-add-link .wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -87px;
+    margin-top: -47px;
+    padding: 0;
+  }
 }
 .blog-page .post-add-link .post-add-icon {
   display: inline-block;

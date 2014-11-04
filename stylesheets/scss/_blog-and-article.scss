@@ -5,7 +5,6 @@
   }
 
   .post-add-link {
-    display: inline-block;
     width: 218px;
     height: 298px;
     text-decoration: none;
@@ -52,6 +51,15 @@
       .align-middle {
         display: table-cell;
         vertical-align: middle;
+      }
+
+      @include query($mobile-4) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -87px;
+        margin-top: -47px;
+        padding: 0;
       }
     }
 
