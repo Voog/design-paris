@@ -10307,289 +10307,6 @@ return jQuery;
 
 }));
 
-;(function($) {
-    /* example can be found at http://www.edicy.com/developer/code-examples/javascript-tricks/ajax-forms */
-
-    var defaults = {
-        success: function(text) {
-            // alert(text);
-        },
-        error: function(text) {
-            // alert(text);
-        },
-        formdata_error: "Your browser is too old to support file upload from this form."
-    };
-
-    var EdicyAjaxForm = function(el, options) {
-        this.$el = $(el);
-        this.id = $(el).attr('id');
-        this.options = $.extend(defaults, options);
-        this.init();
-    };
-
-    EdicyAjaxForm.prototype = {
-        init: function() {
-            this.$el.submit($.proxy(this.handleSubmit, this));
-            if (!window.FormData) {
-                this.$el.find('.form_field_file').after('<div class="form_field_error">' + this.options.formdata_error + '</div>');
-            }
-        },
-
-        handleSubmit: function(event) {
-            event.preventDefault();
-            $('.form_submit').replaceWith('<div class="feedback-loading"><span></span><span></span><span></span></div>');
-            var params = {
-                    method: 'post',
-                    url: window.location,
-                    success: $.proxy(this.handleAjaxSuccess, this),
-                    error: $.proxy(this.handleAjaxError, this)
-                };
-
-            if (window.FormData) {
-                params.data = new FormData(this.$el.get(0));
-                params.cache = false;
-                params.contentType = false;
-                params.processData = false;
-            } else {
-                params.data = this.$el.serialize();
-            }
-
-            this.clearErrors();
-            $.ajax(params);
-        },
-
-        handleAjaxSuccess: function(data) {
-            var $resultForm = $(data).find('#' + this.id);
-            var $sendButtonText = $resultForm.find('.form_submit input').val();
-            if ($resultForm.find('.form_error').length > 0) {
-                this.showErrors($resultForm);
-                $('.form_field_required').addClass("form_field_with_errors");
-                $mainError = $resultForm.find('.form_error').clone().text();
-                $('.feedback-loading').replaceWith('<div class="feedback-error"><span>' + $mainError + '</span><button class="close-btn"></button></div>');
-                $('.form_field_error').css('display','inline');
-                $('.close-btn').click(function(event) {
-                    event.preventDefault();
-                    $(this).parent().replaceWith('<div class="form_submit"><input name="commit" type="submit" value="' + $sendButtonText +'"></div>');
-                });
-                site.handleFormFieldClick();
-            } else {
-                this.formSubmited($resultForm);
-                $('.form_field_required').removeClass("form_field_with_errors");
-                $sentFeedback = $resultForm.find('.form_notice').clone().text();
-                $('.feedback-loading').replaceWith('<div class="feedback-success"><span>' + $sentFeedback +'</span><button class="close-btn"></button></div>');
-                $('.close-btn').click(function(event) {
-                    event.preventDefault();
-                    $(this).parent().replaceWith('<div class="form_submit"><input name="commit" type="submit" value="' + $sendButtonText +'"></div>');
-                });
-            }
-        },
-
-        handleAjaxError: function(jqXHR, textStatus, errorThrown) {
-            alert('Network error');
-        },
-
-        clearErrors: function() {
-            this.$el.find('.form_field_error, .form_error, .form_notice').remove();
-        },
-
-        showErrors: function($resultForm) {
-            var $mainError = $resultForm.find('.form_error').clone(),
-                $fields = $resultForm.find('.form_fields .form_field');
-
-            // this.$el.find('.form_area').prepend($mainError);
-            $fields.each($.proxy(function(idx, field) {
-                if ($(field).find('.form_field_error').length > 0) {
-                    $(field).find('.form_field_error').prepend(" — ");
-                    var $err = $($(field).find('.form_field_error').clone());
-                    this.$el.find('.form_fields .form_field:eq('+ idx +') label:first-child').append($err);
-                }
-            }, this));
-            this.options.error($resultForm.find('.form_error').text());
-        },
-
-        formSubmited: function($resultForm) {
-            // this.$el.find('.form_area').prepend($resultForm.find('.form_notice').clone());
-            this.options.success($resultForm.find('.form_notice').text());
-        }
-    };
-
-    $.fn.edicyAjaxForm = function (options) {
-        return this.each(function () {
-            var data = $(this).data('edicyAjaxForm');
-            if (!data) {
-                $(this).data('edicyAjaxForm', new EdicyAjaxForm(this, options));
-            }
-        });
-    };
-
-})(jQuery);
-
-;(function($) {
-  var handleElementsClick = function() {
-    $('html').click(function() {
-      if ($('.js-popover').hasClass('expanded')) {
-        $('.js-popover').removeClass('expanded');
-      }
-
-      if ($('.js-search-close-btn').hasClass('open') && $('.voog-search-modal').length === 0) {
-        $('.js-search-close-btn').trigger('click');
-      }
-    });
-
-    // Toggles the popover main menu (visible on smalles screens).
-    $('.js-menu-btn').click(function(event) {
-      event.stopPropagation();
-      $(this).toggleClass('open');
-      $('.js-menu-main').toggleClass('expanded');
-
-      if ($('.js-search-close-btn').hasClass('open')) {
-        $('.js-search-close-btn').trigger('click');
-      }
-    });
-
-    // Toggles the popover language menu.
-    $('.js-menu-lang-btn').click(function(event) {
-      event.stopPropagation();
-      $('.js-menu-lang-popover').toggleClass('expanded');
-    });
-
-    // Opens the search modal.
-    $('.js-search-open-btn').click(function(event) {
-      event.stopPropagation();
-      if ($('.js-menu-main').hasClass('expanded')) {
-        $('.js-menu-main').removeClass('expanded');
-        $('.js-menu-btn').removeClass('open');
-      }
-
-      $(this).addClass('open');
-      $('body').addClass('search-open');
-      $('.js-search-close-btn').addClass('open');
-      $('.js-search').addClass('active');
-      $('.js-search-inner').css({'margin-top': '-25px'});
-      $('.js-search-input').val('').focus();
-    });
-
-    // Closes the search modal.
-    $('.js-search-close-btn').click(function(event) {
-      $(this).removeClass('open');
-      $('body').removeClass('search-open');
-      $('.js-search-open-btn').removeClass('open');
-      $('.js-search').removeClass('active');
-    });
-
-    // Prevents search modal closing on click
-    $('.js-search').click(function(event) {
-      event.stopPropagation();
-    });
-  };
-
-  // Sets the search modal synamic height.
-  var handleSearchModalHeight = function() {
-    windowHeight = $(window).height(),
-    searchModalHeight = windowHeight - 124;
-
-    $('.js-voog-search-modal-inner').css({'max-height': searchModalHeight});
-  };
-
-  // Triggers search modal height calculation.
-  var handleSearchSubmit = function() {
-    $('.js-search-form').on('submit', function() {
-      handleSearchModalHeight();
-    });
-  };
-
-  // Reduces opacity of the gallery images that are not under the cursor.
-  var handleGalleryHover = function() {
-    $('.edys-gallery-item').mouseover(function() {
-      $(this).siblings('.edys-gallery-item').find('.edys-gallery-image').addClass('inactive');
-    });
-
-    $('.edys-gallery-item').mouseout(function() {
-      $(this).siblings('.edys-gallery-item').find('.edys-gallery-image').removeClass('inactive');
-    });
-  };
-
-  // Scrolls to the comment-form if comment submit failed (to show the error messages to the user).
-  var focusCommentsWithErrors = function() {
-    $(document).ready(function() {
-      if ($('.comment-form').hasClass('form_with_errors') === true) {
-        $('html, body').scrollTop($('.comment-form').offset().top);
-      }
-    });
-  };
-
-  // Wraps tables in the container.
-  // TODO: remove if edicy is going to wrap table with the container.
-  var wrapTables = function() {
-    $('.content-formatted table').wrap('<div class="table-container overthrow"></div>');
-  };
-
-  // Checks the presence of the table scrollbar.
-  var checkScrollBar = function() {
-    jQuery.fn.hasScrollBar = function(direction) {
-      if (direction == 'vertical') {
-        return this.get(0).scrollHeight > this.innerHeight();
-      } else if (direction == 'horizontal') {
-        return this.get(0).scrollWidth > this.innerWidth();
-      }
-      return false;
-    }
-  };
-
-  // Adds horizontal scroll to tables that don't fit into the content area.
-  var handleTableHorizontalScrolling = function() {
-    $.each($('.table-container'), function() {
-      if ($(this).hasScrollBar('horizontal') === true) {
-        $(this).addClass('horizontal-scroll');
-      } else {
-        $(this).removeClass('horizontal-scroll');
-      }
-    });
-  };
-
-  // Sets the right URL for the custom "add new blog post" button.
-  var getNewArticleURL = function() {
-    newArticleUrl = $('.js-post-add-btn').find('.edy-site-menu-add').attr('href');
-    $('.js-post-add').attr('href', newArticleUrl);
-  };
-
-  // Initiates the functions when window is resized.
-  var handleWindowResize = function() {
-    $(window).resize(function() {
-      handleTableHorizontalScrolling();
-      handleSearchModalHeight();
-    });
-  };
-
-  // Initiations
-  var initBlogPageEditmode = function() {
-    getNewArticleURL();
-  };
-
-  var initArticlePage = function() {
-    focusCommentsWithErrors();
-  };
-
-  var init = function() {
-    handleElementsClick();
-    handleSearchSubmit();
-    handleGalleryHover();
-    handleWindowResize();
-    wrapTables();
-    if ($('.table-container').length > 0) {
-      checkScrollBar();
-      handleTableHorizontalScrolling();
-    }
-  };
-
-  window.site = $.extend(window.site || {}, {
-    initBlogPageEditmode: initBlogPageEditmode,
-    initArticlePage: initArticlePage
-  });
-
-  init();
-})(jQuery);
-
 /*! Overthrow. An overflow:auto polyfill for responsive design. (c) 2012: Scott Jehl, Filament Group, Inc. http://filamentgroup.github.com/Overthrow/license.txt */
 (function( w, o, undefined ){
 
@@ -10796,3 +10513,169 @@ return jQuery;
 	};
 		
 })( this, this.overthrow );
+
+;(function($) {
+  var handleElementsClick = function() {
+    $('html').click(function() {
+      if ($('.js-popover').hasClass('expanded')) {
+        $('.js-popover').removeClass('expanded');
+      }
+
+      if ($('.js-search-close-btn').hasClass('open') && $('.voog-search-modal').length === 0) {
+        $('.js-search-close-btn').trigger('click');
+      }
+    });
+
+    // Toggles the popover main menu (visible on smalles screens).
+    $('.js-menu-btn').click(function(event) {
+      event.stopPropagation();
+      $(this).toggleClass('open');
+      $('.js-menu-main').toggleClass('expanded');
+
+      if ($('.js-search-close-btn').hasClass('open')) {
+        $('.js-search-close-btn').trigger('click');
+      }
+    });
+
+    // Toggles the popover language menu.
+    $('.js-menu-lang-btn').click(function(event) {
+      event.stopPropagation();
+      $('.js-menu-lang-popover').toggleClass('expanded');
+    });
+
+    // Opens the search modal.
+    $('.js-search-open-btn').click(function(event) {
+      event.stopPropagation();
+      if ($('.js-menu-main').hasClass('expanded')) {
+        $('.js-menu-main').removeClass('expanded');
+        $('.js-menu-btn').removeClass('open');
+      }
+
+      $(this).addClass('open');
+      $('body').addClass('search-open');
+      $('.js-search-close-btn').addClass('open');
+      $('.js-search').addClass('active');
+      $('.js-search-inner').css({'margin-top': '-25px'});
+      $('.js-search-input').val('').focus();
+    });
+
+    // Closes the search modal.
+    $('.js-search-close-btn').click(function(event) {
+      $(this).removeClass('open');
+      $('body').removeClass('search-open');
+      $('.js-search-open-btn').removeClass('open');
+      $('.js-search').removeClass('active');
+    });
+
+    // Prevents search modal closing on click
+    $('.js-search').click(function(event) {
+      event.stopPropagation();
+    });
+  };
+
+  // Sets the search modal synamic height.
+  var handleSearchModalHeight = function() {
+    windowHeight = $(window).height(),
+    searchModalHeight = windowHeight - 124;
+
+    $('.js-voog-search-modal-inner').css({'max-height': searchModalHeight});
+  };
+
+  // Triggers search modal height calculation.
+  var handleSearchSubmit = function() {
+    $('.js-search-form').on('submit', function() {
+      handleSearchModalHeight();
+    });
+  };
+
+  // Reduces opacity of the gallery images that are not under the cursor.
+  var handleGalleryHover = function() {
+    $('.edys-gallery-item').mouseover(function() {
+      $(this).siblings('.edys-gallery-item').find('.edys-gallery-image').addClass('inactive');
+    });
+
+    $('.edys-gallery-item').mouseout(function() {
+      $(this).siblings('.edys-gallery-item').find('.edys-gallery-image').removeClass('inactive');
+    });
+  };
+
+  // Scrolls to the comment-form if comment submit failed (to show the error messages to the user).
+  var focusCommentsWithErrors = function() {
+    $(document).ready(function() {
+      if ($('.comment-form').hasClass('form_with_errors') === true) {
+        $('html, body').scrollTop($('.comment-form').offset().top);
+      }
+    });
+  };
+
+  // Wraps tables in the container.
+  // TODO: remove if edicy is going to wrap table with the container.
+  var wrapTables = function() {
+    $('.content-formatted table').wrap('<div class="table-container overthrow"></div>');
+  };
+
+  // Checks the presence of the table scrollbar.
+  var checkScrollBar = function() {
+    jQuery.fn.hasScrollBar = function(direction) {
+      if (direction == 'vertical') {
+        return this.get(0).scrollHeight > this.innerHeight();
+      } else if (direction == 'horizontal') {
+        return this.get(0).scrollWidth > this.innerWidth();
+      }
+      return false;
+    }
+  };
+
+  // Adds horizontal scroll to tables that don't fit into the content area.
+  var handleTableHorizontalScrolling = function() {
+    $.each($('.table-container'), function() {
+      if ($(this).hasScrollBar('horizontal') === true) {
+        $(this).addClass('horizontal-scroll');
+      } else {
+        $(this).removeClass('horizontal-scroll');
+      }
+    });
+  };
+
+  // Sets the right URL for the custom "add new blog post" button.
+  var getNewArticleURL = function() {
+    newArticleUrl = $('.js-post-add-btn').find('.edy-site-menu-add').attr('href');
+    $('.js-post-add').attr('href', newArticleUrl);
+  };
+
+  // Initiates the functions when window is resized.
+  var handleWindowResize = function() {
+    $(window).resize(function() {
+      handleTableHorizontalScrolling();
+      handleSearchModalHeight();
+    });
+  };
+
+  // Initiations
+  var initBlogPageEditmode = function() {
+    getNewArticleURL();
+  };
+
+  var initArticlePage = function() {
+    focusCommentsWithErrors();
+  };
+
+  var init = function() {
+    handleElementsClick();
+    handleSearchSubmit();
+    handleGalleryHover();
+    handleWindowResize();
+    wrapTables();
+    if ($('.table-container').length > 0) {
+      checkScrollBar();
+      handleTableHorizontalScrolling();
+    }
+  };
+
+  window.site = $.extend(window.site || {}, {
+    initBlogPageEditmode: initBlogPageEditmode,
+    initArticlePage: initArticlePage
+  });
+
+  init();
+})(jQuery);

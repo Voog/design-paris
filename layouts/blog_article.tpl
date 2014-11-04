@@ -66,7 +66,5 @@
 
   {% include "javascripts" %}
   {% include "bg-picker" with 'article' %}
-  <script src="{{ javascripts_path }}/autogrow.min.js"></script>
-  <script>$('.form_field_textarea').autogrow();</script>
 </body>
 </html>

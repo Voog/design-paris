@@ -62,6 +62,5 @@
 
   {% include "javascripts" %}
   {% include "bg-picker" %}
-
 </body>
 </html>

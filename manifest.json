@@ -214,18 +214,6 @@
     },
     {
       "content_type": "application/javascript",
-      "file": "javascripts/autogrow.js",
-      "kind": "javascripts",
-      "filename": "autogrow.js"
-    },
-    {
-      "content_type": "application/javascript",
-      "file": "javascripts/autogrow.min.js",
-      "kind": "javascripts",
-      "filename": "autogrow.min.js"
-    },
-    {
-      "content_type": "application/javascript",
       "file": "javascripts/modernizr.js",
       "kind": "javascripts",
       "filename": "modernizr.js"
