@@ -121,12 +121,6 @@
     });
   };
 
-  // Sets the right URL for the custom "add new blog post" button.
-  var getNewArticleURL = function() {
-    newArticleUrl = $('.js-post-add-btn').find('.edy-site-menu-add').attr('href');
-    $('.js-post-add').attr('href', newArticleUrl);
-  };
-
   // Initiates the functions when window is resized.
   var handleWindowResize = function() {
     $(window).resize(function() {
@@ -137,7 +131,6 @@
 
   // Initiations
   var initBlogPageEditmode = function() {
-    getNewArticleURL();
   };
 
   var initArticlePage = function() {
