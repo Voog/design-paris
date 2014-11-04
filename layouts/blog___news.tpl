@@ -37,7 +37,7 @@
                     </g>
                   </svg>
 
-                  <h3 class="post-add-title">Add a new blog post</h3>
+                  <h3 class="post-add-title">{{ "add_new_post" | lc }}</h3>
                 </div>
               </div>
             </a>
