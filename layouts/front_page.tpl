@@ -15,10 +15,10 @@
     <main class="content js-content{{ body_color_class }}" role="main">
       <div class="wrap">
         <section class="blog">
-          {% for item in site.menuitems_with_hidden %}
-            {% if item.blog? %}
-              {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
-              {% if editmode %}
+          {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
+          {% if editmode %}
+            {% for item in site.menuitems_with_hidden %}
+              {% if item.blog? %}
                 <a class="post-add-link post js-post-add" href="{{ item.url }}?new">
                   <div class="post-add-link-inner">
                     <div class="wrap">
@@ -39,11 +39,11 @@
                     </div>
                   </div>
                 </a>
-              {% endif %}
 
-              {% break %}
-            {% endif %}
-          {% endfor %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
 
           {% for article in site.latest_articles %}
             {% include "post-box" %}
