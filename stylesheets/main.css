@@ -1803,7 +1803,7 @@ span[style*="font-size"] {
   }
 }
 
-.form_field_error {
+.comment-form .form_field_error {
   position: absolute;
   top: 3px;
   font-size: 13px;

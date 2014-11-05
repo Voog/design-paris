@@ -151,8 +151,10 @@
   }
 }
 
-.form_field_error {
-  position: absolute;
-  top: 3px;
-  font-size: 13px;
+.comment-form  {
+  .form_field_error {
+    position: absolute;
+    top: 3px;
+    font-size: 13px;
+  }
 }
