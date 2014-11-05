@@ -19,7 +19,7 @@
     }
 
     .flexbox & {
-      @include flexbox;
+      @include display(flex);
       @include align-items(flex-start);
     }
 
@@ -67,14 +67,27 @@
         @include color($primary-color, 0.5);
       }
     }
+
+    .footer-left,
+    .footer-right {
+      @include query($mobile-5) {
+        width: auto;
+        max-width: 100%;
+        text-align: center;
+      }
+    }
   }
 
-  .footer-left,
-  .footer-right {
-    @include query($mobile-5) {
-      width: auto;
-      max-width: 100%;
-      text-align: center;
+  &.light-background {
+    .footer-left,
+    .footer-right {
+      a {
+        @include color($black, .5);
+
+        &:hover {
+          @include color($black, .8);
+        }
+      }
     }
   }
 }

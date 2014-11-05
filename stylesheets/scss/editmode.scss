@@ -1,0 +1,112 @@
+// EDITMODE STYLESHEET
+// Stylesheet for styling elements that are only used in editmode.
+@import '../../bower_components/bourbon/dist/bourbon';
+@import '_mixins';
+@import '_variables';
+
+// Space between editable content areas in editmode.
+.edy-content-element {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// Minimal height of the editable content area (to avoid content area visual 'jumping' when content-area is focused).
+.edy-texteditor-view {
+  min-height: 27px;
+
+  .footer & {
+    min-height: 16px;
+  }
+
+  &.placeholder {
+    .dark-background & {
+      @include color($primary-color, .1);
+    }
+
+    .light-background & {
+      @include color($black, .5);
+    }
+  }
+}
+
+
+// Draggable content area without content.
+// TODO: Remove if different color schemes are supported by E3.
+.edy-empty-bordered {
+  @include border(all, 1px, dashed, $primary-color, 0.63);
+
+  .edy-empty-header {
+    @include color($primary-color, 0.63);
+
+  }
+}
+
+// Content area border.
+.edy-content-element-hover {
+  @include border(all, 1px, solid, $primary-color, 0.2);
+}
+
+.edy-texteditor-active {
+  .footer & {
+    outline: 1px solid rgba($primary-color, 0.4);
+
+    &:hover {
+      outline: 1px solid rgba($primary-color, 0.63)
+    }
+  }
+}
+
+// Post cover image drop area
+.edy-img-drop-area {
+  &.post-cover-inner {
+    .edy-img-drop-area-placeholder {
+      opacity: 1;
+      margin: 0;
+      padding: 25px;
+      font-size: 14px;
+      @include color($black, 0.53);
+    }
+  }
+
+  .flexbox & {
+    .edy-img-drop-area-placeholder {
+      @include align-self(center);
+    }
+  }
+
+  .no-flexbox & {
+    .edy-img-drop-area-placeholder {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .dark-background & {
+    .edy-img-drop-area-placeholder {
+      @include color($primary-color, 0.53);
+    }
+  }
+}
+
+// Post tag editor placeholder border
+.edy-taglist {
+  .dark-background & {
+    border-color: rgba($primary-color, .5);
+  }
+}
+
+// Post tag editor placeholder
+.edy-tag-input {
+  @include color($primary-color);
+
+  .light-background & {
+    @include color($black);
+
+    @include placeholder {
+      @include color($black, .5);
+    }
+  }
+}

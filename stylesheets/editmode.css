@@ -1,0 +1,92 @@
+.edy-content-element {
+  margin-top: 20px;
+}
+.edy-content-element:first-child {
+  margin-top: 0;
+}
+
+.edy-texteditor-view {
+  min-height: 27px;
+}
+.footer .edy-texteditor-view {
+  min-height: 16px;
+}
+.dark-background .edy-texteditor-view.placeholder {
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.1);
+}
+.light-background .edy-texteditor-view.placeholder {
+  color: #000000;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.edy-empty-bordered {
+  border: 1px dashed #FFFFFF;
+  border: 1px dashed rgba(255, 255, 255, 0.63);
+}
+.edy-empty-bordered .edy-empty-header {
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.63);
+}
+
+.edy-content-element-hover {
+  border: 1px solid #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer .edy-texteditor-active {
+  outline: 1px solid rgba(255, 255, 255, 0.4);
+}
+.footer .edy-texteditor-active:hover {
+  outline: 1px solid rgba(255, 255, 255, 0.63);
+}
+
+.edy-img-drop-area.post-cover-inner .edy-img-drop-area-placeholder {
+  opacity: 1;
+  margin: 0;
+  padding: 25px;
+  font-size: 14px;
+  color: #000000;
+  color: rgba(0, 0, 0, 0.53);
+}
+.flexbox .edy-img-drop-area .edy-img-drop-area-placeholder {
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+}
+.no-flexbox .edy-img-drop-area .edy-img-drop-area-placeholder {
+  display: table-cell;
+  vertical-align: middle;
+}
+.dark-background .edy-img-drop-area .edy-img-drop-area-placeholder {
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.53);
+}
+
+.dark-background .edy-taglist {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.edy-tag-input {
+  color: white;
+}
+.light-background .edy-tag-input {
+  color: black;
+}
+.light-background .edy-tag-input::-webkit-input-placeholder {
+  color: #000000;
+  color: rgba(0, 0, 0, 0.5);
+}
+.light-background .edy-tag-input::-moz-placeholder {
+  color: #000000;
+  color: rgba(0, 0, 0, 0.5);
+}
+.light-background .edy-tag-input:-moz-placeholder {
+  color: #000000;
+  color: rgba(0, 0, 0, 0.5);
+}
+.light-background .edy-tag-input:-ms-input-placeholder {
+  color: #000000;
+  color: rgba(0, 0, 0, 0.5);
+}

@@ -1,9 +1,9 @@
 {% capture dont_render %}
   <!-- Sets body color lightness class -->
   {% if page.data.body_lightness == nil or page.data.body_lightness <= 0.5 %}
-    {% assign body_color_class = ' dark-background' %}
+    {% assign body_color_class = 'dark-background' %}
   {% else %}
-    {% assign body_color_class = ' light-background' %}
+    {% assign body_color_class = 'light-background' %}
   {% endif %}5
 
   <!-- Sets the body image and color variables -->

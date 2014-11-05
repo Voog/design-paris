@@ -11,7 +11,7 @@
     }
 
     .flexbox & {
-      @include flexbox;
+      @include display(flex);
       @include align-items(flex-start);
     }
 

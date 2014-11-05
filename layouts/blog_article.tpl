@@ -12,7 +12,7 @@
     {% include "header" %}
     {% if editmode %}<button class="bgpicker-btn js-bgpicker-body-settings" data-bg-image="{{ body_image }}" data-bg-color="{{ body_color }}"></button>{% endif %}
 
-    <main class="content js-content" role="main">
+    <main class="content js-background-style {{ body_color_class }}" role="main">
       <div class="wrap">
         <section class="post">
           {% if editmode %}

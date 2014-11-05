@@ -4,7 +4,7 @@
 
   @include query($tablet-4) {
     position: absolute;
-    top: 46px;
+    top: 40px;
     right: 20px;
     display: inline-block;
     margin: 0;
@@ -153,6 +153,12 @@
   padding: 8px 20px 12px;
   @include bg($black, 0.2);
 
+  .light-background & {
+    .menu-link {
+      @include color($black, 0.8);
+    }
+  }
+
   .menu {
     text-align: center;
   }
@@ -282,7 +288,7 @@
       (cs, -160px     0),
       // Estonian (Estonia)
       (et, -180px     0),
-    
+
       // Finnish (Finland)
       (fi,    0px -14px),
       // French (France)
@@ -303,7 +309,7 @@
       (id, -160px -14px),
       // Iranian (Iran)
       (fa, -180px -14px),
-    
+
       // Hebrew (Israel)
       (he,    0px -28px),
       // Italian (Italy)
@@ -324,7 +330,7 @@
       (no, -160px -28px),
       // Urdu (Pakistan)
       (ur, -180px -28px),
-    
+
       // Filipino (Philippines)
       (fil,   0px -42px),
       // Polish (Poland)
@@ -345,7 +351,7 @@
       (sv, -160px -42px),
       // Turkish (Turkey)
       (tr, -180px -42px),
-    
+
       // Ukrainian (Ukraine)
       (uk,    0px -56px),
       // American English (United States of Ameria)
@@ -379,8 +385,4 @@
     text-decoration: underline;
     font-size: 14px;
   }
-}
-
-.edy-tag-input {
-  @include color($primary-color);
 }

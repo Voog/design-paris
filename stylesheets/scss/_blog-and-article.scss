@@ -1,112 +1,184 @@
 /* BLOG & BLOG ARTICLE */
-.blog-page {
-  .blog {
-    @extend %clearfix;
+.post-add-link {
+  width: 218px;
+  height: 298px;
+  text-decoration: none;
+  @include color($primary-color, .2);
+  @include border(all, 1px, dashed, $primary-color, .1);
+
+  .light-background & {
+    border-color: rgba($black, .5);
   }
 
-  .post-add-link {
-    width: 218px;
-    height: 298px;
-    text-decoration: none;
-    @include color($primary-color, 0.2);
-    @include border(all, 1px, dashed, $primary-color, 0.1);
+  &, &:hover {
+    @include transition-property (color, border);
+    @include transition-duration(0.3s);
+  }
 
-    &, &:hover {
-      @include transition-property (color, border);
-      @include transition-duration(0.3s);
-    }
+  &:hover {
+    @include color($primary-color, .3);
+    @include border(all, 1px, dashed, $primary-color, 0.5);
 
-    &:hover {
-      @include color($primary-color, 0.5);
-      @include border(all, 1px, dashed, $primary-color, 0.5);
-
-      .no-svg & {
-        .post-add-icon {
-          opacity: .7;
-          @include transition-property (opacity);
-          @include transition-duration(0.3s);
-        }
-      }
-    }
-
-    .post-add-link-inner {
-      height: 100%;
-
-      .ico-newspaper {
-        .no-svg & {
-          display: none;
-        }
-      }
-
-      @include query($mobile-4) {
-        width: 100%;
-      }
-    }
-
-    .wrap {
-      display: table;
-      height: 100%;
-      padding: 0 45px;
-
-      .align-middle {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-      @include query($mobile-4) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -87px;
-        margin-top: -47px;
-        padding: 0;
-      }
-    }
-
-    .post-add-icon {
-      display: inline-block;
-      width: 72px;
-      height: 57px;
-
-      .no-svg & {
-        opacity: .2;
-        background-image: url('../images/ico-post-add-white.png');
-
+    .no-svg & {
+      .post-add-icon {
+        opacity: .7;
         @include transition-property (opacity);
-        @include transition-duration(0.3s);
-
-        .icon-newspaper {
-          display: none;
-        }
+        @include transition-duration(.3s);
       }
     }
 
-    .post-add-title {
-      margin: 10px 0 0;
-      font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 1.3;
+    .light-background & {
+      border-color: $black;
+    }
+  }
+
+  .post-add-link-inner {
+    height: 100%;
+
+    .ico-newspaper {
+      .no-svg & {
+        display: none;
+      }
     }
 
     @include query($mobile-4) {
-      position: relative;
-      height: auto;
+      width: 100%;
+    }
+  }
 
-      &:after {
-        padding-top: 122.3%;
-        display: block;
-        content: '';
-      }
+  .wrap {
+    display: table;
+    height: 100%;
+    padding: 0 45px;
 
-      .post-add-link-inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    .align-middle {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    @include query($mobile-4) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -87px;
+      margin-top: -47px;
+      padding: 0;
+    }
+  }
+
+  .post-add-icon {
+    display: inline-block;
+    width: 72px;
+    height: 57px;
+
+    .light-background & {
+      .svg & {
+        .icon-newspaper {
+          @include color($black);
+        }
       }
     }
+
+    .no-svg & {
+      opacity: .2;
+      background-image: url('../images/ico-post-add-white.png');
+
+      .light-background & {
+        background-image: url('../images/ico-post-add-white.png');
+      }
+
+      @include transition-property (opacity);
+      @include transition-duration(0.3s);
+
+      .icon-newspaper {
+        display: none;
+      }
+    }
+  }
+
+  .post-add-title {
+    margin: 10px 0 0;
+    font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .light-background & {
+    .post-add-title {
+      @include color($black);
+    }
+  }
+
+  @include query($mobile-4) {
+    position: relative;
+    height: auto;
+
+    &:after {
+      padding-top: 122.3%;
+      display: block;
+      content: '';
+    }
+
+    .post-add-link-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+
+  .post-cover-inner {
+    .light-background & {
+    .post-page & {
+        @include border(all, 1px, dashed, $black, 0.1);
+    }
+
+    }
+  }
+
+
+.post-top {
+  .dark-background & {
+    @include bg($black, 0.2);
+
+    &:hover {
+      @include bg($black, 0.4);
+    }
+  }
+
+  .light-background & {
+    @include bg($primary-color, 0.2);
+
+    &:hover {
+      @include bg($primary-color, 0.4);
+    }
+  }
+}
+
+
+.post-title {
+  .dark-background & {
+    @include color($primary-color);
+  }
+
+  .light-background & {
+    @include color($black);
+  }
+}
+
+.post-date {
+  .light-background & {
+    @include color($black);
+  }
+}
+
+.blog-page {
+  .blog {
+    @extend %clearfix;
   }
 
   .post {
@@ -190,12 +262,9 @@
       overflow: hidden;
       display: block;
       text-decoration: none;
-      @include bg($black, 0.2);
       @include perspective;
 
       &:hover {
-        @include bg($black, 0.4);
-
         .background-image {
           opacity: 1;
         }
@@ -227,7 +296,11 @@
         margin: 0;
         font-weight: 400;
         font-size: 34px;
-        @include color($primary-color);
+
+        &,
+        & a {
+          @include hyphenate(true);
+        }
       }
     }
 
@@ -263,7 +336,7 @@
     }
 
     .editmode.flexbox & {
-      @include flexbox;
+      @include display(flex);
     }
 
     .editmode.no-flexbox & {
@@ -290,7 +363,7 @@
       @include border(all, 1px, dashed, $primary-color, 0.1);
 
       .flexbox & {
-        @include flexbox;
+        @include display(flex);
       }
 
       .no-flexbox & {
@@ -306,22 +379,6 @@
       }
     }
 
-    .edy-img-drop-area-placeholder {
-      opacity: 1;
-      margin: 0;
-      padding: 25px;
-      font-size: 14px;
-      @include color($black, 0.53);
-
-      .flexbox & {
-        @include align-self(center);
-      }
-
-      .no-flexbox & {
-        display: table-cell;
-        vertical-align: middle;
-      }
-    }
 
     .post-inner {
       .editmode & {
@@ -336,13 +393,7 @@
         margin: 0;
         text-transform: uppercase;
         font-size: 29px;
-        @include color($primary-color);
       }
-    }
-
-    .post-header-bottom {
-      font-size: 14px;
-      @include color($primary-color, 0.3);
     }
 
     .post-content {
@@ -372,5 +423,14 @@
       }
 
     }
+  }
+}
+
+.post-header-bottom {
+  font-size: 14px;
+  @include color($primary-color, 0.3);
+
+  .light-background & {
+    @include color($black, 0.3);
   }
 }

@@ -11,6 +11,11 @@
   line-height: 1.4;
   @include color($primary-color);
   @include border(top, 4px, solid, $black, 0.2);
+
+  .light-background & {
+    @include color($black);
+    @include border(top, 4px, solid, $primary-color, 0.2);
+  }
 }
 
 .comments-messages {
@@ -26,15 +31,33 @@
   }
 }
 
+.comment-author,
+.comment-separator,
+.comment-body {
+  .light-background & {
+    @include color($black);
+  }
+}
+
 .comment-author {
   font-weight: 700;
   @include color($primary-color);
 }
 
+.comment-body {
+  .light-background & {
+    @include color($black);
+  }
+}
+
 .comment-date {
   margin-left: 10px;
   font-size: 11px;
-  @include color($primary-color, 0.2);
+  @include color($primary-color, .2);
+
+  .light-background & {
+    @include color($black, .2);
+  }
 }
 
 .comment-form {
@@ -60,7 +83,19 @@
     font-size: 14px;
     line-height: 1.6;
 
-    @include query($mobile-2) {
+    @include placeholder {
+      color: rgba($black, .3);
+    }
+
+    .light-background & {
+      @include color($black);
+
+      @include placeholder {
+        color: rgba($primary-color, .3);
+      }
+    }
+
+    @include query($tablet-4 + 64) {
       text-align: left;
     }
   }

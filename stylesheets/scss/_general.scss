@@ -87,6 +87,10 @@ body {
   height: 1px;
   @include bg($black, 0.25);
 
+  .light-background & {
+    @include bg($primary-color, 0.25);
+  }
+
   @include query($mobile-5) {
     width: auto;
   }

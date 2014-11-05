@@ -26,7 +26,7 @@
               colorData = (data.colorData && data.colorData !== '') ? data.colorData : '',
               lightness = colorData && colorData !== '' && colorData.lightness ? colorData.lightness : 0;
 
-          $('.js-content').removeClass('light-background dark-background').addClass(lightness <= 0.5 ? 'dark-background' : 'light-background');
+          $('.js-background-style').removeClass('light-background dark-background').addClass(lightness <= 0.5 ? 'dark-background' : 'light-background');
           if (oldImg !== img) {
             $('.js-bgpicker-body-image').css({'background-image' : img});
           }

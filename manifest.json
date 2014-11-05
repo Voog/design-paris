@@ -244,6 +244,18 @@
     },
     {
       "content_type": "text/css",
+      "file": "stylesheets/editmode.css",
+      "kind": "stylesheets",
+      "filename": "editmode.css"
+    },
+    {
+      "content_type": "text/css",
+      "file": "stylesheets/editmode.min.css",
+      "kind": "stylesheets",
+      "filename": "editmode.min.css"
+    },
+    {
+      "content_type": "text/css",
       "file": "stylesheets/main.css",
       "kind": "stylesheets",
       "filename": "main.css"

@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer js-background-style {{ body_color_class }}">
   <div class="wrap">
     <div class="horizontal-line"></div>
     <div class="footer-inner">
