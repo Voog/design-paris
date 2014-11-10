@@ -202,9 +202,13 @@
   }
 
   // Content area image title
-  .edy-image-container-title-inner {
-    padding: 4px 6px 2px;
-    font-size: 16px;
+  .edy-image-container-with-title {
+    &:after {
+      display: block;
+      padding: 2px 4px;
+      font-size: 14px;
+      content: attr(data-title);
+    }
   }
 
   iframe {
