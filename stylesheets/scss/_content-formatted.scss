@@ -205,8 +205,8 @@
   .edy-image-container-with-title {
     &:after {
       display: block;
-      padding: 2px 4px;
-      font-size: 14px;
+      padding: 2px;
+      font-size: 12px;
       content: attr(data-title);
     }
   }
