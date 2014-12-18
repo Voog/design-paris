@@ -49,7 +49,6 @@
 
         // Removes the current lightness class.
         $('.js-background-type').removeClass('light-background dark-background');
-        console.log(bodyBgColorOpacity);
         // Checks the opacity of the body background color and sets the lightness class depending on it's value.
         if (bodyBgColorOpacity >= 0.2) {
           $('.js-background-type').addClass(bodyBgColorLightness >= 0.5 ? 'light-background' : 'dark-background');
