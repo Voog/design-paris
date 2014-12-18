@@ -49,10 +49,17 @@
 
   .footer-left {
     width: 840px;
+    margin-right: 25px;
+
+    @include query($mobile-5) {
+      width: auto;
+      margin-right: 0;
+    }
   }
 
   .footer-right {
-    width: 160px;
+    width: 116px;
+    min-width: 116px;
     text-align: right;
 
     @include query($mobile-5) {
