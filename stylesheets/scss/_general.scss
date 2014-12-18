@@ -33,7 +33,6 @@ body {
 }
 
 %stretch {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -61,6 +60,19 @@ body {
   display: none;
 }
 
+.background-image,
+.background-color,
+.body-background-color {
+  position: fixed;
+  z-index: -1;
+  @extend %stretch;
+}
+
+.background-image {
+  background-position: center;
+  background-size: cover;
+}
+
 .bgpicker-btn {
   position: absolute;
   background: none;
@@ -70,16 +82,6 @@ body {
   &:focus {
     outline: none;
   }
-}
-
-.background-image,
-.background-color {
-  @extend %stretch;
-}
-
-.background-image {
-  background-position: center;
-  background-size: cover;
 }
 
 .horizontal-line {

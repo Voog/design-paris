@@ -131,14 +131,15 @@
 }
 
 
-  .post-cover-inner {
-    .light-background & {
-    .post-page & {
-        @include border(all, 1px, dashed, $black, 0.1);
-    }
-
-    }
+.post-cover-inner {
+  .light-background & {
+    @include border(all, 1px, dashed, $black, 0.1);
   }
+
+  .dark-background & {
+    @include border(all, 1px, dashed, $primary-color, 0.1);
+  }
+}
 
 
 .post-top {
@@ -360,7 +361,6 @@
       width: 220px;
       height: 300px;
       margin-top: 11px;
-      @include border(all, 1px, dashed, $primary-color, 0.1);
 
       .flexbox & {
         @include display(flex);

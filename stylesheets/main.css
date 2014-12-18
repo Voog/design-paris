@@ -32,8 +32,8 @@ body > .background-color {
 }
 
 .background-image,
-.background-color {
-  position: absolute;
+.background-color,
+.body-background-color {
   top: 0;
   left: 0;
   right: 0;
@@ -59,6 +59,18 @@ body > .background-color {
   display: none;
 }
 
+.background-image,
+.background-color,
+.body-background-color {
+  position: fixed;
+  z-index: -1;
+}
+
+.background-image {
+  background-position: center;
+  background-size: cover;
+}
+
 .bgpicker-btn {
   position: absolute;
   background: none;
@@ -67,11 +79,6 @@ body > .background-color {
 }
 .bgpicker-btn:focus {
   outline: none;
-}
-
-.background-image {
-  background-position: center;
-  background-size: cover;
 }
 
 .horizontal-line {
@@ -787,9 +794,13 @@ span[style*="font-size"] {
   }
 }
 
-.post-page .light-background .post-cover-inner {
+.light-background .post-cover-inner {
   border: 1px dashed #000000;
   border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+.dark-background .post-cover-inner {
+  border: 1px dashed #FFFFFF;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .dark-background .post-top {
@@ -977,8 +988,6 @@ span[style*="font-size"] {
   width: 220px;
   height: 300px;
   margin-top: 11px;
-  border: 1px dashed #FFFFFF;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
 }
 .flexbox .post-page .post .post-cover-inner {
   display: -webkit-box;
