@@ -29,10 +29,12 @@
   }
 }
 
-.edy-empty-bordered {
-  .header-left &,
-  .footer-left & {
-    padding: 6px 5px 2px;
+.edy-ca-empty-placeholder {
+  .edy-empty-bordered {
+    .header-left &,
+    .footer-left & {
+      padding: 6px 5px 2px;
+    }
   }
 }
 
