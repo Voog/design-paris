@@ -63,14 +63,22 @@ body {
 .background-image,
 .background-color,
 .body-background-color {
-  position: fixed;
   z-index: -1;
   @extend %stretch;
+}
+
+.background-image,
+.background-color {
+  position: absolute;
 }
 
 .background-image {
   background-position: center;
   background-size: cover;
+}
+
+.body-background-color {
+  position: fixed;
 }
 
 .bgpicker-btn {

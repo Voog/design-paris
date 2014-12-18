@@ -143,6 +143,8 @@
 
 
 .post-top {
+  position: relative;
+
   .dark-background & {
     @include bg($black, 0.2);
 
