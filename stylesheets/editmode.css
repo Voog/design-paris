@@ -1,44 +1,26 @@
-.edy-content-element {
-  margin-top: 20px;
+.dark-background .edy-empty-bordered {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
 }
-.edy-content-element:first-child {
-  margin-top: 0;
+.dark-background .placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
-
-.edy-texteditor-view {
-  min-height: 27px;
+.dark-background .edy-content-element-hover {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
 }
-.footer .edy-texteditor-view {
-  min-height: 16px;
+.dark-background .edy-texteditor-active {
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: rgba(255, 255, 255, 0.4);
 }
-.dark-background .edy-texteditor-view.placeholder {
-  color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.1);
-}
-.light-background .edy-texteditor-view.placeholder {
-  color: #000000;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.edy-empty-bordered {
-  border: 1px dashed #FFFFFF;
-  border: 1px dashed rgba(255, 255, 255, 0.63);
-}
-.edy-empty-bordered .edy-empty-header {
-  color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.63);
+.dark-background .edy-texteditor-active:hover {
+  outline-color: rgba(255, 255, 255, 0.63);
 }
 
-.edy-content-element-hover {
-  border: 1px solid #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.footer .edy-texteditor-active {
-  outline: 1px solid rgba(255, 255, 255, 0.4);
-}
-.footer .edy-texteditor-active:hover {
-  outline: 1px solid rgba(255, 255, 255, 0.63);
+.footer-left .edy-empty-bordered {
+  padding: 6px 5px 2px;
 }
 
 .edy-img-drop-area.post-cover-inner .edy-img-drop-area-placeholder {
