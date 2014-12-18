@@ -47,17 +47,10 @@
     }
   }
 
-  .flexbox & {
-    .edy-img-drop-area-placeholder {
-      @include align-self(center);
-    }
-  }
-
-  .no-flexbox & {
-    .edy-img-drop-area-placeholder {
-      display: table-cell;
-      vertical-align: middle;
-    }
+  .edy-img-drop-area-placeholder {
+    @include transform(translateY(-50%));
+    position: relative;
+    top: 50%;
   }
 
   .dark-background & {

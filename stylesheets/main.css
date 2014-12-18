@@ -989,18 +989,6 @@ span[style*="font-size"] {
   height: 300px;
   margin-top: 11px;
 }
-.flexbox .post-page .post .post-cover-inner {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-.no-flexbox .post-page .post .post-cover-inner {
-  display: table;
-}
 .post-page .post .post-cover-inner.active {
   border: none;
 }

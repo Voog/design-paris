@@ -31,15 +31,14 @@
   color: #000000;
   color: rgba(0, 0, 0, 0.53);
 }
-.flexbox .edy-img-drop-area .edy-img-drop-area-placeholder {
-  -webkit-align-self: center;
-  -moz-align-self: center;
-  align-self: center;
-  -ms-flex-item-align: center;
-}
-.no-flexbox .edy-img-drop-area .edy-img-drop-area-placeholder {
-  display: table-cell;
-  vertical-align: middle;
+.edy-img-drop-area .edy-img-drop-area-placeholder {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%;
 }
 .dark-background .edy-img-drop-area .edy-img-drop-area-placeholder {
   color: #FFFFFF;
