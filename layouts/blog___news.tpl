@@ -18,7 +18,14 @@
       <div class="wrap">
 
         <div class="post-add-btn js-post-add-btn">{% addbutton %}</div>
-        {% if tags %}<div class="content-formatted"><h2>{% if tags == empty %}{{ "no_posts_tagged" | lc }}{% else %}{{ "posts_tagged" | lc }} '{{ tags | sort:"name" | map:"name" | join:"', '"}}'.{% endif %}</h2></div>{% endif %}
+        {% if tags %}
+          <div class="content-formatted">
+            <svg class="ico-tags" width="24px" height="24px" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.3,13.7C21.7,12,9.6,0,9.6,0H0v9.6l13.7,13.7c0,0,1.6,1.6,3.2,0l6.4-6.4 C23.3,16.9,24.9,15.3,23.3,13.7 M6.4,6.4c-0.9,0.9-2.3,0.9-3.2,0c-0.9-0.9-0.9-2.3,0-3.2 c0.9-0.9,2.3-0.9,3.2,0C7.3,4.1,7.3,5.5,6.4,6.4"></path>
+            </svg>
+            <h2>{{ "posts_tagged" | lc }} '{{ tags | sort:"name" | map:"name" | join:"', '"}}'.</h2>
+          </div>
+        {% endif %}
 
         <section class="blog">
 

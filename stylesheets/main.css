@@ -565,6 +565,9 @@ span[style*="font-size"] {
 .tags {
   margin-top: 20px;
 }
+.tags .tags-editor {
+  margin-left: 22px;
+}
 .tags .menu-item,
 .tags .menu-link {
   color: white;
@@ -575,6 +578,22 @@ span[style*="font-size"] {
 .tags .menu-link {
   text-decoration: underline;
   font-size: 14px;
+}
+
+.ico-tags {
+  position: relative;
+  top: 5px;
+  float: left;
+  fill: currentcolor;
+}
+.light-background .ico-tags {
+  fill: rgba(0, 0, 0, 0.7);
+}
+.blog-page .ico-tags {
+  margin-right: 15px;
+}
+.post-page .ico-tags {
+  margin-right: 7px;
 }
 
 /* HEADER */

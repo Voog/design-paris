@@ -238,9 +238,17 @@
 .tags {
   margin-top: 20px;
 
+  .tags-editor {
+    margin-left: 22px;
+  }
+
   .menu-item,
   .menu-link {
     @include color($primary-color);
+
+    &:hover {
+
+    }
   }
 
   .menu-item {
@@ -252,5 +260,24 @@
   .menu-link {
     text-decoration: underline;
     font-size: 14px;
+  }
+}
+
+.ico-tags {
+  position: relative;
+  top: 5px;
+  float: left;
+  fill: currentcolor;
+
+  .light-background & {
+    fill: rgba($black,.7);
+  }
+
+  .blog-page & {
+    margin-right: 15px;
+  }
+
+  .post-page & {
+    margin-right: 7px;
   }
 }
