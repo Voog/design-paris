@@ -146,18 +146,22 @@
   position: relative;
 
   .dark-background & {
-    @include bg($black, 0.2);
+    background-color: transparent;
+    background-color: rgba($black,.2);
 
     &:hover {
-      @include bg($black, 0.4);
+      background-color: transparent;
+      background-color: rgba($black,.4);
     }
   }
 
   .light-background & {
-    @include bg($primary-color, 0.2);
+    background-color: transparent;
+    background-color: rgba($primary-color,.2);
 
     &:hover {
-      @include bg($primary-color, 0.4);
+      background-color: transparent;
+      background-color: rgba($primary-color,.4);
     }
   }
 }
