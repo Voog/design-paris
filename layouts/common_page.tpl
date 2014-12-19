@@ -16,7 +16,7 @@
     <main class="content js-background-type {{ body_bg_type }}" role="main">
       <div class="wrap">
         {% include "menu-level-2" %}
-        <section class="wrap-inner content-formatted">{% content %}</section>
+        <section class="wrap-inner content-formatted" data-search-indexing-allowed="true">{% content %}</section>
       </div>
     </main>
 

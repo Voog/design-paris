@@ -53,9 +53,7 @@
           {% endfor %}
         </section>
 
-        <section class="content-formatted">
-          {% content %}
-        </section>
+        <section class="content-formatted" data-search-indexing-allowed="true">{% content %}</section>
       </div>
     </main>
 

@@ -24,14 +24,14 @@
 
           <article class="post-inner">
             <header class="post-header">
-              <h1 class="post-title content-formatted">{% editable article.title %}</h1>
+              <h1 class="post-title content-formatted" data-search-indexing-allowed="true">{% editable article.title %}</h1>
               <div class="post-header-bottom">
                 <time class="post-date" datetime="{{ article.created_at | date : "%Y-%m-%d" }}">{{ article.created_at | format_date: 'long' }}</time>
-                <span class="post-author"> – {{ article.author.name }}</span>
+                <span class="post-author" data-search-indexing-allowed="true"> – {{ article.author.name }}</span>
               </div>
             </header>
 
-            <div class="post-content">
+            <div class="post-content" data-search-indexing-allowed="true">
               <div class="post-excerpt content-formatted">{% editable article.excerpt %}</div>
               <div class="post-body content-formatted">{% editable article.body %}</div>
             </div>
