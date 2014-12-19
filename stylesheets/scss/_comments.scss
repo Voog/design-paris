@@ -110,12 +110,15 @@
     font-family: inherit;
     font-weight: 700;
     font-size: 16px;
-    @include color($primary-color, 0.6);
     background: transparent;
     border: none;
 
     &:focus {
       outline: none;
+    }
+
+    .dark-background & {
+      @include color($primary-color, 0.6);
     }
 
     @include placeholder {

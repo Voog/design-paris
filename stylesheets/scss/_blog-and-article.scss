@@ -7,17 +7,23 @@
   @include border(all, 1px, dashed, $primary-color, .1);
 
   .light-background & {
-    border-color: rgba($black, .5);
+    @include color($black,.4);
+    border-color: rgba($black,.3);
   }
 
   &, &:hover {
     @include transition-property (color, border);
-    @include transition-duration(0.3s);
+    @include transition-duration(.3s);
   }
 
   &:hover {
-    @include color($primary-color, .3);
-    @include border(all, 1px, dashed, $primary-color, 0.5);
+    @include color($primary-color, .5);
+    @include border(all, 1px, dashed, $primary-color, .5);
+
+    .light-background & {
+      @include color($black, .6);
+      @include border(all, 1px, dashed, $black, .6);
+    }
 
     .no-svg & {
       .post-add-icon {
@@ -71,14 +77,6 @@
     width: 72px;
     height: 57px;
 
-    .light-background & {
-      .svg & {
-        .icon-newspaper {
-          @include color($black);
-        }
-      }
-    }
-
     .no-svg & {
       opacity: .2;
       background-image: url('../images/ico-post-add-white.png');
@@ -102,12 +100,6 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 1.3;
-  }
-
-  .light-background & {
-    .post-add-title {
-      @include color($black);
-    }
   }
 
   @include query($mobile-4) {

@@ -1,9 +1,9 @@
 .dark-background .edy-empty-bordered {
   color: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 .dark-background .placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.2);
 }
 .dark-background .edy-content-element-hover {
   border-width: 1px;
@@ -13,7 +13,7 @@
 .dark-background .edy-texteditor-active {
   outline-width: 1px;
   outline-style: solid;
-  outline-color: rgba(255, 255, 255, 0.4);
+  outline-color: rgba(255, 255, 255, 0.2);
 }
 .dark-background .edy-texteditor-active:hover {
   outline-color: rgba(255, 255, 255, 0.63);
@@ -29,7 +29,7 @@
   padding: 25px;
   font-size: 14px;
   color: #000000;
-  color: rgba(0, 0, 0, 0.53);
+  color: rgba(0, 0, 0, 0.4);
 }
 .edy-img-drop-area .edy-img-drop-area-placeholder {
   -webkit-transform: translateY(-50%);
@@ -42,11 +42,11 @@
 }
 .dark-background .edy-img-drop-area .edy-img-drop-area-placeholder {
   color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.53);
+  color: rgba(255, 255, 255, 0.1);
 }
 
 .dark-background .edy-taglist {
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .edy-tag-input {

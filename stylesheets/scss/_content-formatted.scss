@@ -49,7 +49,7 @@
     }
 
     .dark-background & {
-      @include color($primary-color, .24);
+      @include color($content-color);
     }
   }
 

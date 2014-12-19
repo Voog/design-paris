@@ -176,8 +176,7 @@ body > .background-color {
 .content-formatted ul, .dark-background
 .content-formatted ol, .dark-background
 .content-formatted table {
-  color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.24);
+  color: #c2c2c2;
 }
 .light-background .content-formatted h1, .light-background
 .content-formatted h2, .light-background
@@ -655,7 +654,9 @@ span[style*="font-size"] {
   border: 1px dashed rgba(255, 255, 255, 0.1);
 }
 .light-background .post-add-link {
-  border-color: rgba(0, 0, 0, 0.5);
+  color: #000000;
+  color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 .post-add-link, .post-add-link:hover {
   -webkit-transition-property: color, border;
@@ -667,9 +668,15 @@ span[style*="font-size"] {
 }
 .post-add-link:hover {
   color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
   border: 1px dashed #FFFFFF;
   border: 1px dashed rgba(255, 255, 255, 0.5);
+}
+.light-background .post-add-link:hover {
+  color: #000000;
+  color: rgba(0, 0, 0, 0.6);
+  border: 1px dashed #000000;
+  border: 1px dashed rgba(0, 0, 0, 0.6);
 }
 .no-svg .post-add-link:hover .post-add-icon {
   opacity: .7;
@@ -718,9 +725,6 @@ span[style*="font-size"] {
   width: 72px;
   height: 57px;
 }
-.svg .light-background .post-add-link .post-add-icon .icon-newspaper {
-  color: black;
-}
 .no-svg .post-add-link .post-add-icon {
   opacity: .2;
   background-image: url("../images/ico-post-add-white.png");
@@ -743,9 +747,6 @@ span[style*="font-size"] {
   font-weight: 600;
   font-size: 18px;
   line-height: 1.3;
-}
-.light-background .post-add-link .post-add-title {
-  color: black;
 }
 @media screen and (max-width: 506px) {
   .post-add-link {
@@ -1564,14 +1565,17 @@ span[style*="font-size"] {
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
-  color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.6);
   background: transparent;
   border: none;
 }
 .comment-form .form_field_textfield:focus,
 .comment-form .form_field_textarea:focus {
   outline: none;
+}
+.dark-background .comment-form .form_field_textfield, .dark-background
+.comment-form .form_field_textarea {
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.6);
 }
 .comment-form .form_field_textfield::-webkit-input-placeholder,
 .comment-form .form_field_textarea::-webkit-input-placeholder {
