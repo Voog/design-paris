@@ -208,6 +208,30 @@
       "filename": "ico-search.png"
     },
     {
+      "content_type": "image/png",
+      "file": "images/ico-tags-blog-black.png",
+      "kind": "images",
+      "filename": "ico-tags-blog-black.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-tags-blog-white.png",
+      "kind": "images",
+      "filename": "ico-tags-blog-white.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-tags-post-black.png",
+      "kind": "images",
+      "filename": "ico-tags-post-black.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-tags-post-white.png",
+      "kind": "images",
+      "filename": "ico-tags-post-white.png"
+    },
+    {
       "content_type": "image/jpeg",
       "file": "images/post-1.jpg",
       "kind": "images",

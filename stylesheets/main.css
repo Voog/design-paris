@@ -572,12 +572,20 @@ span[style*="font-size"] {
 .tags .menu-link {
   color: white;
 }
+.light-background .tags .menu-item, .light-background
+.tags .menu-link {
+  color: black;
+}
 .tags .menu-item .tag {
   display: inline-block;
 }
 .tags .menu-link {
   text-decoration: underline;
   font-size: 14px;
+}
+.tags .menu-link:hover {
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ico-tags {
@@ -589,11 +597,31 @@ span[style*="font-size"] {
 .light-background .ico-tags {
   fill: rgba(0, 0, 0, 0.7);
 }
+.no-svg .blog-page .light-background .ico-tags {
+  background-image: url("../images/ico-tags-blog-black.png");
+}
+.no-svg .post-page .light-background .ico-tags {
+  background-image: url("../images/ico-tags-post-black.png");
+}
+.no-svg .ico-tags {
+  display: block;
+  background-size: 100%;
+}
 .blog-page .ico-tags {
   margin-right: 15px;
 }
+.no-svg .blog-page .ico-tags {
+  width: 24px;
+  height: 24px;
+  background-image: url("../images/ico-tags-blog-white.png");
+}
 .post-page .ico-tags {
   margin-right: 7px;
+}
+.no-svg .post-page .ico-tags {
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/ico-tags-post-white.png");
 }
 
 /* HEADER */

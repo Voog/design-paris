@@ -246,8 +246,8 @@
   .menu-link {
     @include color($primary-color);
 
-    &:hover {
-
+    .light-background & {
+      @include color($black);
     }
   }
 
@@ -260,6 +260,10 @@
   .menu-link {
     text-decoration: underline;
     font-size: 14px;
+
+    &:hover {
+      @include color($primary-color,.8);
+    }
   }
 }
 
@@ -271,13 +275,42 @@
 
   .light-background & {
     fill: rgba($black,.7);
+
+    .blog-page & {
+      .no-svg & {
+        background-image: url('../images/ico-tags-blog-black.png');
+      }
+    }
+
+    .post-page & {
+      .no-svg & {
+        background-image: url('../images/ico-tags-post-black.png');
+      }
+    }
+  }
+
+  .no-svg & {
+    display: block;
+    background-size: 100%;
   }
 
   .blog-page & {
     margin-right: 15px;
+
+    .no-svg & {
+      width: 24px;
+      height: 24px;
+      background-image: url('../images/ico-tags-blog-white.png');
+    }
   }
 
   .post-page & {
     margin-right: 7px;
+
+    .no-svg & {
+      width: 16px;
+      height: 16px;
+      background-image: url('../images/ico-tags-post-white.png');
+    }
   }
 }
