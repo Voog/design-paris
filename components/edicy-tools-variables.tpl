@@ -60,7 +60,7 @@
   {% if fallback_body_color != nil and body_bg_color == nil %}
     {% assign body_bg_color = fallback_body_color %}
   {% elsif body_bg_color == nil %}
-    {% assign body_bg_color = '' %}
+    {% assign body_bg_color = 'rgba(0, 0, 0, 0.2)' %}
   {% endif %}
 
   {% if body_bg_color_data == nil %}
