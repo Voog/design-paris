@@ -71,3 +71,7 @@
   color: #000000;
   color: rgba(0, 0, 0, 0.5);
 }
+
+.dark-background .edy-taglist-openarrow:after {
+  border-color: white transparent transparent;
+}

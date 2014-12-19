@@ -82,3 +82,11 @@
     }
   }
 }
+
+.edy-taglist-openarrow {
+  &:after {
+    .dark-background & {
+      border-color: rgba($primary-color,1) transparent transparent;
+    }
+  }
+}
