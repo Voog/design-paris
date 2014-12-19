@@ -3,44 +3,18 @@
   @include bg($primary-color);
 
   .wrap {
+    @extend %clearfix;
     padding: 26px 20px 29px;
     min-height: 65px;
 
-    .no-flexbox & {
-      display: table;
-    }
-
-    .flexbox & {
-      @include display(flex);
-      @include align-items(flex-start);
-    }
-
-    @include query($tablet-5) {
-      .no-flexbox &,
-      .flexbox & {
-        display: block;
-      }
-    }
-
     .header-left,
     .header-right {
-      .no-flexbox &{
-        display: table-cell;
-
-        @include query($tablet-5) {
-          display: block;
-        }
-      }
+      display: inline-block;
     }
 
     .header-left {
-      width: 360px;
+      min-width: 50%;
       margin-top: 10px;
-
-      @include query($tablet-4) {
-        width: auto;
-        margin-right: 70px;
-      }
 
       .header-title,
       .header-slogan {
@@ -65,14 +39,16 @@
       }
 
       .header-slogan {
-        width: 100%;
+        position: relative;
+        top: 2px;
         font-size: 18px;
       }
     }
 
     .header-right {
-      width: 580px;
-      margin-left: 20px;
+      min-width: calc(50% - 25px);
+      float: right;
+      margin-left: 25px;
       text-align: right;
 
       @include query($tablet-4) {

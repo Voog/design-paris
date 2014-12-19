@@ -12,23 +12,8 @@
   }
 
   .footer-inner {
+    @extend %clearfix;
     margin-top: 23px;
-
-    .no-flexbox & {
-      display: table;
-    }
-
-    .flexbox & {
-      @include display(flex);
-      @include align-items(flex-start);
-    }
-
-    @include query($mobile-5) {
-      .no-flexbox &,
-      .flexbox & {
-        display: block;
-      }
-    }
   }
 
   a {
@@ -42,29 +27,21 @@
 
   .footer-left,
   .footer-right {
-    .no-flexbox &{
-      display: table-cell;
-    }
+    display: inline-block;
   }
 
   .footer-left {
-    width: 840px;
-    margin-right: 25px;
-
-    @include query($mobile-5) {
-      width: auto;
-      margin-right: 0;
-    }
+    min-width: calc(100% - 144px);
+    margin-bottom: 25px;
   }
 
   .footer-right {
-    width: 116px;
-    min-width: 116px;
-    text-align: right;
+    width: 119px;
+    margin-left: 25px;
+    float: right;
 
     @include query($mobile-5) {
-      max-width: 100%;
-      margin-top: 20px;
+      display: block;
     }
 
     a {
@@ -72,15 +49,6 @@
 
       &:hover {
         @include color($primary-color, 0.5);
-      }
-    }
-
-    .footer-left,
-    .footer-right {
-      @include query($mobile-5) {
-        width: auto;
-        max-width: 100%;
-        text-align: center;
       }
     }
   }
