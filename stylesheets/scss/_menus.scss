@@ -60,7 +60,8 @@
       display: block;
       margin-left: 0;
       padding: 9px 30px 10px;
-      @include border(bottom, 1px, solid, $primary-color, 0.2);
+      @include border(top, 1px, solid, $black, 0.2);
+      // @include border(bottom, 1px, solid, $black, 0.2);
     }
   }
 }
@@ -128,6 +129,12 @@
       display: block;
       margin: 0;
       font-size: 20px;
+
+      &:first-child {
+        .menu-link {
+          border-top: none;
+        }
+      }
     }
 
     .menu-link {
@@ -145,6 +152,15 @@
       margin-bottom: 40px;
       @include border(top, 1px, solid, $primary-color, .2);
       @include no-box-shadow;
+    }
+
+    .menu-item {
+
+      &:first-child {
+        .menu-link {
+          @include border(top, 1px, solid, $black, .2);
+        }
+      }
     }
   }
 }
@@ -226,6 +242,12 @@
 
     .menu-item {
       margin-left: 0;
+
+      &:first-child {
+        .menu-link {
+          @include border(top, 1px, solid, $black, .2);
+        }
+      }
     }
 
     .menu-link {
