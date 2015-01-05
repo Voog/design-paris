@@ -47,6 +47,7 @@ module.exports = function(grunt) {
         src: [
         'bower_components/jquery/dist/jquery.js',
         'bower_components/overthrow/src/overthrow-polyfill.js',
+        'bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
         'javascripts/src/concat/*.js'
         ],
         dest: 'javascripts/application.js'

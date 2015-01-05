@@ -64,6 +64,18 @@
     }
   }
 
+  .form_field_textarea {
+    box-sizing: border-box;
+    min-height: 111px;
+    overflow-x: hidden;
+
+    .comment-form & {
+      .form_field_textarea {
+        min-height: 22px;
+      }
+    }
+  }
+
   .form_field_size_medium {
     width: 325px;
 
