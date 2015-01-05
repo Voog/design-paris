@@ -21,24 +21,22 @@
             {% for item in site.menuitems_with_hidden %}
               {% if item.blog? %}
                 <a class="post-add-link post js-post-add" href="{{ item.url }}?new">
-                  <div class="post-add-link-inner">
-                    <div class="wrap">
-                      <div class="align-middle">
-                        <div class="post-add-icon">
-                          <svg class="icon-newspaper" xmlns="http://www.w3.org/2000/svg" width="72px" height="57px" viewBox="-21 -13.5 72 57">
-                            <g>
-                              <path fill="none" stroke="currentColor" stroke-width="5" d="M-6,32V-10H47v50H-6C-12,40-17,37-17,31V5h11"></path>
-                              <path fill="currentColor" d="M23,8h16v5H23V8z"></path>
-                              <path fill="currentColor" d="M23-2h16v5H23V-2z"></path>
-                              <path fill="currentColor" d="M23,17h16v5H23V17z"></path>
-                              <path fill="currentColor" d="M2,27h37v5H2V27z"></path>
-                              <path fill="currentColor" d="M2-2h16v25H2V-2z"></path>
-                            </g>
-                          </svg>
-                        </div>
-
-                        <h3 class="post-add-title">{{ "add_new_post" | lc }}</h3>
+                  <div class="wrap">
+                    <div class="align-middle">
+                      <div class="post-add-icon">
+                        <svg class="icon-newspaper" xmlns="http://www.w3.org/2000/svg" width="72px" height="57px" viewBox="-21 -13.5 72 57">
+                          <g>
+                            <path fill="none" stroke="currentColor" stroke-width="5" d="M-6,32V-10H47v50H-6C-12,40-17,37-17,31V5h11"></path>
+                            <path fill="currentColor" d="M23,8h16v5H23V8z"></path>
+                            <path fill="currentColor" d="M23-2h16v5H23V-2z"></path>
+                            <path fill="currentColor" d="M23,17h16v5H23V17z"></path>
+                            <path fill="currentColor" d="M2,27h37v5H2V27z"></path>
+                            <path fill="currentColor" d="M2-2h16v25H2V-2z"></path>
+                          </g>
+                        </svg>
                       </div>
+
+                      <h3 class="post-add-title">{{ "add_new_post" | lc }}</h3>
                     </div>
                   </div>
                 </a>
