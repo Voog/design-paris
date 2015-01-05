@@ -981,9 +981,6 @@ span[style*="font-size"] {
 .blog-page .post .post-footer {
   text-align: right;
 }
-.blog-page .post .post-content {
-  display: none;
-}
 .blog-page .post .post-footer {
   margin-top: -5px;
 }

@@ -10,9 +10,6 @@
   </div>
 
   <div class="post-bottom">
-    <section class="post-content">
-      <div class="post-excerpt content-formatted">{{ article.excerpt }}</div>
-    </section>
     <footer class="post-footer">
       <time class="post-date" datetime="{{ article.created_at | date : '%Y-%m-%d' }}">{{ article.created_at | format_date: 'long' }}</time>
     </footer>
