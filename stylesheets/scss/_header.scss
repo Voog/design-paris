@@ -43,6 +43,14 @@
         top: 2px;
         font-size: 18px;
       }
+
+      @include query($tablet-4) {
+        margin-right: 35px;
+
+        .search-enabled & {
+          margin-right: 190px;
+        }
+      }
     }
 
     .header-right {

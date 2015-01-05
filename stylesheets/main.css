@@ -675,6 +675,14 @@ span[style*="font-size"] {
   top: 2px;
   font-size: 18px;
 }
+@media screen and (max-width: 840px) {
+  .header .wrap .header-left {
+    margin-right: 35px;
+  }
+  .search-enabled .header .wrap .header-left {
+    margin-right: 190px;
+  }
+}
 .header .wrap .header-right {
   min-width: calc(50% - 25px);
   float: right;

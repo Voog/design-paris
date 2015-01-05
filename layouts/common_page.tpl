@@ -6,7 +6,7 @@
   {% include 'edicy-tools-styles' %}
 </head>
 
-<body class="common-page body-background-image js-body-background-image{% if fallback_state %} bgpicker-fallback{% endif %}">
+<body class="common-page body-background-image js-body-background-image{% if fallback_state %} bgpicker-fallback{% endif %}{% if site.search.enabled %} search-enabled{% endif %}">
   {% if body_bg_color != '' or editmode %}<div class="body-background-color js-body-background-color"></div>{% endif %}
 
   <div class="container">
