@@ -2,7 +2,7 @@
   <div class="wrap">
     <section class="header-left">
       <div class="header-title content-formatted">{% unless editmode %}<a href="{{ site.root_item.url }}">{% endunless %}{% editable site.header %}{% unless editmode %}</a>{% endunless %}</div>
-      <div class="header-slogan content-formatted" data-search-indexing-allowed="true">{% xcontent name="slogan" %}</div>
+      <div class="header-slogan content-formatted">{% xcontent name="slogan" %}</div>
 
       {% if site.search.enabled %}
         <button class="search-btn search-close-btn js-search-close-btn">
