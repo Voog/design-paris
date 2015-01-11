@@ -20,10 +20,10 @@
       {% endif %}
       
       <div class="texts-listing cfx">
-        <div class="text-box top-line">
+        <div class="text-box top-line" data-search-indexing-allowed="true">
           {% content %}
         </div><!-- .text-box -->
-        <div class="text-box top-line">
+        <div class="text-box top-line" data-search-indexing-allowed="true">
           {% content name="second-content" %}
         </div><!-- .text-box -->
       </div><!-- .texts-listing -->

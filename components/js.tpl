@@ -8,7 +8,7 @@
           default_stylesheet_enabled: false
       };
   </script>
-  <script type="text/javascript" src="http://static.edicy.com/assets/site_search/3.0/site_search.js?1"></script>
+  <script type="text/javascript" src="{{ site.static_asset_host }}/assets/site_search/3.0/site_search.js"></script>
 {% endif %}
 <script type="text/javascript">
     var page_id = {{ page.id }};

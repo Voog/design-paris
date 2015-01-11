@@ -13,7 +13,7 @@
       {% include "Mainmenu" %}
       {% include "Submenu" %}
       
-      <div class="content-texts content-texts-wrapper cfx">
+      <div class="content-texts content-texts-wrapper cfx" data-search-indexing-allowed="true">
         {% content %}
       </div><!-- .content-texts -->
       

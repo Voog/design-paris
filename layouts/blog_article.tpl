@@ -12,7 +12,7 @@
       
       {% include "Mainmenu" %}
       
-      <div class="hidden js-thumb-data">{% editable article.excerpt %}</div>
+      <div class="hidden js-thumb-data" data-search-indexing-allowed="true">{% editable article.excerpt %}</div>
       
       <div class="content-texts cfx">
         
@@ -37,7 +37,7 @@
               {{article.created_at | format_date:"short"}}, {{article.created_at | format_date:"%Y"}}{% comment %}, {{ article.author.name }}{% endcomment %}
             </span>
           </h1>
-          {% editable article.body %}
+          <div data-search-indexing-allowed="true">{% editable article.body %}</div>
           
           
           
