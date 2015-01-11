@@ -1,5 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
+<script src="{{ site.static_asset_host }}/libs/picturefill/latest/picturefill.min.js"></script>
 {% comment %} Configure site search if enabled from settings {% endcomment %}
 {% if site.search.enabled %}
   <script type="text/javascript">
