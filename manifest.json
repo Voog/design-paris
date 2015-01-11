@@ -1,1 +1,212 @@
-{"name":"Paris","layouts":[{"component":false,"title":"Blog & News","layout_name":"blog_front","content_type":"blog","file":"layouts/blog___news.tpl"},{"component":false,"title":"Blog article","layout_name":"blog_article","content_type":"blog_article","file":"layouts/blog_article.tpl"},{"component":false,"title":"Common page","layout_name":"page_default","content_type":"page","file":"layouts/common_page.tpl"},{"component":false,"title":"Front page","layout_name":"page_front","content_type":"page","file":"layouts/front_page.tpl"},{"component":true,"title":"Article box","layout_name":"","content_type":"component","file":"components/article_box.tpl"},{"component":true,"title":"Article comments","layout_name":"","content_type":"component","file":"components/article_comments.tpl"},{"component":true,"title":"Article row","layout_name":"","content_type":"component","file":"components/article_row.tpl"},{"component":true,"title":"Footer","layout_name":"","content_type":"component","file":"components/footer.tpl"},{"component":true,"title":"Header","layout_name":"","content_type":"component","file":"components/header.tpl"},{"component":true,"title":"JS","layout_name":"","content_type":"component","file":"components/js.tpl"},{"component":true,"title":"Langmenu","layout_name":"","content_type":"component","file":"components/langmenu.tpl"},{"component":true,"title":"Mainmenu","layout_name":"","content_type":"component","file":"components/mainmenu.tpl"},{"component":true,"title":"Search","layout_name":"","content_type":"component","file":"components/search.tpl"},{"component":true,"title":"SiteHeader","layout_name":"","content_type":"component","file":"components/siteheader.tpl"},{"component":true,"title":"Submenu","layout_name":"","content_type":"component","file":"components/submenu.tpl"}],"author":"T\u00f5nu Runnel","preview_medium":"http://static.edicy.com/designs/previews/paris_medium.jpg","assets":[{"kind":"images","content_type":"image/png","filename":"search-btn.png","file":"images/search-btn.png"},{"kind":"images","content_type":"image/jpeg","filename":"body-bg.jpg","file":"images/body-bg.jpg"},{"kind":"stylesheets","content_type":"text/css","filename":"style.css","file":"stylesheets/style.css"},{"kind":"stylesheets","content_type":"text/css","filename":"ie7.css","file":"stylesheets/ie7.css"},{"kind":"javascripts","content_type":"text/javascript","filename":"application.js","file":"javascripts/application.js"},{"kind":"javascripts","content_type":"text/javascript","filename":"article_imgdrop.js","file":"javascripts/article_imgdrop.js"},{"kind":"images","content_type":"image/png","filename":"line-dot.png","file":"images/line-dot.png"},{"kind":"javascripts","content_type":"text/javascript","filename":"modernizr.js","file":"javascripts/modernizr.js"},{"kind":"images","content_type":"image/png","filename":"tag-big-white.png","file":"images/tag-big-white.png"},{"kind":"images","content_type":"image/svg+xml","filename":"tag-big-white.svg","file":"images/tag-big-white.svg"},{"kind":"images","content_type":"image/png","filename":"tag-white.png","file":"images/tag-white.png"},{"kind":"images","content_type":"image/svg+xml","filename":"tag-white.svg","file":"images/tag-white.svg"}],"preview_small":"http://static.edicy.com/designs/previews/paris_small.jpg","description":"A photoblog template"}
+{
+  "description": "A photoblog template",
+  "name": "Paris",
+  "preview_medium": "http://static.edicy.com/designs/previews/paris_medium.jpg",
+  "preview_small": "http://static.edicy.com/designs/previews/paris_small.jpg",
+  "author": "Tõnu Runnel",
+  "layouts": [
+    {
+      "content_type": "page",
+      "component": false,
+      "file": "layouts/front_page.tpl",
+      "layout_name": "page_front",
+      "title": "Front page"
+    },
+    {
+      "content_type": "page",
+      "component": false,
+      "file": "layouts/common_page.tpl",
+      "layout_name": "page_default",
+      "title": "Common page"
+    },
+    {
+      "content_type": "blog",
+      "component": false,
+      "file": "layouts/blog___news.tpl",
+      "layout_name": "blog_front",
+      "title": "Blog & News"
+    },
+    {
+      "content_type": "blog_article",
+      "component": false,
+      "file": "layouts/blog_article.tpl",
+      "layout_name": "blog_article",
+      "title": "Blog article"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/footer.tpl",
+      "layout_name": "footer",
+      "title": "footer"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/article_comments.tpl",
+      "layout_name": "article comments",
+      "title": "article comments"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/article_row.tpl",
+      "layout_name": "article row",
+      "title": "article row"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/article_box.tpl",
+      "layout_name": "article box",
+      "title": "article box"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/header.tpl",
+      "layout_name": "header",
+      "title": "header"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/js.tpl",
+      "layout_name": "js",
+      "title": "js"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/langmenu.tpl",
+      "layout_name": "langmenu",
+      "title": "langmenu"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/mainmenu.tpl",
+      "layout_name": "mainmenu",
+      "title": "mainmenu"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/search.tpl",
+      "layout_name": "search",
+      "title": "search"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/siteheader.tpl",
+      "layout_name": "siteheader",
+      "title": "siteheader"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/submenu.tpl",
+      "layout_name": "submenu",
+      "title": "submenu"
+    }
+  ],
+  "assets": [
+    {
+      "content_type": "text/unknown",
+      "file": "assets/.DS_Store",
+      "kind": "assets",
+      "filename": ".DS_Store"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/tag-big-white.svg",
+      "kind": "assets",
+      "filename": "tag-big-white.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/tag-white.svg",
+      "kind": "assets",
+      "filename": "tag-white.svg"
+    },
+    {
+      "content_type": "text/unknown",
+      "file": "images/.DS_Store",
+      "kind": "images",
+      "filename": ".DS_Store"
+    },
+    {
+      "content_type": "image/jpeg",
+      "file": "images/body-bg.jpg",
+      "kind": "images",
+      "filename": "body-bg.jpg"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/line-dot.png",
+      "kind": "images",
+      "filename": "line-dot.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/search-btn.png",
+      "kind": "images",
+      "filename": "search-btn.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/tag-big-white.png",
+      "kind": "images",
+      "filename": "tag-big-white.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/tag-white.png",
+      "kind": "images",
+      "filename": "tag-white.png"
+    },
+    {
+      "content_type": "text/unknown",
+      "file": "javascripts/.DS_Store",
+      "kind": "javascripts",
+      "filename": ".DS_Store"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/application.js",
+      "kind": "javascripts",
+      "filename": "application.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/article_imgdrop.js",
+      "kind": "javascripts",
+      "filename": "article_imgdrop.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/modernizr.js",
+      "kind": "javascripts",
+      "filename": "modernizr.js"
+    },
+    {
+      "content_type": "text/unknown",
+      "file": "stylesheets/.DS_Store",
+      "kind": "stylesheets",
+      "filename": ".DS_Store"
+    },
+    {
+      "content_type": "text/css",
+      "file": "stylesheets/ie7.css",
+      "kind": "stylesheets",
+      "filename": "ie7.css"
+    },
+    {
+      "content_type": "text/css",
+      "file": "stylesheets/style.css",
+      "kind": "stylesheets",
+      "filename": "style.css"
+    }
+  ]
+}
