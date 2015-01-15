@@ -113,12 +113,6 @@
   ],
   "assets": [
     {
-      "content_type": "text/unknown",
-      "file": "assets/.DS_Store",
-      "kind": "assets",
-      "filename": ".DS_Store"
-    },
-    {
       "content_type": "image/svg+xml",
       "file": "assets/tag-big-white.svg",
       "kind": "assets",
@@ -129,12 +123,6 @@
       "file": "assets/tag-white.svg",
       "kind": "assets",
       "filename": "tag-white.svg"
-    },
-    {
-      "content_type": "text/unknown",
-      "file": "images/.DS_Store",
-      "kind": "images",
-      "filename": ".DS_Store"
     },
     {
       "content_type": "image/jpeg",
@@ -167,12 +155,6 @@
       "filename": "tag-white.png"
     },
     {
-      "content_type": "text/unknown",
-      "file": "javascripts/.DS_Store",
-      "kind": "javascripts",
-      "filename": ".DS_Store"
-    },
-    {
       "content_type": "application/javascript",
       "file": "javascripts/application.js",
       "kind": "javascripts",
@@ -189,12 +171,6 @@
       "file": "javascripts/modernizr.js",
       "kind": "javascripts",
       "filename": "modernizr.js"
-    },
-    {
-      "content_type": "text/unknown",
-      "file": "stylesheets/.DS_Store",
-      "kind": "stylesheets",
-      "filename": ".DS_Store"
     },
     {
       "content_type": "text/css",
