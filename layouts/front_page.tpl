@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.language_code }}">>
+<html lang="{{ page.language_code }}">
 <head>
   {% include "SiteHeader" %}
 
