@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.language_code }}">>
 <head>
   {% include "SiteHeader" %}
   {{ blog.rss_link }}
