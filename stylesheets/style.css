@@ -696,6 +696,21 @@ div.edy-taglist-openarrow:after {
   .comments-add-row .textbox:-ms-input-placeholder{ opacity: 0.5; }
   .comments-add-row .textbox::-webkit-input-placeholder{ opacity: 0.5; }
   
- 
-  
-  
+/* Voog cms style overrides */
+.main-content .content-center-wrapper .edy-empty-bordered {
+  color: rgba(255,255,255,.33);
+  border-color: rgba(255,255,255,.33);
+}
+.main-content .content-center-wrapper .edy-texteditor-view.placeholder {
+  color: rgba(255,255,255,.5);
+}
+.main-content .content-center-wrapper .edy-content-element-hover {
+  border-color: rgba(255,255,255,.1);
+}
+.main-content .content-center-wrapper .edy-texteditor-active {
+  outline-color: rgba(255,255,255,.2);
+}
+.main-content .content-center-wrapper .edy-fe-field-active,
+.main-content .content-center-wrapper .edy-fe-active .edy-fe-field:hover {
+  outline-color: rgba(255,255,255,.1);
+}
