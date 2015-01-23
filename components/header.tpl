@@ -1,4 +1,4 @@
-<div class="main-header main-division cfx">
+<div class="main-header main-division cfx content-hyphenate">
   <div class="content-center-wrapper">
     
     <div class="right dont-wrap">

@@ -7,7 +7,7 @@
 <body>
   {% include "Header" %}
   
-  <div class="main-content main-division">
+  <div class="main-content main-division content-hyphenate">
     <div class="content-center-wrapper">
       
       {% include "Mainmenu" %}

@@ -15,6 +15,14 @@
   .cfx:before, .cfx:after { content: " "; display: table; }
   .cfx:after { clear: both; }
   .cfx { *zoom: 1; }
+
+  .content-hyphenate {
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
   
   .right { float: right; }
   .left { float: left; }
