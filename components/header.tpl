@@ -1,6 +1,6 @@
 <header class="header">
   <div class="wrap">
-    <section class="header-left">
+    <div class="header-left">
       <div class="header-title content-formatted">{% unless editmode %}<a href="{{ site.root_item.url }}">{% endunless %}{% editable site.header %}{% unless editmode %}</a>{% endunless %}</div>
       <div class="header-slogan content-formatted">{% xcontent name="slogan" %}</div>
 
@@ -23,9 +23,9 @@
         <span class="menu-stripe"></span>
         <span class="menu-stripe"></span>
       </button>
-    </section>
+    </div>
 
-    <section class="header-right">
+    <div class="header-right">
       <div class="header-top">
       {% include "search" %}
 
@@ -47,6 +47,6 @@
           {% endif %}
         </nav>
       </div>
-    </section>
+    </div>
   </div>
 </header>

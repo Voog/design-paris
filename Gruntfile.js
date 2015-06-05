@@ -19,36 +19,14 @@ module.exports = function(grunt) {
       }
     },
 
-    // Copys the standalone (not concatenated) javascript source files to the javascripts folder.
-    /*
-      If there are some javascript files that shouldn't be concatenated:
-        - Add the files to 'javascripts/src' folder.
-        - Uncomment the following task.
-        - Uncomment the task runner on line '168'.
-        - Run 'npm install grunt-contrib-copy' on command-line.
-        - Add 'copy' task next to 'modernizr' task on line '179'.
-    */
-    // copy: {
-    //   javascripts: {
-    //     files: [
-    //       {
-    //         expand: true,
-    //         cwd: 'javascripts/src',
-    //         src: '*.js',
-    //         dest: 'javascripts/'
-    //       }
-    //     ]
-    //   }
-    // },
-
     // Concatenates the javascript source files to the javascripts folder.
     concat: {
       build: {
         src: [
-        'bower_components/jquery/dist/jquery.js',
-        'bower_components/overthrow/src/overthrow-polyfill.js',
-        'bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
-        'javascripts/src/concat/*.js'
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/overthrow/src/overthrow-polyfill.js',
+          'bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
+          'javascripts/src/concat/*.js'
         ],
         dest: 'javascripts/application.js'
       }
@@ -147,16 +125,16 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: 'javascripts/src/concat/*.js',
-        tasks: ['newer:concat', 'newer:uglify']
+        tasks: ['concat:build', 'uglify:build', 'exec:kit:javascripts/*.js']
       },
 
       css: {
         files: 'stylesheets/scss/*.scss',
-        tasks: ['sass:build', 'newer:cssmin:build']
+        tasks: ['sass:build', 'cssmin:build', 'exec:kit:stylesheets/*.css']
       },
 
       voog: {
-        files: ['javascripts/*.js', 'stylesheets/*.css', 'layouts/*.tpl', 'components/*.tpl'],
+        files: ['layouts/*.tpl', 'components/*.tpl'],
         options: {
           spawn: false
         }
@@ -165,8 +143,6 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
-  // Uncomment the following task if there are some javascript files that shouldn't be concatenated (see line '22' for further instructions).
-  // grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -174,7 +150,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-modernizr');
-  grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-svgmin');
 
   grunt.registerTask('default', ['modernizr', 'concat', 'uglify', 'sass', 'cssmin', 'imagemin', 'svgmin']);

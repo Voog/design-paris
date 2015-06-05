@@ -4,16 +4,14 @@
 
   .wrap {
     @extend %clearfix;
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include justify-content(flex-end);
     padding: 26px 20px 29px;
     min-height: 65px;
 
-    .header-left,
-    .header-right {
-      display: inline-block;
-    }
-
     .header-left {
-      min-width: 50%;
+      @include flex(1 0 auto);
       margin-top: 10px;
 
       .header-title,
@@ -54,10 +52,8 @@
     }
 
     .header-right {
-      min-width: calc(50% - 25px);
-      float: right;
-      margin-left: 25px;
       text-align: right;
+      margin-left: 15px;
 
       @include query($tablet-4) {
         width: auto;
@@ -65,7 +61,6 @@
 
       @include query($tablet-5) {
         margin: 0 -20px;
-        width: auto;
       }
 
       .header-bottom {
