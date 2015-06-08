@@ -1,4 +1,21 @@
 ;(function($) {
+  // Remove comments if debouncing is used.
+  // Function to limit the rate at which a function can fire.
+  // var debounce = function(func, wait, immediate) {
+  //   var timeout;
+  //   return function() {
+  //     var context = this, args = arguments;
+  //     var later = function() {
+  //       timeout = null;
+  //       if (!immediate) func.apply(context, args);
+  //     };
+  //     var callNow = immediate && !timeout;
+  //     clearTimeout(timeout);
+  //     timeout = setTimeout(later, wait);
+  //     if (callNow) func.apply(context, args);
+  //   };
+  // };
+
   var handleElementsClick = function() {
     $('html').click(function() {
       if ($('.js-popover').hasClass('expanded')) {
@@ -102,10 +119,9 @@
 
   // Initiates the functions when window is resized.
   var handleWindowResize = function() {
-    $(window).resize(function() {
-      handleTableHorizontalScrolling();
-      handleSearchModalHeight();
-    });
+    // Add functions that should be trgiggered while resizing the window here.
+    // Example:
+    // $(window).resize(debounce(yourFunctionName, 3000));
   };
 
   // Initiations
