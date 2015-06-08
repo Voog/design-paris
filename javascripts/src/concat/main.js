@@ -16,20 +16,18 @@
   //   };
   // };
 
-  var handleElementsClick = function() {
-    $('html').click(function() {
-      if ($('.js-popover').hasClass('expanded')) {
+  var bindSideClicks = function() {
+    $(document).on('mousedown', function(event) {
+      if (!$(event.target).closest('.js-prevent-sideclick').length) {
         $('.js-popover').removeClass('expanded');
-      }
-
-      if ($('.js-search-close-btn').hasClass('open') && $('.voog-search-modal').length === 0) {
         $('.js-search-close-btn').trigger('click');
-      }
+      };
     });
+  };
 
+  var handleElementsClick = function() {
     // Toggles the popover main menu (visible on smalles screens).
-    $('.js-menu-btn').click(function(event) {
-      event.stopPropagation();
+    $('.js-menu-btn').click(function() {
       $(this).toggleClass('open');
       $('.js-menu-main').toggleClass('expanded');
 
@@ -39,14 +37,12 @@
     });
 
     // Toggles the popover language menu.
-    $('.js-menu-lang-btn').click(function(event) {
-      event.stopPropagation();
+    $('.js-menu-lang-btn').click(function() {
       $('.js-menu-lang-popover').toggleClass('expanded');
     });
 
     // Opens the search modal.
-    $('.js-search-open-btn').click(function(event) {
-      event.stopPropagation();
+    $('.js-search-open-btn').click(function() {
       if ($('.js-menu-main').hasClass('expanded')) {
         $('.js-menu-main').removeClass('expanded');
         $('.js-menu-btn').removeClass('open');
@@ -70,7 +66,7 @@
 
     // Prevents search modal closing on click
     $('.js-search').click(function(event) {
-      event.stopPropagation();
+      // event.stopPropagation();
     });
   };
 
@@ -132,6 +128,7 @@
   };
 
   var init = function() {
+    bindSideClicks();
     handleElementsClick();
     handleSearchSubmit();
     handleWindowResize();
