@@ -94,6 +94,7 @@
     {% if edicy-tools == "article" %}
       var pictureDropArea = new Edicy.ImgDropArea($('.js-post-cover-inner'), {
         positionable: true,
+        target_width: 600,
 
         change: function(data) {
           Edicy.articles.currentArticle.setData({
