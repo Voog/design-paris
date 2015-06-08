@@ -48,7 +48,11 @@
 .edit-btn {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 15px;
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   .menu-sub & {
     position: relative;
@@ -58,7 +62,7 @@
   @include query($tablet-4) {
     .menu-main & {
       display: block;
-      margin-left: 0;
+      margin-right: 0;
       padding: 9px 30px 10px;
       @include border(top, 1px, solid, $black, 0.2);
       // @include border(bottom, 1px, solid, $black, 0.2);
@@ -96,7 +100,7 @@
 
   .menu-item {
     vertical-align: middle;
-    margin-left: 15px;
+    margin-right: 15px;
     font-size: 18px;
   }
 
@@ -180,11 +184,11 @@
   }
 
   .menu-item {
-    margin-left: 15px;
+    margin-right: 15px;
     font-size: 12px;
 
-    &:first-child {
-      margin-left: 0;
+    &:last-child {
+      margin-right: 0;
     }
   }
 
@@ -200,17 +204,17 @@
 
 .menu-lang {
   display: inline-block;
-  margin-left: 20px;
+  margin-right: 20px;
 
   .menu-main & {
     display: none;
   }
 
   .menu-item {
-    margin-left: 5px;
+    margin-right: 5px;
 
-    &:first-child {
-      margin-left: 0;
+    &:last-child {
+      margin-right: 0;
     }
   }
 
@@ -237,11 +241,11 @@
 
     .menu-main & {
       display: block;
-      margin-left: 0;
+      margin-right: 0;
     }
 
     .menu-item {
-      margin-left: 0;
+      margin-right: 0;
 
       &:first-child {
         .menu-link {

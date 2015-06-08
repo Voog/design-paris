@@ -89,6 +89,17 @@
     $('.content-formatted table').wrap('<div class="table-container overthrow"></div>');
   };
 
+  var bindFallbackHeaderLeftWidthCalculation = function() {
+    var headerWidth = $('.js-header-wrap').width(),
+        headerRight = $('.js-header-right'),
+        headerRightWidth = headerRight.width(),
+        headerRightMargin = parseInt(headerRight.css('margin-left')) + 1;
+
+        console.log(headerRightMargin);
+
+    $('.js-header-left').css('min-width', headerWidth - headerRightWidth - headerRightMargin);
+  };
+
   // Initiates the functions when window is resized.
   var handleWindowResize = function() {
     $(window).resize(function() {
@@ -110,6 +121,10 @@
     handleWindowResize();
     focusFormWithErrors();
     wrapTables();
+
+    if (!Modernizr.flexbox && editmode) {
+      bindFallbackHeaderLeftWidthCalculation();
+    };
   };
 
   window.site = $.extend(window.site || {}, {

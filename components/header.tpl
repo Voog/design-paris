@@ -1,6 +1,6 @@
 <header class="header">
-  <div class="wrap">
-    <div class="header-left">
+  <div class="wrap js-header-wrap">
+    <div class="header-left js-header-left">
       <div class="header-title content-formatted">{% unless editmode %}<a href="{{ site.root_item.url }}">{% endunless %}{% editable site.header %}{% unless editmode %}</a>{% endunless %}</div>
       <div class="header-slogan content-formatted">{% xcontent name="slogan" %}</div>
 
@@ -25,7 +25,7 @@
       </button>
     </div>
 
-    <div class="header-right">
+    <div class="header-right js-header-right">
       <div class="header-top">
       {% include "search" %}
 

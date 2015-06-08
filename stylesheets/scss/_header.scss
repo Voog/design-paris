@@ -4,15 +4,30 @@
 
   .wrap {
     @extend %clearfix;
-    @include display(flex);
-    @include flex-wrap(wrap);
-    @include justify-content(flex-end);
     padding: 26px 20px 29px;
     min-height: 65px;
 
+    .flexbox & {
+      @include display(flex);
+      @include flex-wrap(wrap);
+      @include justify-content(flex-end);
+    }
+
     .header-left {
-      @include flex(1 0 auto);
       margin-top: 10px;
+
+      .flexbox & {
+        max-width: 100%;
+        @include flex(1 0 auto);
+      }
+
+      .no-flexbox & {
+        float: left;
+
+        // @include query($tablet-3) {
+        //   float: none;
+        // }
+      }
 
       .header-title,
       .header-slogan {
@@ -43,10 +58,16 @@
       }
 
       @include query($tablet-4) {
-        margin-right: 35px;
+        margin-right: 40px;
 
         .search-enabled & {
           margin-right: 190px;
+        }
+      }
+
+      @include query($mobile-1) {
+        .search-enabled & {
+          margin-right: 60px;
         }
       }
     }
@@ -56,11 +77,11 @@
       margin-left: 15px;
 
       @include query($tablet-4) {
-        width: auto;
+        margin-left: 0;
       }
 
-      @include query($tablet-5) {
-        margin: 0 -20px;
+      .no-flexbox & {
+        float: right;
       }
 
       .header-bottom {
