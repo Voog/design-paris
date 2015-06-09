@@ -530,7 +530,7 @@ span[style*="font-size"] {
 
 .menu-lang {
   display: inline-block;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 .menu-main .menu-lang {
   display: none;
