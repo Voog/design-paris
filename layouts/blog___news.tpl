@@ -12,7 +12,7 @@
 
   <div class="container">
     {% include "header" %}
-    {% if editmode %}<button class="bgpicker-btn js-body-background-settings" data-bg-image="{{ body_bg_image }}" data-bg-image-sizes="{{ body_bg_image_sizes_str | escape }}" data-bg-color="{{ body_bg_color }}" data-bg-color-data="{{ body_bg_color_data_str | escape }}"></button>{% endif %}
+    {% if editmode %}<button class="bgpicker-btn js-body-background-settings js-prevent-sideclick" data-bg-image="{{ body_bg_image }}" data-bg-image-sizes="{{ body_bg_image_sizes_str | escape }}" data-bg-color="{{ body_bg_color }}" data-bg-color-data="{{ body_bg_color_data_str | escape }}"></button>{% endif %}
 
     <main class="content js-background-type {{ body_bg_type }}" role="main">
       <div class="wrap">
