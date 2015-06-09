@@ -79,13 +79,13 @@ body > .background-color {
   position: fixed;
 }
 
-.bgpicker-btn {
+.vg-bg-picker-btn {
   position: absolute;
   background: none;
   border: none;
   cursor: pointer;
 }
-.bgpicker-btn:focus {
+.vg-bg-picker-btn:focus {
   outline: none;
 }
 

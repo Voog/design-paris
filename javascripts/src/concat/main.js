@@ -1,4 +1,6 @@
 ;(function($) {
+  var articlePage = $('body').hasClass('post-page');
+
   // Remove comments if debouncing is used.
   // Function to limit the rate at which a function can fire.
   // var debounce = function(func, wait, immediate) {
@@ -113,6 +115,129 @@
     $('.js-header-left').css('min-width', headerWidth - headerRightWidth - headerRightMargin);
   };
 
+  // Returns the suitable version of the image depending on the viewport width.
+  var getImageByWidth = function(sizes, targetWidth) {
+    var prevImage;
+
+    for (var i = 0, max = sizes.length; i < max; i++) {
+      if (sizes[i].width < targetWidth) {
+        return prevImage || sizes[i];
+      }
+      prevImage = sizes[i];
+    }
+    // Makes sure that smallest is returned if all images bigger than targetWidth.
+    return sizes[sizes.length - 1];
+  };
+
+  var bodyBgImageSizesContains = function(sizes, url) {
+    for (var i = sizes.length; i--;) {
+      if (url.indexOf(sizes[i].url.trim()) > -1) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  // Checks the lightness sum of body background image and color and sets the lightness class depending on it's value.
+  var handleBodyImageLightnessClass = function() {
+    if (bodyBgCombinedLightness >= 0.5) {
+      $('.js-background-type').addClass('light-background').removeClass('dark-background');
+    } else {
+      $('.js-background-type').addClass('dark-background').removeClass('light-background');
+    }
+  };
+
+  // Body background image and color preview logic function.
+  var bodyBgPreview = function(data, body) {
+    // Defines the variables used in preview logic.
+
+    var bodyBgImagePrevious = $('.js-body').css('background-image'),
+        bodyBgImageSuitable = data.imageSizes ? getImageByWidth(data.imageSizes, $(window).width()) : null,
+        bodyBgImage = (data.image && data.image !== '') ? 'url(' + bodyBgImageSuitable.url + ')' : 'none',
+        bodyBgImageSizes = (data.imageSizes && data.imageSizes !== '') ? data.imageSizes : null,
+        bodyBgColor = (data.color && data.color !== '') ? data.color : 'rgba(0,0,0,0)',
+        bodyBgColorDataLightness = (data.colorData && data.colorData !== '') ? data.colorData.lightness : 1,
+        colorExtractImage = $('<img>'),
+        colorExtractCanvas = $('<canvas>'),
+        colorExtractImageUrl = (data.image && data.image !== '') ? data.image : null;
+
+    if (colorExtractImageUrl) {
+      if (bodyBgImageSizesContains(bodyBgImageSizes, bodyBgImagePrevious)) {
+        bodyBgCombinedLightness = getCombinedLightness(bodyBg.bodyBgImageColor, bodyBgColor);
+        handleBodyImageLightnessClass();
+      } else {
+        colorExtractImage.attr('src', colorExtractImageUrl.replace(/.*\/photos/g,'/photos'));
+        colorExtractImage.load(function() {
+          ColorExtract.extract(colorExtractImage[0], colorExtractCanvas[0], function(data) {
+            bodyBg.bodyBgImageColor = data.bgColor ? data.bgColor : 'rgba(255,255,255,1)';
+            bodyBgCombinedLightness = getCombinedLightness(bodyBg.bodyBgImageColor, bodyBgColor);
+            handleBodyImageLightnessClass();
+          });
+        });
+      };
+    } else {
+      bodyBgCombinedLightness = getCombinedLightness('rgba(255,255,255,1)', bodyBgColor);
+      handleBodyImageLightnessClass();
+    };
+
+    // Updates the body background image and background color.
+    $(body).css({'background-image' : bodyBgImage});
+    $(body).find('.js-body-background-color').css({'background-color' : bodyBgColor});
+  };
+
+  // Body background image and color save logic function.
+  var bodyBgCommit = function(data, dataName) {
+    var commitData = $.extend(true, {}, data);
+    commitData.image = data.image || '';
+    commitData.imageSizes = data.imageSizes || '';
+    commitData.color = data.color || 'rgba(255,255,255,0)';
+    commitData.combinedLightness = bodyBgCombinedLightness;
+
+    if (articlePage) {
+      Edicy.articles.currentArticle.setData('body_bg', commitData);
+    } else {
+      pageData.set(dataName, commitData);
+    };
+
+  };
+
+  var colorSum = function(bgColor, fgColor) {
+    if (bgColor && fgColor) {
+      if (typeof bgColor == 'string') {
+        bgColor = bgColor.replace(/rgba?\(/,'').replace(/\)/,'').split(',');
+        $.each(bgColor, function(n, x) {bgColor[n] = +x;});
+      }
+      if (typeof fgColor == 'string') {
+        fgColor = fgColor.replace(/rgba?\(/,'').replace(/\)/,'').split(',');
+        $.each(fgColor, function(n, x) {fgColor[n] = +x;});
+      }
+      if (typeof bgColor == 'object' && bgColor.hasOwnProperty('length')) {
+        if (bgColor.length == 3) { bgColor.push(1.0); }
+      }
+      if (typeof fgColor == 'object' && fgColor.hasOwnProperty('length')) {
+        if (fgColor.length == 3) { fgColor.push(1.0); }
+      }
+      var result = [0, 0, 0, 0];
+      result[3] = 1 - (1 - fgColor[3]) * (1 - bgColor[3]);
+      if (result[3] === 0) { result[3] = 1e-6; }
+      result[0] = Math.min(fgColor[0] * fgColor[3] / result[3] + bgColor[0] * bgColor[3] * (1 - fgColor[3]) / result[3], 255);
+      result[1] = Math.min(fgColor[1] * fgColor[3] / result[3] + bgColor[1] * bgColor[3] * (1 - fgColor[3]) / result[3], 255);
+      result[2] = Math.min(fgColor[2] * fgColor[3] / result[3] + bgColor[2] * bgColor[3] * (1 - fgColor[3]) / result[3], 255);
+      return $.map(result, function(e) { return Math.floor(e); });
+    }
+  };
+
+  var getCombinedColor = function(bgColor, fgColor) {
+    var sum = colorSum(bgColor || [255,255,255,1], fgColor || [255,255,255,1]);
+    return sum;
+  };
+
+  var getCombinedLightness = function(bgColor, fgColor) {
+    var combinedColor = getCombinedColor(bgColor, fgColor);
+    var color = Math.round(((+combinedColor[0]) * 0.2126 + (+combinedColor[1]) * 0.7152 + (+combinedColor[2]) * 0.0722) / 2.55) / 100;
+    return color;
+  };
+
   // Initiates the functions when window is resized.
   var handleWindowResize = function() {
     // Add functions that should be trgiggered while resizing the window here.
@@ -142,7 +267,9 @@
 
   window.site = $.extend(window.site || {}, {
     initBlogPageEditmode: initBlogPageEditmode,
-    initArticlePage: initArticlePage
+    initArticlePage: initArticlePage,
+    bodyBgPreview: bodyBgPreview,
+    bodyBgCommit: bodyBgCommit,
   });
 
   init();
