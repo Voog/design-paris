@@ -27,8 +27,7 @@
           </div>
         {% endif %}
 
-        <section class="blog">
-
+        <section class="blog js-blog">
           {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
           {% if editmode %}
             <a class="post-add-link post" href="{{ page.path }}?new">
@@ -53,7 +52,8 @@
             </a>
           {% endif %}
 
-          {% for article in articles %}
+
+          {% for article in articles | limit : 16 %}
             {% include "post-box" %}
           {% endfor %}
         </section>
@@ -65,6 +65,13 @@
 
   {% include "javascripts" %}
   {% include "edicy-tools" %}
-  {% if editmode %}<script>site.initBlogPageEditmode();</script>{% endif %}
+  <script>
+    site.initBlogPage();
+
+    var pageId = '{{ page.id }}',
+        langCode = '{{ page.language_code }}';
+
+    site.getMoreArticles(langCode, pageId);
+  </script>
 </body>
 </html>

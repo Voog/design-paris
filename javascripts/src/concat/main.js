@@ -1,22 +1,22 @@
 ;(function($) {
-  var articlePage = $('body').hasClass('post-page');
+  var editmode = $('body').hasClass('editmode')
+      articlePage = $('body').hasClass('post-page');
 
-  // Remove comments if debouncing is used.
   // Function to limit the rate at which a function can fire.
-  // var debounce = function(func, wait, immediate) {
-  //   var timeout;
-  //   return function() {
-  //     var context = this, args = arguments;
-  //     var later = function() {
-  //       timeout = null;
-  //       if (!immediate) func.apply(context, args);
-  //     };
-  //     var callNow = immediate && !timeout;
-  //     clearTimeout(timeout);
-  //     timeout = setTimeout(later, wait);
-  //     if (callNow) func.apply(context, args);
-  //   };
-  // };
+  var debounce = function(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
 
   var bindSideClicks = function() {
     $(document).on('mousedown', function(event) {
@@ -87,6 +87,63 @@
     });
   };
 
+  // Loads more blog articles via API.
+  var getMoreArticles = function(langCode, pageId) {
+    var hasArticles = true,
+        pageNr = 2,
+        perPage = 16,
+        currentLang = (langCode == 'zh' ? 'zh-cn' : langCode);
+
+    $(window).scroll(site.debounce(function() {
+      if(hasArticles && (($(document).height() - $(window).height()) - $(window).scrollTop() < 500)) {
+
+        $.ajax({
+          url: '/admin/api/articles?per_page=' + perPage + '&page=' + pageNr + (pageId ? '&page_id=' + pageId : '') + '&language_code=' + langCode,
+          type: 'get',
+          dataType: 'json',
+          success: function(data) {
+            if (data.length > 0) {
+              $.each(data, function(index, article) {
+                if (editmode) {
+                  var articleTitle = article.autosaved_title,
+                      articleExcerpt = article.autosaved_excerpt;
+                } else {
+                  var articleTitle = article.title,
+                      articleExcerpt = article.excerpt;
+                };
+
+                var articleTemplate =
+                  '<article class="post">\
+                    <div class="post-position">\
+                      <a class="post-top" href="' + article.public_url + '">\
+                        ' + (article.data.post_image ? '<div class="background-image" style="background-image: url(\'' + article.data.post_image.url + '\'); background-position:' + article.data.post_image.left + 'px ' + article.data.post_image.top + 'px;"></div>' : '') + '\
+                        <header class="post-header">\
+                          <h2 class="post-title">' + article.title + '</h2>\
+                        </header>\
+                      </a>\
+                    </div>\
+                    <div class="post-bottom">\
+                      <footer class="post-footer">\
+                        <time class="post-date" datetime="' + moment(article.created_at).locale(langCode).format('YYYY-MM-DD') + '">' +
+                          moment(article.created_at).locale(langCode).format('DD. MMMM YYYY') + '\
+                        </time>\
+                      </footer>\
+                    </div>\
+                  </article>';
+
+                $('.js-blog').append(articleTemplate);
+              });
+            } else {
+              hasArticles = false;
+            };
+          }
+        });
+
+        pageNr = pageNr + 1;
+      };
+    }, 500));
+  };
+
   // Scrolls to the comment-form if comment submit failed (to show the error messages to the user)
   var focusFormWithErrors = function() {
     $(document).ready(function() {
@@ -109,8 +166,6 @@
         headerRight = $('.js-header-right'),
         headerRightWidth = headerRight.width(),
         headerRightMargin = parseInt(headerRight.css('margin-left')) + 1;
-
-        console.log(headerRightMargin);
 
     $('.js-header-left').css('min-width', headerWidth - headerRightWidth - headerRightMargin);
   };
@@ -245,8 +300,15 @@
     // $(window).resize(debounce(yourFunctionName, 3000));
   };
 
+  // Initiates the functions when window is scrolled.
+  var handleWindowScroll = function() {
+    // Add functions that should be trgiggered while resizing the window here.
+    // Example:
+    // $(window).scroll(debounce(yourFunctionName, 3000));
+  };
+
   // Initiations
-  var initBlogPageEditmode = function() {
+  var initBlogPage = function() {
   };
 
   var initArticlePage = function() {
@@ -266,10 +328,12 @@
   };
 
   window.site = $.extend(window.site || {}, {
-    initBlogPageEditmode: initBlogPageEditmode,
+    initBlogPage: initBlogPage,
     initArticlePage: initArticlePage,
     bodyBgPreview: bodyBgPreview,
     bodyBgCommit: bodyBgCommit,
+    debounce: debounce,
+    getMoreArticles: getMoreArticles
   });
 
   init();

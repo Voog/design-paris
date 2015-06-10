@@ -15,7 +15,7 @@
 
     <main class="content js-background-type {{ body_bg_type }}" role="main">
       <div class="wrap">
-        <section class="blog">
+        <section class="blog js-blog">
           {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
           {% if editmode %}
             {% for item in site.menuitems_with_hidden %}
