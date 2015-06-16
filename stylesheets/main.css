@@ -120,11 +120,11 @@ body > .background-color {
 }
 
 .content-formatted {
-  word-break: break-word;
-  -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
+  -webkit-hyphens: auto;
   hyphens: auto;
+  word-break: break-word;
 }
 .front-page .content .content-formatted {
   margin-top: 75px;
@@ -252,11 +252,11 @@ body > .background-color {
 .content-formatted iframe,
 .content-formatted table,
 .content-formatted form {
-  word-break: normal;
-  -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
+  -webkit-hyphens: none;
   hyphens: none;
+  word-break: normal;
 }
 .content-formatted pre,
 .content-formatted .edy-positionable-container-left-block,
@@ -1014,11 +1014,11 @@ span[style*="font-size"] {
   font-size: 34px;
 }
 .blog-page .post .post-header .post-title, .blog-page .post .post-header .post-title a {
-  word-break: break-word;
-  -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
+  -webkit-hyphens: auto;
   hyphens: auto;
+  word-break: break-word;
 }
 .blog-page .post .post-bottom {
   margin-top: 4px;
