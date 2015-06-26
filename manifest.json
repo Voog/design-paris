@@ -197,12 +197,6 @@
     },
     {
       "content_type": "image/png",
-      "file": "images/ico-post-add.png",
-      "kind": "images",
-      "filename": "ico-post-add.png"
-    },
-    {
-      "content_type": "image/png",
       "file": "images/ico-search.png",
       "kind": "images",
       "filename": "ico-search.png"
