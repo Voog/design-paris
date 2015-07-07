@@ -563,6 +563,7 @@ span[style*="font-size"] {
 @media screen and (max-width: 840px) {
   .menu-lang {
     display: none;
+    margin-left: 0;
   }
   .menu-main .menu-lang {
     display: block;
