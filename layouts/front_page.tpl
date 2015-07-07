@@ -46,7 +46,7 @@
             {% endfor %}
           {% endif %}
 
-          {% for article in site.latest_articles %}
+          {% for article in site.latest_12_articles %}
             {% include "post-box" %}
           {% endfor %}
         </section>
