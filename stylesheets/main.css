@@ -148,8 +148,12 @@ body > .background-color {
 .content-formatted ol:first-child,
 .content-formatted pre:first-child,
 .content-formatted code:first-child,
+.content-formatted .edy-positionable-container-center:first-child,
 .content-formatted .edy-positionable-container-left-block:first-child,
-.content-formatted .edy-positionable-container-right-block:first-child {
+.content-formatted .edy-positionable-container-right-block:first-child,
+.content-formatted .edy-texteditor-container-wrapper-center:first-child,
+.content-formatted .edy-texteditor-container-wrapper-left-block:first-child,
+.content-formatted .edy-texteditor-container-wrapper-right-block:first-child {
   margin-top: 0;
 }
 .content-formatted h1:last-child,
@@ -163,8 +167,12 @@ body > .background-color {
 .content-formatted ol:last-child,
 .content-formatted pre:last-child,
 .content-formatted code:last-child,
+.content-formatted .edy-positionable-container-center:last-child,
 .content-formatted .edy-positionable-container-left-block:last-child,
-.content-formatted .edy-positionable-container-right-block:last-child {
+.content-formatted .edy-positionable-container-right-block:last-child,
+.content-formatted .edy-texteditor-container-wrapper-center:last-child,
+.content-formatted .edy-texteditor-container-wrapper-left-block:last-child,
+.content-formatted .edy-texteditor-container-wrapper-right-block:last-child {
   margin-bottom: 0;
 }
 .light-background .content-formatted, .light-background
@@ -262,8 +270,12 @@ body > .background-color {
   word-break: normal;
 }
 .content-formatted pre,
+.content-formatted .edy-positionable-container-center,
 .content-formatted .edy-positionable-container-left-block,
 .content-formatted .edy-positionable-container-right-block,
+.content-formatted .edy-texteditor-container-wrapper-center,
+.content-formatted .edy-texteditor-container-wrapper-left-block,
+.content-formatted .edy-texteditor-container-wrapper-right-block,
 .content-formatted .embed-container,
 .content-formatted .table-container, .editmode .content-formatted table {
   margin-top: 20px;
@@ -303,16 +315,19 @@ body > .background-color {
 .content-formatted .edy-positionable-container-right {
   width: 45%;
 }
-.content-formatted .edy-positionable-container-left {
+.content-formatted .edy-positionable-container-left,
+.content-formatted .edy-texteditor-container-wrapper-left {
   margin-right: 20px;
 }
-.content-formatted .edy-positionable-container-right {
+.content-formatted .edy-positionable-container-right,
+.content-formatted .edy-texteditor-container-wrapper-right {
   margin-left: 20px;
 }
 .content-formatted .edy-image-container-with-title:after {
   display: block;
   padding: 2px;
   font-size: 12px;
+  line-height: 1.3em;
   content: attr(data-title);
 }
 .content-formatted iframe {

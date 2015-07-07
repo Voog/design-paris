@@ -27,8 +27,12 @@
   ol,
   pre,
   code,
+  .edy-positionable-container-center,
   .edy-positionable-container-left-block,
-  .edy-positionable-container-right-block {
+  .edy-positionable-container-right-block,
+  .edy-texteditor-container-wrapper-center,
+  .edy-texteditor-container-wrapper-left-block,
+  .edy-texteditor-container-wrapper-right-block {
     &:first-child {
       margin-top: 0;
     }
@@ -147,8 +151,12 @@
 
   // Top and bottom margin for the elements that doesn't have the default margin.
   pre,
+  .edy-positionable-container-center,
   .edy-positionable-container-left-block,
   .edy-positionable-container-right-block,
+  .edy-texteditor-container-wrapper-center,
+  .edy-texteditor-container-wrapper-left-block,
+  .edy-texteditor-container-wrapper-right-block,
   .embed-container,
   .table-container,
   .editmode & table {
@@ -187,17 +195,19 @@
     margin: 20px 40px;
   }
 
-  // Content area floating images
+  // Image container positioning
   .edy-positionable-container-left,
   .edy-positionable-container-right {
     width: 45%;
   }
 
-  .edy-positionable-container-left {
+  .edy-positionable-container-left,
+  .edy-texteditor-container-wrapper-left {
     margin-right: 20px;
   }
 
-  .edy-positionable-container-right {
+  .edy-positionable-container-right,
+  .edy-texteditor-container-wrapper-right {
     margin-left: 20px;
   }
 
@@ -207,6 +217,7 @@
       display: block;
       padding: 2px;
       font-size: 12px;
+      line-height: 1.3em;
       content: attr(data-title);
     }
   }
