@@ -218,6 +218,8 @@
 
     if (colorExtractImageUrl) {
       if (bodyBgImageSizesContains(bodyBgImageSizes, bodyBgImagePrevious)) {
+        bodyBg.bodyBgImageColor = bodyBg.bodyBgImageColor ? bodyBg.bodyBgImageColor : 'rgba(60,60,60,1)';
+
         bodyBgCombinedLightness = getCombinedLightness(bodyBg.bodyBgImageColor, bodyBgColor);
         handleBodyImageLightnessClass();
       } else {
@@ -231,7 +233,8 @@
         });
       };
     } else {
-      bodyBgCombinedLightness = getCombinedLightness('rgba(255,255,255,1)', bodyBgColor);
+      bodyBg.bodyBgImageColor = 'rgba(255,255,255,1)';
+      bodyBgCombinedLightness = getCombinedLightness(bodyBg.bodyBgImageColor, bodyBgColor);
       handleBodyImageLightnessClass();
     };
 
