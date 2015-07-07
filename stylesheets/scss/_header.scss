@@ -23,10 +23,6 @@
 
       .no-flexbox & {
         float: left;
-
-        // @include query($tablet-3) {
-        //   float: none;
-        // }
       }
 
       .header-title,
