@@ -12,8 +12,13 @@
   }
 
   .footer-inner {
-    @extend %clearfix;
     margin-top: 23px;
+
+    .flexbox & {
+      @include display(flex);
+      @include flex-wrap(wrap);
+      @include justify-content(flex-end);
+    }
   }
 
   a {
@@ -31,14 +36,29 @@
   }
 
   .footer-left {
+    @extend %clearfix;
     min-width: calc(100% - 144px);
     margin-bottom: 25px;
+
+    .flexbox & {
+      max-width: 100%;
+      @include flex(1 0 auto);
+    }
+
+    .no-flexbox & {
+      float: left;
+    }
   }
 
   .footer-right {
-    width: 119px;
+    text-align: right;
     margin-left: 25px;
-    float: right;
+    // width: 119px;
+    // float: right;
+
+    .no-flexbox & {
+      float: right;
+    }
 
     @include query($mobile-5) {
       display: block;
