@@ -10440,6 +10440,7 @@ return jQuery;
                 flags.overflow < 0 &&
                 !flags.empty &&
                 !flags.invalidMonth &&
+                !flags.invalidWeekday &&
                 !flags.nullInput &&
                 !flags.invalidFormat &&
                 !flags.userInvalidated;
@@ -10520,7 +10521,7 @@ return jQuery;
     // Moment prototype object
     function Moment(config) {
         copyConfig(this, config);
-        this._d = new Date(+config._d);
+        this._d = new Date(config._d != null ? config._d.getTime() : NaN);
         // Prevent infinite loop in case updateOffset creates new moment
         // objects.
         if (updateInProgress === false) {
@@ -10534,16 +10535,20 @@ return jQuery;
         return obj instanceof Moment || (obj != null && obj._isAMomentObject != null);
     }
 
+    function absFloor (number) {
+        if (number < 0) {
+            return Math.ceil(number);
+        } else {
+            return Math.floor(number);
+        }
+    }
+
     function toInt(argumentForCoercion) {
         var coercedNumber = +argumentForCoercion,
             value = 0;
 
         if (coercedNumber !== 0 && isFinite(coercedNumber)) {
-            if (coercedNumber >= 0) {
-                value = Math.floor(coercedNumber);
-            } else {
-                value = Math.ceil(coercedNumber);
-            }
+            value = absFloor(coercedNumber);
         }
 
         return value;
@@ -10641,9 +10646,7 @@ return jQuery;
     function defineLocale (name, values) {
         if (values !== null) {
             values.abbr = name;
-            if (!locales[name]) {
-                locales[name] = new Locale();
-            }
+            locales[name] = locales[name] || new Locale();
             locales[name].set(values);
 
             // backwards compat for now: also set the locale
@@ -10747,16 +10750,14 @@ return jQuery;
     }
 
     function zeroFill(number, targetLength, forceSign) {
-        var output = '' + Math.abs(number),
+        var absNumber = '' + Math.abs(number),
+            zerosToFill = targetLength - absNumber.length,
             sign = number >= 0;
-
-        while (output.length < targetLength) {
-            output = '0' + output;
-        }
-        return (sign ? (forceSign ? '+' : '') : '-') + output;
+        return (sign ? (forceSign ? '+' : '') : '-') +
+            Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
     }
 
-    var formattingTokens = /(\[[^\[]*\])|(\\)?(Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Q|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|mm?|ss?|S{1,4}|x|X|zz?|ZZ?|.)/g;
+    var formattingTokens = /(\[[^\[]*\])|(\\)?(Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Q|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
 
     var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
 
@@ -10824,10 +10825,7 @@ return jQuery;
         }
 
         format = expandFormat(format, m.localeData());
-
-        if (!formatFunctions[format]) {
-            formatFunctions[format] = makeFormatFunction(format);
-        }
+        formatFunctions[format] = formatFunctions[format] || makeFormatFunction(format);
 
         return formatFunctions[format](m);
     }
@@ -10871,8 +10869,15 @@ return jQuery;
 
     var regexes = {};
 
+    function isFunction (sth) {
+        // https://github.com/moment/moment/issues/2325
+        return typeof sth === 'function' &&
+            Object.prototype.toString.call(sth) === '[object Function]';
+    }
+
+
     function addRegexToken (token, regex, strictRegex) {
-        regexes[token] = typeof regex === 'function' ? regex : function (isStrict) {
+        regexes[token] = isFunction(regex) ? regex : function (isStrict) {
             return (isStrict && strictRegex) ? strictRegex : regex;
         };
     }
@@ -11080,12 +11085,11 @@ return jQuery;
     }
 
     function deprecate(msg, fn) {
-        var firstTime = true,
-            msgWithStack = msg + '\n' + (new Error()).stack;
+        var firstTime = true;
 
         return extend(function () {
             if (firstTime) {
-                warn(msgWithStack);
+                warn(msg + '\n' + (new Error()).stack);
                 firstTime = false;
             }
             return fn.apply(this, arguments);
@@ -11133,14 +11137,14 @@ return jQuery;
             getParsingFlags(config).iso = true;
             for (i = 0, l = isoDates.length; i < l; i++) {
                 if (isoDates[i][1].exec(string)) {
-                    // match[5] should be 'T' or undefined
-                    config._f = isoDates[i][0] + (match[6] || ' ');
+                    config._f = isoDates[i][0];
                     break;
                 }
             }
             for (i = 0, l = isoTimes.length; i < l; i++) {
                 if (isoTimes[i][1].exec(string)) {
-                    config._f += isoTimes[i][0];
+                    // match[6] should be 'T' or space
+                    config._f += (match[6] || ' ') + isoTimes[i][0];
                     break;
                 }
             }
@@ -11219,7 +11223,10 @@ return jQuery;
     addRegexToken('YYYYY',  match1to6, match6);
     addRegexToken('YYYYYY', match1to6, match6);
 
-    addParseToken(['YYYY', 'YYYYY', 'YYYYYY'], YEAR);
+    addParseToken(['YYYYY', 'YYYYYY'], YEAR);
+    addParseToken('YYYY', function (input, array) {
+        array[YEAR] = input.length === 2 ? utils_hooks__hooks.parseTwoDigitYear(input) : toInt(input);
+    });
     addParseToken('YY', function (input, array) {
         array[YEAR] = utils_hooks__hooks.parseTwoDigitYear(input);
     });
@@ -11346,18 +11353,18 @@ return jQuery;
 
     //http://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
     function dayOfYearFromWeeks(year, week, weekday, firstDayOfWeekOfYear, firstDayOfWeek) {
-        var d = createUTCDate(year, 0, 1).getUTCDay();
-        var daysToAdd;
-        var dayOfYear;
+        var week1Jan = 6 + firstDayOfWeek - firstDayOfWeekOfYear, janX = createUTCDate(year, 0, 1 + week1Jan), d = janX.getUTCDay(), dayOfYear;
+        if (d < firstDayOfWeek) {
+            d += 7;
+        }
 
-        d = d === 0 ? 7 : d;
-        weekday = weekday != null ? weekday : firstDayOfWeek;
-        daysToAdd = firstDayOfWeek - d + (d > firstDayOfWeekOfYear ? 7 : 0) - (d < firstDayOfWeek ? 7 : 0);
-        dayOfYear = 7 * (week - 1) + (weekday - firstDayOfWeek) + daysToAdd + 1;
+        weekday = weekday != null ? 1 * weekday : firstDayOfWeek;
+
+        dayOfYear = 1 + week1Jan + 7 * (week - 1) - d + weekday;
 
         return {
-            year      : dayOfYear > 0 ? year      : year - 1,
-            dayOfYear : dayOfYear > 0 ? dayOfYear : daysInYear(year - 1) + dayOfYear
+            year: dayOfYear > 0 ? year : year - 1,
+            dayOfYear: dayOfYear > 0 ?  dayOfYear : daysInYear(year - 1) + dayOfYear
         };
     }
 
@@ -11643,9 +11650,19 @@ return jQuery;
     }
 
     function createFromConfig (config) {
+        var res = new Moment(checkOverflow(prepareConfig(config)));
+        if (res._nextDay) {
+            // Adding is smart enough around DST
+            res.add(1, 'd');
+            res._nextDay = undefined;
+        }
+
+        return res;
+    }
+
+    function prepareConfig (config) {
         var input = config._i,
-            format = config._f,
-            res;
+            format = config._f;
 
         config._locale = config._locale || locale_locales__getLocale(config._l);
 
@@ -11669,14 +11686,7 @@ return jQuery;
             configFromInput(config);
         }
 
-        res = new Moment(checkOverflow(config));
-        if (res._nextDay) {
-            // Adding is smart enough around DST
-            res.add(1, 'd');
-            res._nextDay = undefined;
-        }
-
-        return res;
+        return config;
     }
 
     function configFromInput(config) {
@@ -11756,7 +11766,7 @@ return jQuery;
         }
         res = moments[0];
         for (i = 1; i < moments.length; ++i) {
-            if (moments[i][fn](res)) {
+            if (!moments[i].isValid() || moments[i][fn](res)) {
                 res = moments[i];
             }
         }
@@ -11868,7 +11878,6 @@ return jQuery;
         } else {
             return local__createLocal(input).local();
         }
-        return model._isUTC ? local__createLocal(input).zone(model._offset || 0) : local__createLocal(input).local();
     }
 
     function getDateOffset (m) {
@@ -11968,12 +11977,7 @@ return jQuery;
     }
 
     function hasAlignedHourOffset (input) {
-        if (!input) {
-            input = 0;
-        }
-        else {
-            input = local__createLocal(input).utcOffset();
-        }
+        input = input ? local__createLocal(input).utcOffset() : 0;
 
         return (this.utcOffset() - input) % 60 === 0;
     }
@@ -11986,12 +11990,24 @@ return jQuery;
     }
 
     function isDaylightSavingTimeShifted () {
-        if (this._a) {
-            var other = this._isUTC ? create_utc__createUTC(this._a) : local__createLocal(this._a);
-            return this.isValid() && compareArrays(this._a, other.toArray()) > 0;
+        if (typeof this._isDSTShifted !== 'undefined') {
+            return this._isDSTShifted;
         }
 
-        return false;
+        var c = {};
+
+        copyConfig(c, this);
+        c = prepareConfig(c);
+
+        if (c._a) {
+            var other = c._isUTC ? create_utc__createUTC(c._a) : local__createLocal(c._a);
+            this._isDSTShifted = this.isValid() &&
+                compareArrays(c._a, other.toArray()) > 0;
+        } else {
+            this._isDSTShifted = false;
+        }
+
+        return this._isDSTShifted;
     }
 
     function isLocal () {
@@ -12151,7 +12167,7 @@ return jQuery;
     var add_subtract__add      = createAdder(1, 'add');
     var add_subtract__subtract = createAdder(-1, 'subtract');
 
-    function moment_calendar__calendar (time) {
+    function moment_calendar__calendar (time, formats) {
         // We want to compare the start of today, vs this.
         // Getting start-of-today depends on whether we're local/utc/offset or not.
         var now = time || local__createLocal(),
@@ -12163,7 +12179,7 @@ return jQuery;
                 diff < 1 ? 'sameDay' :
                 diff < 2 ? 'nextDay' :
                 diff < 7 ? 'nextWeek' : 'sameElse';
-        return this.format(this.localeData().calendar(format, this, local__createLocal(now)));
+        return this.format(formats && formats[format] || this.localeData().calendar(format, this, local__createLocal(now)));
     }
 
     function clone () {
@@ -12207,14 +12223,6 @@ return jQuery;
         } else {
             inputMs = +local__createLocal(input);
             return +(this.clone().startOf(units)) <= inputMs && inputMs <= +(this.clone().endOf(units));
-        }
-    }
-
-    function absFloor (number) {
-        if (number < 0) {
-            return Math.ceil(number);
-        } else {
-            return Math.floor(number);
         }
     }
 
@@ -12408,6 +12416,19 @@ return jQuery;
         return [m.year(), m.month(), m.date(), m.hour(), m.minute(), m.second(), m.millisecond()];
     }
 
+    function toObject () {
+        var m = this;
+        return {
+            years: m.year(),
+            months: m.month(),
+            date: m.date(),
+            hours: m.hours(),
+            minutes: m.minutes(),
+            seconds: m.seconds(),
+            milliseconds: m.milliseconds()
+        };
+    }
+
     function moment_valid__isValid () {
         return valid__isValid(this);
     }
@@ -12579,18 +12600,20 @@ return jQuery;
     // HELPERS
 
     function parseWeekday(input, locale) {
-        if (typeof input === 'string') {
-            if (!isNaN(input)) {
-                input = parseInt(input, 10);
-            }
-            else {
-                input = locale.weekdaysParse(input);
-                if (typeof input !== 'number') {
-                    return null;
-                }
-            }
+        if (typeof input !== 'string') {
+            return input;
         }
-        return input;
+
+        if (!isNaN(input)) {
+            return parseInt(input, 10);
+        }
+
+        input = locale.weekdaysParse(input);
+        if (typeof input === 'number') {
+            return input;
+        }
+
+        return null;
     }
 
     // LOCALES
@@ -12613,9 +12636,7 @@ return jQuery;
     function localeWeekdaysParse (weekdayName) {
         var i, mom, regex;
 
-        if (!this._weekdaysParse) {
-            this._weekdaysParse = [];
-        }
+        this._weekdaysParse = this._weekdaysParse || [];
 
         for (i = 0; i < 7; i++) {
             // make the regex if we don't have it already
@@ -12762,12 +12783,26 @@ return jQuery;
         return ~~(this.millisecond() / 10);
     });
 
-    function millisecond__milliseconds (token) {
-        addFormatToken(0, [token, 3], 0, 'millisecond');
-    }
+    addFormatToken(0, ['SSS', 3], 0, 'millisecond');
+    addFormatToken(0, ['SSSS', 4], 0, function () {
+        return this.millisecond() * 10;
+    });
+    addFormatToken(0, ['SSSSS', 5], 0, function () {
+        return this.millisecond() * 100;
+    });
+    addFormatToken(0, ['SSSSSS', 6], 0, function () {
+        return this.millisecond() * 1000;
+    });
+    addFormatToken(0, ['SSSSSSS', 7], 0, function () {
+        return this.millisecond() * 10000;
+    });
+    addFormatToken(0, ['SSSSSSSS', 8], 0, function () {
+        return this.millisecond() * 100000;
+    });
+    addFormatToken(0, ['SSSSSSSSS', 9], 0, function () {
+        return this.millisecond() * 1000000;
+    });
 
-    millisecond__milliseconds('SSS');
-    millisecond__milliseconds('SSSS');
 
     // ALIASES
 
@@ -12778,11 +12813,19 @@ return jQuery;
     addRegexToken('S',    match1to3, match1);
     addRegexToken('SS',   match1to3, match2);
     addRegexToken('SSS',  match1to3, match3);
-    addRegexToken('SSSS', matchUnsigned);
-    addParseToken(['S', 'SS', 'SSS', 'SSSS'], function (input, array) {
-        array[MILLISECOND] = toInt(('0.' + input) * 1000);
-    });
 
+    var token;
+    for (token = 'SSSS'; token.length <= 9; token += 'S') {
+        addRegexToken(token, matchUnsigned);
+    }
+
+    function parseMs(input, array) {
+        array[MILLISECOND] = toInt(('0.' + input) * 1000);
+    }
+
+    for (token = 'S'; token.length <= 9; token += 'S') {
+        addParseToken(token, parseMs);
+    }
     // MOMENTS
 
     var getSetMillisecond = makeGetSet('Milliseconds', false);
@@ -12829,6 +12872,7 @@ return jQuery;
     momentPrototype__proto.startOf      = startOf;
     momentPrototype__proto.subtract     = add_subtract__subtract;
     momentPrototype__proto.toArray      = toArray;
+    momentPrototype__proto.toObject     = toObject;
     momentPrototype__proto.toDate       = toDate;
     momentPrototype__proto.toISOString  = moment_format__toISOString;
     momentPrototype__proto.toJSON       = moment_format__toISOString;
@@ -12928,19 +12972,23 @@ return jQuery;
         LT   : 'h:mm A',
         L    : 'MM/DD/YYYY',
         LL   : 'MMMM D, YYYY',
-        LLL  : 'MMMM D, YYYY LT',
-        LLLL : 'dddd, MMMM D, YYYY LT'
+        LLL  : 'MMMM D, YYYY h:mm A',
+        LLLL : 'dddd, MMMM D, YYYY h:mm A'
     };
 
     function longDateFormat (key) {
-        var output = this._longDateFormat[key];
-        if (!output && this._longDateFormat[key.toUpperCase()]) {
-            output = this._longDateFormat[key.toUpperCase()].replace(/MMMM|MM|DD|dddd/g, function (val) {
-                return val.slice(1);
-            });
-            this._longDateFormat[key] = output;
+        var format = this._longDateFormat[key],
+            formatUpper = this._longDateFormat[key.toUpperCase()];
+
+        if (format || !formatUpper) {
+            return format;
         }
-        return output;
+
+        this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/g, function (val) {
+            return val.slice(1);
+        });
+
+        return this._longDateFormat[key];
     }
 
     var defaultInvalidDate = 'Invalid date';
@@ -13149,12 +13197,29 @@ return jQuery;
         return duration_add_subtract__addSubtract(this, input, value, -1);
     }
 
+    function absCeil (number) {
+        if (number < 0) {
+            return Math.floor(number);
+        } else {
+            return Math.ceil(number);
+        }
+    }
+
     function bubble () {
         var milliseconds = this._milliseconds;
         var days         = this._days;
         var months       = this._months;
         var data         = this._data;
-        var seconds, minutes, hours, years = 0;
+        var seconds, minutes, hours, years, monthsFromDays;
+
+        // if we have a mix of positive and negative values, bubble down first
+        // check: https://github.com/moment/moment/issues/2166
+        if (!((milliseconds >= 0 && days >= 0 && months >= 0) ||
+                (milliseconds <= 0 && days <= 0 && months <= 0))) {
+            milliseconds += absCeil(monthsToDays(months) + days) * 864e5;
+            days = 0;
+            months = 0;
+        }
 
         // The following code bubbles up values, see the tests for
         // examples of what that means.
@@ -13171,17 +13236,13 @@ return jQuery;
 
         days += absFloor(hours / 24);
 
-        // Accurately convert days to years, assume start from year 0.
-        years = absFloor(daysToYears(days));
-        days -= absFloor(yearsToDays(years));
-
-        // 30 days to a month
-        // TODO (iskren): Use anchor date (like 1st Jan) to compute this.
-        months += absFloor(days / 30);
-        days   %= 30;
+        // convert days to months
+        monthsFromDays = absFloor(daysToMonths(days));
+        months += monthsFromDays;
+        days -= absCeil(monthsToDays(monthsFromDays));
 
         // 12 months -> 1 year
-        years  += absFloor(months / 12);
+        years = absFloor(months / 12);
         months %= 12;
 
         data.days   = days;
@@ -13191,15 +13252,15 @@ return jQuery;
         return this;
     }
 
-    function daysToYears (days) {
+    function daysToMonths (days) {
         // 400 years have 146097 days (taking into account leap year rules)
-        return days * 400 / 146097;
+        // 400 years have 12 months === 4800
+        return days * 4800 / 146097;
     }
 
-    function yearsToDays (years) {
-        // years * 365 + absFloor(years / 4) -
-        //     absFloor(years / 100) + absFloor(years / 400);
-        return years * 146097 / 400;
+    function monthsToDays (months) {
+        // the reverse of daysToMonths
+        return months * 146097 / 4800;
     }
 
     function as (units) {
@@ -13211,11 +13272,11 @@ return jQuery;
 
         if (units === 'month' || units === 'year') {
             days   = this._days   + milliseconds / 864e5;
-            months = this._months + daysToYears(days) * 12;
+            months = this._months + daysToMonths(days);
             return units === 'month' ? months : months / 12;
         } else {
             // handle milliseconds separately because of floating point math errors (issue #1867)
-            days = this._days + Math.round(yearsToDays(this._months / 12));
+            days = this._days + Math.round(monthsToDays(this._months));
             switch (units) {
                 case 'week'   : return days / 7     + milliseconds / 6048e5;
                 case 'day'    : return days         + milliseconds / 864e5;
@@ -13265,7 +13326,7 @@ return jQuery;
         };
     }
 
-    var duration_get__milliseconds = makeGetter('milliseconds');
+    var milliseconds = makeGetter('milliseconds');
     var seconds      = makeGetter('seconds');
     var minutes      = makeGetter('minutes');
     var hours        = makeGetter('hours');
@@ -13343,13 +13404,36 @@ return jQuery;
     var iso_string__abs = Math.abs;
 
     function iso_string__toISOString() {
+        // for ISO strings we do not use the normal bubbling rules:
+        //  * milliseconds bubble up until they become hours
+        //  * days do not bubble at all
+        //  * months bubble up until they become years
+        // This is because there is no context-free conversion between hours and days
+        // (think of clock changes)
+        // and also not between days and months (28-31 days per month)
+        var seconds = iso_string__abs(this._milliseconds) / 1000;
+        var days         = iso_string__abs(this._days);
+        var months       = iso_string__abs(this._months);
+        var minutes, hours, years;
+
+        // 3600 seconds -> 60 minutes -> 1 hour
+        minutes           = absFloor(seconds / 60);
+        hours             = absFloor(minutes / 60);
+        seconds %= 60;
+        minutes %= 60;
+
+        // 12 months -> 1 year
+        years  = absFloor(months / 12);
+        months %= 12;
+
+
         // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
-        var Y = iso_string__abs(this.years());
-        var M = iso_string__abs(this.months());
-        var D = iso_string__abs(this.days());
-        var h = iso_string__abs(this.hours());
-        var m = iso_string__abs(this.minutes());
-        var s = iso_string__abs(this.seconds() + this.milliseconds() / 1000);
+        var Y = years;
+        var M = months;
+        var D = days;
+        var h = hours;
+        var m = minutes;
+        var s = seconds;
         var total = this.asSeconds();
 
         if (!total) {
@@ -13386,7 +13470,7 @@ return jQuery;
     duration_prototype__proto.valueOf        = duration_as__valueOf;
     duration_prototype__proto._bubble        = bubble;
     duration_prototype__proto.get            = duration_get__get;
-    duration_prototype__proto.milliseconds   = duration_get__milliseconds;
+    duration_prototype__proto.milliseconds   = milliseconds;
     duration_prototype__proto.seconds        = seconds;
     duration_prototype__proto.minutes        = minutes;
     duration_prototype__proto.hours          = hours;
@@ -13426,12 +13510,12 @@ return jQuery;
     ;
 
     //! moment.js
-    //! version : 2.10.3
+    //! version : 2.10.6
     //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
     //! license : MIT
     //! momentjs.com
 
-    utils_hooks__hooks.version = '2.10.3';
+    utils_hooks__hooks.version = '2.10.6';
 
     setHookCallback(local__createLocal);
 
@@ -13482,11 +13566,11 @@ return jQuery;
         },
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay : '[Vandag om] LT',
@@ -13534,11 +13618,11 @@ return jQuery;
         weekdaysMin : 'ح_ن_ث_ر_خ_ج_س'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[اليوم على الساعة] LT',
@@ -13608,8 +13692,8 @@ return jQuery;
             LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         meridiemParse: /ص|م/,
         isPM : function (input) {
@@ -13672,11 +13756,11 @@ return jQuery;
         weekdaysMin: 'ح_ن_ث_ر_خ_ج_س'.split('_'),
         longDateFormat: {
             LT: 'HH:mm',
-            LTS: 'LT:ss',
+            LTS: 'HH:mm:ss',
             L: 'DD/MM/YYYY',
             LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY LT',
-            LLLL: 'dddd D MMMM YYYY LT'
+            LLL: 'D MMMM YYYY HH:mm',
+            LLLL: 'dddd D MMMM YYYY HH:mm'
         },
         calendar: {
             sameDay: '[اليوم على الساعة] LT',
@@ -13779,8 +13863,8 @@ return jQuery;
             LTS : 'HH:mm:ss',
             L : 'D/\u200FM/\u200FYYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         meridiemParse: /ص|م/,
         isPM : function (input) {
@@ -13865,11 +13949,11 @@ return jQuery;
         weekdaysMin : 'Bz_BE_ÇA_Çə_CA_Cü_Şə'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay : '[bugün saat] LT',
@@ -13982,11 +14066,11 @@ return jQuery;
         weekdaysMin : 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY г.',
-            LLL : 'D MMMM YYYY г., LT',
-            LLLL : 'dddd, D MMMM YYYY г., LT'
+            LLL : 'D MMMM YYYY г., HH:mm',
+            LLLL : 'dddd, D MMMM YYYY г., HH:mm'
         },
         calendar : {
             sameDay: '[Сёння ў] LT',
@@ -14073,11 +14157,11 @@ return jQuery;
         weekdaysMin : 'нд_пн_вт_ср_чт_пт_сб'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'D.MM.YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY H:mm',
+            LLLL : 'dddd, D MMMM YYYY H:mm'
         },
         calendar : {
             sameDay : '[Днес в] LT',
@@ -14180,8 +14264,8 @@ return jQuery;
             LTS : 'A h:mm:ss সময়',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, A h:mm সময়',
+            LLLL : 'dddd, D MMMM YYYY, A h:mm সময়'
         },
         calendar : {
             sameDay : '[আজ] LT',
@@ -14216,7 +14300,7 @@ return jQuery;
                 return bn__symbolMap[match];
             });
         },
-        meridiemParse: /রাত|শকাল|দুপুর|বিকেল|রাত/,
+        meridiemParse: /রাত|সকাল|দুপুর|বিকেল|রাত/,
         isPM: function (input) {
             return /^(দুপুর|বিকেল|রাত)$/.test(input);
         },
@@ -14227,7 +14311,7 @@ return jQuery;
             if (hour < 4) {
                 return 'রাত';
             } else if (hour < 10) {
-                return 'শকাল';
+                return 'সকাল';
             } else if (hour < 17) {
                 return 'দুপুর';
             } else if (hour < 20) {
@@ -14279,11 +14363,11 @@ return jQuery;
         weekdaysMin : 'ཉི་མ་_ཟླ་བ་_མིག་དམར་_ལྷག་པ་_ཕུར་བུ_པ་སངས་_སྤེན་པ་'.split('_'),
         longDateFormat : {
             LT : 'A h:mm',
-            LTS : 'LT:ss',
+            LTS : 'A h:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, A h:mm',
+            LLLL : 'dddd, D MMMM YYYY, A h:mm'
         },
         calendar : {
             sameDay : '[དི་རིང] LT',
@@ -14400,8 +14484,8 @@ return jQuery;
             LTS : 'h[e]mm:ss A',
             L : 'DD/MM/YYYY',
             LL : 'D [a viz] MMMM YYYY',
-            LLL : 'D [a viz] MMMM YYYY LT',
-            LLLL : 'dddd, D [a viz] MMMM YYYY LT'
+            LLL : 'D [a viz] MMMM YYYY h[e]mm A',
+            LLLL : 'dddd, D [a viz] MMMM YYYY h[e]mm A'
         },
         calendar : {
             sameDay : '[Hiziv da] LT',
@@ -14503,11 +14587,11 @@ return jQuery;
         weekdaysMin : 'ne_po_ut_sr_če_pe_su'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD. MM. YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd, D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY H:mm',
+            LLLL : 'dddd, D. MMMM YYYY H:mm'
         },
         calendar : {
             sameDay  : '[danas u] LT',
@@ -14582,8 +14666,8 @@ return jQuery;
             LTS : 'LT:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY H:mm',
+            LLLL : 'dddd D MMMM YYYY H:mm'
         },
         calendar : {
             sameDay : function () {
@@ -14713,11 +14797,11 @@ return jQuery;
         weekdaysMin : 'ne_po_út_st_čt_pá_so'.split('_'),
         longDateFormat : {
             LT: 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY H:mm',
+            LLLL : 'dddd D. MMMM YYYY H:mm'
         },
         calendar : {
             sameDay: '[dnes v] LT',
@@ -14793,11 +14877,11 @@ return jQuery;
         weekdaysMin : 'вр_тн_ыт_юн_кҫ_эр_шм'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD-MM-YYYY',
             LL : 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ]',
-            LLL : 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ], LT',
-            LLLL : 'dddd, YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ], LT'
+            LLL : 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ], HH:mm',
+            LLLL : 'dddd, YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ], HH:mm'
         },
         calendar : {
             sameDay: '[Паян] LT [сехетре]',
@@ -14846,11 +14930,11 @@ return jQuery;
         // time formats are the same as en-gb
         longDateFormat: {
             LT: 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L: 'DD/MM/YYYY',
             LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY LT',
-            LLLL: 'dddd, D MMMM YYYY LT'
+            LLL: 'D MMMM YYYY HH:mm',
+            LLLL: 'dddd, D MMMM YYYY HH:mm'
         },
         calendar: {
             sameDay: '[Heddiw am] LT',
@@ -14913,11 +14997,11 @@ return jQuery;
         weekdaysMin : 'sø_ma_ti_on_to_fr_lø'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd [d.] D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY HH:mm',
+            LLLL : 'dddd [d.] D. MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay : '[I dag kl.] LT',
@@ -14981,8 +15065,8 @@ return jQuery;
             LTS: 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd, D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY HH:mm',
+            LLLL : 'dddd, D. MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Heute um] LT [Uhr]',
@@ -15045,8 +15129,8 @@ return jQuery;
             LTS: 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd, D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY HH:mm',
+            LLLL : 'dddd, D. MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Heute um] LT [Uhr]',
@@ -15113,8 +15197,8 @@ return jQuery;
             LTS : 'h:mm:ss A',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY h:mm A',
+            LLLL : 'dddd, D MMMM YYYY h:mm A'
         },
         calendarEl : {
             sameDay : '[Σήμερα {}] LT',
@@ -15176,8 +15260,8 @@ return jQuery;
             LTS : 'h:mm:ss A',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY h:mm A',
+            LLLL : 'dddd, D MMMM YYYY h:mm A'
         },
         calendar : {
             sameDay : '[Today at] LT',
@@ -15232,8 +15316,8 @@ return jQuery;
             LTS : 'h:mm:ss A',
             L : 'YYYY-MM-DD',
             LL : 'D MMMM, YYYY',
-            LLL : 'D MMMM, YYYY LT',
-            LLLL : 'dddd, D MMMM, YYYY LT'
+            LLL : 'D MMMM, YYYY h:mm A',
+            LLLL : 'dddd, D MMMM, YYYY h:mm A'
         },
         calendar : {
             sameDay : '[Today at] LT',
@@ -15284,8 +15368,8 @@ return jQuery;
             LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay : '[Today at] LT',
@@ -15339,11 +15423,11 @@ return jQuery;
         weekdaysMin : 'Di_Lu_Ma_Me_Ĵa_Ve_Sa'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'YYYY-MM-DD',
             LL : 'D[-an de] MMMM, YYYY',
-            LLL : 'D[-an de] MMMM, YYYY LT',
-            LLLL : 'dddd, [la] D[-an de] MMMM, YYYY LT'
+            LLL : 'D[-an de] MMMM, YYYY HH:mm',
+            LLLL : 'dddd, [la] D[-an de] MMMM, YYYY HH:mm'
         },
         meridiemParse: /[ap]\.t\.m/i,
         isPM: function (input) {
@@ -15408,11 +15492,11 @@ return jQuery;
         weekdaysMin : 'Do_Lu_Ma_Mi_Ju_Vi_Sá'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D [de] MMMM [de] YYYY',
-            LLL : 'D [de] MMMM [de] YYYY LT',
-            LLLL : 'dddd, D [de] MMMM [de] YYYY LT'
+            LLL : 'D [de] MMMM [de] YYYY H:mm',
+            LLLL : 'dddd, D [de] MMMM [de] YYYY H:mm'
         },
         calendar : {
             sameDay : function () {
@@ -15487,11 +15571,11 @@ return jQuery;
         weekdaysMin   : 'P_E_T_K_N_R_L'.split('_'),
         longDateFormat : {
             LT   : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L    : 'DD.MM.YYYY',
             LL   : 'D. MMMM YYYY',
-            LLL  : 'D. MMMM YYYY LT',
-            LLLL : 'dddd, D. MMMM YYYY LT'
+            LLL  : 'D. MMMM YYYY H:mm',
+            LLLL : 'dddd, D. MMMM YYYY H:mm'
         },
         calendar : {
             sameDay  : '[Täna,] LT',
@@ -15536,15 +15620,15 @@ return jQuery;
         weekdaysMin : 'ig_al_ar_az_og_ol_lr'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'YYYY-MM-DD',
             LL : 'YYYY[ko] MMMM[ren] D[a]',
-            LLL : 'YYYY[ko] MMMM[ren] D[a] LT',
-            LLLL : 'dddd, YYYY[ko] MMMM[ren] D[a] LT',
+            LLL : 'YYYY[ko] MMMM[ren] D[a] HH:mm',
+            LLLL : 'dddd, YYYY[ko] MMMM[ren] D[a] HH:mm',
             l : 'YYYY-M-D',
             ll : 'YYYY[ko] MMM D[a]',
-            lll : 'YYYY[ko] MMM D[a] LT',
-            llll : 'ddd, YYYY[ko] MMM D[a] LT'
+            lll : 'YYYY[ko] MMM D[a] HH:mm',
+            llll : 'ddd, YYYY[ko] MMM D[a] HH:mm'
         },
         calendar : {
             sameDay : '[gaur] LT[etan]',
@@ -15613,11 +15697,11 @@ return jQuery;
         weekdaysMin : 'ی_د_س_چ_پ_ج_ش'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         meridiemParse: /قبل از ظهر|بعد از ظهر/,
         isPM: function (input) {
@@ -15729,12 +15813,12 @@ return jQuery;
             LTS : 'HH.mm.ss',
             L : 'DD.MM.YYYY',
             LL : 'Do MMMM[ta] YYYY',
-            LLL : 'Do MMMM[ta] YYYY, [klo] LT',
-            LLLL : 'dddd, Do MMMM[ta] YYYY, [klo] LT',
+            LLL : 'Do MMMM[ta] YYYY, [klo] HH.mm',
+            LLLL : 'dddd, Do MMMM[ta] YYYY, [klo] HH.mm',
             l : 'D.M.YYYY',
             ll : 'Do MMM YYYY',
-            lll : 'Do MMM YYYY, [klo] LT',
-            llll : 'ddd, Do MMM YYYY, [klo] LT'
+            lll : 'Do MMM YYYY, [klo] HH.mm',
+            llll : 'ddd, Do MMM YYYY, [klo] HH.mm'
         },
         calendar : {
             sameDay : '[tänään] [klo] LT',
@@ -15779,11 +15863,11 @@ return jQuery;
         weekdaysMin : 'su_má_tý_mi_hó_fr_le'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D. MMMM, YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D. MMMM, YYYY HH:mm'
         },
         calendar : {
             sameDay : '[Í dag kl.] LT',
@@ -15828,11 +15912,11 @@ return jQuery;
         weekdaysMin : 'Di_Lu_Ma_Me_Je_Ve_Sa'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'YYYY-MM-DD',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Aujourd\'hui à] LT',
@@ -15857,9 +15941,9 @@ return jQuery;
             y : 'un an',
             yy : '%d ans'
         },
-        ordinalParse: /\d{1,2}(er|)/,
+        ordinalParse: /\d{1,2}(er|e)/,
         ordinal : function (number) {
-            return number + (number === 1 ? 'er' : '');
+            return number + (number === 1 ? 'er' : 'e');
         }
     });
 
@@ -15875,11 +15959,11 @@ return jQuery;
         weekdaysMin : 'Di_Lu_Ma_Me_Je_Ve_Sa'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Aujourd\'hui à] LT',
@@ -15935,11 +16019,11 @@ return jQuery;
         weekdaysMin : 'Si_Mo_Ti_Wo_To_Fr_So'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD-MM-YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[hjoed om] LT',
@@ -15986,11 +16070,11 @@ return jQuery;
         weekdaysMin : 'Do_Lu_Ma_Mé_Xo_Ve_Sá'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY H:mm',
+            LLLL : 'dddd D MMMM YYYY H:mm'
         },
         calendar : {
             sameDay : function () {
@@ -16052,15 +16136,15 @@ return jQuery;
         weekdaysMin : 'א_ב_ג_ד_ה_ו_ש'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D [ב]MMMM YYYY',
-            LLL : 'D [ב]MMMM YYYY LT',
-            LLLL : 'dddd, D [ב]MMMM YYYY LT',
+            LLL : 'D [ב]MMMM YYYY HH:mm',
+            LLLL : 'dddd, D [ב]MMMM YYYY HH:mm',
             l : 'D/M/YYYY',
             ll : 'D MMM YYYY',
-            lll : 'D MMM YYYY LT',
-            llll : 'ddd, D MMM YYYY LT'
+            lll : 'D MMM YYYY HH:mm',
+            llll : 'ddd, D MMM YYYY HH:mm'
         },
         calendar : {
             sameDay : '[היום ב־]LT',
@@ -16149,8 +16233,8 @@ return jQuery;
             LTS : 'A h:mm:ss बजे',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, A h:mm बजे',
+            LLLL : 'dddd, D MMMM YYYY, A h:mm बजे'
         },
         calendar : {
             sameDay : '[आज] LT',
@@ -16286,11 +16370,11 @@ return jQuery;
         weekdaysMin : 'ne_po_ut_sr_če_pe_su'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD. MM. YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd, D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY H:mm',
+            LLLL : 'dddd, D. MMMM YYYY H:mm'
         },
         calendar : {
             sameDay  : '[danas u] LT',
@@ -16396,11 +16480,11 @@ return jQuery;
         weekdaysMin : 'v_h_k_sze_cs_p_szo'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'YYYY.MM.DD.',
             LL : 'YYYY. MMMM D.',
-            LLL : 'YYYY. MMMM D., LT',
-            LLLL : 'YYYY. MMMM D., dddd LT'
+            LLL : 'YYYY. MMMM D. H:mm',
+            LLLL : 'YYYY. MMMM D., dddd H:mm'
         },
         meridiemParse: /de|du/i,
         isPM: function (input) {
@@ -16479,11 +16563,11 @@ return jQuery;
         weekdaysMin : 'կրկ_երկ_երք_չրք_հնգ_ուրբ_շբթ'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY թ.',
-            LLL : 'D MMMM YYYY թ., LT',
-            LLLL : 'dddd, D MMMM YYYY թ., LT'
+            LLL : 'D MMMM YYYY թ., HH:mm',
+            LLLL : 'dddd, D MMMM YYYY թ., HH:mm'
         },
         calendar : {
             sameDay: '[այսօր] LT',
@@ -16561,11 +16645,11 @@ return jQuery;
         weekdaysMin : 'Mg_Sn_Sl_Rb_Km_Jm_Sb'.split('_'),
         longDateFormat : {
             LT : 'HH.mm',
-            LTS : 'LT.ss',
+            LTS : 'HH.mm.ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY [pukul] LT',
-            LLLL : 'dddd, D MMMM YYYY [pukul] LT'
+            LLL : 'D MMMM YYYY [pukul] HH.mm',
+            LLLL : 'dddd, D MMMM YYYY [pukul] HH.mm'
         },
         meridiemParse: /pagi|siang|sore|malam/,
         meridiemHour : function (hour, meridiem) {
@@ -16699,11 +16783,11 @@ return jQuery;
         weekdaysMin : 'Su_Má_Þr_Mi_Fi_Fö_La'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY [kl.] LT',
-            LLLL : 'dddd, D. MMMM YYYY [kl.] LT'
+            LLL : 'D. MMMM YYYY [kl.] H:mm',
+            LLLL : 'dddd, D. MMMM YYYY [kl.] H:mm'
         },
         calendar : {
             sameDay : '[í dag kl.] LT',
@@ -16749,11 +16833,11 @@ return jQuery;
         weekdaysMin : 'D_L_Ma_Me_G_V_S'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Oggi alle] LT',
@@ -16807,11 +16891,11 @@ return jQuery;
         weekdaysMin : '日_月_火_水_木_金_土'.split('_'),
         longDateFormat : {
             LT : 'Ah時m分',
-            LTS : 'LTs秒',
+            LTS : 'Ah時m分s秒',
             L : 'YYYY/MM/DD',
             LL : 'YYYY年M月D日',
-            LLL : 'YYYY年M月D日LT',
-            LLLL : 'YYYY年M月D日LT dddd'
+            LLL : 'YYYY年M月D日Ah時m分',
+            LLLL : 'YYYY年M月D日Ah時m分 dddd'
         },
         meridiemParse: /午前|午後/i,
         isPM : function (input) {
@@ -16862,11 +16946,11 @@ return jQuery;
         weekdaysMin : 'Mg_Sn_Sl_Rb_Km_Jm_Sp'.split('_'),
         longDateFormat : {
             LT : 'HH.mm',
-            LTS : 'LT.ss',
+            LTS : 'HH.mm.ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY [pukul] LT',
-            LLLL : 'dddd, D MMMM YYYY [pukul] LT'
+            LLL : 'D MMMM YYYY [pukul] HH.mm',
+            LLLL : 'dddd, D MMMM YYYY [pukul] HH.mm'
         },
         meridiemParse: /enjing|siyang|sonten|ndalu/,
         meridiemHour : function (hour, meridiem) {
@@ -16957,8 +17041,8 @@ return jQuery;
             LTS : 'h:mm:ss A',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY h:mm A',
+            LLLL : 'dddd, D MMMM YYYY h:mm A'
         },
         calendar : {
             sameDay : '[დღეს] LT[-ზე]',
@@ -17025,11 +17109,11 @@ return jQuery;
         weekdaysMin: 'អាទិត្យ_ច័ន្ទ_អង្គារ_ពុធ_ព្រហស្បតិ៍_សុក្រ_សៅរ៍'.split('_'),
         longDateFormat: {
             LT: 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L: 'DD/MM/YYYY',
             LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY LT',
-            LLLL: 'dddd, D MMMM YYYY LT'
+            LLL: 'D MMMM YYYY HH:mm',
+            LLLL: 'dddd, D MMMM YYYY HH:mm'
         },
         calendar: {
             sameDay: '[ថ្ងៃនៈ ម៉ោង] LT',
@@ -17079,8 +17163,8 @@ return jQuery;
             LTS : 'A h시 m분 s초',
             L : 'YYYY.MM.DD',
             LL : 'YYYY년 MMMM D일',
-            LLL : 'YYYY년 MMMM D일 LT',
-            LLLL : 'YYYY년 MMMM D일 dddd LT'
+            LLL : 'YYYY년 MMMM D일 A h시 m분',
+            LLLL : 'YYYY년 MMMM D일 dddd A h시 m분'
         },
         calendar : {
             sameDay : '오늘 LT',
@@ -17197,8 +17281,8 @@ return jQuery;
             LTS: 'H:mm:ss [Auer]',
             L: 'DD.MM.YYYY',
             LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY LT',
-            LLLL: 'dddd, D. MMMM YYYY LT'
+            LLL: 'D. MMMM YYYY H:mm [Auer]',
+            LLLL: 'dddd, D. MMMM YYYY H:mm [Auer]'
         },
         calendar: {
             sameDay: '[Haut um] LT',
@@ -17264,6 +17348,16 @@ return jQuery;
             return isFuture ? 'kelių sekundžių' : 'kelias sekundes';
         }
     }
+    function lt__monthsCaseReplace(m, format) {
+        var months = {
+                'nominative': 'sausis_vasaris_kovas_balandis_gegužė_birželis_liepa_rugpjūtis_rugsėjis_spalis_lapkritis_gruodis'.split('_'),
+                'accusative': 'sausio_vasario_kovo_balandžio_gegužės_birželio_liepos_rugpjūčio_rugsėjo_spalio_lapkričio_gruodžio'.split('_')
+            },
+            nounCase = (/D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/).test(format) ?
+                'accusative' :
+                'nominative';
+        return months[nounCase][m.month()];
+    }
     function translateSingular(number, withoutSuffix, key, isFuture) {
         return withoutSuffix ? forms(key)[0] : (isFuture ? forms(key)[1] : forms(key)[2]);
     }
@@ -17294,22 +17388,22 @@ return jQuery;
     }
 
     var lt = _moment__default.defineLocale('lt', {
-        months : 'sausio_vasario_kovo_balandžio_gegužės_birželio_liepos_rugpjūčio_rugsėjo_spalio_lapkričio_gruodžio'.split('_'),
+        months : lt__monthsCaseReplace,
         monthsShort : 'sau_vas_kov_bal_geg_bir_lie_rgp_rgs_spa_lap_grd'.split('_'),
         weekdays : relativeWeekDay,
         weekdaysShort : 'Sek_Pir_Ant_Tre_Ket_Pen_Šeš'.split('_'),
         weekdaysMin : 'S_P_A_T_K_Pn_Š'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'YYYY-MM-DD',
             LL : 'YYYY [m.] MMMM D [d.]',
-            LLL : 'YYYY [m.] MMMM D [d.], LT [val.]',
-            LLLL : 'YYYY [m.] MMMM D [d.], dddd, LT [val.]',
+            LLL : 'YYYY [m.] MMMM D [d.], HH:mm [val.]',
+            LLLL : 'YYYY [m.] MMMM D [d.], dddd, HH:mm [val.]',
             l : 'YYYY-MM-DD',
             ll : 'YYYY [m.] MMMM D [d.]',
-            lll : 'YYYY [m.] MMMM D [d.], LT [val.]',
-            llll : 'YYYY [m.] MMMM D [d.], ddd, LT [val.]'
+            lll : 'YYYY [m.] MMMM D [d.], HH:mm [val.]',
+            llll : 'YYYY [m.] MMMM D [d.], ddd, HH:mm [val.]'
         },
         calendar : {
             sameDay : '[Šiandien] LT',
@@ -17392,11 +17486,11 @@ return jQuery;
         weekdaysMin : 'Sv_P_O_T_C_Pk_S'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY.',
             LL : 'YYYY. [gada] D. MMMM',
-            LLL : 'YYYY. [gada] D. MMMM, LT',
-            LLLL : 'YYYY. [gada] D. MMMM, dddd, LT'
+            LLL : 'YYYY. [gada] D. MMMM, HH:mm',
+            LLLL : 'YYYY. [gada] D. MMMM, dddd, HH:mm'
         },
         calendar : {
             sameDay : '[Šodien pulksten] LT',
@@ -17464,11 +17558,11 @@ return jQuery;
         weekdaysMin: ['ne', 'po', 'ut', 'sr', 'če', 'pe', 'su'],
         longDateFormat: {
             LT: 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L: 'DD. MM. YYYY',
             LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY LT',
-            LLLL: 'dddd, D. MMMM YYYY LT'
+            LLL: 'D. MMMM YYYY H:mm',
+            LLLL: 'dddd, D. MMMM YYYY H:mm'
         },
         calendar: {
             sameDay: '[danas u] LT',
@@ -17539,11 +17633,11 @@ return jQuery;
         weekdaysMin : 'нe_пo_вт_ср_че_пе_сa'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'D.MM.YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY H:mm',
+            LLLL : 'dddd, D MMMM YYYY H:mm'
         },
         calendar : {
             sameDay : '[Денес во] LT',
@@ -17621,8 +17715,8 @@ return jQuery;
             LTS : 'A h:mm:ss -നു',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, A h:mm -നു',
+            LLLL : 'dddd, D MMMM YYYY, A h:mm -നു'
         },
         calendar : {
             sameDay : '[ഇന്ന്] LT',
@@ -17706,8 +17800,8 @@ return jQuery;
             LTS : 'A h:mm:ss वाजता',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, A h:mm वाजता',
+            LLLL : 'dddd, D MMMM YYYY, A h:mm वाजता'
         },
         calendar : {
             sameDay : '[आज] LT',
@@ -17788,11 +17882,82 @@ return jQuery;
         weekdaysMin : 'Ah_Is_Sl_Rb_Km_Jm_Sb'.split('_'),
         longDateFormat : {
             LT : 'HH.mm',
-            LTS : 'LT.ss',
+            LTS : 'HH.mm.ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY [pukul] LT',
-            LLLL : 'dddd, D MMMM YYYY [pukul] LT'
+            LLL : 'D MMMM YYYY [pukul] HH.mm',
+            LLLL : 'dddd, D MMMM YYYY [pukul] HH.mm'
+        },
+        meridiemParse: /pagi|tengahari|petang|malam/,
+        meridiemHour: function (hour, meridiem) {
+            if (hour === 12) {
+                hour = 0;
+            }
+            if (meridiem === 'pagi') {
+                return hour;
+            } else if (meridiem === 'tengahari') {
+                return hour >= 11 ? hour : hour + 12;
+            } else if (meridiem === 'petang' || meridiem === 'malam') {
+                return hour + 12;
+            }
+        },
+        meridiem : function (hours, minutes, isLower) {
+            if (hours < 11) {
+                return 'pagi';
+            } else if (hours < 15) {
+                return 'tengahari';
+            } else if (hours < 19) {
+                return 'petang';
+            } else {
+                return 'malam';
+            }
+        },
+        calendar : {
+            sameDay : '[Hari ini pukul] LT',
+            nextDay : '[Esok pukul] LT',
+            nextWeek : 'dddd [pukul] LT',
+            lastDay : '[Kelmarin pukul] LT',
+            lastWeek : 'dddd [lepas pukul] LT',
+            sameElse : 'L'
+        },
+        relativeTime : {
+            future : 'dalam %s',
+            past : '%s yang lepas',
+            s : 'beberapa saat',
+            m : 'seminit',
+            mm : '%d minit',
+            h : 'sejam',
+            hh : '%d jam',
+            d : 'sehari',
+            dd : '%d hari',
+            M : 'sebulan',
+            MM : '%d bulan',
+            y : 'setahun',
+            yy : '%d tahun'
+        },
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 7  // The week that contains Jan 1st is the first week of the year.
+        }
+    });
+
+    //! moment.js locale configuration
+    //! locale : Bahasa Malaysia (ms-MY)
+    //! author : Weldan Jamili : https://github.com/weldan
+
+    var locale_ms = _moment__default.defineLocale('ms', {
+        months : 'Januari_Februari_Mac_April_Mei_Jun_Julai_Ogos_September_Oktober_November_Disember'.split('_'),
+        monthsShort : 'Jan_Feb_Mac_Apr_Mei_Jun_Jul_Ogs_Sep_Okt_Nov_Dis'.split('_'),
+        weekdays : 'Ahad_Isnin_Selasa_Rabu_Khamis_Jumaat_Sabtu'.split('_'),
+        weekdaysShort : 'Ahd_Isn_Sel_Rab_Kha_Jum_Sab'.split('_'),
+        weekdaysMin : 'Ah_Is_Sl_Rb_Km_Jm_Sb'.split('_'),
+        longDateFormat : {
+            LT : 'HH.mm',
+            LTS : 'HH.mm.ss',
+            L : 'DD/MM/YYYY',
+            LL : 'D MMMM YYYY',
+            LLL : 'D MMMM YYYY [pukul] HH.mm',
+            LLLL : 'dddd, D MMMM YYYY [pukul] HH.mm'
         },
         meridiemParse: /pagi|tengahari|petang|malam/,
         meridiemHour: function (hour, meridiem) {
@@ -17887,8 +18052,8 @@ return jQuery;
             LTS: 'HH:mm:ss',
             L: 'DD/MM/YYYY',
             LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY LT',
-            LLLL: 'dddd D MMMM YYYY LT'
+            LLL: 'D MMMM YYYY HH:mm',
+            LLLL: 'dddd D MMMM YYYY HH:mm'
         },
         calendar: {
             sameDay: '[ယနေ.] LT [မှာ]',
@@ -17942,11 +18107,11 @@ return jQuery;
         weekdaysMin : 'sø_ma_ti_on_to_fr_lø'.split('_'),
         longDateFormat : {
             LT : 'H.mm',
-            LTS : 'LT.ss',
+            LTS : 'H.mm.ss',
             L : 'DD.MM.YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY [kl.] LT',
-            LLLL : 'dddd D. MMMM YYYY [kl.] LT'
+            LLL : 'D. MMMM YYYY [kl.] H.mm',
+            LLLL : 'dddd D. MMMM YYYY [kl.] H.mm'
         },
         calendar : {
             sameDay: '[i dag kl.] LT',
@@ -18019,8 +18184,8 @@ return jQuery;
             LTS : 'Aको h:mm:ss बजे',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, Aको h:mm बजे',
+            LLLL : 'dddd, D MMMM YYYY, Aको h:mm बजे'
         },
         preparse: function (string) {
             return string.replace(/[१२३४५६७८९०]/g, function (match) {
@@ -18112,11 +18277,11 @@ return jQuery;
         weekdaysMin : 'Zo_Ma_Di_Wo_Do_Vr_Za'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD-MM-YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[vandaag om] LT',
@@ -18163,11 +18328,11 @@ return jQuery;
         weekdaysMin : 'su_må_ty_on_to_fr_lø'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[I dag klokka] LT',
@@ -18246,11 +18411,11 @@ return jQuery;
         weekdaysMin : 'N_Pn_Wt_Śr_Cz_Pt_So'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Dziś o] LT',
@@ -18306,11 +18471,11 @@ return jQuery;
         weekdaysMin : 'Dom_2ª_3ª_4ª_5ª_6ª_Sáb'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D [de] MMMM [de] YYYY',
-            LLL : 'D [de] MMMM [de] YYYY [às] LT',
-            LLLL : 'dddd, D [de] MMMM [de] YYYY [às] LT'
+            LLL : 'D [de] MMMM [de] YYYY [às] HH:mm',
+            LLLL : 'dddd, D [de] MMMM [de] YYYY [às] HH:mm'
         },
         calendar : {
             sameDay: '[Hoje às] LT',
@@ -18327,7 +18492,7 @@ return jQuery;
         relativeTime : {
             future : 'em %s',
             past : '%s atrás',
-            s : 'segundos',
+            s : 'poucos segundos',
             m : 'um minuto',
             mm : '%d minutos',
             h : 'uma hora',
@@ -18355,11 +18520,11 @@ return jQuery;
         weekdaysMin : 'Dom_2ª_3ª_4ª_5ª_6ª_Sáb'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D [de] MMMM [de] YYYY',
-            LLL : 'D [de] MMMM [de] YYYY LT',
-            LLLL : 'dddd, D [de] MMMM [de] YYYY LT'
+            LLL : 'D [de] MMMM [de] YYYY HH:mm',
+            LLLL : 'dddd, D [de] MMMM [de] YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Hoje às] LT',
@@ -18424,7 +18589,7 @@ return jQuery;
         weekdaysMin : 'Du_Lu_Ma_Mi_Jo_Vi_Sâ'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY',
             LLL : 'D MMMM YYYY H:mm',
@@ -18523,11 +18688,11 @@ return jQuery;
         monthsParse : [/^янв/i, /^фев/i, /^мар/i, /^апр/i, /^ма[й|я]/i, /^июн/i, /^июл/i, /^авг/i, /^сен/i, /^окт/i, /^ноя/i, /^дек/i],
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY г.',
-            LLL : 'D MMMM YYYY г., LT',
-            LLLL : 'dddd, D MMMM YYYY г., LT'
+            LLL : 'D MMMM YYYY г., HH:mm',
+            LLLL : 'dddd, D MMMM YYYY г., HH:mm'
         },
         calendar : {
             sameDay: '[Сегодня в] LT',
@@ -18627,8 +18792,8 @@ return jQuery;
             LTS : 'a h:mm:ss',
             L : 'YYYY/MM/DD',
             LL : 'YYYY MMMM D',
-            LLL : 'YYYY MMMM D, LT',
-            LLLL : 'YYYY MMMM D [වැනි] dddd, LTS'
+            LLL : 'YYYY MMMM D, a h:mm',
+            LLLL : 'YYYY MMMM D [වැනි] dddd, a h:mm:ss'
         },
         calendar : {
             sameDay : '[අද] LT[ට]',
@@ -18745,11 +18910,11 @@ return jQuery;
         weekdaysMin : 'ne_po_ut_st_št_pi_so'.split('_'),
         longDateFormat : {
             LT: 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY H:mm',
+            LLLL : 'dddd D. MMMM YYYY H:mm'
         },
         calendar : {
             sameDay: '[dnes o] LT',
@@ -18896,11 +19061,11 @@ return jQuery;
         weekdaysMin : 'ne_po_to_sr_če_pe_so'.split('_'),
         longDateFormat : {
             LT : 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L : 'DD. MM. YYYY',
             LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY LT',
-            LLLL : 'dddd, D. MMMM YYYY LT'
+            LLL : 'D. MMMM YYYY H:mm',
+            LLLL : 'dddd, D. MMMM YYYY H:mm'
         },
         calendar : {
             sameDay  : '[danes ob] LT',
@@ -18983,11 +19148,11 @@ return jQuery;
         },
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay : '[Sot në] LT',
@@ -19055,11 +19220,11 @@ return jQuery;
         weekdaysMin: ['не', 'по', 'ут', 'ср', 'че', 'пе', 'су'],
         longDateFormat: {
             LT: 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L: 'DD. MM. YYYY',
             LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY LT',
-            LLLL: 'dddd, D. MMMM YYYY LT'
+            LLL: 'D. MMMM YYYY H:mm',
+            LLLL: 'dddd, D. MMMM YYYY H:mm'
         },
         calendar: {
             sameDay: '[данас у] LT',
@@ -19152,11 +19317,11 @@ return jQuery;
         weekdaysMin: ['ne', 'po', 'ut', 'sr', 'če', 'pe', 'su'],
         longDateFormat: {
             LT: 'H:mm',
-            LTS : 'LT:ss',
+            LTS : 'H:mm:ss',
             L: 'DD. MM. YYYY',
             LL: 'D. MMMM YYYY',
-            LLL: 'D. MMMM YYYY LT',
-            LLLL: 'dddd, D. MMMM YYYY LT'
+            LLL: 'D. MMMM YYYY H:mm',
+            LLLL: 'dddd, D. MMMM YYYY H:mm'
         },
         calendar: {
             sameDay: '[danas u] LT',
@@ -19226,11 +19391,11 @@ return jQuery;
         weekdaysMin : 'sö_må_ti_on_to_fr_lö'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'YYYY-MM-DD',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Idag] LT',
@@ -19282,11 +19447,11 @@ return jQuery;
         weekdaysMin : 'ஞா_தி_செ_பு_வி_வெ_ச'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY, LT',
-            LLLL : 'dddd, D MMMM YYYY, LT'
+            LLL : 'D MMMM YYYY, HH:mm',
+            LLLL : 'dddd, D MMMM YYYY, HH:mm'
         },
         calendar : {
             sameDay : '[இன்று] LT',
@@ -19366,11 +19531,11 @@ return jQuery;
         weekdaysMin : 'อา._จ._อ._พ._พฤ._ศ._ส.'.split('_'),
         longDateFormat : {
             LT : 'H นาฬิกา m นาที',
-            LTS : 'LT s วินาที',
+            LTS : 'H นาฬิกา m นาที s วินาที',
             L : 'YYYY/MM/DD',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY เวลา LT',
-            LLLL : 'วันddddที่ D MMMM YYYY เวลา LT'
+            LLL : 'D MMMM YYYY เวลา H นาฬิกา m นาที',
+            LLLL : 'วันddddที่ D MMMM YYYY เวลา H นาฬิกา m นาที'
         },
         meridiemParse: /ก่อนเที่ยง|หลังเที่ยง/,
         isPM: function (input) {
@@ -19420,11 +19585,11 @@ return jQuery;
         weekdaysMin : 'Li_Lu_Ma_Mi_Hu_Bi_Sab'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'MM/D/YYYY',
             LL : 'MMMM D, YYYY',
-            LLL : 'MMMM D, YYYY LT',
-            LLLL : 'dddd, MMMM DD, YYYY LT'
+            LLL : 'MMMM D, YYYY HH:mm',
+            LLLL : 'dddd, MMMM DD, YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Ngayon sa] LT',
@@ -19493,11 +19658,11 @@ return jQuery;
         weekdaysMin : 'Pz_Pt_Sa_Ça_Pe_Cu_Ct'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd, D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd, D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay : '[bugün saat] LT',
@@ -19539,6 +19704,80 @@ return jQuery;
     });
 
     //! moment.js locale configuration
+    //! locale : talossan (tzl)
+    //! author : Robin van der Vliet : https://github.com/robin0van0der0v with the help of Iustì Canun
+
+
+    var tzl = _moment__default.defineLocale('tzl', {
+        months : 'Januar_Fevraglh_Març_Avrïu_Mai_Gün_Julia_Guscht_Setemvar_Listopäts_Noemvar_Zecemvar'.split('_'),
+        monthsShort : 'Jan_Fev_Mar_Avr_Mai_Gün_Jul_Gus_Set_Lis_Noe_Zec'.split('_'),
+        weekdays : 'Súladi_Lúneçi_Maitzi_Márcuri_Xhúadi_Viénerçi_Sáturi'.split('_'),
+        weekdaysShort : 'Súl_Lún_Mai_Már_Xhú_Vié_Sát'.split('_'),
+        weekdaysMin : 'Sú_Lú_Ma_Má_Xh_Vi_Sá'.split('_'),
+        longDateFormat : {
+            LT : 'HH.mm',
+            LTS : 'LT.ss',
+            L : 'DD.MM.YYYY',
+            LL : 'D. MMMM [dallas] YYYY',
+            LLL : 'D. MMMM [dallas] YYYY LT',
+            LLLL : 'dddd, [li] D. MMMM [dallas] YYYY LT'
+        },
+        meridiem : function (hours, minutes, isLower) {
+            if (hours > 11) {
+                return isLower ? 'd\'o' : 'D\'O';
+            } else {
+                return isLower ? 'd\'a' : 'D\'A';
+            }
+        },
+        calendar : {
+            sameDay : '[oxhi à] LT',
+            nextDay : '[demà à] LT',
+            nextWeek : 'dddd [à] LT',
+            lastDay : '[ieiri à] LT',
+            lastWeek : '[sür el] dddd [lasteu à] LT',
+            sameElse : 'L'
+        },
+        relativeTime : {
+            future : 'osprei %s',
+            past : 'ja%s',
+            s : tzl__processRelativeTime,
+            m : tzl__processRelativeTime,
+            mm : tzl__processRelativeTime,
+            h : tzl__processRelativeTime,
+            hh : tzl__processRelativeTime,
+            d : tzl__processRelativeTime,
+            dd : tzl__processRelativeTime,
+            M : tzl__processRelativeTime,
+            MM : tzl__processRelativeTime,
+            y : tzl__processRelativeTime,
+            yy : tzl__processRelativeTime
+        },
+        ordinalParse: /\d{1,2}\./,
+        ordinal : '%d.',
+        week : {
+            dow : 1, // Monday is the first day of the week.
+            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        }
+    });
+
+    function tzl__processRelativeTime(number, withoutSuffix, key, isFuture) {
+        var format = {
+            's': ['viensas secunds', '\'iensas secunds'],
+            'm': ['\'n míut', '\'iens míut'],
+            'mm': [number + ' míuts', ' ' + number + ' míuts'],
+            'h': ['\'n þora', '\'iensa þora'],
+            'hh': [number + ' þoras', ' ' + number + ' þoras'],
+            'd': ['\'n ziua', '\'iensa ziua'],
+            'dd': [number + ' ziuas', ' ' + number + ' ziuas'],
+            'M': ['\'n mes', '\'iens mes'],
+            'MM': [number + ' mesen', ' ' + number + ' mesen'],
+            'y': ['\'n ar', '\'iens ar'],
+            'yy': [number + ' ars', ' ' + number + ' ars']
+        };
+        return isFuture ? format[key][0] : (withoutSuffix ? format[key][0] : format[key][1].trim());
+    }
+
+    //! moment.js locale configuration
     //! locale : Morocco Central Atlas Tamaziɣt in Latin (tzm-latn)
     //! author : Abdel Said : https://github.com/abdelsaid
 
@@ -19550,11 +19789,11 @@ return jQuery;
         weekdaysMin : 'asamas_aynas_asinas_akras_akwas_asimwas_asiḍyas'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[asdkh g] LT',
@@ -19597,11 +19836,11 @@ return jQuery;
         weekdaysMin : 'ⴰⵙⴰⵎⴰⵙ_ⴰⵢⵏⴰⵙ_ⴰⵙⵉⵏⴰⵙ_ⴰⴽⵔⴰⵙ_ⴰⴽⵡⴰⵙ_ⴰⵙⵉⵎⵡⴰⵙ_ⴰⵙⵉⴹⵢⴰⵙ'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS: 'LT:ss',
+            LTS: 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'dddd D MMMM YYYY LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'dddd D MMMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[ⴰⵙⴷⵅ ⴴ] LT',
@@ -19696,11 +19935,11 @@ return jQuery;
         weekdaysMin : 'нд_пн_вт_ср_чт_пт_сб'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY р.',
-            LLL : 'D MMMM YYYY р., LT',
-            LLLL : 'dddd, D MMMM YYYY р., LT'
+            LLL : 'D MMMM YYYY р., HH:mm',
+            LLLL : 'dddd, D MMMM YYYY р., HH:mm'
         },
         calendar : {
             sameDay: processHoursFunction('[Сьогодні '),
@@ -19786,11 +20025,11 @@ return jQuery;
         weekdaysMin : 'Як_Ду_Се_Чо_Па_Жу_Ша'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY LT',
-            LLLL : 'D MMMM YYYY, dddd LT'
+            LLL : 'D MMMM YYYY HH:mm',
+            LLLL : 'D MMMM YYYY, dddd HH:mm'
         },
         calendar : {
             sameDay : '[Бугун соат] LT [да]',
@@ -19833,15 +20072,15 @@ return jQuery;
         weekdaysMin : 'CN_T2_T3_T4_T5_T6_T7'.split('_'),
         longDateFormat : {
             LT : 'HH:mm',
-            LTS : 'LT:ss',
+            LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM [năm] YYYY',
-            LLL : 'D MMMM [năm] YYYY LT',
-            LLLL : 'dddd, D MMMM [năm] YYYY LT',
+            LLL : 'D MMMM [năm] YYYY HH:mm',
+            LLLL : 'dddd, D MMMM [năm] YYYY HH:mm',
             l : 'DD/M/YYYY',
             ll : 'D MMM YYYY',
-            lll : 'D MMM YYYY LT',
-            llll : 'ddd, D MMM YYYY LT'
+            lll : 'D MMM YYYY HH:mm',
+            llll : 'ddd, D MMM YYYY HH:mm'
         },
         calendar : {
             sameDay: '[Hôm nay lúc] LT',
@@ -19892,12 +20131,12 @@ return jQuery;
             LTS : 'Ah点m分s秒',
             L : 'YYYY-MM-DD',
             LL : 'YYYY年MMMD日',
-            LLL : 'YYYY年MMMD日LT',
-            LLLL : 'YYYY年MMMD日ddddLT',
+            LLL : 'YYYY年MMMD日Ah点mm分',
+            LLLL : 'YYYY年MMMD日ddddAh点mm分',
             l : 'YYYY-MM-DD',
             ll : 'YYYY年MMMD日',
-            lll : 'YYYY年MMMD日LT',
-            llll : 'YYYY年MMMD日ddddLT'
+            lll : 'YYYY年MMMD日Ah点mm分',
+            llll : 'YYYY年MMMD日ddddAh点mm分'
         },
         meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
         meridiemHour: function (hour, meridiem) {
@@ -20007,12 +20246,12 @@ return jQuery;
             LTS : 'Ah點m分s秒',
             L : 'YYYY年MMMD日',
             LL : 'YYYY年MMMD日',
-            LLL : 'YYYY年MMMD日LT',
-            LLLL : 'YYYY年MMMD日ddddLT',
+            LLL : 'YYYY年MMMD日Ah點mm分',
+            LLLL : 'YYYY年MMMD日ddddAh點mm分',
             l : 'YYYY年MMMD日',
             ll : 'YYYY年MMMD日',
-            lll : 'YYYY年MMMD日LT',
-            llll : 'YYYY年MMMD日ddddLT'
+            lll : 'YYYY年MMMD日Ah點mm分',
+            llll : 'YYYY年MMMD日ddddAh點mm分'
         },
         meridiemParse: /早上|上午|中午|下午|晚上/,
         meridiemHour : function (hour, meridiem) {
@@ -20083,6 +20322,7 @@ return jQuery;
     });
 
     var moment_with_locales = _moment__default;
+    moment_with_locales.locale('en');
 
     return moment_with_locales;
 
