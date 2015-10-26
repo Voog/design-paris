@@ -450,6 +450,11 @@ span[style*="font-size"] {
 }
 
 .menu-main {
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
   display: inline-block;
   vertical-align: middle;
 }
@@ -746,6 +751,7 @@ span[style*="font-size"] {
   }
 }
 .header .wrap .header-right {
+  max-width: 100%;
   text-align: right;
   margin-left: 15px;
 }
