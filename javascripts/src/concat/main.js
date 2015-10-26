@@ -1,6 +1,6 @@
 ;(function($) {
   var editmode = function () {
-    return $('body').hasClass('editmode');
+    return $('html').hasClass('editmode');
   };
 
   var articlePage = function () {
@@ -301,6 +301,11 @@
     return color;
   };
 
+  var bindCustomTexteditorStyles = function() {
+    window.edy = window.edy || [];
+    edy.push(['texteditorStyles', {name: 'Button', tagname:'a', attribute: {'href': '#'}, classname: 'custom-btn', toggle: true}]);
+  };
+
   // Initiates the functions when window is resized.
   var handleWindowResize = function() {
     // Add functions that should be trgiggered while resizing the window here.
@@ -329,6 +334,10 @@
     handleWindowResize();
     focusFormWithErrors();
     wrapTables();
+
+    if (editmode()) {
+      bindCustomTexteditorStyles();
+    }
 
     if (!Modernizr.flexbox && editmode()) {
       bindFallbackHeaderLeftWidthCalculation();

@@ -311,6 +311,23 @@ body > .background-color {
 .content-formatted blockquote {
   margin: 20px 40px;
 }
+.content-formatted .custom-btn {
+  display: inline-block;
+  padding: 10px 18px 9px;
+  font-size: 13px;
+  cursor: pointer;
+  color: white;
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #000;
+  border: 1px solid rgba(0, 0, 0, 0.67);
+}
+.content-formatted .custom-btn:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
 .content-formatted .edy-positionable-container-left,
 .content-formatted .edy-positionable-container-right {
   width: 45%;
