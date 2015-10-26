@@ -101,8 +101,12 @@
 
   .menu-item {
     vertical-align: middle;
-    margin-right: 15px;
+    margin-left: 15px;
     font-size: 18px;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
   .menu-link {
