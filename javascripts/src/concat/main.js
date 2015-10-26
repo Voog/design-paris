@@ -1,6 +1,11 @@
 ;(function($) {
-  var editmode = $('body').hasClass('editmode')
-      articlePage = $('body').hasClass('post-page');
+  var editmode = function () {
+    return $('body').hasClass('editmode');
+  };
+
+  var articlePage = function () {
+    return $('body').hasClass('post-page');
+  };
 
   // Function to limit the rate at which a function can fire.
   var debounce = function(func, wait, immediate) {
@@ -104,7 +109,7 @@
           success: function(data) {
             if (data.length > 0) {
               $.each(data, function(index, article) {
-                if (editmode) {
+                if (editmode()) {
                   var articleTitle = article.autosaved_title,
                       articleExcerpt = article.autosaved_excerpt;
                 } else {
@@ -251,7 +256,7 @@
     commitData.color = data.color || 'rgba(255,255,255,0)';
     commitData.combinedLightness = bodyBgCombinedLightness;
 
-    if (articlePage) {
+    if (articlePage()) {
       Edicy.articles.currentArticle.setData('body_bg', commitData);
     } else {
       pageData.set(dataName, commitData);
@@ -325,7 +330,7 @@
     focusFormWithErrors();
     wrapTables();
 
-    if (!Modernizr.flexbox && editmode) {
+    if (!Modernizr.flexbox && editmode()) {
       bindFallbackHeaderLeftWidthCalculation();
     };
   };
