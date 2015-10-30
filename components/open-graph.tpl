@@ -17,7 +17,7 @@
       {% assign og_image = body_bg_image_sizes[0] %}
     {% endif %}
   {% else %}
-    {% assign og_image = article.image %}
+    {% assign og_image = article.image.for-width-1200 %}
   {% endif %}
 {% else %}
   {% if page.image == nil %}
@@ -27,7 +27,7 @@
       {% assign og_image = body_bg_image_sizes[0] %}
     {% endif %}
   {% else %}
-    {% assign og_image = page.image %}
+    {% assign og_image = page.image.for-width-1200 %}
   {% endif %}
 {% endif %}
 
