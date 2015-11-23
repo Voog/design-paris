@@ -228,7 +228,7 @@
         bodyBgCombinedLightness = getCombinedLightness(bodyBg.bodyBgImageColor, bodyBgColor);
         handleBodyImageLightnessClass();
       } else {
-        colorExtractImage.attr('src', colorExtractImageUrl.replace(/.*\/photos/g,'/photos'));
+        colorExtractImage.attr('src', colorExtractImageUrl.replace(/.*\/(photos|voogstock)/g,'/photos'));
         colorExtractImage.load(function() {
           ColorExtract.extract(colorExtractImage[0], colorExtractCanvas[0], function(data) {
             bodyBg.bodyBgImageColor = data.bgColor ? data.bgColor : 'rgba(255,255,255,1)';
