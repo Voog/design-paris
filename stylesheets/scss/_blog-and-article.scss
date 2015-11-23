@@ -122,6 +122,13 @@
   }
 }
 
+.post {
+  .background-image,
+  .background-color,
+  .body-background-color {
+    z-index: 0;
+  }
+}
 
 .post-cover-inner {
   .light-background & {

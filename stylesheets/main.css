@@ -916,6 +916,12 @@ span[style*="font-size"] {
   }
 }
 
+.post .background-image,
+.post .background-color,
+.post .body-background-color {
+  z-index: 0;
+}
+
 .light-background .post-cover-inner {
   border: 1px dashed #000000;
   border: 1px dashed rgba(0, 0, 0, 0.1);
