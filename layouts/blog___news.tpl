@@ -53,7 +53,7 @@
           {% endif %}
 
 
-          {% for article in articles | limit : 16 %}
+          {% for article in articles limit: 16 %}
             {% include "post-box" %}
           {% endfor %}
         </section>
