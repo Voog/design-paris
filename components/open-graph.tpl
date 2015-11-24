@@ -12,7 +12,7 @@
     {% if article.data.post_image != nil and article.data.post_image != '' %}
       {% assign og_image = article.data.post_image %}
     {% elsif fallback_body_image != nil and fallback_body_image != '' and body_bg_image_sizes == nil %}
-      {% assign og_image = {{ fallback_body_image }} %}
+      {% assign og_image = fallback_body_image %}
     {% elsif body_bg_image_sizes != nil and body_bg_image_sizes != '' %}
       {% assign og_image = body_bg_image_sizes[0] %}
     {% endif %}
@@ -22,7 +22,7 @@
 {% else %}
   {% if page.image == nil %}
     {% if fallback_body_image != nil and fallback_body_image != '' and body_bg_image_sizes == nil %}
-      {% assign og_image = {{ fallback_body_image }} %}
+      {% assign og_image = fallback_body_image %}
     {% elsif body_bg_image_sizes != nil and body_bg_image_sizes != '' %}
       {% assign og_image = body_bg_image_sizes[0] %}
     {% endif %}
