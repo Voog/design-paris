@@ -21159,7 +21159,10 @@ MMCQ = (function() {
     $('.js-container').on('mousedown', function(event) {
       if (!$(event.target).closest('.js-prevent-sideclick').length) {
         $('.js-popover').removeClass('expanded');
-        $('.js-search-close-btn').trigger('click');
+        $('.js-search-close-btn').removeClass('open');
+        $('body').removeClass('search-open');
+        $('.js-search-open-btn').removeClass('open');
+        $('.js-search').removeClass('active');
       };
     });
   };
@@ -21171,7 +21174,10 @@ MMCQ = (function() {
       $('.js-menu-main').toggleClass('expanded');
 
       if ($('.js-search-close-btn').hasClass('open')) {
-        $('.js-search-close-btn').trigger('click');
+        $('.js-search-close-btn').removeClass('open');
+        $('body').removeClass('search-open');
+        $('.js-search-open-btn').removeClass('open');
+        $('.js-search').removeClass('active');
       }
     });
 
