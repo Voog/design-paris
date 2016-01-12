@@ -16,7 +16,7 @@
 {% if site.data.touch_icon %}<link rel="apple-touch-icon" href="{{ site.data.touch_icon }}">{% endif %}
 
 {% comment %}STYLESHEETS{% endcomment %}
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic%7COpen+Sans:400italic,700italic,400,700">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Lato:400,700&subset=cyrillic,latin-ext" rel="stylesheet">
 {% stylesheet_link "main.min.css" %}
 {% if editmode %}
   {% stylesheet_link "editmode.min.css" %}
