@@ -154,12 +154,6 @@
       "filename": "ico-flags.svg"
     },
     {
-      "content_type": "image/svg+xml",
-      "file": "assets/ico-search.svg",
-      "kind": "assets",
-      "filename": "ico-search.svg"
-    },
-    {
       "content_type": "image/jpeg",
       "file": "images/body-bg.jpg",
       "kind": "images",

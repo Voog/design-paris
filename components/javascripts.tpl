@@ -12,8 +12,6 @@
       mobileModeWidth: 480,
       updateOnKeypress: false
     });
-
-    $('.form_field_textarea').textareaAutoSize();
   </script>
 {% endif %}
 

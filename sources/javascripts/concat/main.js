@@ -166,6 +166,12 @@
     });
   };
 
+  var bindTextareaAutoSize = function() {
+    $(document).ready(function() {
+      $('.form_field_textarea').textareaAutoSize();
+    });
+  };
+
   // Wraps tables in the container.
   // TODO: remove if edicy is going to wrap table with the container.
   var wrapTables = function() {
@@ -339,6 +345,7 @@
     handleSearchSubmit();
     handleWindowResize();
     focusFormWithErrors();
+    bindTextareaAutoSize();
     wrapTables();
 
     if (editmode()) {
