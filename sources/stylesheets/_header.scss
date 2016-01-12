@@ -45,17 +45,23 @@
         a:hover {
           @include color($secondary-color, 0.6);
         }
+
+        @include query($tablet-4) {
+          margin-right: 40px;
+        }
       }
 
       .header-slogan {
         position: relative;
         top: 2px;
         font-size: 18px;
+
+        @include query($tablet-4) {
+          margin-right: 40px;
+        }
       }
 
       @include query($tablet-4) {
-        margin-right: 40px;
-
         .search-enabled & {
           margin-right: 190px;
         }

@@ -747,15 +747,22 @@ span[style*="font-size"] {
   color: #FF0000;
   color: rgba(255, 0, 0, 0.6);
 }
+@media screen and (max-width: 840px) {
+  .header .wrap .header-left .header-title {
+    margin-right: 40px;
+  }
+}
 .header .wrap .header-left .header-slogan {
   position: relative;
   top: 2px;
   font-size: 18px;
 }
 @media screen and (max-width: 840px) {
-  .header .wrap .header-left {
+  .header .wrap .header-left .header-slogan {
     margin-right: 40px;
   }
+}
+@media screen and (max-width: 840px) {
   .search-enabled .header .wrap .header-left {
     margin-right: 190px;
   }
