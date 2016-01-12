@@ -430,6 +430,9 @@ span[style*="font-size"] {
 .edit-btn:last-child {
   margin-right: 0;
 }
+.menu-main .edit-btn {
+  margin-left: 15px;
+}
 .menu-sub .edit-btn {
   position: relative;
   top: -1px;
@@ -438,6 +441,7 @@ span[style*="font-size"] {
   .menu-main .edit-btn {
     display: block;
     margin-right: 0;
+    margin-left: 0;
     padding: 9px 30px 10px;
     border-top: 1px solid #000000;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
