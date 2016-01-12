@@ -169,7 +169,7 @@
   // Wraps tables in the container.
   // TODO: remove if edicy is going to wrap table with the container.
   var wrapTables = function() {
-    $('.content-formatted table').wrap('<div class="table-container overthrow"></div>');
+    $('.content-formatted table').wrap('<div class="table-container"></div>');
   };
 
   var bindFallbackHeaderLeftWidthCalculation = function() {

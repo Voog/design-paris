@@ -246,7 +246,7 @@
 
   // Styling rules for the site's editable content area tables.
   // Overthrow plugin to support horizontal scrolling on older devices that have touch-screens. For example Android 2.3 devices.
-  .overthrow {
+  .table-container {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }

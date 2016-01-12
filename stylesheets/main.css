@@ -350,7 +350,7 @@ body > .background-color {
 .content-formatted iframe {
   max-width: 100%;
 }
-.content-formatted .overthrow {
+.content-formatted .table-container {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -507,8 +507,6 @@ span[style*="font-size"] {
     margin-bottom: 60px;
     text-align: left;
     background-color: white;
-    -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3) ;
-    -moz-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3) ;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3) ;
   }
   .menu-main .menu-item {
@@ -534,8 +532,6 @@ span[style*="font-size"] {
     margin-bottom: 40px;
     border-top: 1px solid #FFFFFF;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
     box-shadow: none;
   }
   .menu-main .menu-item:first-child .menu-link {
@@ -704,11 +700,8 @@ span[style*="font-size"] {
   -moz-box-lines: multiple;
   box-lines: multiple;
   -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
   box-pack: end;
   -webkit-justify-content: flex-end;
   -moz-justify-content: flex-end;
@@ -722,8 +715,6 @@ span[style*="font-size"] {
 }
 .flexbox .header .wrap .header-left {
   max-width: 100%;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
   box-flex: 1;
   -webkit-flex: 1 0 auto;
   -moz-flex: 1 0 auto;
@@ -808,11 +799,7 @@ span[style*="font-size"] {
   border-color: rgba(0, 0, 0, 0.3);
 }
 .post-add-link, .post-add-link:hover {
-  -webkit-transition-property: color, border;
-  -moz-transition-property: color, border;
   transition-property: color, border;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
 .post-add-link:hover {
@@ -829,11 +816,7 @@ span[style*="font-size"] {
 }
 .no-svg .post-add-link:hover .post-add-icon {
   opacity: .7;
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
 .light-background .post-add-link:hover {
@@ -877,11 +860,7 @@ span[style*="font-size"] {
 .no-svg .post-add-link .post-add-icon {
   opacity: .2;
   background-image: url("../images/ico-post-add-white.png");
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
 .light-background .no-svg .post-add-link .post-add-icon {
@@ -1006,8 +985,6 @@ span[style*="font-size"] {
 .blog-page .post .post-top,
 .blog-page .post .background-image,
 .blog-page .post .post-title {
-  -webkit-transition: opacity, 0.3s;
-  -moz-transition: opacity, 0.3s;
   transition: opacity, 0.3s;
 }
 .blog-page .post .post-top {
@@ -1370,8 +1347,6 @@ span[style*="font-size"] {
   padding: 20px;
   text-align: left;
   font-size: 14px;
-  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
-  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) ;
 }
 .voog-search-modal-inner.search-results-active {
@@ -1514,7 +1489,6 @@ span[style*="font-size"] {
   line-height: 1;
   cursor: pointer;
   -webkit-appearance: none;
-  -webkit-border-radius: 0;
   border-radius: 0;
 }
 .content-formatted .form_submit input:hover {
@@ -1724,7 +1698,6 @@ span[style*="font-size"] {
   border: none;
   cursor: pointer;
   -webkit-appearance: none;
-  -webkit-border-radius: 0;
   border-radius: 0;
 }
 .comment-form .form_submit input:hover {
@@ -1773,11 +1746,8 @@ span[style*="font-size"] {
   -moz-box-lines: multiple;
   box-lines: multiple;
   -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
   box-pack: end;
   -webkit-justify-content: flex-end;
   -moz-justify-content: flex-end;
@@ -1803,8 +1773,6 @@ span[style*="font-size"] {
 }
 .flexbox .footer .footer-left {
   max-width: 100%;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
   box-flex: 1;
   -webkit-flex: 1 0 auto;
   -moz-flex: 1 0 auto;

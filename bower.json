@@ -1,13 +1,11 @@
 {
   "name": "voog-design-paris",
   "devDependencies": {
-    "bourbon": "~4.2.3"
+    "bourbon": "~4.2.6"
   },
   "dependencies": {
-    "jquery": "~1.11.0",
-    "modernizr": "~2.8.3",
-    "overthrow": "~0.7.0",
+    "jquery": "~2.2.0",
     "textarea-autosize": "~0.4.1",
-    "moment": "~2.10.3"
+    "moment": "~2.11.1"
   }
 }
