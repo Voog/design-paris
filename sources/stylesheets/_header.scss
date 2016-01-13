@@ -29,6 +29,22 @@
       .header-slogan {
         line-height: 1;
         @include color($black, 0.53);
+
+        @include query($tablet-4) {
+          margin-right: 40px;
+        }
+
+        @include query($tablet-4) {
+          .search-enabled & {
+            margin-right: 190px;
+          }
+        }
+
+        @include query($mobile-1) {
+          .search-enabled & {
+            margin-right: 60px;
+          }
+        }
       }
 
       .header-title {
@@ -45,32 +61,12 @@
         a:hover {
           @include color($secondary-color, 0.6);
         }
-
-        @include query($tablet-4) {
-          margin-right: 40px;
-        }
       }
 
       .header-slogan {
         position: relative;
         top: 2px;
         font-size: 18px;
-
-        @include query($tablet-4) {
-          margin-right: 40px;
-        }
-      }
-
-      @include query($tablet-4) {
-        .search-enabled & {
-          margin-right: 190px;
-        }
-      }
-
-      @include query($mobile-1) {
-        .search-enabled & {
-          margin-right: 60px;
-        }
       }
     }
 
