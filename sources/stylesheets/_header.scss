@@ -8,17 +8,17 @@
     min-height: 65px;
 
     .flexbox & {
-      @include display(flex);
-      @include flex-wrap(wrap);
-      @include justify-content(flex-end);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .header-left {
       margin-top: 10px;
 
       .flexbox & {
+        flex: 1 0 auto;
         max-width: 100%;
-        @include flex(1 0 auto);
       }
 
       .no-flexbox & {

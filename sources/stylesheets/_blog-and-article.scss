@@ -310,7 +310,7 @@
     }
 
     .editmode.flexbox & {
-      @include display(flex);
+      display: flex;
     }
 
     .editmode.no-flexbox & {
