@@ -1396,6 +1396,7 @@ span[style*="font-size"] {
 .content-formatted form {
   max-width: 100%;
   margin-top: 20px;
+  clear: both;
 }
 .content-formatted .form_field,
 .content-formatted .edy-fe-label {
