@@ -1435,6 +1435,14 @@ span[style*="font-size"] {
   border: 1px solid rgba(0, 0, 0, 0.67);
   border-radius: 2px;
 }
+.dark-background .content-formatted .form_field_textfield, .dark-background
+.content-formatted .form_field_textarea, .dark-background
+.content-formatted .form_submit input {
+  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.67);
+}
 .content-formatted .form_field_textfield,
 .content-formatted .form_field_textarea {
   width: 190px;

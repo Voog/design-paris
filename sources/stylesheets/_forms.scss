@@ -45,6 +45,11 @@
     @include bg($black, 0.2);
     @include border(all, 1px, solid, $black, 0.67);
     border-radius: 2px;
+
+    .dark-background & {
+      @include bg($primary-color, 0.2);
+      @include border(all, 1px, solid, $primary-color, 0.67);
+    }
   }
 
 
