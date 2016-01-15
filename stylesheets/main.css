@@ -1027,6 +1027,7 @@ span[style*="font-size"] {
   word-break: break-word;
 }
 .blog-page .post .post-bottom {
+  font-size: 18px;
   margin-top: 4px;
 }
 .blog-page .post .post-content,
