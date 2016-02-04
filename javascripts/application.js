@@ -21918,10 +21918,11 @@ MMCQ = (function() {
     handleWindowResize();
     focusFormWithErrors();
     bindTextareaAutoSize();
-    wrapTables();
 
     if (editmode()) {
       bindCustomTexteditorStyles();
+    } else {
+      wrapTables();
     }
 
     if (!Modernizr.flexbox && editmode()) {
