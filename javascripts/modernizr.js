@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.2.0
+ * modernizr v3.3.1
  * Build http://modernizr.com/download?-flexbox-svg-setclasses-shiv-dontmin
  *
  * Copyright (c)
@@ -36,7 +36,7 @@
 
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.2.0',
+    _version: '3.3.1',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
