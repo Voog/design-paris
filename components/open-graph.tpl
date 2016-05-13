@@ -14,7 +14,13 @@
     {% elsif fallback_body_image != nil and fallback_body_image != '' and body_bg_image_sizes == nil %}
       {% assign og_image = fallback_body_image %}
     {% elsif body_bg_image_sizes != nil and body_bg_image_sizes != '' %}
-      {% assign og_image = body_bg_image_sizes[2] %}
+      {% for size in body_bg_image_sizes reversed %}
+        {% if size.width <= 1280 %}
+          {% assign og_image = size %}
+        {% else %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% else %}
     {% assign og_image = article.image.for-width-1200 %}
@@ -24,7 +30,13 @@
     {% if fallback_body_image != nil and fallback_body_image != '' and body_bg_image_sizes == nil %}
       {% assign og_image = fallback_body_image %}
     {% elsif body_bg_image_sizes != nil and body_bg_image_sizes != '' %}
-      {% assign og_image = body_bg_image_sizes[2] %}
+      {% for size in body_bg_image_sizes reversed %}
+        {% if size.width <= 1280 %}
+          {% assign og_image = size %}
+        {% else %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% else %}
     {% assign og_image = page.image.for-width-1200 %}
@@ -32,7 +44,8 @@
 {% endif %}
 
 {% if og_image %}
-  {% if og_image.url %}<meta property="og:image" content="{{ og_image.url }}">{% endif %}
+  {% comment %}"http:" and "https:" strings are removed and readded to ensure that older bg-picker images will have protocol.{% endcomment %}
+  {% if og_image.url %}<meta property="og:image" content="{{ og_image.url | replace_first: "http:", "" | replace_first: "https:", "" | prepend: "https:" }}">{% endif %}
   {% if og_image.content_type %}<meta property="og:image:type" content="{{ og_image.content_type }}">{% endif %}
   {% if og_image.width %}<meta property="og:image:width" content="{{ og_image.width }}">{% endif %}
   {% if og_image.height %}<meta property="og:image:height" content="{{ og_image.height }}">{% endif %}
@@ -49,4 +62,3 @@
   <meta property="og:description" content="{{ description | escape }}">
   <meta name="description" content="{{ description | escape }}">
 {% endif %}
-
