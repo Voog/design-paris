@@ -313,9 +313,9 @@
     return color;
   };
 
-  var bindCustomTexteditorStyles = function() {
+  var bindCustomTexteditorStyles = function(buttonTranslation) {
     window.edy = window.edy || [];
-    edy.push(['texteditorStyles', {name: 'Button', tagname:'a', attribute: {'href': '#'}, classname: 'custom-btn', toggle: true}]);
+    edy.push(['texteditorStyles', {name: buttonTranslation, tagname:'a', attribute: {'href': '#'}, classname: 'custom-btn', toggle: true}]);
   };
 
   // Initiates the functions when window is resized.
@@ -347,9 +347,7 @@
     focusFormWithErrors();
     bindTextareaAutoSize();
 
-    if (editmode()) {
-      bindCustomTexteditorStyles();
-    } else {
+    if (!editmode()) {
       wrapTables();
     }
 
@@ -364,7 +362,8 @@
     bodyBgPreview: bodyBgPreview,
     bodyBgCommit: bodyBgCommit,
     debounce: debounce,
-    getMoreArticles: getMoreArticles
+    getMoreArticles: getMoreArticles,
+    bindCustomTexteditorStyles: bindCustomTexteditorStyles
   });
 
   init();

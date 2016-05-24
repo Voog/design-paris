@@ -45,5 +45,7 @@
         }
       });
     {% endif %}
+
+    site.bindCustomTexteditorStyles('{{ "button" | lc: editor_locale }}');
   </script>
 {% endeditorjsblock %}
