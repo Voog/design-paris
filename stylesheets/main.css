@@ -123,7 +123,6 @@ body > .background-color {
 }
 
 .content-formatted {
-  -moz-hyphens: auto;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
@@ -263,7 +262,6 @@ body > .background-color {
 .content-formatted iframe,
 .content-formatted table,
 .content-formatted form {
-  -moz-hyphens: none;
   -ms-hyphens: none;
   -webkit-hyphens: none;
   hyphens: none;
@@ -471,7 +469,6 @@ span[style*="font-size"] {
 }
 
 .menu-main {
-  -moz-hyphens: auto;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
@@ -1020,7 +1017,6 @@ span[style*="font-size"] {
   font-size: 34px;
 }
 .blog-page .post .post-header .post-title, .blog-page .post .post-header .post-title a {
-  -moz-hyphens: auto;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
