@@ -148,12 +148,6 @@
   ],
   "assets": [
     {
-      "content_type": "image/svg+xml",
-      "file": "assets/ico-flags.svg",
-      "kind": "assets",
-      "filename": "ico-flags.svg"
-    },
-    {
       "content_type": "image/jpeg",
       "file": "images/body-bg.jpg",
       "kind": "images",
@@ -164,12 +158,6 @@
       "file": "images/body-bg_block.jpg",
       "kind": "images",
       "filename": "body-bg_block.jpg"
-    },
-    {
-      "content_type": "image/png",
-      "file": "images/ico-flags.png",
-      "kind": "images",
-      "filename": "ico-flags.png"
     },
     {
       "content_type": "image/png",
