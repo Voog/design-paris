@@ -1,8 +1,15 @@
-// MAIN STYLESHEET
-// Uncomment the partials you want to use in your template and comment out those that you don't need.
+// =============================================================================
+// MAIN STYLSEHEET
+//
+// Uncomment the partials you want to use in your template and comment out those
+// that you don't need.
+// =============================================================================
+
+// MODULES
 @import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
-@import '_mixins';
-@import '_variables';
+@import 'modules/mixins';
+@import 'modules/variables';
+
 // @import '_fonts';
 @import '_general';
 @import '_content-formatted';
