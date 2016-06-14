@@ -4,7 +4,12 @@
     "titleI18n": "alignment",
     "editor": "listPicker",
     "list": {{ base_alignment_set }},
-    "scope": "global"
+    "scope": "global",
+    "boundVariables": [
+      "--headings-title-text-alignment",
+      "--headings-heading-text-alignment",
+      "--headings-subheading-text-alignment"
+    ]
   */
   --content-body-alignment: left;
   /* VoogStyle
@@ -28,7 +33,7 @@
     "unit": "",
     "scope": "global"
   */
-  --content-body-line-height: 1.7;
+  --content-body-line-height: 1.5;
   /* VoogStyle
     "pathI18n": ["content", "link", "normal"],
     "titleI18n": "font_size",
@@ -102,7 +107,7 @@
       "--content-link-hover-text-decoration"
     ]
   */
-  --content-link-text-decoration: none;
+  --content-link-text-decoration: underline;
   /* VoogStyle
     "pathI18n": ["content", "link", "hover"],
     "titleI18n": "text_decoration",

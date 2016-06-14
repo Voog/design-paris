@@ -9,7 +9,7 @@
     "featured": true,
     "scope": "global"
   */
-  --footer-body-font-size: 14px;
+  --footer-body-font-size: 11px;
   /* VoogStyle
     "pathI18n": ["footer"],
     "titleI18n": "font_size",

@@ -107,7 +107,7 @@
           },
           {
             "title": "Lato",
-            "value": "\"Lato\", sans-serif"
+            "value": "\"Lato\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif"
           },
           {
             "title": "Montserrat",
@@ -115,7 +115,7 @@
           },
           {
             "title": "Open Sans",
-            "value": "\"Open Sans\", sans-serif"
+            "value": "\"Open Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif"
           },
           {
             "title": "Roboto",

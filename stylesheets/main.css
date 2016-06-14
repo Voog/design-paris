@@ -234,6 +234,11 @@ body > .background-color {
 .content-formatted h6 {
   font-size: 34px;
 }
+.content-formatted ul,
+.content-formatted ol {
+  list-style-position: inside;
+  padding-left: 0;
+}
 .content-formatted ul {
   list-style-type: none;
 }
@@ -242,9 +247,9 @@ body > .background-color {
 }
 .content-formatted ul li:before {
   font-size: 28px;
-  position: absolute;
-  top: -21px;
-  left: -20px;
+  position: relative;
+  top: -10px;
+  left: -5px;
   content: "_ ";
 }
 .content-formatted a {
@@ -325,6 +330,12 @@ body > .background-color {
 }
 .content-formatted .custom-btn:hover {
   background-color: rgba(0, 0, 0, 0.3);
+}
+.dark-background .content-formatted .custom-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.dark-background .content-formatted .custom-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .content-formatted .edy-positionable-container-left,
 .content-formatted .edy-positionable-container-right {
@@ -1481,7 +1492,7 @@ span[style*="font-size"] {
   margin-top: 20px;
 }
 .content-formatted .form_submit input {
-  display: block;
+  display: inline-block;
   padding: 10px 18px 9px;
   font-size: 13px;
   line-height: 1;
@@ -1787,13 +1798,14 @@ span[style*="font-size"] {
   color: #FFFFFF;
   color: rgba(255, 255, 255, 0.5);
 }
-.footer.light-background .footer-left a,
-.footer.light-background .footer-right a {
+
+.light-background .footer-left a,
+.light-background .footer-right a {
   color: #000000;
   color: rgba(0, 0, 0, 0.5);
 }
-.footer.light-background .footer-left a:hover,
-.footer.light-background .footer-right a:hover {
+.light-background .footer-left a:hover,
+.light-background .footer-right a:hover {
   color: #000000;
   color: rgba(0, 0, 0, 0.8);
 }

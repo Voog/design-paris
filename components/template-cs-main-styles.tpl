@@ -1,7 +1,7 @@
 :root {
   /* VoogStyle
     "pathI18n": ["main_styles"],
-    "titleI18n": "font",
+    "titleI18n": "font_primary",
     "editor": "listPicker",
     "list": {{ base_font_set }},
     "featured": true,
@@ -9,7 +9,7 @@
     "boundVariables": [
     ]
   */
-  --main-font-family: "Roboto", sans-serif;
+  --main-font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   /* VoogStyle
     "pathI18n": ["main_styles", "colors"],
     "titleI18n": "primary_color",
@@ -19,7 +19,7 @@
     "boundVariables": [
     ]
   */
-  --primary-color: rgba(0, 0, 0, 0.7);
+  --third-color: white;
   /* VoogStyle
     "pathI18n": ["main_styles", "colors"],
     "titleI18n": "secondary_color",
@@ -27,9 +27,12 @@
     "featured": true,
     "scope": "global",
     "boundVariables": [
+      "--menu-main-color",
+      "--menu-main-hover-color",
+      "--menu-main-active-color"
     ]
   */
-  --secondary-color: black;
+  --primary-color: rgba(0, 0, 0, 0.7);
   /* VoogStyle
     "pathI18n": ["main_styles", "colors"],
     "titleI18n": "third_color",
@@ -39,5 +42,5 @@
     "boundVariables": [
     ]
   */
-  --third-color: white;
+  --secondary-color: black;
 }

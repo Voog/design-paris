@@ -72,16 +72,16 @@
       }
     }
   }
+}
 
-  &.light-background {
-    .footer-left,
-    .footer-right {
-      a {
-        @include color($black, .5);
+.light-background {
+  .footer-left,
+  .footer-right {
+    a {
+      @include color($black, .5);
 
-        &:hover {
-          @include color($black, .8);
-        }
+      &:hover {
+        @include color($black, .8);
       }
     }
   }

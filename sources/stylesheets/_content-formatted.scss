@@ -112,6 +112,12 @@
     // }
   }
 
+  ul,
+  ol {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
   ul {
     list-style-type: none;
 
@@ -120,9 +126,9 @@
 
       &:before {
         font-size: 28px;
-        position: absolute;
-        top: -21px;
-        left: -20px;
+        position: relative;
+        top: -10px;
+        left: -5px;
         content: "_ ";
       }
     }
@@ -210,6 +216,14 @@
 
     &:hover {
       background-color: rgba(0,0,0,.3);
+    }
+
+    .dark-background & {
+      background-color: rgba(#fff,.2);
+
+      &:hover {
+        background-color: rgba(0,0,0,.2);
+      }
     }
   }
 

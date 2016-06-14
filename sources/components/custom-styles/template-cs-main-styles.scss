@@ -21,7 +21,7 @@
 
   /* VoogStyle
     "pathI18n": ["main_styles"],
-    "titleI18n": "font",
+    "titleI18n": "font_primary",
     "editor": "listPicker",
     "list": {{ base_font_set }},
     "featured": true,
@@ -29,7 +29,8 @@
     "boundVariables": [
     ]
   */
-  --main-font-family: "Roboto", sans-serif;
+  --main-font-family: $font-main;
+
 
   /* VoogStyle
     "pathI18n": ["main_styles", "colors"],
@@ -40,7 +41,7 @@
     "boundVariables": [
     ]
   */
-  --primary-color: rgba($black, .7);
+  --third-color: rgba($white, 1);
 
   /* VoogStyle
     "pathI18n": ["main_styles", "colors"],
@@ -49,9 +50,12 @@
     "featured": true,
     "scope": "global",
     "boundVariables": [
+      "--menu-main-color",
+      "--menu-main-hover-color",
+      "--menu-main-active-color"
     ]
   */
-  --secondary-color: rgba($black, 1);
+  --primary-color: rgba($black, .7);
 
   /* VoogStyle
     "pathI18n": ["main_styles", "colors"],
@@ -62,7 +66,8 @@
     "boundVariables": [
     ]
   */
-  --third-color: rgba($white, 1);
+  --secondary-color: rgba($black, 1);
+
 
   // scss-lint:enable Comment, Indentation
 }

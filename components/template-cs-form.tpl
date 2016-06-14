@@ -1,7 +1,7 @@
 :root {
   /* VoogStyle
     "pathI18n": ["form"],
-    "titleI18n": "label_size",
+    "titleI18n": "size",
     "editor": "rangePicker",
     "min": 8,
     "max": 100,
@@ -20,14 +20,14 @@
     "scope": "global",
     "featured": true
   */
-  --form-field-font-size: 16px;
+  --form-field-font-size: 14px;
   /* VoogStyle
     "pathI18n": ["form"],
     "titleI18n": "font_weight",
     "type": "button",
     "editor": "toggleIcon",
     "states": {
-      "on": "500",
+      "on": "700",
       "off": "300"
     },
     "icon": "bold",

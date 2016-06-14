@@ -5,12 +5,14 @@ body {
 .dark-background {
   color: var(--third-color);
 }
+.dark-background .content-formatted,
 .dark-background .content-formatted h1,
 .dark-background .content-formatted h2,
 .dark-background .content-formatted h3,
 .dark-background .content-formatted h4,
 .dark-background .content-formatted h5,
 .dark-background .content-formatted h6,
+.dark-background .content-formatted a,
 .dark-background .content-formatted p,
 .dark-background .content-formatted ul,
 .dark-background .content-formatted ol,
@@ -19,15 +21,14 @@ body {
 .dark-background .content-formatted table {
   color: var(--third-color);
 }
-.site-footer .dark-background a,
-.site-footer .dark-background b {
-  color: var(--third-color);
-}
 .dark-background .header-title a,
 .dark-background .header-title a:hover {
   color: var(--third-color);
 }
 .dark-background .menu li a {
+  color: var(--third-color);
+}
+.dark-background .menu li .active {
   color: var(--third-color);
 }
 .dark-background .menu li.selected a {
@@ -60,39 +61,54 @@ body {
 .light-background {
   color: var(--secondary-color);
 }
-.light-background h1, .light-background h2, .light-background h3, .light-background h4 {
+.light-background .content-formatted,
+.light-background .content-formatted h1,
+.light-background .content-formatted h2,
+.light-background .content-formatted h3,
+.light-background .content-formatted h4,
+.light-background .content-formatted h5,
+.light-background .content-formatted h6,
+.light-background .content-formatted a,
+.light-background .content-formatted p,
+.light-background .content-formatted ul,
+.light-background .content-formatted ol,
+.light-background .content-formatted dl,
+.light-background .content-formatted pre,
+.light-background .content-formatted table {
   color: var(--secondary-color);
 }
-.site-header .light-background a {
+.light-background .header-title a,
+.light-background .header-title a:hover {
   color: var(--secondary-color);
 }
-.site-header .light-background .header-title a,
-.site-header .light-background .header-title a:hover {
+.light-background .menu li a {
   color: var(--secondary-color);
 }
-.site-header .light-background .menu li a {
+.light-background .menu li.selected a {
   color: var(--secondary-color);
-}
-.site-header .light-background .menu li a:hover {
-  color: var(--secondary-color);
-}
-.site-header .light-background .menu li.selected a {
-  color: var(--secondary-color);
-}
-.site-footer .light-background {
-  color: var(--primary-color);
 }
 .light-background .lang-title {
   color: var(--secondary-color);
 }
-.light-background .lang-menu-bilingual .lang-title a:hover {
+.light-background .lang-menu.lang-menu-bilingual .lang-title a {
   color: var(--secondary-color);
 }
-.light-background .lang-menu-bilingual .lang-title a.selected {
+.light-background .lang-menu.lang-menu-bilingual .lang-title a.is-active, .light-background .lang-menu.lang-menu-bilingual .lang-title a:hover {
   color: var(--secondary-color);
+}
+.light-background .lang-menu.lang-menu-bilingual .lang-title a.selected {
+  color: var(--secondary-color);
+}
+.light-background .voog-reference svg path {
+  fill: var(--secondary-color);
 }
 .light-background .site-options .search-btn svg path {
   fill: var(--secondary-color);
+}
+@media screen and (max-width: 999px) {
+  .search-open .light-background .site-options .search-btn svg path {
+    fill: var(--secondary-color);
+  }
 }
 
 .blog-news-page .article-title a {
@@ -206,24 +222,58 @@ body {
   fill: var(--secondary-color);
 }
 
-.menu-main a {
+@media screen and (min-width: 841px) {
+  .menu-main .menu-link {
+    font-size: var(--menu-main-font-size);
+  }
+}
+.menu-lang .menu-link,
+.menu-main .menu-link {
+  color: var(--menu-main-color);
   font-style: var(--menu-main-font-style);
   font-weight: var(--menu-main-font-weight);
   text-decoration: var(--menu-main-text-decoration);
   text-transform: var(--menu-main-text-transform);
 }
-.menu-main a:hover {
+.menu-lang .menu-link.active,
+.menu-main .menu-link.active {
+  color: var(--menu-main-active-color);
+  font-style: var(--menu-main-active-font-style);
+  font-weight: var(--menu-main-active-font-weight);
+  text-decoration: var(--menu-main-active-text-decoration);
+  text-transform: var(--menu-main-active-text-transform);
+}
+.menu-lang .menu-link.active:hover,
+.menu-main .menu-link.active:hover {
+  font-weight: var(--menu-main-active-font-weight);
+}
+.menu-lang .menu-link:hover,
+.menu-main .menu-link:hover {
+  color: var(--menu-main-hover-color);
   font-style: var(--menu-main-hover-font-style);
   font-weight: var(--menu-main-hover-font-weight);
   text-decoration: var(--menu-main-hover-text-decoration);
   text-transform: var(--menu-main-hover-text-transform);
 }
-.menu-main .selected a,
-.menu-main .current a {
-  font-style: var(--menu-main-active-font-style);
-  font-weight: var(--menu-main-active-font-weight);
-  text-decoration: var(--menu-main-active-text-decoration);
-  text-transform: var(--menu-main-active-text-transform);
+
+.search-form .search-input {
+  color: var(--menu-main-color);
+}
+.search-form .search-input::-webkit-input-placeholder {
+  color: var(--menu-main-color);
+}
+.search-form .search-input:-moz-placeholder {
+  color: var(--menu-main-color);
+}
+.search-form .search-input::-moz-placeholder {
+  color: var(--menu-main-color);
+}
+.search-form .search-input:-ms-input-placeholder {
+  color: var(--menu-main-color);
+}
+.search-form svg {
+  fill: var(--menu-main-color);
+  opacity: .5;
 }
 
 @media screen and (max-width: 1048px) {
@@ -358,22 +408,22 @@ body {
   color: var(--third-color);
 }
 
-.site-footer .dark-background .content-formatted a {
+.footer .dark-background .content-formatted a {
   color: var(--third-color);
 }
-.site-footer .voog-reference {
+.footer .voog-reference {
   color: var(--secondary-color);
 }
-.site-footer .blog-article-nav .article-nav-direction {
+.footer .blog-article-nav .article-nav-direction {
   color: var(--secondary-color);
 }
-.site-footer .blog-article-nav .article-nav-title {
+.footer .blog-article-nav .article-nav-title {
   color: var(--secondary-color);
 }
-.site-footer .blog-article-nav.dark-background .article-nav-title {
+.footer .blog-article-nav.dark-background .article-nav-title {
   color: var(--third-color);
 }
-.site-footer .blog-article-nav.dark-background .article-nav-direction {
+.footer .blog-article-nav.dark-background .article-nav-direction {
   color: var(--third-color);
 }
 
@@ -382,29 +432,46 @@ body {
   line-height: var(--content-body-line-height);
   color: var(--primary-color);
 }
+.content .content-formatted {
+  text-align: var(--content-body-alignment);
+}
 .dark-background .content-formatted {
   color: var(--third-color);
 }
 .site-footer .dark-background .content-formatted {
   color: var(--third-color);
 }
-.site-footer .content-formatted {
+.content-formatted.footer-left {
   font-size: var(--footer-body-font-size);
   font-style: var(--footer-body-font-style);
   font-weight: var(--footer-body-font-weight);
-  color: var(--primary-color);
   text-decoration: var(--footer-body-text-decoration);
   text-transform: var(--footer-body-text-transform);
 }
-.content-formatted.header-title, .content-formatted.header-title a, .content-formatted.header-title a:hover {
+.content-formatted.footer-left a {
+  font-weight: var(--footer-body-font-weight);
+}
+.header .wrap .header-left .content-formatted.header-title,
+.header .wrap .header-left .content-formatted.header-title a,
+.header .wrap .header-left .content-formatted.header-title a:hover {
   font-size: var(--header-body-font-size);
+  color: var(--header-body-color);
+}
+.header .wrap .header-left .content-formatted.header-slogan,
+.header .wrap .header-left .content-formatted.header-slogan a,
+.header .wrap .header-left .content-formatted.header-slogan a:hover {
+  color: var(--primary-color);
+}
+.header .wrap .header-left .content-formatted.header-title,
+.header .wrap .header-left .content-formatted.header-title a,
+.header .wrap .header-left .content-formatted.header-title a:hover, .header .wrap .header-left .content-formatted.header-slogan,
+.header .wrap .header-left .content-formatted.header-slogan a,
+.header .wrap .header-left .content-formatted.header-slogan a:hover {
+  font-family: var(--secondary-font-family);
   font-style: var(--header-body-font-style);
   font-weight: var(--header-body-font-weight);
   text-decoration: var(--header-body-text-decoration);
   text-transform: var(--header-body-text-transform);
-}
-.header-bottom .content-formatted, .page-body .content-formatted {
-  text-align: var(--content-body-alignment);
 }
 .dark-background .content-formatted h1, .dark-background
 .content-formatted h2, .dark-background
@@ -513,32 +580,29 @@ body {
   color: var(--third-color);
 }
 .content-formatted a.custom-btn {
-  padding: calc(var(--button-padding) - 18px) var(--button-padding) calc(var(--button-padding) - 17px);
+  padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
   font-weight: var(--button-font-weight);
   text-decoration: var(--button-text-decoration);
   text-transform: var(--button-text-transform);
 }
-.dark-background .content-formatted a.custom-btn:hover {
-  border-color: var(--third-color);
-  background-color: var(--third-color);
-  color: var(--primary-color);
-}
-.dark-background .content-formatted a.custom-btn {
+.dark-background .content-formatted a.custom-btn, .dark-background .content-formatted a.custom-btn:hover {
   border-color: var(--third-color);
   color: var(--third-color);
+}
+.light-background .content-formatted a.custom-btn, .light-background .content-formatted a.custom-btn:hover {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+.content-formatted table tr:first-child td {
+  border-top-style: var(--table-border-style);
 }
 .content-formatted table th, .content-formatted table td {
   padding: calc(var(--table-padding) - 4px) var(--table-padding);
   font-size: var(--table-font-size);
-  border-style: var(--table-border-style);
-}
-.dark-background .content-formatted table th, .dark-background .content-formatted table td {
-  border-style: var(--table-border-style);
-}
-.light-background .content-formatted table th, .light-background .content-formatted table td {
-  border-style: var(--table-border-style);
+  border-bottom-style: var(--table-border-style);
+  border-bottom-style: var(--table-border-style);
 }
 .content-formatted table th {
   color: var(--third-color);
@@ -612,7 +676,7 @@ body {
   color: var(--primary-color);
 }
 .content-formatted .form_submit input {
-  padding: calc(var(--button-padding) - 18px) var(--button-padding) calc(var(--button-padding) - 17px);
+  padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
   font-weight: var(--button-font-weight);
@@ -620,10 +684,10 @@ body {
   text-transform: var(--button-text-transform);
 }
 .dark-background .content-formatted .form_submit input {
-  color: var(--secondary-color);
-  background-color: var(--third-color);
+  color: var(--third-color);
+  border: 1px solid var(--third-color);
 }
 .light-background .content-formatted .form_submit input {
-  color: var(--third-color);
-  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
 }
