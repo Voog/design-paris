@@ -1143,23 +1143,26 @@ body {
     }
   }
 
-  .form_submit {
+  @at-root .comment-form .form_submit {
     input {
-      padding: var(--button-padding) calc(var(--button-padding) + 8px);
-      font-size: var(--button-font-size);
-      font-style: var(--button-font-style);
-      font-weight: var(--button-font-weight);
-      text-decoration: var(--button-text-decoration);
-      text-transform: var(--button-text-transform);
+      padding: calc(var(--form-blog-button-padding) - 12px) var(--form-blog-button-padding);
+      font-size: var(--form-blog-button-font-size);
+      font-style: var(--form-blog-button-font-style);
+      font-weight: var(--form-blog-button-font-weight);
+      color: var(--form-blog-button-color);
+      text-decoration: var(--form-blog-button-text-decoration);
+      text-transform: var(--form-blog-button-text-transform);
+      background-color: var(--form-blog-button-background-color);
+      border-color: var(--form-blog-button-color);
 
-      .dark-background & {
-        color: var(--third-color);
-        border: 1px solid var(--third-color);
-      }
-
-      .light-background & {
-        color: var(--secondary-color);
-        border: 1px solid var(--secondary-color);
+      &:hover {
+        font-style: var(--form-blog-button-hover-font-style);
+        font-weight: var(--form-blog-button-hover-font-weight);
+        color: var(--form-blog-button-hover-color);
+        text-decoration: var(--form-blog-button-hover-text-decoration);
+        text-transform: var(--form-blog-button-hover-text-transform);
+        background-color: var(--form-blog-button-hover-background-color);
+        border-color: var(--form-blog-button-hover-color);
       }
     }
   }
