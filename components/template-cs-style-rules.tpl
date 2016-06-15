@@ -563,6 +563,68 @@ body {
   text-decoration: var(--headings-subheading-text-decoration);
   text-transform: var(--headings-subheading-text-transform);
 }
+.post-page .post .post-header .post-title,
+.post-page .post .post-header .post-title a,
+.post-page .post .post-header .post-title a:hover {
+  text-align: var(--headings-title-text-alignment);
+  line-height: var(--headings-title-line-height);
+  font-size: var(--headings-title-font-size);
+  font-weight: var(--headings-title-font-weight);
+  font-style: var(--headings-title-font-style);
+  text-decoration: var(--headings-title-text-decoration);
+  text-transform: var(--headings-title-text-transform);
+}
+.post-header-bottom {
+  opacity: .6;
+}
+.dark-background .post-header-bottom {
+  color: var(--third-color);
+}
+.light-background .post-header-bottom {
+  color: var(--secondary-color);
+}
+.front-page .content-formatted h1,
+.front-page .content-formatted h1 a,
+.front-page .content-formatted h1 a:hover {
+  text-align: var(--headings-front-title-text-alignment);
+  line-height: var(--headings-front-title-line-height);
+  font-size: var(--headings-front-title-font-size);
+  font-weight: var(--headings-front-title-font-weight);
+  font-style: var(--headings-front-title-font-style);
+  text-decoration: var(--headings-front-title-text-decoration);
+  text-transform: var(--headings-front-title-text-transform);
+}
+.front-page .content-formatted h2,
+.front-page .content-formatted h2 a,
+.front-page .content-formatted h2 a:hover {
+  text-align: var(--headings-front-heading-text-alignment);
+  line-height: var(--headings-front-heading-line-height);
+  font-size: var(--headings-front-heading-font-size);
+  font-weight: var(--headings-front-heading-font-weight);
+  font-style: var(--headings-front-heading-font-style);
+  text-decoration: var(--headings-front-heading-text-decoration);
+  text-transform: var(--headings-front-heading-text-transform);
+}
+.front-page .content-formatted h3,
+.front-page .content-formatted h3 a,
+.front-page .content-formatted h3 a:hover,
+.front-page .content-formatted h4,
+.front-page .content-formatted h4 a,
+.front-page .content-formatted h4 a:hover,
+.front-page .content-formatted h5,
+.front-page .content-formatted h5 a,
+.front-page .content-formatted h5 a:hover,
+.front-page .content-formatted h6,
+.front-page .content-formatted h6 a,
+.front-page .content-formatted h6 a:hover {
+  text-align: var(--headings-front-subheading-text-alignment);
+  line-height: var(--headings-front-subheading-line-height);
+  font-size: var(--headings-front-subheading-font-size);
+  font-weight: var(--headings-front-subheading-font-weight);
+  font-style: var(--headings-front-subheading-font-style);
+  text-decoration: var(--headings-front-subheading-text-decoration);
+  text-transform: var(--headings-front-subheading-text-transform);
+}
 .content-formatted a {
   font-style: var(--content-link-font-style);
   font-weight: var(--content-link-font-weight);
@@ -624,6 +686,67 @@ body {
   font-size: var(--form-field-font-size);
   text-decoration: var(--form-field-text-decoration);
   text-transform: var(--form-field-text-transform);
+}
+.comments-title {
+  font-size: var(--form-blog-title-font-size);
+}
+.comment-form .comment-form-label {
+  font-size: var(--form-blog-label-font-size);
+}
+.comment-form .form_field_textarea, .comment-form .form_field_textfield {
+  font-size: var(--form-blog-field-font-size);
+}
+.comment-form .comments-title, .comment-form .comment-form-label, .comment-form .form_field_textarea, .comment-form .form_field_textfield {
+  font-style: var(--form-blog-field-font-style);
+  font-weight: var(--form-blog-field-font-weight);
+  text-decoration: var(--form-blog-field-text-decoration);
+  text-transform: var(--form-blog-field-text-transform);
+}
+.comment-form .comments-title::-webkit-input-placeholder, .comment-form .comment-form-label::-webkit-input-placeholder, .comment-form .form_field_textarea::-webkit-input-placeholder, .comment-form .form_field_textfield::-webkit-input-placeholder {
+  opacity: .6;
+  text-decoration: var(--form-blog-field-text-decoration);
+}
+.comment-form .comments-title:-moz-placeholder, .comment-form .comment-form-label:-moz-placeholder, .comment-form .form_field_textarea:-moz-placeholder, .comment-form .form_field_textfield:-moz-placeholder {
+  opacity: .6;
+  text-decoration: var(--form-blog-field-text-decoration);
+}
+.comment-form .comments-title::-moz-placeholder, .comment-form .comment-form-label::-moz-placeholder, .comment-form .form_field_textarea::-moz-placeholder, .comment-form .form_field_textfield::-moz-placeholder {
+  opacity: .6;
+  text-decoration: var(--form-blog-field-text-decoration);
+}
+.comment-form .comments-title:-ms-input-placeholder, .comment-form .comment-form-label:-ms-input-placeholder, .comment-form .form_field_textarea:-ms-input-placeholder, .comment-form .form_field_textfield:-ms-input-placeholder {
+  opacity: .6;
+  text-decoration: var(--form-blog-field-text-decoration);
+}
+.dark-background .comment-form .comments-title, .dark-background .comment-form .comment-form-label, .dark-background .comment-form .form_field_textarea, .dark-background .comment-form .form_field_textfield {
+  color: var(--third-color);
+}
+.dark-background .comment-form .comments-title::-webkit-input-placeholder, .dark-background .comment-form .comment-form-label::-webkit-input-placeholder, .dark-background .comment-form .form_field_textarea::-webkit-input-placeholder, .dark-background .comment-form .form_field_textfield::-webkit-input-placeholder {
+  color: var(--third-color);
+}
+.dark-background .comment-form .comments-title:-moz-placeholder, .dark-background .comment-form .comment-form-label:-moz-placeholder, .dark-background .comment-form .form_field_textarea:-moz-placeholder, .dark-background .comment-form .form_field_textfield:-moz-placeholder {
+  color: var(--third-color);
+}
+.dark-background .comment-form .comments-title::-moz-placeholder, .dark-background .comment-form .comment-form-label::-moz-placeholder, .dark-background .comment-form .form_field_textarea::-moz-placeholder, .dark-background .comment-form .form_field_textfield::-moz-placeholder {
+  color: var(--third-color);
+}
+.dark-background .comment-form .comments-title:-ms-input-placeholder, .dark-background .comment-form .comment-form-label:-ms-input-placeholder, .dark-background .comment-form .form_field_textarea:-ms-input-placeholder, .dark-background .comment-form .form_field_textfield:-ms-input-placeholder {
+  color: var(--third-color);
+}
+.light-background .comment-form .comments-title, .light-background .comment-form .comment-form-label, .light-background .comment-form .form_field_textarea, .light-background .comment-form .form_field_textfield {
+  color: var(--secondary-color);
+}
+.light-background .comment-form .comments-title::-webkit-input-placeholder, .light-background .comment-form .comment-form-label::-webkit-input-placeholder, .light-background .comment-form .form_field_textarea::-webkit-input-placeholder, .light-background .comment-form .form_field_textfield::-webkit-input-placeholder {
+  color: var(--secondary-color);
+}
+.light-background .comment-form .comments-title:-moz-placeholder, .light-background .comment-form .comment-form-label:-moz-placeholder, .light-background .comment-form .form_field_textarea:-moz-placeholder, .light-background .comment-form .form_field_textfield:-moz-placeholder {
+  color: var(--secondary-color);
+}
+.light-background .comment-form .comments-title::-moz-placeholder, .light-background .comment-form .comment-form-label::-moz-placeholder, .light-background .comment-form .form_field_textarea::-moz-placeholder, .light-background .comment-form .form_field_textfield::-moz-placeholder {
+  color: var(--secondary-color);
+}
+.light-background .comment-form .comments-title:-ms-input-placeholder, .light-background .comment-form .comment-form-label:-ms-input-placeholder, .light-background .comment-form .form_field_textarea:-ms-input-placeholder, .light-background .comment-form .form_field_textfield:-ms-input-placeholder {
+  color: var(--secondary-color);
 }
 .dark-background .content-formatted .form_field_textfield,
 .dark-background .content-formatted .form_field_textarea,

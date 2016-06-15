@@ -28,11 +28,23 @@
 {% customstyle %}
   {% include "template-cs-main-styles" %}
   {% include "template-cs-header" %}
-  {% include "template-cs-headings" %}
+
+  {% if front_page %}
+    {% include "template-cs-headings-front" %}
+  {% else %}
+    {% include "template-cs-headings" %}
+  {% endif %}
+
   {% include "template-cs-content" %}
   {% include "template-cs-button" %}
   {% include "template-cs-table" %}
-  {% include "template-cs-form" %}
+
+  {% if blog_article_page %}
+    {% include "template-cs-form-blog" %}
+  {% else %}
+    {% include "template-cs-form" %}
+  {% endif %}
+
   {% include "template-cs-footer" %}
 
   {% include "template-cs-style-rules" %}

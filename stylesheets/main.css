@@ -209,8 +209,7 @@ body > .background-color {
 .content-formatted h3, .front-page
 .content-formatted h4, .front-page
 .content-formatted h5, .front-page
-.content-formatted h6, .front-page
-.content-formatted p {
+.content-formatted h6 {
   text-align: center;
 }
 .content-formatted h1 {
@@ -1724,6 +1723,12 @@ span[style*="font-size"] {
   position: absolute;
   top: 3px;
   font-size: 13px;
+}
+.comment-form .comment-form-label {
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
 }
 
 /* FOOTER */
