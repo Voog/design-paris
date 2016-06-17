@@ -1,5 +1,11 @@
 {% comment %} TODO: Optimize the logic.{% endcomment %}
 {% capture dont_render %}
+  {% if site.visible_menuitems != blank or site.has_many_languages? %}
+    {% assign show_menu_btn = true %}
+  {% else %}
+    {% assign show_menu_btn = false %}
+  {% endif %}
+
   {% comment %}Assign variables based on page type.{% endcomment %}
   {% if edicy-tools-variables == 'article' %}
     {% assign fallback_body_image = article.data.body_image %}
