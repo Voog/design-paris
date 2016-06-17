@@ -111,99 +111,11 @@ body {
   }
 }
 
-.blog-news-page .article-title a {
-  color: var(--secondary-color);
-}
-.blog-news-page .article-author,
-.blog-news-page .article-date {
-  color: var(--secondary-color);
-}
-.dark-background .blog-news-page .article-author, .dark-background
-.blog-news-page .article-date {
-  color: rgba(255, 255, 255, 0.35);
-}
-.blog-news-page .article-excerpt {
-  color: var(--primary-color);
-}
-@media screen and (max-width: 999px) {
-  .blog-news-page .article-header {
-    margin: 0;
-  }
-}
-.blog-news-page .articles-listing .blog-article .article-date {
-  color: var(--secondary-color);
-}
-.blog-news-page .dark-background .article-author,
-.blog-news-page .dark-background .article-date,
-.blog-news-page .dark-background .articles-listing .article-date {
-  color: rgba(255, 255, 255, 0.35);
-}
-
-.blog-article-page .article-excerpt,
-.blog-article-page .article-body {
-  color: var(--primary-color);
-}
-.blog-article-page .comments-title {
-  color: var(--secondary-color);
-}
-.blog-article-page .dark-background .comments-title {
+.dark-background .blog .post .post-header .post-title, .dark-background .blog .post .post-header .post-title a {
   color: var(--third-color);
 }
-.blog-article-page .main-content .article-author,
-.blog-article-page .main-content .article-date {
+.light-background .blog .post .post-header .post-title, .light-background .blog .post .post-header .post-title a {
   color: var(--secondary-color);
-}
-.blog-article-page .dark-background .article-author,
-.blog-article-page .dark-background .article-date {
-  color: var(--third-color);
-}
-.blog-article-page .light-background .article-author,
-.blog-article-page .light-background .article-date {
-  color: var(--secondary-color);
-}
-
-@media screen and (max-width: 999px) {
-  .comments-open .article-comments .comments-body {
-    background-color: var(--third-color);
-  }
-}
-.article-comments .comments-body .comments-title {
-  color: var(--secondary-color);
-}
-.article-comments .comments-body .comments-title .comments-count {
-  color: var(--secondary-color);
-}
-.article-comments .comment {
-  color: var(--primary-color);
-}
-.article-comments .comment .comment-author,
-.article-comments .comment .comment-date {
-  color: var(--secondary-color);
-}
-.article-comments .comments-close.dark-background .btn-close {
-  background-color: var(--third-color);
-}
-.article-comments .comments-close.dark-background .btn-close .ico-close {
-  fill: var(--secondary-color);
-}
-.article-comments .comments-close .btn-close {
-  background-color: var(--secondary-color);
-}
-@media screen and (max-width: 850px) {
-  .article-comments .comments-close .btn-close {
-    background-color: var(--third-color);
-  }
-}
-.article-comments .comments-close .btn-close .ico-close {
-  fill: var(--third-color);
-}
-@media screen and (max-width: 850px) {
-  .article-comments .comments-close .btn-close .ico-close {
-    fill: var(--primary-color);
-  }
-  .article-comments .comments-close .btn-close .ico-close:hover {
-    fill: var(--primary-color);
-  }
 }
 
 .no-svg .toggle-sub-menu:before {
