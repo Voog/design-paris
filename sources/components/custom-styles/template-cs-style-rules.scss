@@ -46,15 +46,6 @@ body {
     }
   }
 
-  // &.footer {
-  //
-  //   &,
-  //   a,
-  //   b {
-  //     color: var(--third-color);
-  //   }
-  // }
-
   .header-title a,
   .header-title a:hover {
     color: var(--third-color);
@@ -129,15 +120,6 @@ body {
       color: var(--secondary-color);
     }
   }
-
-  // &.footer {
-  //
-  //   &,
-  //   a,
-  //   b {
-  //     color: var(--secondary-color);
-  //   }
-  // }
 
   .header-title a,
   .header-title a:hover {
@@ -423,14 +405,6 @@ body {
     a {
       font-weight: var(--footer-body-font-weight);
     }
-
-    // .light-background & {
-    //   color: var(--primary-color);
-    // }
-    //
-    // .dark-background & {
-    //   color: var(--third-color);
-    // }
   }
 
   &.header-title {
@@ -451,13 +425,19 @@ body {
       &,
       a,
       a:hover {
-        color: var(--primary-color);
+        color: var(--header-subheading-color);
+        font-size: var(--header-subheading-font-size);
+        font-family: var(--secondary-font-family);
+        font-style: var(--header-subheading-font-style);
+        font-weight: var(--header-subheading-font-weight);
+        text-decoration: var(--header-subheading-text-decoration);
+        text-transform: var(--header-subheading-text-transform);
+        line-height: var(--header-subheading-line-height);
       }
     }
   }
 
-  &.header-title,
-  &.header-slogan {
+  &.header-title {
 
     .header .wrap .header-left & {
       &,

@@ -29,7 +29,8 @@
     "boundVariables": [
       "--menu-main-color",
       "--menu-main-hover-color",
-      "--menu-main-active-color"
+      "--menu-main-active-color",
+      "--header-subheading-color"
     ]
   */
   --primary-color: rgba(0, 0, 0, 0.7);

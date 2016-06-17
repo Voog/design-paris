@@ -283,13 +283,18 @@ body {
 .header .wrap .header-left .content-formatted.header-slogan,
 .header .wrap .header-left .content-formatted.header-slogan a,
 .header .wrap .header-left .content-formatted.header-slogan a:hover {
-  color: var(--primary-color);
+  color: var(--header-subheading-color);
+  font-size: var(--header-subheading-font-size);
+  font-family: var(--secondary-font-family);
+  font-style: var(--header-subheading-font-style);
+  font-weight: var(--header-subheading-font-weight);
+  text-decoration: var(--header-subheading-text-decoration);
+  text-transform: var(--header-subheading-text-transform);
+  line-height: var(--header-subheading-line-height);
 }
 .header .wrap .header-left .content-formatted.header-title,
 .header .wrap .header-left .content-formatted.header-title a,
-.header .wrap .header-left .content-formatted.header-title a:hover, .header .wrap .header-left .content-formatted.header-slogan,
-.header .wrap .header-left .content-formatted.header-slogan a,
-.header .wrap .header-left .content-formatted.header-slogan a:hover {
+.header .wrap .header-left .content-formatted.header-title a:hover {
   font-family: var(--secondary-font-family);
   font-style: var(--header-body-font-style);
   font-weight: var(--header-body-font-weight);
