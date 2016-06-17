@@ -147,20 +147,29 @@ body {
   text-transform: var(--blog-list-date-text-transform);
 }
 
-.no-svg .toggle-sub-menu:before {
-  border-color: transparent transparent transparent var(--secondary-color);
+.menu-sub {
+  background-color: var(--content-submenu-background-color);
 }
-.svg .toggle-sub-menu {
-  fill: var(--primary-color);
+.menu-sub .menu-link {
+  font-size: var(--content-submenu-font-size);
+  font-style: var(--content-submenu-font-style);
+  font-weight: var(--content-submenu-font-weight);
+  text-decoration: var(--content-submenu-text-decoration);
+  text-transform: var(--content-submenu-text-transform);
 }
-.no-svg .toggle-sub-menu.active:before {
-  border-color: var(--secondary-color) transparent transparent transparent;
+.menu-sub .menu-link:hover {
+  font-size: var(--content-submenu-font-size);
+  font-style: var(--content-submenu-hover-font-style);
+  font-weight: var(--content-submenu-hover-font-weight);
+  text-decoration: var(--content-submenu-hover-text-decoration);
+  text-transform: var(--content-submenu-hover-text-transform);
 }
-.no-svg .toggle-sub-menu.highlighted {
-  border-color: var(--secondary-color) transparent transparent transparent;
-}
-.svg .toggle-sub-menu.highlighted {
-  fill: var(--secondary-color);
+.menu-sub .menu-link.active {
+  font-size: var(--content-submenu-font-size);
+  font-style: var(--content-submenu-active-font-style);
+  font-weight: var(--content-submenu-active-font-weight);
+  text-decoration: var(--content-submenu-active-text-decoration);
+  text-transform: var(--content-submenu-active-text-transform);
 }
 
 @media screen and (min-width: 841px) {

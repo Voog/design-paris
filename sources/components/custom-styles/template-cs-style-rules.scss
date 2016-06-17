@@ -240,32 +240,30 @@ body {
 // =============================================================================
 // NAVIGATION MENUS
 // =============================================================================
-.toggle-sub-menu {
-  .no-svg & {
-    &:before {
-      border-color: transparent transparent transparent var(--secondary-color);
-    }
-  }
+.menu-sub {
+  background-color: var(--content-submenu-background-color);
+  
+  .menu-link {
+    font-size: var(--content-submenu-font-size);
+    font-style: var(--content-submenu-font-style);
+    font-weight: var(--content-submenu-font-weight);
+    text-decoration: var(--content-submenu-text-decoration);
+    text-transform: var(--content-submenu-text-transform);
 
-  .svg & {
-    fill: var(--primary-color);
-  }
-
-  &.active {
-    .no-svg & {
-      &:before {
-        border-color: var(--secondary-color)transparent transparent transparent;
-      }
-    }
-  }
-
-  &.highlighted {
-    .no-svg & {
-      border-color: var(--secondary-color) transparent transparent transparent;
+    &:hover {
+      font-size: var(--content-submenu-font-size);
+      font-style: var(--content-submenu-hover-font-style);
+      font-weight: var(--content-submenu-hover-font-weight);
+      text-decoration: var(--content-submenu-hover-text-decoration);
+      text-transform: var(--content-submenu-hover-text-transform);
     }
 
-    .svg & {
-      fill: var(--secondary-color);
+    &.active {
+      font-size: var(--content-submenu-font-size);
+      font-style: var(--content-submenu-active-font-style);
+      font-weight: var(--content-submenu-active-font-weight);
+      text-decoration: var(--content-submenu-active-text-decoration);
+      text-transform: var(--content-submenu-active-text-transform);
     }
   }
 }
