@@ -191,14 +191,49 @@ body {
 // =============================================================================
 // BLOG & NEWS LAYOUT
 // =============================================================================
-.blog .post .post-header .post-title, .blog .post .post-header .post-title a {
+.blog {
+  .post {
+    .post-header {
 
-  .dark-background & {
-    color: var(--third-color);
-  }
+      .post-title {
+        text-align: var(--blog-list-alignment);
+        left: var(--blog-list-padding);
+        right: var(--blog-list-padding);
+        font-family: var(--font-main);
+        font-size: var(--blog-list-headings-font-size);
+        font-style: var(--blog-list-headings-font-style);
+        font-weight: var(--blog-list-headings-font-weight);
+        line-height: var(--blog-list-headings-line-height);
+        text-decoration: var(--blog-list-headings-text-decoration);
+        text-transform: var(--blog-list-headings-text-transform);
 
-  .light-background & {
-    color: var(--secondary-color);
+        .dark-background & {
+          color: var(--third-color);
+        }
+
+        .light-background & {
+          color: var(--secondary-color);
+        }
+      }
+
+      @include querymin($mobile-5) {
+        width: var(--blog-list-article-width);
+        padding: calc(var(--blog-list-padding) - 5px) var(--blog-list-padding);
+      }
+    }
+
+    .post-footer {
+      text-align: var(--blog-list-date-alignment);
+
+      .post-date {
+        font-family: var(--font-main);
+        font-size: var(--blog-list-date-font-size);
+        font-style: var(--blog-list-date-font-style);
+        font-weight: var(--blog-list-date-font-weight);
+        text-decoration: var(--blog-list-date-text-decoration);
+        text-transform: var(--blog-list-date-text-transform);
+      }
+    }
   }
 }
 

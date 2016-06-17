@@ -36,9 +36,9 @@
     {
       "content_type": "component",
       "component": true,
-      "file": "components/open-graph.tpl",
-      "layout_name": "open-graph",
-      "title": "open-graph"
+      "file": "components/post-box.tpl",
+      "layout_name": "post-box",
+      "title": "post-box"
     },
     {
       "content_type": "component",
@@ -113,16 +113,16 @@
     {
       "content_type": "component",
       "component": true,
-      "file": "components/comment-form.tpl",
-      "layout_name": "comment-form",
-      "title": "comment-form"
+      "file": "components/open-graph.tpl",
+      "layout_name": "open-graph",
+      "title": "open-graph"
     },
     {
       "content_type": "component",
       "component": true,
-      "file": "components/post-box.tpl",
-      "layout_name": "post-box",
-      "title": "post-box"
+      "file": "components/comment-form.tpl",
+      "layout_name": "comment-form",
+      "title": "comment-form"
     },
     {
       "content_type": "component",
@@ -144,6 +144,13 @@
       "file": "components/tags-post.tpl",
       "layout_name": "tags-post",
       "title": "tags-post"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/template-cs-blog-list.tpl",
+      "layout_name": "template-cs-blog-list",
+      "title": "template-cs-blog-list"
     },
     {
       "content_type": "component",

@@ -35,6 +35,10 @@
     {% include "template-cs-headings" %}
   {% endif %}
 
+  {% if front_page or blog_listing_page %}
+    {% include "template-cs-blog-list" %}
+  {% endif %}
+
   {% include "template-cs-content" %}
   {% include "template-cs-button" %}
   {% include "template-cs-table" %}
