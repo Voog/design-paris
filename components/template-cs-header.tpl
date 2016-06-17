@@ -1,5 +1,12 @@
 :root {
   /* VoogStyle
+    "pathI18n": ["header"],
+    "titleI18n": "background_color",
+    "editor": "colorPicker",
+    "scope": "global"
+  */
+  --header-background-color: #fff;
+  /* VoogStyle
     "pathI18n": ["header", "title"],
     "titleI18n": "font",
     "editor": "listPicker",
