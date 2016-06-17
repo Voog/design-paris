@@ -17,12 +17,6 @@
           </svg>
         </button>
       {% endif %}
-
-      {% if site.visible_menuitems != blank or site.has_many_languages? %}
-        {% assign show_menu_btn = true %}
-      {% else %}
-        {% assign show_menu_btn = false %}
-      {% endif %}
       
       {% if show_menu_btn or editmode %}
         <button class="menu-btn js-menu-btn js-prevent-sideclick">
