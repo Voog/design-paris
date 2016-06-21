@@ -469,7 +469,7 @@ body {
 .dark-background .content-formatted a {
   color: var(--third-color);
 }
-.content-formatted a.custom-btn {
+.content-formatted .form_submit input, .content-formatted a.custom-btn {
   padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
@@ -477,11 +477,11 @@ body {
   text-decoration: var(--button-text-decoration);
   text-transform: var(--button-text-transform);
 }
-.dark-background .content-formatted a.custom-btn, .dark-background .content-formatted a.custom-btn:hover {
+.dark-background .content-formatted .form_submit input, .dark-background .content-formatted .form_submit input:hover, .dark-background .content-formatted a.custom-btn, .dark-background .content-formatted a.custom-btn:hover {
   border-color: var(--third-color);
   color: var(--third-color);
 }
-.light-background .content-formatted a.custom-btn, .light-background .content-formatted a.custom-btn:hover {
+.light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover, .light-background .content-formatted a.custom-btn, .light-background .content-formatted a.custom-btn:hover {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }

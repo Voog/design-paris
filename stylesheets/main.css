@@ -1495,7 +1495,6 @@ span[style*="font-size"] {
   display: inline-block;
   padding: 10px 18px 9px;
   font-size: 13px;
-  line-height: 1;
   cursor: pointer;
   -webkit-appearance: none;
   border-radius: 0;
