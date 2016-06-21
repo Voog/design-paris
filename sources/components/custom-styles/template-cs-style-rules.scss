@@ -867,6 +867,28 @@ body {
     }
   }
 
+  @at-root .comment-form .form_field {
+    border: 0;
+
+    &:before {
+      content: "";
+      border-top: 1px solid;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      opacity: .1;
+
+      .dark-background & {
+        border-color: var(--third-color);
+      }
+
+      .light-background & {
+        border-color: var(--secondary-color);
+      }
+    }
+  }
+
   @at-root .comment-form .form_submit {
     input {
       padding: calc(var(--form-blog-button-padding) - 12px) var(--form-blog-button-padding);

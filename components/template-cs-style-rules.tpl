@@ -49,14 +49,6 @@ body {
 .dark-background .voog-reference svg path {
   fill: var(--third-color);
 }
-.dark-background .site-options .search-btn svg path {
-  fill: var(--third-color);
-}
-@media screen and (max-width: 999px) {
-  .search-open .dark-background .site-options .search-btn svg path {
-    fill: var(--primary-color);
-  }
-}
 
 .light-background {
   color: var(--secondary-color);
@@ -101,14 +93,6 @@ body {
 }
 .light-background .voog-reference svg path {
   fill: var(--secondary-color);
-}
-.light-background .site-options .search-btn svg path {
-  fill: var(--secondary-color);
-}
-@media screen and (max-width: 999px) {
-  .search-open .light-background .site-options .search-btn svg path {
-    fill: var(--secondary-color);
-  }
 }
 
 .blog .post .post-header .post-title {
@@ -676,6 +660,24 @@ body {
 .light-background .content-formatted .form_field_textarea:-ms-input-placeholder,
 .light-background .content-formatted .form_field_select:-ms-input-placeholder {
   color: var(--primary-color);
+}
+.comment-form .form_field {
+  border: 0;
+}
+.comment-form .form_field:before {
+  content: "";
+  border-top: 1px solid;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: .1;
+}
+.dark-background .comment-form .form_field:before {
+  border-color: var(--third-color);
+}
+.light-background .comment-form .form_field:before {
+  border-color: var(--secondary-color);
 }
 .comment-form .form_submit input {
   padding: calc(var(--form-blog-button-padding) - 12px) var(--form-blog-button-padding);
