@@ -669,17 +669,21 @@ body {
 
   table {
 
-    tr:first-child {
-      td {
-        border-top-style: var(--table-border-style);
+    &,
+    .light-background &,
+    .dark-background & {
+      tr:first-child {
+        td {
+          border-top-style: var(--table-border-style);
+        }
       }
-    }
 
-    th, td {
-      padding: calc(var(--table-padding) - 4px) var(--table-padding);
-      font-size: var(--table-font-size);
-      border-bottom-style: var(--table-border-style);
-      border-bottom-style: var(--table-border-style);
+      th, td {
+        padding: calc(var(--table-padding) - 4px) var(--table-padding);
+        font-size: var(--table-font-size);
+        border-bottom-style: var(--table-border-style);
+        border-bottom-style: var(--table-border-style);
+      }
     }
 
     th {

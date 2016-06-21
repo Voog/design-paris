@@ -485,10 +485,10 @@ body {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
-.content-formatted table tr:first-child td {
+.content-formatted table tr:first-child td, .light-background .content-formatted table tr:first-child td, .dark-background .content-formatted table tr:first-child td {
   border-top-style: var(--table-border-style);
 }
-.content-formatted table th, .content-formatted table td {
+.content-formatted table th, .content-formatted table td, .light-background .content-formatted table th, .light-background .content-formatted table td, .dark-background .content-formatted table th, .dark-background .content-formatted table td {
   padding: calc(var(--table-padding) - 4px) var(--table-padding);
   font-size: var(--table-font-size);
   border-bottom-style: var(--table-border-style);
