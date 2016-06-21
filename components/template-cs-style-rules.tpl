@@ -177,7 +177,7 @@ body {
     font-size: var(--menu-main-font-size);
   }
 }
-.menu-lang .menu-link,
+.menu-lang .menu .menu-link,
 .menu-main .menu-link {
   color: var(--menu-main-color);
   font-style: var(--menu-main-font-style);
@@ -185,7 +185,7 @@ body {
   text-decoration: var(--menu-main-text-decoration);
   text-transform: var(--menu-main-text-transform);
 }
-.menu-lang .menu-link.active,
+.menu-lang .menu .menu-link.active,
 .menu-main .menu-link.active {
   color: var(--menu-main-active-color);
   font-style: var(--menu-main-active-font-style);
@@ -193,11 +193,11 @@ body {
   text-decoration: var(--menu-main-active-text-decoration);
   text-transform: var(--menu-main-active-text-transform);
 }
-.menu-lang .menu-link.active:hover,
+.menu-lang .menu .menu-link.active:hover,
 .menu-main .menu-link.active:hover {
   font-weight: var(--menu-main-active-font-weight);
 }
-.menu-lang .menu-link:hover,
+.menu-lang .menu .menu-link:hover,
 .menu-main .menu-link:hover {
   color: var(--menu-main-hover-color);
   font-style: var(--menu-main-hover-font-style);
