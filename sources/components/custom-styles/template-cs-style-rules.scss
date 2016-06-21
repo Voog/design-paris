@@ -87,16 +87,6 @@ body {
   .voog-reference svg path {
     fill: var(--third-color);
   }
-
-  .site-options .search-btn svg path {
-    fill: var(--third-color);
-
-    @media screen and (max-width: $tablet-3) {
-      .search-open & {
-        fill: var(--primary-color);
-      }
-    }
-  }
 }
 
 .light-background {
@@ -157,16 +147,6 @@ body {
 
   .voog-reference svg path {
     fill: var(--secondary-color);
-  }
-
-  .site-options .search-btn svg path {
-    fill: var(--secondary-color);
-
-    @media screen and (max-width: $tablet-3) {
-      .search-open & {
-        fill: var(--secondary-color);
-      }
-    }
   }
 }
 
@@ -336,6 +316,42 @@ body {
     }
   }
 }
+
+@include querymin($mobile-1) {
+  .search {
+    border-color: var(--menu-main-color);
+  }
+
+  .search-input {
+    color: var(--menu-main-color);
+
+    &::-webkit-input-placeholder {
+      opacity: .5;
+      color: var(--menu-main-color);
+    }
+    &:-moz-placeholder {
+      opacity: .5;
+      color: var(--menu-main-color);
+    }
+    &::-moz-placeholder {
+      opacity: .5;
+      color: var(--menu-main-color);
+    }
+    &:-ms-input-placeholder {
+      opacity: .5;
+      color: var(--menu-main-color);
+    }
+  }
+
+  .search-submit {
+    color: var(--menu-main-color);
+
+    svg {
+      opacity: .5;
+      fill: var(--menu-main-color);
+    }
+  }
+};
 
 // =============================================================================
 // SITE FOOTER

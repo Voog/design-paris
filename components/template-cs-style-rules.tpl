@@ -230,6 +230,39 @@ body {
   border-color: var(--third-color) transparent transparent transparent;
 }
 
+@media screen and (min-width: 641px) {
+  .search {
+    border-color: var(--menu-main-color);
+  }
+
+  .search-input {
+    color: var(--menu-main-color);
+  }
+  .search-input::-webkit-input-placeholder {
+    opacity: .5;
+    color: var(--menu-main-color);
+  }
+  .search-input:-moz-placeholder {
+    opacity: .5;
+    color: var(--menu-main-color);
+  }
+  .search-input::-moz-placeholder {
+    opacity: .5;
+    color: var(--menu-main-color);
+  }
+  .search-input:-ms-input-placeholder {
+    opacity: .5;
+    color: var(--menu-main-color);
+  }
+
+  .search-submit {
+    color: var(--menu-main-color);
+  }
+  .search-submit svg {
+    opacity: .5;
+    fill: var(--menu-main-color);
+  }
+}
 .footer .dark-background .content-formatted a {
   color: var(--third-color);
 }
