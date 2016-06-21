@@ -405,13 +405,22 @@ body {
   text-decoration: var(--headings-title-text-decoration);
   text-transform: var(--headings-title-text-transform);
 }
-.post-header-bottom {
+.post-author {
   opacity: .6;
 }
-.dark-background .post-header-bottom {
+.dark-background .post-author {
   color: var(--third-color);
 }
-.light-background .post-header-bottom {
+.light-background .post-author {
+  color: var(--secondary-color);
+}
+.post-date {
+  opacity: .6;
+}
+.dark-background .post-date {
+  color: var(--third-color);
+}
+.light-background .post-date {
   color: var(--secondary-color);
 }
 .front-page .content-formatted h1,
@@ -488,14 +497,20 @@ body {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
-.content-formatted table tr:first-child td, .light-background .content-formatted table tr:first-child td, .dark-background .content-formatted table tr:first-child td {
+.content-formatted table tr:first-child td, .dark-background .content-formatted table tr:first-child td, .light-background .content-formatted table tr:first-child td {
   border-top-style: var(--table-border-style);
 }
-.content-formatted table th, .content-formatted table td, .light-background .content-formatted table th, .light-background .content-formatted table td, .dark-background .content-formatted table th, .dark-background .content-formatted table td {
+.content-formatted table th, .content-formatted table td, .dark-background .content-formatted table th, .dark-background .content-formatted table td, .light-background .content-formatted table th, .light-background .content-formatted table td {
   padding: calc(var(--table-padding) - 4px) var(--table-padding);
   font-size: var(--table-font-size);
   border-bottom-style: var(--table-border-style);
   border-bottom-style: var(--table-border-style);
+}
+.content-formatted table tr:first-child td, .content-formatted table th, .content-formatted table td, .dark-background .content-formatted table tr:first-child td, .dark-background .content-formatted table th, .dark-background .content-formatted table td {
+  border-color: var(--third-color);
+}
+.light-background .content-formatted table tr:first-child td, .light-background .content-formatted table th, .light-background .content-formatted table td {
+  border-color: var(--secondary-color);
 }
 .content-formatted table th {
   color: var(--third-color);
@@ -648,4 +663,15 @@ body {
   text-transform: var(--form-blog-button-hover-text-transform);
   background-color: var(--form-blog-button-hover-background-color);
   border-color: var(--form-blog-button-hover-color);
+}
+
+.horizontal-line {
+  background-color: var(--third-color);
+  opacity: .25;
+}
+.dark-background .horizontal-line {
+  background-color: var(--third-color);
+}
+.light-background .horizontal-line {
+  background-color: var(--secondary-color);
 }
