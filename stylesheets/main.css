@@ -1126,6 +1126,9 @@ span[style*="font-size"] {
     top: 41px;
     right: 55px;
   }
+  .menu-btn-hidden .search {
+    right: 20px;
+  }
 }
 @media screen and (max-width: 640px) {
   .search {
@@ -1264,6 +1267,10 @@ span[style*="font-size"] {
     top: 40px;
     right: 52px;
     display: block;
+  }
+  .menu-btn-hidden .search-open-btn, .menu-btn-hidden
+  .search-close-btn {
+    right: 20px;
   }
 }
 .search-open-btn svg,
