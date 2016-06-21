@@ -292,10 +292,7 @@
       "off": "none"
     },
     "icon": "underline",
-    "scope": "global",
-    "boundVariables": [
-      "--content-link-hover-text-decoration"
-    ]
+    "scope": "global"
   */
   --content-link-text-decoration: underline;
   /* VoogStyle
@@ -310,7 +307,7 @@
     "icon": "underline",
     "scope": "global"
   */
-  --content-link-hover-text-decoration: underline;
+  --content-link-hover-text-decoration: none;
   /* VoogStyle
     "pathI18n": ["content", "link", "normal"],
     "titleI18n": "text_transform",
