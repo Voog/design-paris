@@ -46,9 +46,6 @@ body {
 .dark-background .lang-menu.lang-menu-bilingual .lang-title a.selected {
   color: var(--third-color);
 }
-.dark-background .voog-reference svg path {
-  fill: var(--third-color);
-}
 
 .light-background {
   color: var(--secondary-color);
@@ -90,9 +87,6 @@ body {
 }
 .light-background .lang-menu.lang-menu-bilingual .lang-title a.selected {
   color: var(--secondary-color);
-}
-.light-background .voog-reference svg path {
-  fill: var(--secondary-color);
 }
 
 .blog .post .post-header .post-title {
@@ -247,10 +241,10 @@ body {
     fill: var(--menu-main-color);
   }
 }
-.footer .dark-background .content-formatted a {
+.footer.dark-background .voog-reference a {
   color: var(--third-color);
 }
-.footer .voog-reference {
+.footer.light-background .voog-reference a {
   color: var(--secondary-color);
 }
 .footer .blog-article-nav .article-nav-direction {

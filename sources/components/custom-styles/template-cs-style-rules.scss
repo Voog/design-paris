@@ -83,10 +83,6 @@ body {
       }
     }
   }
-
-  .voog-reference svg path {
-    fill: var(--third-color);
-  }
 }
 
 .light-background {
@@ -143,10 +139,6 @@ body {
         color: var(--secondary-color);
       }
     }
-  }
-
-  .voog-reference svg path {
-    fill: var(--secondary-color);
   }
 }
 
@@ -357,35 +349,17 @@ body {
 // SITE FOOTER
 // =============================================================================
 .footer {
-  .dark-background {
-    .content-formatted {
-      a {
-        color: var(--third-color);
-      }
+  &.dark-background {
+
+    .voog-reference a {
+      color: var(--third-color);
     }
   }
 
-  .voog-reference {
-    color: var(--secondary-color);
-  }
+  &.light-background {
 
-  .blog-article-nav {
-    .article-nav-direction {
+    .voog-reference a {
       color: var(--secondary-color);
-    }
-
-    .article-nav-title {
-      color: var(--secondary-color);
-    }
-
-    &.dark-background {
-      .article-nav-title {
-        color: var(--third-color);
-      }
-
-      .article-nav-direction {
-        color: var(--third-color);
-      }
     }
   }
 }
