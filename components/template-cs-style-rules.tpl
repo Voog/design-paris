@@ -146,6 +146,9 @@ body {
   text-decoration: var(--blog-list-date-text-decoration);
   text-transform: var(--blog-list-date-text-transform);
 }
+.blog .post-add-link {
+  width: var(--blog-list-article-width);
+}
 
 .menu-sub {
   background-color: var(--content-submenu-background-color);

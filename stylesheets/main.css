@@ -788,7 +788,7 @@ span[style*="font-size"] {
 
 /* BLOG & BLOG ARTICLE */
 .post-add-link {
-  width: 218px;
+  width: 198px;
   height: 298px;
   text-decoration: none;
   color: #FFFFFF;
@@ -839,7 +839,7 @@ span[style*="font-size"] {
 .post-add-link .wrap {
   display: table;
   height: 100%;
-  padding: 0 45px;
+  padding: 0 15px;
 }
 .post-add-link .wrap .align-middle {
   display: table-cell;
@@ -946,6 +946,7 @@ span[style*="font-size"] {
 
 .blog-page .blog {
   font-size: 0;
+  text-align: center;
 }
 .blog-page .post {
   display: inline-block;

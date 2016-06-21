@@ -1,6 +1,6 @@
 /* BLOG & BLOG ARTICLE */
 .post-add-link {
-  width: 218px;
+  width: 198px;
   height: 298px;
   text-decoration: none;
   @include color($primary-color, .2);
@@ -55,7 +55,7 @@
   .wrap {
     display: table;
     height: 100%;
-    padding: 0 45px;
+    padding: 0 15px;
 
     .align-middle {
       display: table-cell;
@@ -186,6 +186,7 @@
   .blog {
     @extend %clearfix;
     font-size: 0;
+    text-align: center;
   }
 
   .post {
