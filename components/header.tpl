@@ -17,12 +17,14 @@
           </svg>
         </button>
       {% endif %}
-
-      <button class="menu-btn js-menu-btn js-prevent-sideclick">
-        <span class="menu-stripe"></span>
-        <span class="menu-stripe"></span>
-        <span class="menu-stripe"></span>
-      </button>
+      
+      {% if show_menu_btn or editmode %}
+        <button class="menu-btn js-menu-btn js-prevent-sideclick">
+          <span class="menu-stripe"></span>
+          <span class="menu-stripe"></span>
+          <span class="menu-stripe"></span>
+        </button>
+      {% endif %}
     </div>
 
     <div class="header-right js-header-right">

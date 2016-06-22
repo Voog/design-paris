@@ -247,18 +247,6 @@ body {
 .footer.light-background .voog-reference a {
   color: var(--secondary-color);
 }
-.footer .blog-article-nav .article-nav-direction {
-  color: var(--secondary-color);
-}
-.footer .blog-article-nav .article-nav-title {
-  color: var(--secondary-color);
-}
-.footer .blog-article-nav.dark-background .article-nav-title {
-  color: var(--third-color);
-}
-.footer .blog-article-nav.dark-background .article-nav-direction {
-  color: var(--third-color);
-}
 
 .header {
   background-color: var(--header-background-color);

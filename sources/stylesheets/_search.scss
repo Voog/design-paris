@@ -12,6 +12,10 @@
     position: absolute;
     top: 41px;
     right: 55px;
+    
+    .menu-btn-hidden & {
+      right: 20px;
+    }
   }
 
   @include query($mobile-1) {
@@ -21,7 +25,6 @@
     display: none;
     @include color($primary-color, .8);
     @include bg($black);
-
 
     &.active {
       display: block;
@@ -164,6 +167,10 @@
     top: 40px;
     right: 52px;
     display: block;
+    
+    .menu-btn-hidden & {
+      right: 20px;
+    }
   }
 
   svg {
