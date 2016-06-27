@@ -7,6 +7,7 @@ $third-color: #303132;
 $content-color: #c2c2c2;
 
 // Specific colors
+$white: #fff;
 $black: #000000;
 
 $red-1: #500202;
@@ -17,10 +18,15 @@ $blue-1: #0066BB;
 $blue-2: #C7E5FF;
 $yellow: #F9EC5A;
 
+// Font family.
+$font-main: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-secondary: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
 // $code-bg: #fafafa;
 
 // Media queries
 $tablet-1: 1048px;
+$tablet-2: 850px;
 $tablet-3: 999px;
 $tablet-4: 840px;
 $tablet-5: 752px;

@@ -110,3 +110,15 @@
     @content;
   }
 }
+
+@mixin querymin($value) {
+  @media screen and (min-width: $value + 1px) {
+    @content;
+  }
+}
+
+@mixin queryminmax($minvalue, $maxvalue) {
+  @media screen and (min-width: $minvalue + 1px) and (max-width: $maxvalue) {
+    @content;
+  }
+}

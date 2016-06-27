@@ -160,4 +160,8 @@
     top: 3px;
     font-size: 13px;
   }
+
+  .comment-form-label {
+    @include hyphenate(true);
+  }
 }

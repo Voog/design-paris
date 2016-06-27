@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     // Removes old files.
     clean: {
       reset: {
-        src: ['assets', 'images', 'javascripts', 'stylesheets']
+        src: ['assets/*', '!assets', 'images/*', '!images', 'javascripts/*', '!javascripts', 'stylesheets/*', '!stylesheets']
       },
 
       remove: {
