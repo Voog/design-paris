@@ -55,10 +55,6 @@ body > .background-color {
   border: none;
 }
 
-.post-add-btn {
-  display: none;
-}
-
 .background-image,
 .background-color,
 .body-background-color {

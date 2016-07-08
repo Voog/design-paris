@@ -18,7 +18,6 @@
     <main class="content js-background-type {{ body_bg_type }}" role="main">
       <div class="wrap">
 
-        <div class="post-add-btn js-post-add-btn">{% addbutton %}</div>
         {% if tags %}
           <div class="content-formatted">
             <svg class="ico-tags" width="24px" height="24px" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +46,7 @@
                     </svg>
                   </div>
 
-                  <h3 class="post-add-title">{{ "add_new_post" | lc }}</h3>
+                  <h3 class="post-add-title">{{ "add_new_post" | lc: editor_locale }}</h3>
                 </div>
               </div>
             </a>
