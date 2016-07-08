@@ -1,9 +1,13 @@
 {
   "name": "voog-design-paris",
+  "homepage": "https://github.com/Voog/design-paris",
+  "authors": [
+    "Kaspar Naaber <kaspar@voog.com>"
+  ],
+  "description": "The Paris design template for Voog",
+  "license": "MIT",
   "devDependencies": {
-    "bourbon": "^4.2.7",
-    "jquery": "^2.2.4",
-    "moment": "^2.13.0",
-    "textarea-autosize": "^0.4.2"
+    "jquery": "^3.1.0",
+    "bourbon": "^4.2.7"
   }
 }
