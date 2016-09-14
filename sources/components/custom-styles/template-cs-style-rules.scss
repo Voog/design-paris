@@ -191,7 +191,9 @@ body {
   }
 
   .post-add-link {
-    width: var(--blog-list-article-width);
+    @include querymin($mobile-5 + 1) {
+      width: var(--blog-list-article-width);
+    }
   }
 }
 

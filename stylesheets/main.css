@@ -846,9 +846,13 @@ span[style*="font-size"] {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -87px;
-    margin-top: -47px;
     padding: 0;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    padding: 15px 20px;
+    box-sizing: border-box;
   }
 }
 .post-add-link .post-add-icon {
