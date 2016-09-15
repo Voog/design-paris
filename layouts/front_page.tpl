@@ -52,7 +52,7 @@
           {% endfor %}
         </section>
 
-        <section class="content-formatted" data-search-indexing-allowed="true">{% content %}</section>
+        <section class="content-formatted" data-search-indexing-allowed="true" {{ edy_intro_edit_text }}>{% content %}</section>
       </div>
     </main>
 
