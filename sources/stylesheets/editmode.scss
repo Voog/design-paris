@@ -38,31 +38,3 @@
     }
   }
 }
-
-// Post tag editor placeholder border
-.edy-taglist {
-  .dark-background & {
-    border-color: rgba($primary-color, .2);
-  }
-}
-
-// Post tag editor placeholder
-.edy-tag-input {
-  @include color($primary-color);
-
-  .light-background & {
-    @include color($black);
-
-    @include placeholder {
-      @include color($black, .5);
-    }
-  }
-}
-
-.edy-taglist-openarrow {
-  &:after {
-    .dark-background & {
-      border-color: rgba($primary-color,1) transparent transparent;
-    }
-  }
-}
