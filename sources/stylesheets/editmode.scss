@@ -18,23 +18,7 @@
 .edy-img-drop-area {
   &.post-cover-inner {
     .edy-img-drop-area-placeholder {
-      opacity: 1;
-      margin: 0;
-      padding: 25px;
       font-size: 14px;
-      @include color($black, 0.4);
-    }
-  }
-
-  .edy-img-drop-area-placeholder {
-    @include transform(translateY(-50%));
-    position: relative;
-    top: 50%;
-  }
-
-  .dark-background & {
-    .edy-img-drop-area-placeholder {
-      @include color($primary-color, 0.1);
     }
   }
 }

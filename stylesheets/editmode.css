@@ -3,44 +3,5 @@
 }
 
 .edy-img-drop-area.post-cover-inner .edy-img-drop-area-placeholder {
-  opacity: 1;
-  margin: 0;
-  padding: 25px;
   font-size: 14px;
-  color: #000000;
-  color: rgba(0, 0, 0, 0.4);
-}
-.edy-img-drop-area .edy-img-drop-area-placeholder {
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  position: relative;
-  top: 50%;
-}
-.dark-background .edy-img-drop-area .edy-img-drop-area-placeholder {
-  color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.1);
-}
-
-.edy-tag-input {
-  color: white;
-}
-.light-background .edy-tag-input {
-  color: black;
-}
-.light-background .edy-tag-input::-webkit-input-placeholder {
-  color: #000000;
-  color: rgba(0, 0, 0, 0.5);
-}
-.light-background .edy-tag-input::-moz-placeholder {
-  color: #000000;
-  color: rgba(0, 0, 0, 0.5);
-}
-.light-background .edy-tag-input:-moz-placeholder {
-  color: #000000;
-  color: rgba(0, 0, 0, 0.5);
-}
-.light-background .edy-tag-input:-ms-input-placeholder {
-  color: #000000;
-  color: rgba(0, 0, 0, 0.5);
 }
