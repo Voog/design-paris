@@ -649,7 +649,7 @@ body {
   }
 
   // Code blocks and preformatted content.
-  .form_submit input,  a.custom-btn {
+  .form_submit input, a.custom-btn, button.custom-btn {
     padding: var(--button-padding) calc(var(--button-padding) + 8px);
     font-size: var(--button-font-size);
     font-style: var(--button-font-style);
