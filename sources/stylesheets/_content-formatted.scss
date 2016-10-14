@@ -207,6 +207,11 @@
     border: 1px solid #000;
     border: 1px solid rgba(0,0,0,.67);
 
+    &::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+
     &:hover {
       background-color: rgba(0,0,0,.3);
     }

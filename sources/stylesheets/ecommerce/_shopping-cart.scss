@@ -1,0 +1,45 @@
+.edy-ecommerce-shopping-cart-button {
+  .public & {
+
+    @include color($primary-color);
+    @include bg($black, .2);
+    right: 20px;
+    display: inline-block;
+    padding: 10px 18px 9px;
+    font-size: 13px;
+    color: rgba($white, 1);
+    cursor: pointer;
+    background-color: rgba($black, .2);
+    border: 1px solid rgba($black, .67);
+
+    @include query($mobile-1) {
+      top: 68px;
+    }
+
+    @include queryminmax($mobile-1, $tablet-4) {
+      top: 72px;
+    }
+  }
+
+  .blog-page & {
+    @include querymin($tablet-4) {
+      top: 128px;
+    }
+  }
+
+  .common-page &,
+  .post-page & {
+    @include querymin($tablet-4) {
+      top: 134px;
+    }
+  }
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  &:hover {
+    background-color: rgba($black, .3);
+  }
+}
