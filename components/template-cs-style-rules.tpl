@@ -694,3 +694,14 @@ body {
 .light-background .horizontal-line {
   background-color: var(--secondary-color);
 }
+
+.public .edy-ecommerce-shopping-cart-button {
+  font-style: var(--button-font-style);
+  font-weight: var(--button-font-weight);
+  text-decoration: var(--button-text-decoration);
+  text-transform: var(--button-text-transform);
+}
+.public .edy-ecommerce-shopping-cart-button, .public .edy-ecommerce-shopping-cart-button:hover {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}

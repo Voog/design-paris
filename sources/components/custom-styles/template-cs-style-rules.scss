@@ -902,3 +902,21 @@ body {
     background-color: var(--secondary-color);
   }
 }
+
+//==============================================================================
+// ECOMMERCE
+//==============================================================================
+.public {
+  .edy-ecommerce-shopping-cart-button {
+    font-style: var(--button-font-style);
+    font-weight: var(--button-font-weight);
+    text-decoration: var(--button-text-decoration);
+    text-transform: var(--button-text-transform);
+
+    &,
+    &:hover {
+      color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+  }
+}
