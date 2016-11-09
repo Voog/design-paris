@@ -3,27 +3,18 @@
   width: 198px;
   height: 298px;
   text-decoration: none;
-  @include color($primary-color, .2);
-  @include border(all, 1px, dashed, $primary-color, .1);
+  color: currentColor;
+  border: 1px dashed currentColor;
+  opacity: .3;
 
-  .light-background & {
-    @include color($black,.4);
-    border-color: rgba($black,.3);
-  }
-
-  &, &:hover {
-    @include transition-property (color, border);
-    @include transition-duration(.3s);
+  &,
+  &:hover {
+    transition-property: opacity;
+    transition-duration: .3s;
   }
 
   &:hover {
-    @include color($primary-color, .5);
-    @include border(all, 1px, dashed, $primary-color, .5);
-
-    .light-background & {
-      @include color($black, .6);
-      @include border(all, 1px, dashed, $black, .6);
-    }
+    opacity: .5;
 
     .no-svg & {
       .post-add-icon {
@@ -31,10 +22,6 @@
         @include transition-property (opacity);
         @include transition-duration(.3s);
       }
-    }
-
-    .light-background & {
-      border-color: $black;
     }
   }
 
@@ -131,17 +118,6 @@
     z-index: 0;
   }
 }
-
-.post-cover-inner {
-  .light-background & {
-    @include border(all, 1px, dashed, $black, 0.1);
-  }
-
-  .dark-background & {
-    @include border(all, 1px, dashed, $primary-color, 0.1);
-  }
-}
-
 
 .post-top {
   position: relative;

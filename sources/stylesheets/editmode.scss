@@ -5,30 +5,6 @@
 @import 'modules/variables';
 
 // CMS DEFAULT STYLES OVERRIDES
-.dark-background {
-  .edy-empty-bordered {
-    color: rgba($primary-color, .5);
-    border-color: rgba($primary-color, .2);
-  }
-  .placeholder {
-    color: rgba($primary-color,.2);
-  }
-  .edy-content-element-hover {
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba($primary-color, .2);
-  }
-  .edy-texteditor-active {
-    outline-width: 1px;
-    outline-style: solid;
-    outline-color: rgba($primary-color, .2);
-
-    &:hover {
-      outline-color: rgba($primary-color, .63);
-    }
-  }
-}
-
 .edy-ca-empty-placeholder {
   .edy-empty-bordered {
     .header-left &,
@@ -42,51 +18,7 @@
 .edy-img-drop-area {
   &.post-cover-inner {
     .edy-img-drop-area-placeholder {
-      opacity: 1;
-      margin: 0;
-      padding: 25px;
       font-size: 14px;
-      @include color($black, 0.4);
-    }
-  }
-
-  .edy-img-drop-area-placeholder {
-    @include transform(translateY(-50%));
-    position: relative;
-    top: 50%;
-  }
-
-  .dark-background & {
-    .edy-img-drop-area-placeholder {
-      @include color($primary-color, 0.1);
-    }
-  }
-}
-
-// Post tag editor placeholder border
-.edy-taglist {
-  .dark-background & {
-    border-color: rgba($primary-color, .2);
-  }
-}
-
-// Post tag editor placeholder
-.edy-tag-input {
-  @include color($primary-color);
-
-  .light-background & {
-    @include color($black);
-
-    @include placeholder {
-      @include color($black, .5);
-    }
-  }
-}
-
-.edy-taglist-openarrow {
-  &:after {
-    .dark-background & {
-      border-color: rgba($primary-color,1) transparent transparent;
     }
   }
 }
