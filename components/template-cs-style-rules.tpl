@@ -702,6 +702,6 @@ body {
   text-transform: var(--button-text-transform);
 }
 .public .edy-ecommerce-shopping-cart-button, .public .edy-ecommerce-shopping-cart-button:hover {
-  border-color: var(--secondary-color);
   color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
