@@ -1193,7 +1193,7 @@ span[style*="font-size"] {
 }
 @media screen and (max-width: 640px) {
   .search {
-    top: 127px;
+    top: 120px;
     left: 0;
     right: 0;
     display: none;
@@ -1386,7 +1386,7 @@ span[style*="font-size"] {
 @media screen and (max-width: 640px) {
   .voog-search-modal {
     position: fixed;
-    top: 167px;
+    top: 160px;
     left: 0;
     right: 0;
     bottom: 0;

@@ -12,14 +12,14 @@
     position: absolute;
     top: 41px;
     right: 55px;
-    
+
     .menu-btn-hidden & {
       right: 20px;
     }
   }
 
   @include query($mobile-1) {
-    top: 127px;
+    top: 120px;
     left: 0;
     right: 0;
     display: none;
@@ -167,7 +167,7 @@
     top: 40px;
     right: 52px;
     display: block;
-    
+
     .menu-btn-hidden & {
       right: 20px;
     }
@@ -225,7 +225,7 @@
 
   @include query($mobile-1) {
     position: fixed;
-    top: 167px;
+    top: 160px;
     left: 0;
     right: 0;
     bottom: 0;
