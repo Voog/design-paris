@@ -34,6 +34,10 @@
       height: auto;
       border: none;
     }
+
+    .edy-checkout-button-visible & {
+      top: 120px + 41px; // 41 is the height of the checkout button.
+    }
   }
 
   .search-inner {
@@ -171,6 +175,10 @@
     .menu-btn-hidden & {
       right: 20px;
     }
+
+    .edy-checkout-button-visible & {
+      top: 40px + 41px; // 41 is the height of the checkout button.
+    }
   }
 
   svg {
@@ -231,6 +239,10 @@
     bottom: 0;
     width: auto;
     margin-top: 0;
+
+    .edy-checkout-button-visible & {
+      top: 160px + 41px; // 41 is the height of the checkout button.
+    }
   }
 }
 
