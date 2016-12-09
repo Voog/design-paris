@@ -412,6 +412,9 @@ span[style*="font-size"] {
     padding: 0;
     border: 0;
   }
+  .edy-checkout-button-visible .menu-btn {
+    top: 81px;
+  }
   .menu-btn .menu-stripe {
     display: block;
     width: 25px;
@@ -515,6 +518,9 @@ span[style*="font-size"] {
     text-align: left;
     background-color: white;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3) ;
+  }
+  .edy-checkout-button-visible .menu-main.expanded {
+    top: 123px;
   }
   .menu-main .menu-item {
     display: block;
@@ -1193,7 +1199,7 @@ span[style*="font-size"] {
 }
 @media screen and (max-width: 640px) {
   .search {
-    top: 127px;
+    top: 120px;
     left: 0;
     right: 0;
     display: none;
@@ -1208,6 +1214,9 @@ span[style*="font-size"] {
     width: 100%;
     height: auto;
     border: none;
+  }
+  .edy-checkout-button-visible .search {
+    top: 161px;
   }
 }
 .search .search-inner {
@@ -1333,6 +1342,10 @@ span[style*="font-size"] {
   .search-close-btn {
     right: 20px;
   }
+  .edy-checkout-button-visible .search-open-btn, .edy-checkout-button-visible
+  .search-close-btn {
+    top: 81px;
+  }
 }
 .search-open-btn svg,
 .search-close-btn svg {
@@ -1386,12 +1399,15 @@ span[style*="font-size"] {
 @media screen and (max-width: 640px) {
   .voog-search-modal {
     position: fixed;
-    top: 167px;
+    top: 160px;
     left: 0;
     right: 0;
     bottom: 0;
     width: auto;
     margin-top: 0;
+  }
+  .edy-checkout-button-visible .voog-search-modal {
+    top: 201px;
   }
 }
 

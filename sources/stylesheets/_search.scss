@@ -12,14 +12,14 @@
     position: absolute;
     top: 41px;
     right: 55px;
-    
+
     .menu-btn-hidden & {
       right: 20px;
     }
   }
 
   @include query($mobile-1) {
-    top: 127px;
+    top: 120px;
     left: 0;
     right: 0;
     display: none;
@@ -33,6 +33,10 @@
       width: 100%;
       height: auto;
       border: none;
+    }
+
+    .edy-checkout-button-visible & {
+      top: 120px + 41px; // 41 is the height of the checkout button.
     }
   }
 
@@ -167,9 +171,13 @@
     top: 40px;
     right: 52px;
     display: block;
-    
+
     .menu-btn-hidden & {
       right: 20px;
+    }
+
+    .edy-checkout-button-visible & {
+      top: 40px + 41px; // 41 is the height of the checkout button.
     }
   }
 
@@ -225,12 +233,16 @@
 
   @include query($mobile-1) {
     position: fixed;
-    top: 167px;
+    top: 160px;
     left: 0;
     right: 0;
     bottom: 0;
     width: auto;
     margin-top: 0;
+
+    .edy-checkout-button-visible & {
+      top: 160px + 41px; // 41 is the height of the checkout button.
+    }
   }
 }
 

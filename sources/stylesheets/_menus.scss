@@ -29,6 +29,10 @@
       border: 0;
     }
 
+    .edy-checkout-button-visible & {
+      top: 40px + 41px; // 41 is the height of the checkout button.
+    }
+
     .menu-stripe {
       display: block;
       width: 25px;
@@ -136,6 +140,10 @@
       text-align: left;
       @include bg($primary-color);
       @include box-shadow(0, 5px, 25px, rgba($black, .3));
+
+      .edy-checkout-button-visible & {
+        top: 82px + 41px; // 41 is the height of the checkout button.
+      }
     }
 
     .menu-item {
