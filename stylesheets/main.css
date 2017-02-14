@@ -709,9 +709,6 @@ span[style*="font-size"] {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.blog-page .header .wrap {
-  max-width: 976px;
-}
 .header .wrap .header-left {
   margin-top: 10px;
 }
@@ -786,9 +783,6 @@ span[style*="font-size"] {
 /* CONTENT */
 .content .wrap {
   padding: 35px 20px;
-}
-.blog-page .content .wrap {
-  max-width: 896px;
 }
 
 /* BLOG & BLOG ARTICLE */
@@ -1826,9 +1820,6 @@ span[style*="font-size"] {
   .footer .wrap {
     padding-top: 0;
   }
-}
-.blog-page .footer .wrap {
-  max-width: 976px;
 }
 .footer .footer-inner {
   margin-top: 23px;
