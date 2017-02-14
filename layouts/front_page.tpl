@@ -50,6 +50,10 @@
           {% for article in site.latest_12_articles %}
             {% include "post-box" %}
           {% endfor %}
+
+          {% include "post-box-placeholder" %}
+          {% include "post-box-placeholder" %}
+          {% include "post-box-placeholder" %}
         </section>
 
         <section class="content-formatted" data-search-indexing-allowed="true" {{ edy_intro_edit_text }}>{% content %}</section>

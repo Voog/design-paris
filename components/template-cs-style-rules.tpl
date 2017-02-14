@@ -107,7 +107,7 @@ body {
 .light-background .blog .post .post-header .post-title {
   color: var(--secondary-color);
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 488px) {
   .blog .post .post-header {
     width: var(--blog-list-article-width);
     padding: calc(var(--blog-list-padding) - 5px) var(--blog-list-padding);
@@ -124,7 +124,7 @@ body {
   text-decoration: var(--blog-list-date-text-decoration);
   text-transform: var(--blog-list-date-text-transform);
 }
-@media screen and (min-width: 482px) {
+@media screen and (min-width: 489px) {
   .blog .post-add-link {
     width: var(--blog-list-article-width);
   }

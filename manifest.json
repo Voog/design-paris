@@ -99,6 +99,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/post-box-placeholder.tpl",
+      "layout_name": "post-box-placeholder",
+      "title": "post-box-placeholder"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/post-box.tpl",
       "layout_name": "post-box",
       "title": "post-box"

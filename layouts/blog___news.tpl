@@ -56,6 +56,10 @@
           {% for article in articles limit: 16 %}
             {% include "post-box" %}
           {% endfor %}
+
+          {% include "post-box-placeholder" %}
+          {% include "post-box-placeholder" %}
+          {% include "post-box-placeholder" %}
         </section>
       </div>
     </main>

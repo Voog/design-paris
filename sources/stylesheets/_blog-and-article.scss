@@ -164,6 +164,7 @@
   .blog {
     @extend %clearfix;
     font-size: 0;
+    text-align: center;
   }
 
   .post {
@@ -174,6 +175,7 @@
     margin-left: 12px;
     text-align: left;
     line-height: 1.2;
+    box-sizing: border-box;
 
     &.post-add-link {
       text-align: center;
@@ -278,6 +280,12 @@
         font-size: 12px;
       }
     }
+  }
+
+  .post-placeholder {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 0;
   }
 }
 
