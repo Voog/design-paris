@@ -9,6 +9,10 @@
     @include query($tablet-5) {
       padding-top: 0;
     }
+
+    .blog-page & {
+      max-width: 976px;
+    }
   }
 
   .footer-inner {

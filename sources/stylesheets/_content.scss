@@ -2,5 +2,9 @@
 .content {
   .wrap {
     padding: 35px 20px;
+
+    .blog-page & {
+      max-width: 896px;
+    }
   }
 }
