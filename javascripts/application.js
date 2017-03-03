@@ -23809,6 +23809,10 @@ MMCQ = (function() {
     $('.js-search').click(function(event) {
       // event.stopPropagation();
     });
+
+    $('.js-post-add').click(function() {
+      $('.js-post-add-link-button-wrapper').find('.edy-add-modal').trigger('click');
+    });
   };
 
   // Sets the search modal synamic height.

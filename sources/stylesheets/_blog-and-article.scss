@@ -1,11 +1,16 @@
 /* BLOG & BLOG ARTICLE */
+.post-add-link-button-wrapper {
+  display: none;
+}
+
 .post-add-link {
   width: 198px;
   height: 298px;
-  text-decoration: none;
   color: currentColor;
+  text-decoration: none;
   border: 1px dashed currentColor;
   opacity: .3;
+  cursor: pointer;
 
   &,
   &:hover {
