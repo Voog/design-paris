@@ -121,6 +121,9 @@ body > .background-color {
   hyphens: auto;
   word-break: break-word;
 }
+.content-formatted:empty {
+  display: none;
+}
 .front-page .content .content-formatted {
   margin-top: 75px;
 }

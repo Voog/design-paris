@@ -5,6 +5,10 @@
   @extend %clearfix;
   @include hyphenate(true);
 
+  &:empty {
+    display: none;
+  }
+
   .content & {
     .front-page & {
       margin-top: 75px;
