@@ -815,6 +815,7 @@ span[style*="font-size"] {
   border: 1px dashed currentColor;
   opacity: .3;
   cursor: pointer;
+  background-color: transparent;
 }
 .post-add-link, .post-add-link:hover {
   transition-property: opacity;
@@ -827,6 +828,9 @@ span[style*="font-size"] {
   opacity: .7;
   transition-property: opacity;
   transition-duration: 0.3s;
+}
+.post-add-link:focus {
+  outline: none;
 }
 .post-add-link .post-add-link-inner {
   height: 100%;

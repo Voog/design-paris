@@ -11,6 +11,7 @@
   border: 1px dashed currentColor;
   opacity: .3;
   cursor: pointer;
+  background-color: transparent;
 
   &,
   &:hover {
@@ -28,6 +29,10 @@
         @include transition-duration(.3s);
       }
     }
+  }
+
+  &:focus {
+    outline: none;
   }
 
   .post-add-link-inner {

@@ -30,9 +30,7 @@
         <section class="blog js-blog">
           {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
           {% if editmode %}
-            <div class="post-add-link-button-wrapper js-post-add-link-button-wrapper">{% addbutton page_id="19397" %}</div>
-
-            <div class="post-add-link post js-post-add">
+            <button class="post-add-link post" data-behavior="open-add-modal" data-component="article" data-page-id="{{ page.id }}">
               <div class="wrap">
                 <div class="align-middle">
                   <div class="post-add-icon">
@@ -51,7 +49,7 @@
                   <h3 class="post-add-title">{{ "add_new_post" | lc: editor_locale }}</h3>
                 </div>
               </div>
-            </div>
+            </button>
           {% endif %}
 
 
