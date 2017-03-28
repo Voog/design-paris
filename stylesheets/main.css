@@ -716,23 +716,19 @@ span[style*="font-size"] {
   min-height: 65px;
 }
 .flexbox .header .wrap {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
 }
 .header .wrap .header-left {
   margin-top: 10px;
 }
 .flexbox .header .wrap .header-left {
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
   max-width: 100%;
 }
 .no-flexbox .header .wrap .header-left {
@@ -855,9 +851,8 @@ span[style*="font-size"] {
     left: 50%;
     padding: 0;
     width: 100%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     padding: 15px 20px;
     box-sizing: border-box;
   }
@@ -1057,7 +1052,6 @@ span[style*="font-size"] {
   max-width: 650px;
 }
 .editmode.flexbox .post-page .post {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -1133,7 +1127,6 @@ span[style*="font-size"] {
 
 @media screen and (min-width: 641px) {
   .post-nav-inner {
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
@@ -1142,9 +1135,8 @@ span[style*="font-size"] {
 .post-nav-link {
   position: relative;
   display: block;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+      flex: 1;
   padding-top: 20px;
   padding-bottom: 20px;
   color: currentColor;
@@ -1847,15 +1839,12 @@ span[style*="font-size"] {
   margin-top: 23px;
 }
 .flexbox .footer .footer-inner {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
 }
 .footer a {
   text-decoration: none;
@@ -1873,9 +1862,8 @@ span[style*="font-size"] {
   margin-bottom: 25px;
 }
 .flexbox .footer .footer-left {
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
   max-width: 100%;
 }
 .no-flexbox .footer .footer-left {
