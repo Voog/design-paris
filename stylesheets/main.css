@@ -327,7 +327,6 @@ body > .background-color {
   display: inline-block;
   padding: 10px 18px 9px;
   font-size: 13px;
-  cursor: pointer;
   color: white;
   background-color: #000000;
   background-color: rgba(0, 0, 0, 0.2);
@@ -337,14 +336,23 @@ body > .background-color {
   border: 1px solid;
   border: 1px solid;
 }
-.content-formatted .custom-btn:hover {
+.content-formatted .custom-btn:not(.custom-btn-disabled):hover {
   background-color: rgba(0, 0, 0, 0.3);
+}
+.public .content-formatted .custom-btn {
+  cursor: pointer;
 }
 .dark-background .content-formatted .custom-btn {
   background-color: rgba(255, 255, 255, 0.2);
 }
-.dark-background .content-formatted .custom-btn:hover {
+.dark-background .content-formatted .custom-btn:not(.custom-btn-disabled):hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+.public .content-formatted .custom-btn-disabled {
+  color: #adadad;
+  cursor: default;
+  background-color: transparent;
+  border-color: #adadad;
 }
 .content-formatted .edy-positionable-container-left,
 .content-formatted .edy-positionable-container-right {
@@ -1501,10 +1509,14 @@ span[style*="font-size"] {
   font-size: 14px;
 }
 .content-formatted .form_field {
-  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .content-formatted .form_field:first-child {
-  margin-top: 14px;
+  padding-top: 0;
+}
+.content-formatted .form_field:last-child {
+  padding-bottom: 0;
 }
 .content-formatted .form_field label,
 .content-formatted .edy-fe-label {

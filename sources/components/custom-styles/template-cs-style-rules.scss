@@ -103,7 +103,7 @@ body {
     dl,
     pre,
     table,
-    .custom-btn {
+    .custom-btn:not(.custom-btn-disabled) {
       color: var(--secondary-color);
     }
   }

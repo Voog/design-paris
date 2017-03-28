@@ -64,7 +64,7 @@ body {
 .light-background .content-formatted dl,
 .light-background .content-formatted pre,
 .light-background .content-formatted table,
-.light-background .content-formatted .custom-btn {
+.light-background .content-formatted .custom-btn:not(.custom-btn-disabled) {
   color: var(--secondary-color);
 }
 .light-background .header-title a,
