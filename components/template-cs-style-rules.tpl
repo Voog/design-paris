@@ -63,7 +63,8 @@ body {
 .light-background .content-formatted ol,
 .light-background .content-formatted dl,
 .light-background .content-formatted pre,
-.light-background .content-formatted table {
+.light-background .content-formatted table,
+.light-background .content-formatted .custom-btn {
   color: var(--secondary-color);
 }
 .light-background .header-title a,
@@ -482,7 +483,8 @@ body {
 .dark-background .content-formatted a {
   color: var(--third-color);
 }
-.content-formatted .form_submit input, .content-formatted a.custom-btn {
+.content-formatted .form_submit input,
+.content-formatted .custom-btn {
   padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
@@ -490,11 +492,15 @@ body {
   text-decoration: var(--button-text-decoration);
   text-transform: var(--button-text-transform);
 }
-.dark-background .content-formatted .form_submit input, .dark-background .content-formatted .form_submit input:hover, .dark-background .content-formatted a.custom-btn, .dark-background .content-formatted a.custom-btn:hover {
+.dark-background .content-formatted .form_submit input, .dark-background .content-formatted .form_submit input:hover, .dark-background
+.content-formatted .custom-btn, .dark-background
+.content-formatted .custom-btn:hover {
   border-color: var(--third-color);
   color: var(--third-color);
 }
-.light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover, .light-background .content-formatted a.custom-btn, .light-background .content-formatted a.custom-btn:hover {
+.light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover, .light-background
+.content-formatted .custom-btn, .light-background
+.content-formatted .custom-btn:hover {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
@@ -596,28 +602,23 @@ body {
   color: var(--secondary-color);
 }
 .dark-background .content-formatted .form_field_textfield,
-.dark-background .content-formatted .form_field_textarea,
-.dark-background .content-formatted .form_field_select {
+.dark-background .content-formatted .form_field_textarea {
   color: var(--third-color);
 }
 .dark-background .content-formatted .form_field_textfield::-webkit-input-placeholder,
-.dark-background .content-formatted .form_field_textarea::-webkit-input-placeholder,
-.dark-background .content-formatted .form_field_select::-webkit-input-placeholder {
+.dark-background .content-formatted .form_field_textarea::-webkit-input-placeholder {
   color: var(--third-color);
 }
 .dark-background .content-formatted .form_field_textfield::-moz-placeholder,
-.dark-background .content-formatted .form_field_textarea::-moz-placeholder,
-.dark-background .content-formatted .form_field_select::-moz-placeholder {
+.dark-background .content-formatted .form_field_textarea::-moz-placeholder {
   color: var(--third-color);
 }
 .dark-background .content-formatted .form_field_textfield:-moz-placeholder,
-.dark-background .content-formatted .form_field_textarea:-moz-placeholder,
-.dark-background .content-formatted .form_field_select:-moz-placeholder {
+.dark-background .content-formatted .form_field_textarea:-moz-placeholder {
   color: var(--third-color);
 }
 .dark-background .content-formatted .form_field_textfield:-ms-input-placeholder,
-.dark-background .content-formatted .form_field_textarea:-ms-input-placeholder,
-.dark-background .content-formatted .form_field_select:-ms-input-placeholder {
+.dark-background .content-formatted .form_field_textarea:-ms-input-placeholder {
   color: var(--third-color);
 }
 .light-background .content-formatted .form_field_textfield,

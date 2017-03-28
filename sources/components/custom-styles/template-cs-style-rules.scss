@@ -102,7 +102,8 @@ body {
     ol,
     dl,
     pre,
-    table {
+    table,
+    .custom-btn {
       color: var(--secondary-color);
     }
   }
@@ -649,7 +650,8 @@ body {
   }
 
   // Code blocks and preformatted content.
-  .form_submit input,  a.custom-btn {
+  .form_submit input,
+  .custom-btn {
     padding: var(--button-padding) calc(var(--button-padding) + 8px);
     font-size: var(--button-font-size);
     font-style: var(--button-font-style);
@@ -658,7 +660,6 @@ body {
     text-transform: var(--button-text-transform);
 
     .dark-background & {
-
       &,
       &:hover {
         border-color: var(--third-color);
@@ -667,7 +668,6 @@ body {
     }
 
     .light-background & {
-
       &,
       &:hover {
         border-color: var(--secondary-color);
@@ -821,8 +821,7 @@ body {
 
   .dark-background & {
     .form_field_textfield,
-    .form_field_textarea,
-    .form_field_select {
+    .form_field_textarea {
       color: var(--third-color);
 
       @include placeholder {
