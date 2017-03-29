@@ -95,7 +95,7 @@
   {% endif %}
 
   {% comment %}=================================================================
-  || Design editor variables.
+  | Design editor variables.
   ============================================================= {% endcomment %}
   {% capture base_font_set %}
     [
@@ -105,7 +105,7 @@
         "list": [
           {
             "title": "Avenir Next",
-            "value": "\"Avenir Next\", \"Helvetica Neue\", \"Helvetica\", \"Segoe UI\", sans-serif"
+            "value": "\"Avenir Next\", \"Helvetica Neue\", Helvetica, \"Segoe UI\", sans-serif"
           },
           {
             "title": "Fira Sans",
@@ -113,19 +113,23 @@
           },
           {
             "title": "Lato",
-            "value": "\"Lato\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif"
+            "value": "Lato, sans-serif"
           },
           {
             "title": "Montserrat",
-            "value": "\"Montserrat\", Helvetica, Arial, sans-serif"
+            "value": "Montserrat, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
           },
           {
             "title": "Open Sans",
-            "value": "\"Open Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif"
+            "value": "\"Open Sans\", sans-serif"
+          },
+          {
+            "title": "Raleway",
+            "value": "Raleway, sans-serif"
           },
           {
             "title": "Roboto",
-            "value": "\"Roboto\", sans-serif"
+            "value": "Roboto, sans-serif"
           },
           {
             "title": "Source Sans Pro",
@@ -133,7 +137,7 @@
           },
           {
             "title": "Ubuntu",
-            "value": "\"Ubuntu\", sans-serif"
+            "value": "Ubuntu, sans-serif"
           }
         ]
       },
