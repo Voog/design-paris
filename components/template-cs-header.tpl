@@ -13,7 +13,7 @@
     "list": {{ base_font_set }},
     "scope": "global"
   */
-  --secondary-font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --secondary-font-family: "Lato", sans-serif;
   /* VoogStyle
     "pathI18n": ["header", "title", "normal"],
     "titleI18n": "size",
