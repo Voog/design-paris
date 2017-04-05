@@ -205,7 +205,7 @@
     "icon": "bold",
     "scope": "global"
   */
-  --headings-subheading-font-weight: 300;
+  --headings-subheading-font-weight: 400;
   /* VoogStyle
     "pathI18n": ["headings", "subheading"],
     "titleI18n": "font_style",
