@@ -10,7 +10,15 @@
 
   <div class="post-bottom">
     <footer class="post-footer">
-      <time class="post-date" datetime="{{ article.created_at | date : '%Y-%m-%d' }}">{{ article.created_at | format_date: 'long' }}</time>
+      {% assign article_year = article.created_at | format_date: "%Y" | to_num %}
+
+      {% if article_year == current_year %}
+        {% assign article_date_format = "long_without_year" %}
+      {% else %}
+        {% assign article_date_format = "long" %}
+      {% endif %} 
+
+      <time class="post-date" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
     </footer>
   </div>
 </article>
