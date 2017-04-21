@@ -36,27 +36,6 @@
     {
       "content_type": "component",
       "component": true,
-      "file": "components/post-box-placeholder.tpl",
-      "layout_name": "post-box-placeholder",
-      "title": "post-box-placeholder"
-    },
-    {
-      "content_type": "component",
-      "component": true,
-      "file": "components/comment-form.tpl",
-      "layout_name": "comment-form",
-      "title": "comment-form"
-    },
-    {
-      "content_type": "component",
-      "component": true,
-      "file": "components/edicy-tools-styles.tpl",
-      "layout_name": "edicy-tools-styles",
-      "title": "edicy-tools-styles"
-    },
-    {
-      "content_type": "component",
-      "component": true,
       "file": "components/edicy-tools-variables.tpl",
       "layout_name": "edicy-tools-variables",
       "title": "edicy-tools-variables"
@@ -127,9 +106,9 @@
     {
       "content_type": "component",
       "component": true,
-      "file": "components/blog-article-variables.tpl",
-      "layout_name": "blog-article-variables",
-      "title": "blog-article-variables"
+      "file": "components/post-box-placeholder.tpl",
+      "layout_name": "post-box-placeholder",
+      "title": "post-box-placeholder"
     },
     {
       "content_type": "component",
@@ -242,6 +221,27 @@
       "file": "components/template-cs-table.tpl",
       "layout_name": "template-cs-table",
       "title": "template-cs-table"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/blog-article-variables.tpl",
+      "layout_name": "blog-article-variables",
+      "title": "blog-article-variables"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/comment-form.tpl",
+      "layout_name": "comment-form",
+      "title": "comment-form"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/edicy-tools-styles.tpl",
+      "layout_name": "edicy-tools-styles",
+      "title": "edicy-tools-styles"
     }
   ],
   "assets": [
