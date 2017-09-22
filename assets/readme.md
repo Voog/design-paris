@@ -1,0 +1,1 @@
+This is a placeholder file for including an empty assets/ folder to repository. Cureently this template doesn't have any assets and due to tat doesn't generate the assets folder by default (which is mandatory for KIT dev tools.)
