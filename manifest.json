@@ -246,12 +246,6 @@
   ],
   "assets": [
     {
-      "content_type": "text/plain",
-      "file": "assets/readme.md",
-      "kind": "assets",
-      "filename": "readme.md"
-    },
-    {
       "content_type": "image/jpeg",
       "file": "images/post-2.jpg",
       "kind": "images",
