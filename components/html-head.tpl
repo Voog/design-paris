@@ -61,8 +61,8 @@
 {% capture page_title %}{% if article %}{{ article.title }}{% unless page.site_title == "" %} — {{ page.site_title }}{% endunless %}{% else %}{% if site.root_item.selected? and page.site_title != "" %}{{ page.site_title }}{% else %}{{ page.title }}{% unless page.site_title == "" %} — {{ page.site_title }}{% endunless %}{% endif %}{% endif %}{% endcapture %}
 <title>{{ page_title }}</title>
 
-{% comment %}FACEBOOK OPEN GRAPH META TAGS{% endcomment%}
-{% include "open-graph" %}
+{% comment %}MISC{% endcomment %}
+{% include "template-meta" %}
 
 {% comment %}MISCELLANEOUS{% endcomment %}
 {% if blog %}{{ blog.rss_link }}{% endif %}
