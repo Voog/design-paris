@@ -21,8 +21,8 @@
     .no-svg & {
       .post-add-icon {
         opacity: .7;
-        @include transition-property (opacity);
-        @include transition-duration(.3s);
+        transition-property: opacity;
+        transition-duration: .3s;
       }
     }
   }
@@ -80,8 +80,8 @@
         background-image: url('../images/ico-post-add-white.png');
       }
 
-      @include transition-property (opacity);
-      @include transition-duration(0.3s);
+      transition-property: opacity;
+      transition-duration: 0.3s;
 
       .icon-newspaper {
         display: none;
@@ -220,7 +220,7 @@
     .post-top,
     .background-image,
     .post-title {
-      @include transition(opacity, 0.3s);
+      transition: opacity, 0.3s;
     }
 
     .post-top {

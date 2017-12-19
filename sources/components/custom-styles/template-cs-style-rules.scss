@@ -824,7 +824,7 @@ body {
     .form_field_textarea {
       color: var(--third-color);
 
-      @include placeholder {
+      &::placeholder {
         color: var(--third-color);
       }
     }
@@ -836,7 +836,7 @@ body {
     .form_field_select {
       color: var(--primary-color);
 
-      @include placeholder {
+      &::placeholder {
         color: var(--primary-color);
       }
     }
