@@ -624,16 +624,16 @@ body {
 .dark-background .content-formatted .form_field_textarea::-webkit-input-placeholder {
   color: var(--third-color);
 }
-.dark-background .content-formatted .form_field_textfield::-moz-placeholder,
-.dark-background .content-formatted .form_field_textarea::-moz-placeholder {
-  color: var(--third-color);
-}
-.dark-background .content-formatted .form_field_textfield:-moz-placeholder,
-.dark-background .content-formatted .form_field_textarea:-moz-placeholder {
-  color: var(--third-color);
-}
 .dark-background .content-formatted .form_field_textfield:-ms-input-placeholder,
 .dark-background .content-formatted .form_field_textarea:-ms-input-placeholder {
+  color: var(--third-color);
+}
+.dark-background .content-formatted .form_field_textfield::-ms-input-placeholder,
+.dark-background .content-formatted .form_field_textarea::-ms-input-placeholder {
+  color: var(--third-color);
+}
+.dark-background .content-formatted .form_field_textfield::placeholder,
+.dark-background .content-formatted .form_field_textarea::placeholder {
   color: var(--third-color);
 }
 .light-background .content-formatted .form_field_textfield,
@@ -646,19 +646,19 @@ body {
 .light-background .content-formatted .form_field_select::-webkit-input-placeholder {
   color: var(--primary-color);
 }
-.light-background .content-formatted .form_field_textfield::-moz-placeholder,
-.light-background .content-formatted .form_field_textarea::-moz-placeholder,
-.light-background .content-formatted .form_field_select::-moz-placeholder {
-  color: var(--primary-color);
-}
-.light-background .content-formatted .form_field_textfield:-moz-placeholder,
-.light-background .content-formatted .form_field_textarea:-moz-placeholder,
-.light-background .content-formatted .form_field_select:-moz-placeholder {
-  color: var(--primary-color);
-}
 .light-background .content-formatted .form_field_textfield:-ms-input-placeholder,
 .light-background .content-formatted .form_field_textarea:-ms-input-placeholder,
 .light-background .content-formatted .form_field_select:-ms-input-placeholder {
+  color: var(--primary-color);
+}
+.light-background .content-formatted .form_field_textfield::-ms-input-placeholder,
+.light-background .content-formatted .form_field_textarea::-ms-input-placeholder,
+.light-background .content-formatted .form_field_select::-ms-input-placeholder {
+  color: var(--primary-color);
+}
+.light-background .content-formatted .form_field_textfield::placeholder,
+.light-background .content-formatted .form_field_textarea::placeholder,
+.light-background .content-formatted .form_field_select::placeholder {
   color: var(--primary-color);
 }
 .comment-form .form_field {

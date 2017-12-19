@@ -83,14 +83,14 @@
     font-size: 14px;
     line-height: 1.6;
 
-    @include placeholder {
+    &::placeholder {
       color: rgba($black, .3);
     }
 
     .light-background & {
       @include color($black);
 
-      @include placeholder {
+    &::placeholder {
         color: rgba($primary-color, .3);
       }
     }
@@ -121,7 +121,7 @@
       @include color($primary-color, 0.6);
     }
 
-    @include placeholder {
+    &::placeholder {
       @include opacity(0.5);
     }
   }
