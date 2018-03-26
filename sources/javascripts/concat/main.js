@@ -377,7 +377,7 @@
         // String for feedback if no results are found.
         noResults: noResultsString
       });
-    } 
+    }
   };
 
   window.site = $.extend(window.site || {}, {
