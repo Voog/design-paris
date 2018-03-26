@@ -29,7 +29,6 @@ module.exports = function(grunt) {
     concat: {
       build: {
         src: [
-          'bower_components/jquery/dist/jquery.js',
           'bower_components/moment/min/moment-with-locales.js',
           'bower_components/textarea-autosize/dist/jquery.textarea_autosize.js',
           'sources/javascripts/concat/*.js'
