@@ -36,6 +36,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/template-cs-button.tpl",
+      "layout_name": "template-cs-button",
+      "title": "template-cs-button"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/post-box.tpl",
       "layout_name": "post-box",
       "title": "post-box"
@@ -74,6 +81,13 @@
       "file": "components/menu-level-2.tpl",
       "layout_name": "menu-level-2",
       "title": "menu-level-2"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/site-signout.tpl",
+      "layout_name": "site-signout",
+      "title": "site-signout"
     },
     {
       "content_type": "component",
@@ -120,9 +134,9 @@
     {
       "content_type": "component",
       "component": true,
-      "file": "components/template-cs-button.tpl",
-      "layout_name": "template-cs-button",
-      "title": "template-cs-button"
+      "file": "components/template-cs-content.tpl",
+      "layout_name": "template-cs-content",
+      "title": "template-cs-content"
     },
     {
       "content_type": "component",
