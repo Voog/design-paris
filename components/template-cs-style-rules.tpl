@@ -317,18 +317,18 @@ body {
           text-decoration: var(--header-body-text-decoration);
   text-transform: var(--header-body-text-transform);
 }
-.dark-background .content-formatted h1,
-.dark-background .content-formatted h2,
-.dark-background .content-formatted h3,
-.dark-background .content-formatted h4,
-.dark-background .content-formatted h5,
-.dark-background .content-formatted h6,
-.dark-background .content-formatted p,
-.dark-background .content-formatted ul,
-.dark-background .content-formatted ol,
-.dark-background .content-formatted pre,
-.dark-background .content-formatted code,
-.dark-background .content-formatted table {
+.dark-background .content-formatted h1, .dark-background
+.content-formatted h2, .dark-background
+.content-formatted h3, .dark-background
+.content-formatted h4, .dark-background
+.content-formatted h5, .dark-background
+.content-formatted h6, .dark-background
+.content-formatted p, .dark-background
+.content-formatted ul, .dark-background
+.content-formatted ol, .dark-background
+.content-formatted pre, .dark-background
+.content-formatted code, .dark-background
+.content-formatted table {
   color: var(--third-color);
 }
 .content-formatted h1,
@@ -347,16 +347,22 @@ body {
 .content-formatted h6 a {
   color: var(--secondary-color);
 }
-.content-formatted p, .content-formatted ul, .content-formatted ol, .content-formatted dl {
+.content-formatted p,
+.content-formatted ul,
+.content-formatted ol,
+.content-formatted dl {
   font-size: var(--content-body-font-size);
 }
-.site-footer .content-formatted p,
-.site-footer .content-formatted ul,
-.site-footer .content-formatted ol,
-.site-footer .content-formatted dl {
+.site-footer .content-formatted p, .site-footer
+.content-formatted ul, .site-footer
+.content-formatted ol, .site-footer
+.content-formatted dl {
   color: var(--primary-color);
 }
-.site-footer .dark-background .content-formatted p, .site-footer .dark-background .content-formatted ul, .site-footer .dark-background .content-formatted ol, .site-footer .dark-background .content-formatted dl {
+.site-footer .dark-background .content-formatted p, .site-footer .dark-background
+.content-formatted ul, .site-footer .dark-background
+.content-formatted ol, .site-footer .dark-background
+.content-formatted dl {
   color: var(--third-color);
 }
 .content-formatted h1,
@@ -497,7 +503,8 @@ body {
 .dark-background .content-formatted a {
   color: var(--third-color);
 }
-.content-formatted .form_submit input, .content-formatted .custom-btn {
+.content-formatted .form_submit input,
+.content-formatted .custom-btn {
   padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
@@ -506,13 +513,15 @@ body {
           text-decoration: var(--button-text-decoration);
   text-transform: var(--button-text-transform);
 }
-.dark-background .content-formatted .form_submit input, .dark-background .content-formatted .form_submit input:hover,
-.dark-background .content-formatted .custom-btn,
-.dark-background .content-formatted .custom-btn:hover {
+.dark-background .content-formatted .form_submit input, .dark-background .content-formatted .form_submit input:hover, .dark-background
+.content-formatted .custom-btn, .dark-background
+.content-formatted .custom-btn:hover {
   border-color: var(--third-color);
   color: var(--third-color);
 }
-.light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover, .light-background .content-formatted .custom-btn, .light-background .content-formatted .custom-btn:hover {
+.light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover, .light-background
+.content-formatted .custom-btn, .light-background
+.content-formatted .custom-btn:hover {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
