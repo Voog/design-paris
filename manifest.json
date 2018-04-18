@@ -85,13 +85,6 @@
     {
       "content_type": "component",
       "component": true,
-      "file": "components/tags-blog.tpl",
-      "layout_name": "tags-blog",
-      "title": "tags-blog"
-    },
-    {
-      "content_type": "component",
-      "component": true,
       "file": "components/edicy-tools-variables.tpl",
       "layout_name": "edicy-tools-variables",
       "title": "edicy-tools-variables"
