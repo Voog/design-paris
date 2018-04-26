@@ -99,7 +99,7 @@
   };
 
   // Loads more blog articles via API.
-  var getMoreArticles = function(langCode, pageId) {
+  var getMoreArticles = function(langCode, pageId, tags) {
     var hasArticles = true,
         pageNr = 2,
         perPage = 16,
@@ -109,7 +109,7 @@
       if(hasArticles && (($(document).height() - $(window).height()) - $(window).scrollTop() < 500)) {
 
         $.ajax({
-          url: '/admin/api/articles?per_page=' + perPage + '&page=' + pageNr + (pageId ? '&page_id=' + pageId : '') + '&language_code=' + langCode,
+          url: '/admin/api/articles?per_page=' + perPage + '&page=' + pageNr + (pageId ? '&page_id=' + pageId : '') + '&language_code=' + (tags ? '&tag=' + tags : ''),
           type: 'get',
           dataType: 'json',
           success: function(data) {

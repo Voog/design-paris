@@ -73,10 +73,15 @@
   <script>
     site.initBlogPage();
 
-    var pageId = '{{ page.id }}',
-        langCode = '{{ page.language_code }}';
+    {% if tags != empty %}
+      {% assign selected_tags = tags | map: "path" | join: "," %}
+    {% endif %}
 
-    site.getMoreArticles(langCode, pageId);
+    var pageId = '{{ page.id }}',
+        langCode = '{{ page.language_code }}',
+        tags = '{{ selected_tags }}'
+
+    site.getMoreArticles(langCode, pageId, tags);
   </script>
 </body>
 </html>
