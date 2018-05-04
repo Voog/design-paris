@@ -72,14 +72,16 @@
   {% include "edicy-tools" %}
   <script>
     site.initBlogPage();
-
-    {% if tags != empty %}
-      {% assign selected_tags = tags | map: "path" | join: "," %}
-    {% endif %}
-
     var pageId = '{{ page.id }}',
-        langCode = '{{ page.language_code }}',
-        tags = '{{ selected_tags }}'
+        langCode = '{{ page.language_code }}';
+
+    {% if tags != blank %}
+      var tags = {{ tags | map: "name" | json }};
+
+    {% else %}
+      var tags = null;
+
+    {% endif %}
 
     site.getMoreArticles(langCode, pageId, tags);
   </script>
