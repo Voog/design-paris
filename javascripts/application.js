@@ -14742,7 +14742,7 @@ MMCQ = (function() {
       if(hasArticles && (($(document).height() - $(window).height()) - $(window).scrollTop() < 500)) {
 
         $.ajax({
-          url: '/admin/api/articles?per_page=' + perPage + '&page=' + pageNr + (pageId ? '&page_id=' + pageId : '') + '&language_code=' + (tags ? '&tag[]=' + tags.join('&tag[]=') : ''),
+          url: '/admin/api/articles?per_page=' + perPage + '&page=' + pageNr + (pageId ? '&page_id=' + pageId : '') + '&language_code=' + langCode + (tags ? '&tag[]=' + tags.join('&tag[]=') : ''),
           type: 'get',
           dataType: 'json',
           success: function(data) {

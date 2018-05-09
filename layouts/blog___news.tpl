@@ -77,10 +77,8 @@
 
     {% if tags != blank %}
       var tags = {{ tags | map: "name" | json }};
-
     {% else %}
       var tags = null;
-
     {% endif %}
 
     site.getMoreArticles(langCode, pageId, tags);
