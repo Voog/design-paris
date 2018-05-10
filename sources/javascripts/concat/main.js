@@ -99,7 +99,7 @@
   };
 
   // Loads more blog articles via API.
-  var getMoreArticles = function(langCode, pageId) {
+  var getMoreArticles = function(langCode, pageId, tags) {
     var hasArticles = true,
         pageNr = 2,
         perPage = 16,
@@ -108,8 +108,13 @@
     $(window).scroll(site.debounce(function() {
       if(hasArticles && (($(document).height() - $(window).height()) - $(window).scrollTop() < 500)) {
 
+        var url = '/admin/api/articles?per_page=' + perPage + '&page=' + pageNr + '&language_code=' + langCode;
+
+        if (pageId) { url += '&page_id=' + pageId }
+        if (tags) { url += '&tag[]=' + tags.join('&tag[]=') }
+
         $.ajax({
-          url: '/admin/api/articles?per_page=' + perPage + '&page=' + pageNr + (pageId ? '&page_id=' + pageId : '') + '&language_code=' + langCode,
+          url: url,
           type: 'get',
           dataType: 'json',
           success: function(data) {
