@@ -27,7 +27,7 @@
     "min": 8,
     "max": 100,
     "unit": "px",
-    "scope": "global"
+    "scope": "global" 
   */
   --form-blog-field-font-size: 16px;
   /* VoogStyle
