@@ -265,11 +265,19 @@
     $(body).find('.js-body-background-color').css({'background-color' : bodyBgColor});
   };
 
+  var normalizeValue = function(value) {
+    if (value == null || (typeof value == 'string' && value.match(/^[\\'"]+$/))) {
+      return '';
+    } else {
+      return value;
+    }
+  };
+
   // Body background image and color save logic function.
   var bodyBgCommit = function(data, dataName) {
     var commitData = $.extend(true, {}, data);
     commitData.image = data.image || '';
-    commitData.imageSizes = data.imageSizes || '';
+    commitData.imageSizes = normalizeValue(data.imageSizes);
     commitData.color = data.color || 'rgba(255,255,255,0)';
     commitData.combinedLightness = bodyBgCombinedLightness;
 
