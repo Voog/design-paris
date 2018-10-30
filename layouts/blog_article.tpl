@@ -4,6 +4,7 @@
 <head prefix="og: http://ogp.me/ns#">
   {% assign blog_article_page = true %}
   {% include 'edicy-tools-variables' with 'article' %}
+  {% include "blog-settings-variables" %}
   {% include 'html-head' %}
   {% include 'edicy-tools-styles' with 'article' %}
 </head>
@@ -36,8 +37,12 @@
                   {% assign article_date_format = "long" %}
                 {% endif %}
 
-                <time class="post-date" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
-                <span class="post-author" data-search-indexing-allowed="true"> – {{ article.author.name }}</span>
+                <time class="post-date {{toggle_article_date}}" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
+                <span class="date-separator"> – </span>
+                <span class="post-author {{toggle_article_author}}" data-search-indexing-allowed="true">{{ article.author.name }}</span>
+                {% if editmode %}
+                  {% include "article-settings-editor" %}
+                {% endif %}
               </div>
             </header>
 
@@ -73,7 +78,7 @@
               </div>
             {% endif %}
 
-            <section class="comments">
+            <section class="comments {{toggle_article_comments}}">
               {% include "comment-form" %}
 
               {% if article.comments_count > 0 %}
@@ -99,7 +104,7 @@
 
     {% include "footer" %}
   </div>
-  
+
   {% include "site-signout" %}
   {% include "javascripts" %}
   {% include "edicy-tools" with 'article' %}

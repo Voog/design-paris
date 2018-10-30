@@ -4,6 +4,7 @@
 <head prefix="og: http://ogp.me/ns#">
   {% assign blog_listing_page = true %}
   {% include 'edicy-tools-variables' %}
+  {% include "blog-settings-variables" %}
   {% include 'html-head' %}
   {% include 'edicy-tools-styles' %}
 </head>
@@ -31,6 +32,7 @@
         <section class="blog js-blog">
           {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
           {% if editmode %}
+          {% include "blog-settings-editor" %}
             <button class="post-add-link post" data-behavior="open-add-modal" data-component="article" data-page-id="{{ page.id }}">
               <div class="wrap">
                 <div class="align-middle">

@@ -16,9 +16,9 @@
         {% assign article_date_format = "long_without_year" %}
       {% else %}
         {% assign article_date_format = "long" %}
-      {% endif %} 
+      {% endif %}
 
-      <time class="post-date" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
+      <time class="post-date {{toggle_article_date}}" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
     </footer>
   </div>
 </article>
