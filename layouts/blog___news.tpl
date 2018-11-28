@@ -4,7 +4,6 @@
 <head prefix="og: http://ogp.me/ns#">
   {% assign blog_listing_page = true %}
   {% include 'edicy-tools-variables' %}
-  {% include "blog-settings-variables" %}
   {% include 'html-head' %}
   {% include 'edicy-tools-styles' %}
 </head>
@@ -57,6 +56,7 @@
 
 
           {% for article in articles limit: 16 %}
+            {% include "blog-settings-variables" %}
             {% include "post-box" %}
           {% endfor %}
 

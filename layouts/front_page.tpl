@@ -51,6 +51,7 @@
           {% endif %}
 
           {% for article in site.latest_12_articles %}
+            {% include "blog-settings-variables" %}
             {% include "post-box" %}
           {% endfor %}
 
