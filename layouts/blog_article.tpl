@@ -38,7 +38,7 @@
                 {% endif %}
 
                 <time class="post-date{% if show_article_date == false %} hide-article-date{% endif %}" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
-                <span class="date-separator"> – </span>
+                <span class="date-separator{% if show_article_date == false %} hide-separator{% endif %}"> – </span>
                 <span class="post-author{% if show_article_author == false %} hide-article-author{% endif %}" data-search-indexing-allowed="true">{{ article.author.name }}</span>
                 {% if editmode %}
                   {% include "article-settings-editor" %}
