@@ -131,9 +131,11 @@
         if (data.show_author == true) {
           $articleAuthor.removeClass('hide-article-author');
           $articleAuthor.addClass('show-article-author');
+          $dateSeparator.removeClass('hide-separator');
         } else if (data.show_author == false) {
           $articleAuthor.removeClass('show-article-author');
           $articleAuthor.addClass('hide-article-author');
+          $dateSeparator.addClass('hide-separator');
         }
       },
 
