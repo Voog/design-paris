@@ -31,6 +31,7 @@
         <section class="blog js-blog">
           {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
           {% if editmode %}
+          {% include "blog-settings-editor" %}
             <button class="post-add-link post" data-behavior="open-add-modal" data-component="article" data-page-id="{{ page.id }}">
               <div class="wrap">
                 <div class="align-middle">
@@ -55,6 +56,7 @@
 
 
           {% for article in articles limit: 16 %}
+            {% include "blog-settings-variables" %}
             {% include "post-box" %}
           {% endfor %}
 

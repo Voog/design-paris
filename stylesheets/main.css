@@ -955,6 +955,13 @@ span[style*="font-size"] {
 .light-background .post-date {
   color: black;
 }
+.post-date.hide-article-date {
+  display: none;
+}
+
+.post-author.hide-article-author {
+  display: none;
+}
 
 .blog-page .blog {
   font-size: 0;
@@ -1219,6 +1226,14 @@ span[style*="font-size"] {
   margin-top: 6px;
   font-size: 18px;
   opacity: .7;
+}
+
+.article-settings-editor {
+  padding-top: 8px;
+}
+
+.date-separator.hide-separator {
+  display: none;
 }
 
 /* SEARCH */
@@ -1657,6 +1672,9 @@ span[style*="font-size"] {
 .comments {
   max-width: 650px;
   margin: 10px auto 0;
+}
+.comments.hide-article-comments {
+  display: none;
 }
 
 .comments-title {

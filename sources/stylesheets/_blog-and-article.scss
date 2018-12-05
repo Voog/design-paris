@@ -164,6 +164,16 @@
   .light-background & {
     @include color($black);
   }
+
+  &.hide-article-date {
+    display: none;
+  }
+}
+
+.post-author {
+  &.hide-article-author {
+    display: none;
+  }
 }
 
 .blog-page {
@@ -470,4 +480,14 @@
   margin-top: 6px;
   font-size: 18px;
   opacity: .7;
+}
+
+.article-settings-editor {
+  padding-top: 8px;
+}
+
+.date-separator {
+  &.hide-separator {
+    display: none
+  }
 }

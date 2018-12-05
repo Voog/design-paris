@@ -4,6 +4,7 @@
 <head prefix="og: http://ogp.me/ns#">
   {% assign front_page = true %}
   {% include 'edicy-tools-variables' %}
+  {% include "blog-settings-variables" %}
   {% include 'html-head' %}
   {% include 'edicy-tools-styles' %}
 </head>
@@ -20,6 +21,7 @@
         <section class="blog js-blog">
           {% comment %}TODO: Replace URL when this feature is added{% endcomment %}
           {% if editmode %}
+          {% include "blog-settings-editor" %}
             {% for item in site.menuitems_with_hidden %}
               {% if item.blog? %}
                 <button class="post-add-link post" data-behavior="open-add-modal" data-component="article" data-page-id="{{ item.page_id }}">
@@ -49,6 +51,7 @@
           {% endif %}
 
           {% for article in site.latest_12_articles %}
+            {% include "blog-settings-variables" %}
             {% include "post-box" %}
           {% endfor %}
 
