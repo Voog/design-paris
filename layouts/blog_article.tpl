@@ -37,7 +37,7 @@
                   {% assign article_date_format = "long" %}
                 {% endif %}
 
-                <time class="post-date{% if show_article_date == false %} hide-article-date{% endif %}{% if article_data_show_date_defined == true %} site-data{% endif %}" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
+                <time class="post-date{% if show_article_date == false %} hide-article-date{% endif %}{% if article_data_show_date_defined != true %} site-data{% endif %}" datetime="{{ article.created_at | date: '%Y-%m-%d' }}">{{ article.created_at | format_date: article_date_format }}</time>
                 <span class="date-separator{% if show_article_date == false %} hide-separator{% endif %}"> – </span>
                 <span class="post-author{% if show_article_author == false %} hide-article-author{% endif %}" data-search-indexing-allowed="true">{{ article.author.name }}</span>
                 {% if editmode %}
