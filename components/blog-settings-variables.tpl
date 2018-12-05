@@ -18,11 +18,8 @@
 
 {% if article.data.article_settings.show_author == true or article.data.article_settings.show_author == false %}
   {% assign show_article_author = article.data.article_settings.show_author %}
-  {% assign author_separator = "" %}
 {% elsif site.data.article_settings.show_authors == false %}
   {% assign show_article_author = false %}
-  {% assign author_separator = "" %}
 {% else %}
   {% assign show_article_author = true %}
-  {% assign author_separator = " - " %}
 {% endif %}
