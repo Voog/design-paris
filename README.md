@@ -4,7 +4,7 @@ To modify this template [Node.js](http://www.nodejs.org/), [Node Package Manager
 
 To set up the local developing environment, clone this repository and run the following commands:
 
-* Install Grunt dependencies: ```npm install```
+* Install Grunt dependencies: ```yarn install```
 * Install Bower dependencies: ```bower install```
 * Run Grunt tasks: ```grunt```
 
