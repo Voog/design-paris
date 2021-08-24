@@ -60,7 +60,7 @@ module.exports = function(grunt) {
     sass: {
       build_main: {
         options: {
-          implementation: require('node-sass'),
+          implementation: require('sass'),
           sourceMap: false,
           fiber: require('fibers'),
           outputStyle: 'expanded'
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
       // Builds custom style components to temporary folder.
       build_custom_styles: {
         options: {
-          implementation: require('node-sass'),
+          implementation: require('sass'),
           sourceMap: false,
           fiber: require('fibers'),
           outputStyle: 'expanded'
@@ -231,7 +231,7 @@ module.exports = function(grunt) {
 
       js_concat: {
         files: 'sources/javascripts/concat/*.js',
-        tasks: ['concat', 'uglify:build', 'exec:kitmanifest', 'exec:kit:javascripts/*.js']
+        tasks: ['concat:build', 'uglify:build', 'exec:kitmanifest', 'exec:kit:javascripts/*.js']
       },
 
       css_main: {
