@@ -49,7 +49,7 @@
     "min": 8,
     "max": 100,
     "unit": "px",
-    "scope": "global" 
+    "scope": "global"
   */
   #{--form-blog-field-font-size}: 16px;
 
@@ -149,14 +149,14 @@
   */
   #{--form-blog-button-color}: rgba($red-1, 1);
 
-      /* VoogStyle
-        "pathI18n": ["form", "button", "hover"],
-        "titleI18n": "color",
-        "type": "button",
-        "editor": "colorPicker",
-        "scope": "global"
-      */
-      #{--form-blog-button-hover-color}: rgba($red-1, 1);
+  /* VoogStyle
+    "pathI18n": ["form", "button", "hover"],
+    "titleI18n": "color",
+    "type": "button",
+    "editor": "colorPicker",
+    "scope": "global"
+  */
+  #{--form-blog-button-hover-color}: rgba($red-1, 1);
 
   /* VoogStyle
     "pathI18n": ["form", "button", "normal"],
@@ -170,14 +170,14 @@
   */
   #{--form-blog-button-background-color}: $red-2;
 
-      /* VoogStyle
-        "pathI18n": ["form", "button", "hover"],
-        "titleI18n": "background_color",
-        "type": "button",
-        "editor": "colorPicker",
-        "scope": "global"
-      */
-      #{--form-blog-button-hover-background-color}: rgba($red-2, .8);
+  /* VoogStyle
+    "pathI18n": ["form", "button", "hover"],
+    "titleI18n": "background_color",
+    "type": "button",
+    "editor": "colorPicker",
+    "scope": "global"
+  */
+  #{--form-blog-button-hover-background-color}: rgba($red-2, .8);
 
 
   /* VoogStyle
@@ -197,19 +197,19 @@
   */
   #{--form-blog-button-font-weight}: 700;
 
-      /* VoogStyle
-        "pathI18n": ["form", "button", "hover"],
-        "titleI18n": "font_size",
-        "type": "button",
-        "editor": "toggleIcon",
-        "states": {
-          "on": "600",
-          "off": "400"
-        },
-        "icon": "bold",
-        "scope": "global"
-      */
-      #{--form-blog-button-hover-font-weight}: 700;
+  /* VoogStyle
+    "pathI18n": ["form", "button", "hover"],
+    "titleI18n": "font_size",
+    "type": "button",
+    "editor": "toggleIcon",
+    "states": {
+      "on": "600",
+      "off": "400"
+    },
+    "icon": "bold",
+    "scope": "global"
+  */
+  #{--form-blog-button-hover-font-weight}: 700;
 
   /* VoogStyle
     "pathI18n": ["form", "button", "normal"],
@@ -228,19 +228,19 @@
   */
   #{--form-blog-button-font-style}: normal;
 
-      /* VoogStyle
-        "pathI18n": ["form", "button", "hover"],
-        "titleI18n": "font_style",
-        "type": "button",
-        "editor": "toggleIcon",
-        "states": {
-          "on": "italic",
-          "off": "normal"
-        },
-        "icon": "italic",
-        "scope": "global"
-      */
-      #{--form-blog-button-hover-font-style}: normal;
+  /* VoogStyle
+    "pathI18n": ["form", "button", "hover"],
+    "titleI18n": "font_style",
+    "type": "button",
+    "editor": "toggleIcon",
+    "states": {
+      "on": "italic",
+      "off": "normal"
+    },
+    "icon": "italic",
+    "scope": "global"
+  */
+  #{--form-blog-button-hover-font-style}: normal;
 
   /* VoogStyle
     "pathI18n": ["form", "button", "normal"],
@@ -259,19 +259,19 @@
   */
   #{--form-blog-button-text-decoration}: none;
 
-      /* VoogStyle
-        "pathI18n": ["form", "button", "hover"],
-        "titleI18n": "text_decoration",
-        "type": "button",
-        "editor": "toggleIcon",
-        "states": {
-          "on": "underline",
-          "off": "none"
-        },
-        "icon": "underline",
-        "scope": "global"
-      */
-      #{--form-blog-button-hover-text-decoration}: none;
+  /* VoogStyle
+    "pathI18n": ["form", "button", "hover"],
+    "titleI18n": "text_decoration",
+    "type": "button",
+    "editor": "toggleIcon",
+    "states": {
+      "on": "underline",
+      "off": "none"
+    },
+    "icon": "underline",
+    "scope": "global"
+  */
+  #{--form-blog-button-hover-text-decoration}: none;
 
   /* VoogStyle
     "pathI18n": ["form", "button", "normal"],
@@ -290,19 +290,19 @@
   */
   #{--form-blog-button-text-transform}: none;
 
-      /* VoogStyle
-        "pathI18n": ["form", "button", "hover"],
-        "titleI18n": "text_transform",
-        "type": "button",
-        "editor": "toggleIcon",
-        "states": {
-          "on": "uppercase",
-          "off": "none"
-        },
-        "icon": "uppercase",
-        "scope": "global"
-      */
-      #{--form-blog-button-hover-text-transform}: none;
+  /* VoogStyle
+    "pathI18n": ["form", "button", "hover"],
+    "titleI18n": "text_transform",
+    "type": "button",
+    "editor": "toggleIcon",
+    "states": {
+      "on": "uppercase",
+      "off": "none"
+    },
+    "icon": "uppercase",
+    "scope": "global"
+  */
+  #{--form-blog-button-hover-text-transform}: none;
 
   // scss-lint:enable Comment, Indentation
 }

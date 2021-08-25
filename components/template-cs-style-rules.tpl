@@ -228,19 +228,19 @@ body {
     color: var(--menu-main-color);
   }
   .search-input::-webkit-input-placeholder {
-    opacity: .5;
+    opacity: 0.5;
     color: var(--menu-main-color);
   }
   .search-input:-moz-placeholder {
-    opacity: .5;
+    opacity: 0.5;
     color: var(--menu-main-color);
   }
   .search-input::-moz-placeholder {
-    opacity: .5;
+    opacity: 0.5;
     color: var(--menu-main-color);
   }
   .search-input:-ms-input-placeholder {
-    opacity: .5;
+    opacity: 0.5;
     color: var(--menu-main-color);
   }
 
@@ -248,7 +248,7 @@ body {
     color: var(--menu-main-color);
   }
   .search-submit svg {
-    opacity: .5;
+    opacity: 0.5;
     fill: var(--menu-main-color);
   }
 }
@@ -347,7 +347,10 @@ body {
 .content-formatted h6 a {
   color: var(--secondary-color);
 }
-.content-formatted p, .content-formatted ul, .content-formatted ol, .content-formatted dl {
+.content-formatted p,
+.content-formatted ul,
+.content-formatted ol,
+.content-formatted dl {
   font-size: var(--content-body-font-size);
 }
 .site-footer .content-formatted p,
@@ -356,7 +359,10 @@ body {
 .site-footer .content-formatted dl {
   color: var(--primary-color);
 }
-.site-footer .dark-background .content-formatted p, .site-footer .dark-background .content-formatted ul, .site-footer .dark-background .content-formatted ol, .site-footer .dark-background .content-formatted dl {
+.site-footer .dark-background .content-formatted p,
+.site-footer .dark-background .content-formatted ul,
+.site-footer .dark-background .content-formatted ol,
+.site-footer .dark-background .content-formatted dl {
   color: var(--third-color);
 }
 .content-formatted h1,
@@ -416,8 +422,9 @@ body {
           text-decoration: var(--headings-title-text-decoration);
   text-transform: var(--headings-title-text-transform);
 }
+
 .post-author {
-  opacity: .6;
+  opacity: 0.6;
 }
 .dark-background .post-author {
   color: var(--third-color);
@@ -425,8 +432,9 @@ body {
 .light-background .post-author {
   color: var(--secondary-color);
 }
+
 .post-date {
-  opacity: .6;
+  opacity: 0.6;
 }
 .dark-background .post-date {
   color: var(--third-color);
@@ -434,6 +442,7 @@ body {
 .light-background .post-date {
   color: var(--secondary-color);
 }
+
 .front-page .content-formatted h1,
 .front-page .content-formatted h1 a,
 .front-page .content-formatted h1 a:hover {
@@ -497,7 +506,8 @@ body {
 .dark-background .content-formatted a {
   color: var(--third-color);
 }
-.content-formatted .form_submit input, .content-formatted .custom-btn {
+.content-formatted .form_submit input,
+.content-formatted .custom-btn {
   padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
@@ -512,7 +522,9 @@ body {
   border-color: var(--third-color);
   color: var(--third-color);
 }
-.light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover, .light-background .content-formatted .custom-btn, .light-background .content-formatted .custom-btn:hover {
+.light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover,
+.light-background .content-formatted .custom-btn,
+.light-background .content-formatted .custom-btn:hover {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
@@ -556,12 +568,15 @@ body {
 .comments-title {
   font-size: var(--form-blog-title-font-size);
 }
+
 .comment-form .comment-form-label {
   font-size: var(--form-blog-label-font-size);
 }
+
 .comment-form .form_field_textarea, .comment-form .form_field_textfield {
   font-size: var(--form-blog-field-font-size);
 }
+
 .comment-form .comments-title, .comment-form .comment-form-label, .comment-form .form_field_textarea, .comment-form .form_field_textfield {
   font-style: var(--form-blog-field-font-style);
   font-weight: var(--form-blog-field-font-weight);
@@ -570,20 +585,20 @@ body {
   text-transform: var(--form-blog-field-text-transform);
 }
 .comment-form .comments-title::-webkit-input-placeholder, .comment-form .comment-form-label::-webkit-input-placeholder, .comment-form .form_field_textarea::-webkit-input-placeholder, .comment-form .form_field_textfield::-webkit-input-placeholder {
-  opacity: .6;
+  opacity: 0.6;
   -webkit-text-decoration: var(--form-blog-field-text-decoration);
           text-decoration: var(--form-blog-field-text-decoration);
 }
 .comment-form .comments-title:-moz-placeholder, .comment-form .comment-form-label:-moz-placeholder, .comment-form .form_field_textarea:-moz-placeholder, .comment-form .form_field_textfield:-moz-placeholder {
-  opacity: .6;
+  opacity: 0.6;
   text-decoration: var(--form-blog-field-text-decoration);
 }
 .comment-form .comments-title::-moz-placeholder, .comment-form .comment-form-label::-moz-placeholder, .comment-form .form_field_textarea::-moz-placeholder, .comment-form .form_field_textfield::-moz-placeholder {
-  opacity: .6;
+  opacity: 0.6;
   text-decoration: var(--form-blog-field-text-decoration);
 }
 .comment-form .comments-title:-ms-input-placeholder, .comment-form .comment-form-label:-ms-input-placeholder, .comment-form .form_field_textarea:-ms-input-placeholder, .comment-form .form_field_textfield:-ms-input-placeholder {
-  opacity: .6;
+  opacity: 0.6;
   text-decoration: var(--form-blog-field-text-decoration);
 }
 .dark-background .comment-form .comments-title, .dark-background .comment-form .comment-form-label, .dark-background .comment-form .form_field_textarea, .dark-background .comment-form .form_field_textfield {
@@ -616,6 +631,7 @@ body {
 .light-background .comment-form .comments-title:-ms-input-placeholder, .light-background .comment-form .comment-form-label:-ms-input-placeholder, .light-background .comment-form .form_field_textarea:-ms-input-placeholder, .light-background .comment-form .form_field_textfield:-ms-input-placeholder {
   color: var(--secondary-color);
 }
+
 .dark-background .content-formatted .form_field_textfield,
 .dark-background .content-formatted .form_field_textarea {
   color: var(--third-color);
@@ -671,7 +687,7 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  opacity: .1;
+  opacity: 0.1;
 }
 .dark-background .comment-form .form_field:before {
   border-color: var(--third-color);
@@ -679,6 +695,7 @@ body {
 .light-background .comment-form .form_field:before {
   border-color: var(--secondary-color);
 }
+
 .comment-form .form_submit input {
   padding: calc(var(--form-blog-button-padding) - 12px) var(--form-blog-button-padding);
   font-size: var(--form-blog-button-font-size);
@@ -704,7 +721,7 @@ body {
 
 .horizontal-line {
   background-color: var(--third-color);
-  opacity: .25;
+  opacity: 0.25;
 }
 .dark-background .horizontal-line {
   background-color: var(--third-color);
