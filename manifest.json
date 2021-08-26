@@ -267,6 +267,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/template-cs-product-list.tpl",
+      "layout_name": "template-cs-product-list",
+      "title": "template-cs-product-list"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/template-cs-style-rules.tpl",
       "layout_name": "template-cs-style-rules",
       "title": "template-cs-style-rules"
@@ -329,6 +336,30 @@
     }
   ],
   "assets": [
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-expand.svg",
+      "kind": "assets",
+      "filename": "ico-expand.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-settings.svg",
+      "kind": "assets",
+      "filename": "ico-settings.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-delete.svg",
+      "kind": "assets",
+      "filename": "ico-delete.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-placeholder.svg",
+      "kind": "assets",
+      "filename": "ico-placeholder.svg"
+    },
     {
       "content_type": "image/jpeg",
       "file": "images/post-2.jpg",

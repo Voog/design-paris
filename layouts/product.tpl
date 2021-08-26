@@ -16,6 +16,7 @@
       <main class="content js-background-type {{ body_bg_type }}" role="main">
         <div class="wrap">
           {% include "menu-level-2" %}
+          {% include 'menu-breadcrumbs' %}
           <div class="flex_row flex_row-2 reverse-col-tablet mar_0-32-neg" data-search-indexing-allowed="true">
             <div class="flex_row-2--item-50">
               <div class="mar_0-32 p-rel js-product-page-image-wrap">

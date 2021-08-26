@@ -17,6 +17,7 @@ $green: #60A740;
 $blue-1: #0066BB;
 $blue-2: #C7E5FF;
 $yellow: #F9EC5A;
+$editor-grey: #1B2124;
 
 $disabled: #adadad;
 
@@ -26,13 +27,15 @@ $color-toolbar-bg: rgb(238,238,238);
 $color-silver-2: rgb(196,196,196);
 
 // Font family.
-$font-main: 'Open Sans', sans-serif;
+$font-primary: 'Open Sans', sans-serif;
 $font-secondary: 'Lato', sans-serif;
 $avenir: 'Avenir Next', 'AvenirX';
 
 // $code-bg: #fafafa;
 
 // Media queries
+$desktop-1: 1024px;
+
 $tablet-1: 1048px;
 $tablet-2: 850px;
 $tablet-3: 999px;
@@ -48,3 +51,9 @@ $mobile-6: 420px;
 
 // Reusable values
 $search-height: 24px;
+$bezier-default: cubic-bezier(0.1, 0.6, 0, 1);
+
+$popover-shadow: 0px 2px 10px rgba($black, .2);
+$image-settings-shadow: 0px 0px 5px rgba($black, .05), 0px 25px 35px rgba($black, .03);
+
+$zindex-settings-popover: 56501;
