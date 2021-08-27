@@ -1,7 +1,7 @@
 <ul class="menu">
   {% unless site.root_item.hidden? %}
     <li class="menu-item">
-      <a href="{{site.root_item.url}}" class="menu-link{% if site.root_item.selected? %} active{% endif %}{% unless item.translated? %} untranslated fci-editor-menuadd{% endunless %}">{{site.root_item.title}}</a>
+      <a class="menu-link{% if site.root_item.selected? %} active{% endif %}" href="{{ site.root_item.url }}">{{ site.root_item.title }}</a>
     </li>
   {% endunless %}
 
