@@ -87,6 +87,10 @@
 
   .menu-item {
     display: inline-block;
+
+    &.is-hidden {
+      display: none;
+    }
   }
 
   .menu-link {

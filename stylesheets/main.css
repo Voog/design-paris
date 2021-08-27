@@ -121,129 +121,6 @@ body > .background-color {
   outline: inherit;
 }
 
-/* GENERAL */
-body {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5;
-  color: #FFFFFF;
-  color: rgba(255, 255, 255, 0.7);
-}
-body.search-open {
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-body > .background-color {
-  position: fixed;
-  z-index: -2;
-}
-
-.blog-page .blog:after, .content-formatted:after, .search:after, .header .wrap:after, .footer .footer-left:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.background-image,
-.background-color,
-.body-background-color {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.product_item-btn, .search-btn {
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.product_item-btn:focus, .search-btn:focus {
-  outline: none;
-}
-.product_item-btn::-moz-focus-inner, .search-btn::-moz-focus-inner {
-  padding: 0;
-  border: none;
-}
-
-.background-image,
-.background-color,
-.body-background-color {
-  z-index: -1;
-}
-
-.background-image,
-.background-color {
-  position: absolute;
-}
-
-.background-image {
-  background-position: center;
-  background-size: cover;
-}
-
-.body-background-color {
-  position: fixed;
-}
-
-.vg-bg-picker-btn {
-  position: absolute;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.vg-bg-picker-btn:focus {
-  outline: none;
-}
-
-.horizontal-line {
-  width: 260px;
-  height: 1px;
-  background-color: #000000;
-  background-color: rgba(0, 0, 0, 0.25);
-}
-.light-background .horizontal-line {
-  background-color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.25);
-}
-@media screen and (max-width: 487px) {
-  .horizontal-line {
-    width: auto;
-  }
-}
-
-.container a img {
-  border: none;
-}
-
-.wrap {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.common-page .wrap-inner {
-  max-width: 650px;
-  margin: 36px auto;
-}
-
-.btn-no-style {
-  background-color: transparent;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
-
 /* COMMENTS */
 .comments {
   max-width: 650px;
@@ -870,6 +747,9 @@ body > .background-color {
 }
 .menu .menu-item {
   display: inline-block;
+}
+.menu .menu-item.is-hidden {
+  display: none;
 }
 .menu .menu-link {
   text-decoration: none;
