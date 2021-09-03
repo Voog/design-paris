@@ -58,7 +58,7 @@
         rootItemValuesObj = {{ site.data.settings_root_item | json }};
       {% else %}
         rootItemValuesObj = {};
-      {% endif %};
+      {% endif %}
 
       template.bindRootItemSettings(rootItemValuesObj);
     {%- endif -%}

@@ -993,7 +993,8 @@ body > .background-color {
 }
 .menu-horizontal.menu-breadcrumbs {
   line-height: 16px;
-  margin-bottom: 4px;
+  margin-top: 36px;
+  margin-bottom: 8px;
 }
 .item-list-page .menu-horizontal.menu-breadcrumbs {
   padding-bottom: 0;
@@ -2631,14 +2632,6 @@ span[style*=font-size] {
 }
 .mar_r-8 {
   margin-right: 8px;
-}
-.mar_t-32 {
-  margin-top: 32px;
-}
-@media screen and (max-width: 1048px) {
-  .mar_t-32 {
-    margin-top: 16px;
-  }
 }
 
 .pad_0-4 {

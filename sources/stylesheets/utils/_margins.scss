@@ -39,12 +39,4 @@
   &r-8 {
     margin-right: 8px;
   }
-
-  &t-32 {
-    margin-top: 32px;
-
-    @include query($tablet-1) {
-      margin-top: 16px;
-    }
-  }
 }

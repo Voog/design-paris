@@ -8,7 +8,7 @@
 
 {%- assign _src = _data[imageSizes].first[urlKey] -%}
 
-{%- assign _maxWidth = _targetWidth | plus:0 -%}
+{%- assign _maxWidth = _targetWidth | to_num -%}
 
 {%- for image in _data[imageSizes] -%}
   {%- if image.width <= _maxWidth -%}

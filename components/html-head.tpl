@@ -65,7 +65,9 @@
 {% include "template-meta" %}
 
 {% comment %}BREADCRUMBS{% endcomment %}
-{% sd_breadcrumbs %}
+{%- capture breadcrumbsScript -%}
+  {%- sd_breadcrumbs -%}
+{%- endcapture -%}
 
 {% comment %}MISCELLANEOUS{% endcomment %}
 {% if blog %}{{ blog.rss_link }}{% endif %}
