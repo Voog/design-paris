@@ -15,6 +15,7 @@
 
       <main class="content js-background-type {{ body_bg_type }}" role="main">
         <div class="wrap">
+          {% include 'menu-level-2' %}
           {% include 'menu-breadcrumbs' %}
           {% include 'product-list-block' %}
           <section class="wrap-inner content-formatted" data-search-indexing-allowed="true" {{ edy_intro_edit_text }}>{% content %}</section>
