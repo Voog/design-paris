@@ -69,6 +69,8 @@
   {%- sd_breadcrumbs -%}
 {%- endcapture -%}
 
+{{ breadcrumbsScript }}
+
 {% comment %}MISCELLANEOUS{% endcomment %}
 {% if blog %}{{ blog.rss_link }}{% endif %}
 {{ site.stats_header }}
