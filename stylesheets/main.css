@@ -853,6 +853,10 @@ body > .background-color {
 .menu-sub .menu {
   text-align: center;
 }
+.menu-sub .menu li {
+  display: inline-block;
+  margin-right: 15px;
+}
 .menu-sub .menu-item {
   margin-right: 15px;
   font-size: 12px;
@@ -1477,10 +1481,6 @@ body > .background-color {
           box-shadow: none;
   border: none;
   font: inherit;
-}
-.form_field-cms label,
-.form_field-cms input {
-  color: black;
 }
 
 .signout-btn-wrap {
