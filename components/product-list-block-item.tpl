@@ -5,8 +5,8 @@ q.content.name="body" s="content.position" -%}
   <div class="mar_0-16">
     <div class="product_item-wrap product_item_list p-rel">
       {%- if _entityData.layout_title == product_list_layout -%}
-        {% include 'content-item', _imageData: _entityData.data.item_image, _entityData: _entityData,
-        _itemType: 'page', _id: _entityData.page_id, _targetWidth: '600' %}
+        {% include "content-item", _imageData: _entityData.data.item_image, _entityData: _entityData,
+        _itemType: "page", _id: _entityData.page_id, _targetWidth: "600" %}
         <div class="product_item-details--wrap mar_t-16">
           <div class="flex_auto">
             <a class="p14 bold product_item-title" href="{{ _entityData.url }}">
@@ -18,7 +18,7 @@ q.content.name="body" s="content.position" -%}
           </div>
         </div>
       {%- else -%}
-        {% include 'product-item', _buyButton: buy_button, _entityData: _entityData %}
+        {% include "product-item", _buyButton: buy_button, _entityData: _entityData %}
       {%- endif -%}
     </div>
   </div>

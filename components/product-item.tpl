@@ -19,19 +19,18 @@
 {%- endif -%}
 
 {% if _entityData.data.image_crop_state %}
-  {%- assign imageClass = 'item-image ' | append: _entityData.data.image_crop_state -%}
+  {%- assign imageClass = "item-image " | append: _entityData.data.image_crop_state -%}
 {% else %}
-  {%- assign imageClass = 'item-image not-cropped' -%}
+  {%- assign imageClass = "item-image not-cropped" -%}
 {% endif %}
 
 <a class="content-item-box {{ item_image_state }}" href="{{ _entityData.url }}">
   <div class="item-top p-rel">
     <div class="top-inner of-hidden">
       {% include "lazy-image",
-        _altAttr:
-        _entityData.data.image_alt_attr,
+        _altAttr: _entityData.data.image_alt_attr,
         _data: productImage,
-        _targetWidth: '700',
+        _targetWidth: "700",
         _className: imageClass
       %}
     </div>

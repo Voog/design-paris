@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    {% include 'image-src-variable', _data: _imageData, _targetWidth: _targetWidth %}
+    {% include "image-src-variable", _data: _imageData, _targetWidth: _targetWidth %}
 
     <div class="item-top">
       <div class="top-inner aspect-ratio-inner image-drop-area {{ image_crop_state }} js-content-item-img-drop-area js-lazyload"

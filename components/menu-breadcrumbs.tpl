@@ -1,4 +1,4 @@
-{%- assign breadcrumbsString = breadcrumbsScript | replace: '<script type="application/ld+json">', '' | replace: "</script>", '' | replace: site.url, '' | replace: '@', '' -%}
+{%- assign breadcrumbsString = breadcrumbsScript | replace: '<script type="application/ld+json">', "" | replace: "</script>", "" | replace: site.url, "" | replace: "@", "" -%}
 {%- assign breadcrumbsObj = breadcrumbsString | json_parse -%}
 
 <ul class="menu menu-horizontal menu-public menu-breadcrumbs">
@@ -8,10 +8,10 @@
         {%- assign pageUrl = page.url | remove_first: "/" -%}
 
         {%- if pageUrl == listItem.item.id -%}
-          {%- assign breadcrumbTag = 'div' -%}
+          {%- assign breadcrumbTag = "div" -%}
           {%- assign isCurrentPage = true -%}
         {%- else -%}
-          {%- assign breadcrumbTag = 'a' -%}
+          {%- assign breadcrumbTag = "a" -%}
           {%- assign isCurrentPage = false -%}
         {%- endif -%}
 
@@ -28,8 +28,8 @@
   {%- endif -%}
 
   {%- if editmode and page.layout_title != product_layout -%}
-    {%- assign add_product_label = 'add_product' | lce | escape_once -%}
-    {%- assign add_product_title = 'add_product_page' | lce | escape_once -%}
+    {%- assign add_product_label = "add_product" | lce | escape_once -%}
+    {%- assign add_product_title = "add_product_page" | lce | escape_once -%}
     <li class="menu-item menu-item-cms">
       {% menuadd parent=page label=add_product_label title=add_product_title layout_title=product_layout %}
     </li>

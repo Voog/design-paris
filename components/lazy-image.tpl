@@ -4,13 +4,13 @@
 
 {%- if _targetWidth != blank -%}
   {%- assign _maxWidth = _targetWidth | to_num -%}
-  {%- assign sizes = "(min-width: " | append: _targetWidth | append: "px) " | append: _targetWidth | append: 'px' -%}
+  {%- assign sizes = "(min-width: " | append: _targetWidth | append: "px) " | append: _targetWidth | append: "px" -%}
 {%- else -%}
   {%- assign _maxWidth = _data.width -%}
-  {%- assign sizes = '100vw' -%}
+  {%- assign sizes = "100vw" -%}
 {%- endif -%}
 
-{% include 'image-src-variable', _data: _data, _targetWidth: _maxWidth %}
+{% include "image-src-variable", _data: _data, _targetWidth: _maxWidth %}
 
 <img class="js-lazyload {{ _className }}"
   data-src="{{ _src }}" data-sizes="{{ sizes }}" {% if _altAttr != blank %}title="{{ _altAttr | escape_once }}" alt="{{ _altAttr  | escape_once }}"{% endif %}

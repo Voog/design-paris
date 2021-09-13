@@ -1,9 +1,9 @@
 {%- if _data.content_type != blank -%}
-  {%- assign imageSizes = 'sizes' -%}
-  {%- assign urlKey = 'schemeless_url' -%}
+  {%- assign imageSizes = "sizes" -%}
+  {%- assign urlKey = "schemeless_url" -%}
 {%- else -%}
-  {%- assign imageSizes = 'imageSizes' -%}
-  {%- assign urlKey = 'url' -%}
+  {%- assign imageSizes = "imageSizes" -%}
+  {%- assign urlKey = "url" -%}
 {%- endif -%}
 
 {%- assign _src = _data[imageSizes].first[urlKey] -%}
