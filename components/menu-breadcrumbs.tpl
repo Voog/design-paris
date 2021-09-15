@@ -4,7 +4,7 @@
 <ul class="menu menu-horizontal menu-public menu-breadcrumbs">
   {%- if breadcrumbsObj.itemListElement.size > 2 or site.root_item.layout_title == product_list_layout and breadcrumbsObj.itemListElement.size > 1 -%}
     {% for listItem in breadcrumbsObj.itemListElement %}
-      {% if forloop.index != 1 or site.root_item.layout_title == product_list_layout %}
+      {%- if forloop.index != 1 or site.root_item.layout_title == product_list_layout -%}
         {%- assign pageUrl = page.url | remove_first: "/" -%}
 
         {%- if pageUrl == listItem.item.id -%}
@@ -20,9 +20,9 @@
             {{ listItem.item.name }}
           </{{ breadcrumbTag }}>
         </li>
-        {% if forloop.rindex > 1 %}
+        {%- if forloop.rindex > 1 -%}
           <span class="menu-separator">/</span>
-        {% endif %}
+        {%- endif -%}
       {% endif -%}
     {% endfor %}
   {%- endif -%}
