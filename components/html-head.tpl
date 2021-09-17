@@ -16,9 +16,9 @@
 {% if site.data.touch_icon %}<link rel="apple-touch-icon" href="{{ site.data.touch_icon }}">{% endif %}
 
 {% comment %}STYLESHEETS{% endcomment %}
-{% stylesheet_link "main.min.css" %}
+{% stylesheet_link "main.min.css?v=paris-3.2.0" %}
 {% if editmode %}
-  {% stylesheet_link "editmode.min.css" %}
+  {% stylesheet_link "editmode.min.css?v=paris-3.2.0" %}
   <link rel="stylesheet" href="{{ site.static_asset_host }}/libs/edicy-tools/latest/edicy-tools.css">
 {% endif %}
 
