@@ -87,6 +87,10 @@
 
   .menu-item {
     display: inline-block;
+
+    &.is-hidden {
+      display: none;
+    }
   }
 
   .menu-link {
@@ -198,6 +202,11 @@
 
   .menu {
     text-align: center;
+
+    & li {
+      display: inline-block;
+      margin-right: 15px;
+    }
   }
 
   .menu-item {

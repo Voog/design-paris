@@ -6,6 +6,13 @@
     {% assign show_menu_btn = false %}
   {% endif %}
 
+  {%- comment -%}Assign variables for ecommerce layouts{%- endcomment -%}
+  {% assign product_list_layout = "Product list" %}
+  {% assign product_layout = "Product" %}
+
+  {%- comment -%}Sets product related pages in main menu{%- endcomment -%}
+  {% assign show_product_related_pages_in_main_menu = site.data.settings_root_item.show_product_related_pages_in_main_menu %}
+
   {% comment %}Assign variables based on page type.{% endcomment %}
   {% if edicy-tools-variables == 'article' %}
     {% assign fallback_body_image = article.data.body_image %}
@@ -239,4 +246,31 @@
   {% capture edy_intro_add_lang %}{% if editmode %}data-edy-intro-popover="edy-add-lang"{% endif %}{% endcapture %}
   {% capture edy_intro_edit_text %}{% if editmode %}data-edy-intro-popover="edy-edit-text"{% endif %}{% endcapture %}
 
-{% endcapture %}{% comment %} END edicy-tools-variables {% endcomment %}
+  {% capture base_number_of_columns_set %}
+    [
+      {
+        "title": "2",
+        "value": "50%"
+      },
+      {
+        "title": "3",
+        "value": "33.3%"
+      },
+      {
+        "title": "4",
+        "value": "25%"
+      },
+      {
+        "title": "5",
+        "value": "20%"
+      },
+      {
+        "title": "6",
+        "value": "16.6%"
+      }
+    ]
+  {% endcapture %}
+
+{% endcapture %}
+
+{% comment %} END edicy-tools-variables {% endcomment %}

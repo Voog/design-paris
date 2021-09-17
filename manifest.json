@@ -43,6 +43,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/content-item.tpl",
+      "layout_name": "content-item",
+      "title": "content-item"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/edicy-tools-styles.tpl",
       "layout_name": "edicy-tools-styles",
       "title": "edicy-tools-styles"
@@ -85,6 +92,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/image-src-variable.tpl",
+      "layout_name": "image-src-variable",
+      "title": "image-src-variable"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/javascripts.tpl",
       "layout_name": "javascripts",
       "title": "javascripts"
@@ -92,9 +106,30 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/lazy-image.tpl",
+      "layout_name": "lazy-image",
+      "title": "lazy-image"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/menu-breadcrumbs.tpl",
+      "layout_name": "menu-breadcrumbs",
+      "title": "menu-breadcrumbs"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/menu-lang.tpl",
       "layout_name": "menu-lang",
       "title": "menu-lang"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/menu-level-1-link.tpl",
+      "layout_name": "menu-level-1-link",
+      "title": "menu-level-1-link"
     },
     {
       "content_type": "component",
@@ -123,6 +158,27 @@
       "file": "components/post-box.tpl",
       "layout_name": "post-box",
       "title": "post-box"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/product-item.tpl",
+      "layout_name": "product-item",
+      "title": "product-item"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/product-list-block-item.tpl",
+      "layout_name": "product-list-block-item",
+      "title": "product-list-block-item"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/product-list-block.tpl",
+      "layout_name": "product-list-block",
+      "title": "product-list-block"
     },
     {
       "content_type": "component",
@@ -218,6 +274,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/template-cs-product-list.tpl",
+      "layout_name": "template-cs-product-list",
+      "title": "template-cs-product-list"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/template-cs-style-rules.tpl",
       "layout_name": "template-cs-style-rules",
       "title": "template-cs-style-rules"
@@ -263,9 +326,47 @@
       "file": "layouts/front_page.tpl",
       "layout_name": "page_front",
       "title": "Front page"
+    },
+    {
+      "content_type": "page",
+      "component": false,
+      "file": "layouts/product.tpl",
+      "layout_name": "product",
+      "title": "Product"
+    },
+    {
+      "content_type": "page",
+      "component": false,
+      "file": "layouts/product_list.tpl",
+      "layout_name": "product_list",
+      "title": "Product list"
     }
   ],
   "assets": [
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-expand.svg",
+      "kind": "assets",
+      "filename": "ico-expand.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-settings.svg",
+      "kind": "assets",
+      "filename": "ico-settings.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-delete.svg",
+      "kind": "assets",
+      "filename": "ico-delete.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-placeholder.svg",
+      "kind": "assets",
+      "filename": "ico-placeholder.svg"
+    },
     {
       "content_type": "image/jpeg",
       "file": "images/post-2.jpg",
@@ -346,9 +447,21 @@
     },
     {
       "content_type": "application/javascript",
+      "file": "javascripts/editmode.js",
+      "kind": "javascripts",
+      "filename": "editmode.js"
+    },
+    {
+      "content_type": "application/javascript",
       "file": "javascripts/application.min.js",
       "kind": "javascripts",
       "filename": "application.min.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/editmode.min.js",
+      "kind": "javascripts",
+      "filename": "editmode.min.js"
     },
     {
       "content_type": "application/javascript",
