@@ -1779,7 +1779,7 @@ body > .background-color {
 .dark-background .content-formatted .custom-btn:not(.custom-btn-disabled):hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.public .content-formatted .custom-btn-disabled {
+.public .content-formatted .custom-btn-disabled, .product-page .content-formatted .custom-btn-disabled {
   color: #adadad;
   cursor: default;
   background-color: transparent;
@@ -2528,6 +2528,36 @@ span[style*=font-size] {
   display: block;
 }
 
+.item-page .product-price {
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+.item-page .product-price-divider {
+  margin: 0 4px;
+}
+.item-page .content-product-description {
+  margin-bottom: 12px;
+}
+.item-page .product-content .without-image .item-top {
+  background-image: url("../assets/ico-placeholder.svg");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #F2F2F2;
+}
+.item-page .product-content .item-top .top-inner {
+  background-color: transparent;
+}
+.item-page .product-content .item-top .top-inner .item-image {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.item-page .product-content .buy-btn-content {
+  margin-bottom: 24px;
+}
+
 .flex_box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2659,4 +2689,18 @@ span[style*=font-size] {
   position: -webkit-sticky;
   position: sticky;
   top: 32px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  img {
+    image-rendering: -webkit-optimize-contrast !important;
+  }
+}
+/* Unset for Safari 11+ */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    img {
+      image-rendering: unset !important;
+    }
+  }
 }
