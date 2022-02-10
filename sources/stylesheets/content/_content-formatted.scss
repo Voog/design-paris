@@ -235,7 +235,8 @@
 
     &-disabled {
       // scss-lint:disable NestingDepth
-      .public & {
+      .public &,
+      .product-page & {
         color: $disabled;
         cursor: default;
         background-color: transparent;

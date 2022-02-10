@@ -36,6 +36,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/buy-button.tpl",
+      "layout_name": "buy-button",
+      "title": "buy-button"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/comment-form.tpl",
       "layout_name": "comment-form",
       "title": "comment-form"
@@ -109,6 +116,13 @@
       "file": "components/lazy-image.tpl",
       "layout_name": "lazy-image",
       "title": "lazy-image"
+    },
+    {
+      "content_type": "component",
+      "component": true,
+      "file": "components/menu-breadcrumbs-sd.tpl",
+      "layout_name": "menu-breadcrumbs-sd",
+      "title": "menu-breadcrumbs-sd"
     },
     {
       "content_type": "component",
@@ -281,6 +295,13 @@
     {
       "content_type": "component",
       "component": true,
+      "file": "components/template-cs-product.tpl",
+      "layout_name": "template-cs-product",
+      "title": "template-cs-product"
+    },
+    {
+      "content_type": "component",
+      "component": true,
       "file": "components/template-cs-style-rules.tpl",
       "layout_name": "template-cs-style-rules",
       "title": "template-cs-style-rules"
@@ -298,6 +319,13 @@
       "file": "components/template-meta.tpl",
       "layout_name": "template-meta",
       "title": "template-meta"
+    },
+    {
+      "content_type": "product",
+      "component": false,
+      "file": "layouts/auto_generated_product.tpl",
+      "layout_name": "auto_generated_product",
+      "title": "Auto-generated product"
     },
     {
       "content_type": "blog",
@@ -345,21 +373,15 @@
   "assets": [
     {
       "content_type": "image/svg+xml",
-      "file": "assets/ico-expand.svg",
-      "kind": "assets",
-      "filename": "ico-expand.svg"
-    },
-    {
-      "content_type": "image/svg+xml",
-      "file": "assets/ico-settings.svg",
-      "kind": "assets",
-      "filename": "ico-settings.svg"
-    },
-    {
-      "content_type": "image/svg+xml",
       "file": "assets/ico-delete.svg",
       "kind": "assets",
       "filename": "ico-delete.svg"
+    },
+    {
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-expand.svg",
+      "kind": "assets",
+      "filename": "ico-expand.svg"
     },
     {
       "content_type": "image/svg+xml",
@@ -368,28 +390,10 @@
       "filename": "ico-placeholder.svg"
     },
     {
-      "content_type": "image/jpeg",
-      "file": "images/post-2.jpg",
-      "kind": "images",
-      "filename": "post-2.jpg"
-    },
-    {
-      "content_type": "image/jpeg",
-      "file": "images/post-3.jpg",
-      "kind": "images",
-      "filename": "post-3.jpg"
-    },
-    {
-      "content_type": "image/jpeg",
-      "file": "images/post-1.jpg",
-      "kind": "images",
-      "filename": "post-1.jpg"
-    },
-    {
-      "content_type": "image/png",
-      "file": "images/ico-search.png",
-      "kind": "images",
-      "filename": "ico-search.png"
+      "content_type": "image/svg+xml",
+      "file": "assets/ico-settings.svg",
+      "kind": "assets",
+      "filename": "ico-settings.svg"
     },
     {
       "content_type": "image/jpeg",
@@ -399,27 +403,33 @@
     },
     {
       "content_type": "image/jpeg",
-      "file": "images/post-4.jpg",
-      "kind": "images",
-      "filename": "post-4.jpg"
-    },
-    {
-      "content_type": "image/png",
-      "file": "images/ico-tags-post-white.png",
-      "kind": "images",
-      "filename": "ico-tags-post-white.png"
-    },
-    {
-      "content_type": "image/jpeg",
       "file": "images/body-bg_block.jpg",
       "kind": "images",
       "filename": "body-bg_block.jpg"
     },
     {
       "content_type": "image/png",
+      "file": "images/ico-post-add-black.png",
+      "kind": "images",
+      "filename": "ico-post-add-black.png"
+    },
+    {
+      "content_type": "image/png",
       "file": "images/ico-post-add-white.png",
       "kind": "images",
       "filename": "ico-post-add-white.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-search.png",
+      "kind": "images",
+      "filename": "ico-search.png"
+    },
+    {
+      "content_type": "image/png",
+      "file": "images/ico-tags-blog-black.png",
+      "kind": "images",
+      "filename": "ico-tags-blog-black.png"
     },
     {
       "content_type": "image/png",
@@ -435,33 +445,33 @@
     },
     {
       "content_type": "image/png",
-      "file": "images/ico-post-add-black.png",
+      "file": "images/ico-tags-post-white.png",
       "kind": "images",
-      "filename": "ico-post-add-black.png"
+      "filename": "ico-tags-post-white.png"
     },
     {
-      "content_type": "image/png",
-      "file": "images/ico-tags-blog-black.png",
+      "content_type": "image/jpeg",
+      "file": "images/post-1.jpg",
       "kind": "images",
-      "filename": "ico-tags-blog-black.png"
+      "filename": "post-1.jpg"
     },
     {
-      "content_type": "application/javascript",
-      "file": "javascripts/editmode.js",
-      "kind": "javascripts",
-      "filename": "editmode.js"
+      "content_type": "image/jpeg",
+      "file": "images/post-2.jpg",
+      "kind": "images",
+      "filename": "post-2.jpg"
     },
     {
-      "content_type": "application/javascript",
-      "file": "javascripts/application.min.js",
-      "kind": "javascripts",
-      "filename": "application.min.js"
+      "content_type": "image/jpeg",
+      "file": "images/post-3.jpg",
+      "kind": "images",
+      "filename": "post-3.jpg"
     },
     {
-      "content_type": "application/javascript",
-      "file": "javascripts/editmode.min.js",
-      "kind": "javascripts",
-      "filename": "editmode.min.js"
+      "content_type": "image/jpeg",
+      "file": "images/post-4.jpg",
+      "kind": "images",
+      "filename": "post-4.jpg"
     },
     {
       "content_type": "application/javascript",
@@ -471,21 +481,27 @@
     },
     {
       "content_type": "application/javascript",
+      "file": "javascripts/application.min.js",
+      "kind": "javascripts",
+      "filename": "application.min.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/editmode.js",
+      "kind": "javascripts",
+      "filename": "editmode.js"
+    },
+    {
+      "content_type": "application/javascript",
+      "file": "javascripts/editmode.min.js",
+      "kind": "javascripts",
+      "filename": "editmode.min.js"
+    },
+    {
+      "content_type": "application/javascript",
       "file": "javascripts/modernizr-custom.min.js",
       "kind": "javascripts",
       "filename": "modernizr-custom.min.js"
-    },
-    {
-      "content_type": "text/css",
-      "file": "stylesheets/editmode.min.css",
-      "kind": "stylesheets",
-      "filename": "editmode.min.css"
-    },
-    {
-      "content_type": "text/css",
-      "file": "stylesheets/main.min.css",
-      "kind": "stylesheets",
-      "filename": "main.min.css"
     },
     {
       "content_type": "text/css",
@@ -495,9 +511,21 @@
     },
     {
       "content_type": "text/css",
+      "file": "stylesheets/editmode.min.css",
+      "kind": "stylesheets",
+      "filename": "editmode.min.css"
+    },
+    {
+      "content_type": "text/css",
       "file": "stylesheets/main.css",
       "kind": "stylesheets",
       "filename": "main.css"
+    },
+    {
+      "content_type": "text/css",
+      "file": "stylesheets/main.min.css",
+      "kind": "stylesheets",
+      "filename": "main.min.css"
     }
   ]
 }

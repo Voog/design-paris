@@ -43,6 +43,7 @@
   {% include "template-cs-content" %}
   {% include "template-cs-button" %}
   {% include "template-cs-table" %}
+  {% include "template-cs-product" %}
 
   {% if blog_article_page %}
     {% include "template-cs-form-blog" %}
