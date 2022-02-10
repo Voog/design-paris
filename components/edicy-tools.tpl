@@ -16,21 +16,23 @@
       });
     {% endif %}
 
-    // Front page header banner background picker.
-    var bodyBg = new Edicy.BgPicker($('.js-bgpicker-body-settings'), {
-        picture: true,
-        target_width: 600,
-        color: true,
-        showAlpha: true,
+    {% unless product_page %}
+      // Front page header banner background picker.
+      var bodyBg = new Edicy.BgPicker($('.js-bgpicker-body-settings'), {
+          picture: true,
+          target_width: 600,
+          color: true,
+          showAlpha: true,
 
-      preview: function(data) {
-        site.bodyBgPreview(data, '.js-body');
-      },
+        preview: function(data) {
+          site.bodyBgPreview(data, '.js-body');
+        },
 
-      commit: function(data) {
-        site.bodyBgCommit(data, 'body_bg');
-      }
-    });
+        commit: function(data) {
+          site.bodyBgCommit(data, 'body_bg');
+        }
+      });
+    {% endunless %}
 
     // Article background image save logic
     {% if edicy-tools == "article" %}

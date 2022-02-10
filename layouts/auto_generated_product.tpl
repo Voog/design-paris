@@ -105,7 +105,7 @@
 
     {% include "site-signout" %}
     {% include "javascripts" %}
-    {% include "edicy-tools" %}
+    {% include "edicy-tools" product_page: true %}
 
     <script>
       if (site) {
