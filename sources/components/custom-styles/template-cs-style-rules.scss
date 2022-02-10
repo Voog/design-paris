@@ -927,3 +927,11 @@ body {
   font-style: var(--product-price-font-style);
   text-decoration: var(--product-price-font-text-decoration);
 }
+
+.edy-product-widget-item {
+  &-title,
+  &-link,
+  &-btn {
+    color: var(--third-color) !important;
+  }
+}

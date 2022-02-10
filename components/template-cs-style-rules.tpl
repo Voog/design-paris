@@ -756,3 +756,7 @@ body {
   -webkit-text-decoration: var(--product-price-font-text-decoration);
           text-decoration: var(--product-price-font-text-decoration);
 }
+
+.edy-product-widget-item-title, .edy-product-widget-item-link, .edy-product-widget-item-btn {
+  color: var(--third-color) !important;
+}
