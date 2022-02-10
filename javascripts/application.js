@@ -18944,6 +18944,18 @@ MMCQ = (function() {
     }
   };
 
+  // ===========================================================================
+  // Opens product admin view on product image click
+  // ===========================================================================
+
+  var handleProductImageClick = function(product_id) {
+    if (editmode()) {
+      $('.product-content .product-image').click(function() {
+        window.open('/admin/ecommerce/products/' + product_id, '_blank').focus();
+      });
+    }
+  };
+
   // Initiations
   var initBlogPage = function() {
   };
@@ -18999,7 +19011,8 @@ MMCQ = (function() {
     debounce: debounce,
     getMoreArticles: getMoreArticles,
     bindSiteSearch: bindSiteSearch,
-    handleProductPageContent: handleProductPageContent
+    handleProductPageContent: handleProductPageContent,
+    handleProductImageClick: handleProductImageClick
   });
 
   init();

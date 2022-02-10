@@ -2538,6 +2538,9 @@ span[style*=font-size] {
 .item-page .content-product-description {
   margin-bottom: 12px;
 }
+.editmode .item-page .product-content .product-image {
+  cursor: pointer;
+}
 .item-page .product-content .without-image .item-top {
   background-image: url("../assets/ico-placeholder.svg");
   background-size: 40px;
