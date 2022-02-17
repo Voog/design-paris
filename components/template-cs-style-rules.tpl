@@ -737,6 +737,7 @@ body {
   -webkit-text-decoration: var(--product-title-font-text-decoration);
           text-decoration: var(--product-title-font-text-decoration);
   color: var(--product-title-color);
+  text-align: var(--product-title-alignment);
 }
 
 .product-page .content-formatted .content-product-description {
@@ -757,6 +758,6 @@ body {
           text-decoration: var(--product-price-font-text-decoration);
 }
 
-.edy-product-widget-item-title, .edy-product-widget-item-link, .edy-product-widget-item-btn {
+.edy-product-widget-item-title, .edy-product-widget-item-link, .edy-product-widget-item-btn, .edy-product-widget-item-out-of-stock {
   color: var(--third-color) !important;
 }
