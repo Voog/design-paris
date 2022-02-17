@@ -932,7 +932,8 @@ body {
 .edy-product-widget-item {
   &-title,
   &-link,
-  &-btn {
+  &-btn,
+  &-out-of-stock {
     color: var(--third-color) !important;
   }
 }

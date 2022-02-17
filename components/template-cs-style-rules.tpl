@@ -758,6 +758,6 @@ body {
           text-decoration: var(--product-price-font-text-decoration);
 }
 
-.edy-product-widget-item-title, .edy-product-widget-item-link, .edy-product-widget-item-btn {
+.edy-product-widget-item-title, .edy-product-widget-item-link, .edy-product-widget-item-btn, .edy-product-widget-item-out-of-stock {
   color: var(--third-color) !important;
 }
