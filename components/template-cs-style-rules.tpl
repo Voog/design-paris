@@ -507,7 +507,8 @@ body {
   color: var(--third-color);
 }
 .content-formatted .form_submit input,
-.content-formatted .custom-btn {
+.content-formatted .custom-btn,
+.content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn {
   padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
@@ -518,13 +519,17 @@ body {
 }
 .dark-background .content-formatted .form_submit input, .dark-background .content-formatted .form_submit input:hover,
 .dark-background .content-formatted .custom-btn,
-.dark-background .content-formatted .custom-btn:hover {
+.dark-background .content-formatted .custom-btn:hover,
+.dark-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn,
+.dark-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn:hover {
   border-color: var(--third-color);
   color: var(--third-color);
 }
 .light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover,
 .light-background .content-formatted .custom-btn,
-.light-background .content-formatted .custom-btn:hover {
+.light-background .content-formatted .custom-btn:hover,
+.light-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn,
+.light-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn:hover {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }

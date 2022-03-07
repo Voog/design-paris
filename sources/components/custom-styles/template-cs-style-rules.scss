@@ -651,7 +651,8 @@ body {
 
   // Code blocks and preformatted content.
   .form_submit input,
-  .custom-btn {
+  .custom-btn,
+  .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn {
     padding: var(--button-padding) calc(var(--button-padding) + 8px);
     font-size: var(--button-font-size);
     font-style: var(--button-font-style);
