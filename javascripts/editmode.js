@@ -2,6 +2,11 @@
   var articlePage = function () {
     return $('body').hasClass('post-page');
   };
+
+  var productPage = function () {
+    return $('body').hasClass('product-page');
+  }
+
   // Returns the suitable version of the image depending on the viewport width.
   var getImageByWidth = function(sizes, targetWidth) {
     var prevImage;
@@ -93,10 +98,11 @@
 
     if (articlePage()) {
       Edicy.articles.currentArticle.setData('body_bg', commitData);
+    } else if (productPage()) {
+      siteData.set(dataName, commitData);
     } else {
       pageData.set(dataName, commitData);
     };
-
   };
 
   var colorSum = function(bgColor, fgColor) {

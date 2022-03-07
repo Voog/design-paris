@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{%- assign product_page = true -%}
+{%- include "template-settings" -%}
 <html class="{% if editmode %}editmode{% else %}public{% endif %}" lang="{{ page.language_code }}">
   <head prefix="og: http://ogp.me/ns#">
     {% include "edicy-tools-variables" %}
@@ -33,6 +35,8 @@
 
     <div class="container js-container">
       {% include "header" %}
+      {% if editmode %}<button class="vg-bg-picker-btn js-bgpicker-body-settings" {% unless body_bg_image == "" %}data-bg-image="{{ body_bg_image }}"{% endunless %} {% unless body_bg_image_sizes == "" %}data-bg-image-sizes="{{ body_bg_image_sizes_str | escape }}"{% endunless %} {% unless body_bg_color == nil or body_bg_color == "rgba(255,255,255,0)" %}data-bg-color="{{ body_bg_color }}"{% endunless %} {% unless body_bg_color_data == nil %}data-bg-color-data="{{ body_bg_color_data_str | escape }}"{% endunless %}></button>{% endif %}
+
       <main class="content product-content js-background-type {{ body_bg_type }}" role="main">
         <div class="wrap">
           {% include "menu-level-2" %}
