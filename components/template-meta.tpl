@@ -35,7 +35,7 @@
     {% assign og_image = article.image.for-width-1200 %}
   {% endif %}
 {% else %}
-  {% if og_obj.image == nil %}
+  {% if og_obj.image == nil and product == nil %}
     {% if fallback_body_image != blank and body_bg_image_sizes == nil %}
       {% assign og_image = fallback_body_image %}
     {% elsif body_bg_image_sizes != blank %}
