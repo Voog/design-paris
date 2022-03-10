@@ -25,7 +25,12 @@
     {% assign fallback_body_color = page.data.body_color %}
     {% assign fallback_body_colorData = page.data.body_colorData %}
     {% assign fallback_body_lightness = page.data.body_lightness %}
-    {% assign body_bg = page.data.body_bg %}
+    {% if product_page == true %}
+      {% assign product_body_bg_key = template_settings.product.body_bg.key %}
+      {% assign body_bg = site.data[product_body_bg_key] %}
+    {% else %}
+      {% assign body_bg = page.data.body_bg %}
+    {% endif %}
   {% endif %}
 
   {% assign body_bg_image = body_bg.image %}

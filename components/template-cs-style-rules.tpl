@@ -507,7 +507,8 @@ body {
   color: var(--third-color);
 }
 .content-formatted .form_submit input,
-.content-formatted .custom-btn {
+.content-formatted .custom-btn,
+.content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn {
   padding: var(--button-padding) calc(var(--button-padding) + 8px);
   font-size: var(--button-font-size);
   font-style: var(--button-font-style);
@@ -518,13 +519,17 @@ body {
 }
 .dark-background .content-formatted .form_submit input, .dark-background .content-formatted .form_submit input:hover,
 .dark-background .content-formatted .custom-btn,
-.dark-background .content-formatted .custom-btn:hover {
+.dark-background .content-formatted .custom-btn:hover,
+.dark-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn,
+.dark-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn:hover {
   border-color: var(--third-color);
   color: var(--third-color);
 }
 .light-background .content-formatted .form_submit input, .light-background .content-formatted .form_submit input:hover,
 .light-background .content-formatted .custom-btn,
-.light-background .content-formatted .custom-btn:hover {
+.light-background .content-formatted .custom-btn:hover,
+.light-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn,
+.light-background .content-formatted .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-btn-wrap .edy-product-widget-item-btn:hover {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
@@ -739,7 +744,6 @@ body {
   color: var(--product-title-color);
   text-align: var(--product-title-alignment);
 }
-
 .product-page .content-formatted .content-product-description {
   color: var(--product-description-color);
   font-size: var(--product-description-size);
@@ -748,7 +752,6 @@ body {
   -webkit-text-decoration: var(--product-description-font-text-decoration);
           text-decoration: var(--product-description-font-text-decoration);
 }
-
 .product-page .product-price {
   color: var(--product-price-color);
   font-size: var(--product-price-size);
@@ -757,7 +760,58 @@ body {
   -webkit-text-decoration: var(--product-price-font-text-decoration);
           text-decoration: var(--product-price-font-text-decoration);
 }
+.product-page .dark-background .content-header h1,
+.product-page .dark-background .content-formatted .content-product-description,
+.product-page .dark-background .product-price {
+  color: var(--third-color);
+}
 
-.edy-product-widget-item-title, .edy-product-widget-item-link, .edy-product-widget-item-btn, .edy-product-widget-item-out-of-stock {
-  color: var(--third-color) !important;
+.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-title,
+.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-link {
+  color: var(--third-color);
+}
+.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-price,
+.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-description {
+  color: var(--third-color);
+  opacity: 0.7;
+}
+.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-top-outer .edy-product-widget-item-top.edy-product-widget-item-without-image {
+  border: 1px solid var(--third-color);
+  opacity: 0.5;
+}
+.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-flex-wrap .edy-product-widget-item-out-of-stock,
+.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-flex-wrap .edy-product-widget-item-btn {
+  color: var(--third-color);
+}
+.dark-background .edy-product-widget-grid .edy-product-widget-item:hover .edy-product-widget-item-price {
+  opacity: 0;
+}
+
+.dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-header .edy-product-widget-item-title .edy-product-widget-item-link {
+  color: var(--third-color);
+}
+.dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-header .edy-product-widget-item-price {
+  color: var(--third-color);
+  opacity: 0.7;
+}
+.dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-header .edy-product-widget-item-out-of-stock {
+  color: var(--third-color);
+}
+.dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-description {
+  color: var(--third-color);
+}
+.dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-without-image {
+  border: 1px solid var(--third-color);
+  opacity: 0.5;
+}
+
+.edy-product-widget-filter-sort option {
+  color: var(--primary-color);
+}
+
+.dark-background .edy-product-widget-filter-name,
+.dark-background .edy-product-widget-filter-sort,
+.dark-background .edy-product-widget-filter-label,
+.dark-background .edy-product-widget-filter-search-input {
+  color: var(--third-color);
 }

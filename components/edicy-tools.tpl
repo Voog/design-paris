@@ -2,6 +2,11 @@
   <script src='{{ site.static_asset_host }}/libs/edicy-tools/latest/edicy-tools.js'></script>
   <script>
     // VARIABLES FOR THE CUSTOM DATA.
+
+    var siteData = new Edicy.CustomData({
+      type: 'site',
+    });
+
     {% if edicy-tools == "article" %}
       // Article pages custom data variable.
       var articleData = new Edicy.CustomData({
@@ -16,23 +21,24 @@
       });
     {% endif %}
 
-    {% unless product_page %}
-      // Front page header banner background picker.
-      var bodyBg = new Edicy.BgPicker($('.js-bgpicker-body-settings'), {
-          picture: true,
-          target_width: 600,
-          color: true,
-          showAlpha: true,
+    var bodyBg = new Edicy.BgPicker($('.js-bgpicker-body-settings'), {
+      picture: true,
+      target_width: 600,
+      color: true,
+      showAlpha: true,
 
-        preview: function(data) {
-          site.bodyBgPreview(data, '.js-body');
-        },
+      preview: function(data) {
+        site.bodyBgPreview(data, '.js-body');
+      },
 
-        commit: function(data) {
+      commit: function(data) {
+        {% if product_page == true %}
+          site.bodyBgCommit(data, '{{ product_body_bg_key }}');
+        {% else %}
           site.bodyBgCommit(data, 'body_bg');
-        }
-      });
-    {% endunless %}
+        {% endif %}
+      }
+    });
 
     // Article background image save logic
     {% if edicy-tools == "article" %}
