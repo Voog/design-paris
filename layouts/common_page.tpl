@@ -17,7 +17,11 @@
     <main class="content js-background-type {{ body_bg_type }}" role="main">
       <div class="wrap">
         {% include "menu-level-2" %}
-        <section class="wrap-inner content-formatted" data-search-indexing-allowed="true" {{ edy_intro_edit_text }}>{% content %}</section>
+        <section class="wrap-inner content-formatted" data-search-indexing-allowed="true">
+          {%- assign content_default_title = "content" | lce -%}
+          {%- assign content_default_title_tooltip = "content_tooltip_specific_page" | lce -%}
+          {% content title=content_default_title title_tooltip=content_default_title_tooltip %}
+        </section>
       </div>
     </main>
 
