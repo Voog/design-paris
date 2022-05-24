@@ -2,7 +2,11 @@
   <div class="wrap js-header-wrap">
     <div class="header-left js-header-left">
       <div class="header-title content-formatted">{% unless editmode %}<a href="{{ site.root_item.url }}">{% endunless %}{% editable site.header %}{% unless editmode %}</a>{% endunless %}</div>
-      <div class="header-slogan content-formatted">{% xcontent name="slogan" %}</div>
+      <div class="header-slogan content-formatted{% if editmode %} pad_b-16{% endif %}">
+        {%- assign header_title = "cross_site_content" | lce  -%}
+        {%- assign header_title_tooltip = "content_tooltip_all_pages_same_language" | lce -%}
+        {% xcontent name="slogan" title=header_title title_tooltip=header_title_tooltip %}
+      </div>
 
       {% if site.search.enabled %}
         <button class="search-btn search-close-btn js-search-close-btn js-prevent-sideclick">
@@ -17,7 +21,7 @@
           </svg>
         </button>
       {% endif %}
-      
+
       {% if show_menu_btn or editmode %}
         <button class="menu-btn js-menu-btn js-prevent-sideclick">
           <span class="menu-stripe"></span>
