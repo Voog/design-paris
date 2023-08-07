@@ -6,6 +6,8 @@
     {% include "edicy-tools-variables" %}
     {% include "html-head" %}
     {% include "edicy-tools-styles" %}
+
+    {% sd_product %}
   </head>
 
   <body class="common-page item-page product-page body-background-image js-body{% if fallback_state %} bgpicker-fallback{% endif %}{% if site.search.enabled %} search-enabled{% endif %}{% unless show_menu_btn or editmode %} menu-btn-hidden{% endunless %}">
