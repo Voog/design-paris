@@ -533,6 +533,14 @@ body {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
 }
+.content-formatted .edy-buy-button-price-container .edy-buy-button-price-original,
+.content-formatted .edy-buy-button-price-container .edy-buy-button-effective-price {
+  color: var(--primary-color);
+}
+.dark-background .content-formatted .edy-buy-button-price-container .edy-buy-button-price-original,
+.dark-background .content-formatted .edy-buy-button-price-container .edy-buy-button-effective-price {
+  color: var(--third-color);
+}
 .content-formatted table tr:first-child td, .dark-background .content-formatted table tr:first-child td, .light-background .content-formatted table tr:first-child td {
   border-top-style: var(--table-border-style);
 }
@@ -757,12 +765,15 @@ body {
   font-size: var(--product-price-size);
   font-weight: var(--product-price-font-weight);
   font-style: var(--product-price-font-style);
+}
+.product-page .product-price .product-price-final {
   -webkit-text-decoration: var(--product-price-font-text-decoration);
           text-decoration: var(--product-price-font-text-decoration);
 }
 .product-page .dark-background .content-header h1,
 .product-page .dark-background .content-formatted .content-product-description,
-.product-page .dark-background .product-price {
+.product-page .dark-background .product-price-original,
+.product-page .dark-background .product-price-final {
   color: var(--third-color);
 }
 
@@ -770,7 +781,6 @@ body {
 .dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-link {
   color: var(--third-color);
 }
-.dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-price,
 .dark-background .edy-product-widget-grid .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-description {
   color: var(--third-color);
   opacity: 0.7;
@@ -790,10 +800,6 @@ body {
 .dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-header .edy-product-widget-item-title .edy-product-widget-item-link {
   color: var(--third-color);
 }
-.dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-header .edy-product-widget-item-price {
-  color: var(--third-color);
-  opacity: 0.7;
-}
 .dark-background .edy-product-widget-list .edy-product-widget-item-wrap .edy-product-widget-item .edy-product-widget-item-details-wrap .edy-product-widget-item-header .edy-product-widget-item-out-of-stock {
   color: var(--third-color);
 }
@@ -809,9 +815,14 @@ body {
   color: var(--primary-color);
 }
 
+.dark-background .edy-product-widget-item-price-original,
+.dark-background .edy-product-widget-item-price-final,
 .dark-background .edy-product-widget-filter-name,
 .dark-background .edy-product-widget-filter-sort,
 .dark-background .edy-product-widget-filter-label,
 .dark-background .edy-product-widget-filter-search-input {
   color: var(--third-color);
+}
+.dark-background .edy-product-widget-item-price-final {
+  opacity: 0.4;
 }
