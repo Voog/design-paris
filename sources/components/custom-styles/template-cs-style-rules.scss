@@ -680,7 +680,7 @@ body {
   .edy-buy-button-price-container {
     .edy-buy-button-price-original,
     .edy-buy-button-effective-price {
-      color: var(--primary-color);
+      color: var(--secondary-color);
 
       .dark-background & {
         color: var(--third-color);
@@ -1028,7 +1028,7 @@ body {
     color: var(--third-color);
   }
 
-  .edy-product-widget-item-price-final {
+  .edy-product-widget-item-price-original {
     opacity: .4;
   }
 }

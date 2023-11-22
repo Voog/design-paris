@@ -535,7 +535,7 @@ body {
 }
 .content-formatted .edy-buy-button-price-container .edy-buy-button-price-original,
 .content-formatted .edy-buy-button-price-container .edy-buy-button-effective-price {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 .dark-background .content-formatted .edy-buy-button-price-container .edy-buy-button-price-original,
 .dark-background .content-formatted .edy-buy-button-price-container .edy-buy-button-effective-price {
@@ -823,6 +823,6 @@ body {
 .dark-background .edy-product-widget-filter-search-input {
   color: var(--third-color);
 }
-.dark-background .edy-product-widget-item-price-final {
+.dark-background .edy-product-widget-item-price-original {
   opacity: 0.4;
 }
