@@ -1538,6 +1538,9 @@ body > .background-color {
 .content-formatted .edy-buy-button-container .form_field {
   padding-top: 15px;
 }
+.content-formatted .edy-buy-button-container .edy-buy-button-price-container .edy-buy-button-price-original {
+  opacity: 0.4;
+}
 .content-formatted .edy-buy-button-variants .form_field {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -2425,7 +2428,7 @@ span[style*=font-size] {
 .product_item-wrap .product_item-title,
 .product_item-wrap .product_item-btn,
 .product_item-wrap .product_item-price {
-  color: var(--color-main);
+  color: var(--primary-color);
   font-family: var(--font-primary);
   font-size: 18px;
   line-height: 1.3;
@@ -2434,12 +2437,12 @@ span[style*=font-size] {
 .dark-background .product_item-wrap .product_item-title,
 .dark-background .product_item-wrap .product_item-btn,
 .dark-background .product_item-wrap .product_item-price {
-  color: #fff;
+  color: var(--third-color);
 }
 .product_item-wrap .product_item-title a,
 .product_item-wrap .product_item-btn a,
 .product_item-wrap .product_item-price a {
-  color: var(--color-main);
+  color: var(--primary-color);
 }
 .product_item-wrap .product_item-btn {
   white-space: nowrap;
@@ -2500,14 +2503,14 @@ span[style*=font-size] {
   transition: all 300ms;
 }
 .product_item-list a {
-  color: var(--color-main);
+  color: var(--primary-color);
 }
 .product_item-details {
   position: relative;
   overflow: hidden;
 }
 .product_item-details a {
-  color: var(--color-main);
+  color: var(--primary-color);
 }
 .product_item-details--wrap {
   display: -webkit-box;
@@ -2539,8 +2542,13 @@ span[style*=font-size] {
   padding-top: 12px;
   padding-bottom: 24px;
 }
-.item-page .product-price-divider {
-  margin: 0 4px;
+.item-page .product-price .product-price-original {
+  display: inline-block;
+  padding-right: 4px;
+  opacity: 0.4;
+}
+.item-page .product-price .product-price-final {
+  display: inline-block;
 }
 .item-page .content-product-description {
   margin-bottom: 12px;
