@@ -5,5 +5,5 @@
       "value": {}
     }
   },
-  "version": "paris-3.3.4"
+  "version": "paris-3.4.0"
 }
