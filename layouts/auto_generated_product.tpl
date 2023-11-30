@@ -11,10 +11,10 @@
   </head>
 
   <body class="common-page item-page product-page body-background-image js-body{% if fallback_state %} bgpicker-fallback{% endif %}{% if site.search.enabled %} search-enabled{% endif %}{% unless show_menu_btn or editmode %} menu-btn-hidden{% endunless %}">
-    {%- if product.image == blank -%}
-      {%- assign product_image_state = "without-image" -%}
+    {%- if product.photos != blank -%}
+      {%- assign product_image_state = "with-images" -%}
     {%- else -%}
-      {%- assign product_image_state = "with-image" -%}
+      {%- assign product_image_state = "without-images" -%}
     {%- endif -%}
 
     {%- capture bottom_content_html -%}
@@ -57,14 +57,11 @@
 
                 <div class="content-illustrations">
                   <div class="content-item-box {{ product_image_state }} mar_b-32 js-content-item-box" data-item-type="page">
-                    <div class="item-top product-image">
-                      {%- if product.image != blank- %}
-                        <div class="top-inner aspect-ratio-inner">
-                          {%- assign image_class = "item-image not-cropped" -%}
-                          {% image product.image target_width: "600" class: image_class loading: "lazy" %}
-                        </div>
-                      {%- endif -%}
-                    </div>
+                    {%- if product.photos == blank -%}
+                      <div class="item-top"></div>
+                    {%- else -%}
+                      {% gallery product layout="product_slider" %}
+                    {%- endif -%}
                   </div>
                   {%- if gallery_content_size > 0 or editmode -%}
                     <section class="content-formatted js-product-gallery mar_t-16" data-search-indexing-allowed="true">
@@ -170,10 +167,6 @@
     <script>
       if (site) {
         site.handleProductPageContent();
-
-        {%- if product and editmode -%}
-          site.handleProductImageClick({{ product.id }});
-        {% endif %}
       }
     </script>
   </body>
